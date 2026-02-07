@@ -1,103 +1,34 @@
-# My curated List of skills for Antigravity and Claude Code
+# My curated list of skills for any AI Agent: Antigravity and Claude Code
 
-- [skill-creator](https://github.com/anthropics/skills/tree/main/skills/skill-creator) - Template/helper to build new Claude skills.
+## What This Does
+This repository is a curated collection of agentic skills designed to extend the capabilities of AI coding assistants like Antigravity and Claude Code. Each skill is a modular unit of specialized knowledge, workflows, and instructions.
 
-## References
-- https://code.claude.com/docs/en/skills
-- https://antigravity.google/docs/skills
-- [Awesome Claude Skills by VoltAgent](https://github.com/VoltAgent/awesome-claude-skills)
-- [Awesome Claude Skills by BehiSecc](https://github.com/BehiSecc/awesome-claude-skills/)
-- [Agent Skills Marketplace](https://skillsmp.com)
-- [superpowers](https://github.com/obra/superpowers)
-
-## 📁 Repository Structure
-```bash
-ald-skills/
-├── README.md
-├── design/
-│   ├── frontend-design/
-│   ├── ui-ux-pro-max/
-│   ├── web-design-guidelines/
-│   ├── react-best-practices/
-│   └── imagen/
-├── development/
-│   ├── skill-creator/
-│   ├── ask-questions-if-underspecified/
-│   └── varlock-env-management/
-
-├── testing/
-│   ├── test-driven-development/
-│   ├── systematic-debugging/
-│   ├── defense-in-depth/
-│   ├── find-bugs/
-│   ├── deslop/
-│   └── code-review/
-├── deployment/
-│   └── vercel-deploy/
-└── expo/
-    ├── expo-app-design/
-    ├── expo-deployment/
-    └── upgrading-expo/
-```
-
-## 🎨 Design
-
-- [**claude-code/plugins/frontend-design**](https://github.com/anthropics/claude-code/tree/main/plugins/frontend-design) - Design beautiful, accessible, and functional frontends
-- [**ui-ux-pro-max**](https://github.com/nextlevelbuilder/ui-ux-pro-max-skill) - Advanced UI/UX design patterns and best practices
-- [**vercel-labs/web-design-guidelines**](https://github.com/vercel-labs/agent-skills/tree/main/skills/web-design-guidelines) - Web design guidelines and standards
-- [**vercel-labs/react-best-practices**](https://github.com/vercel-labs/agent-skills/tree/main/skills/react-best-practices) - React best practices and patterns
-- [**sanjay3290/imagen**](https://github.com/sanjay3290/ai-skills/tree/main/skills/imagen) - Generate images using Google Gemini's API for UI mockups, icons, and visual assets
-
-## 🛠 Development
-
-- [**ask-questions-if-underspecified**](https://github.com/trailofbits/skills/blob/main/plugins/ask-questions-if-underspecified)- Prompt for clarification on ambiguous requirements
-- [varlock-claude-skill](https://github.com/wrsmith108/varlock-claude-skill) - Secure environment variable management ensuring secrets never appear in Claude sessions, terminals, logs, or git commits.
-- [error handling patterns](https://github.com/wshobson/agents/blob/main/plugins/developer-essentials/skills/error-handling-patterns/SKILL.md) - Build resilient applications with robust error handling strategies that gracefully handle failures and provide excellent debugging experiences.
-
-## 🛡 Testing
-
-- [test-driven-development](https://github.com/obra/superpowers/tree/main/skills/test-driven-development) - Write tests before implementing code: Use when implementing any feature or bugfix, before writing implementation code
-- [systematic-debugging](https://github.com/obra/superpowers/blob/main/skills/systematic-debugging) - Use when encountering any bug, test failure, or unexpected behavior, before proposing fixes
-- [defense-in-depth](https://github.com/obra/superpowers/blob/main/skills/defense-in-depth) - Implement multi-layered testing and security best practices.
-- [**getsentry/find-bugs**](https://github.com/getsentry/skills/tree/main/plugins/sentry-skills/skills/find-bugs) - Find and identify bugs in code
-- [**getsentry/deslop**](https://github.com/getsentry/skills/tree/main/plugins/sentry-skills/skills/deslop) - Clean up sloppy code
-- [**getsentry/code-review**](https://github.com/getsentry/skills/tree/main/plugins/sentry-skills/skills/code-review) - Perform code reviews
-
-## 🚀 Deployment
-
-- [**vercel-labs/vercel-deploy-claimable**](https://github.com/vercel-labs/agent-skills/tree/main/skills/claude.ai/vercel-deploy-claimable) - Deploy projects to Vercel
-
-## 📱 Expo Skills
-Official AI agent skills from the Expo team for building, deploying, and debugging Expo apps.
-
-- [**expo/expo-app-design**](https://github.com/expo/skills/tree/main/plugins/expo-app-design) - Design and build Expo applications
-- [**expo/expo-deployment**](https://github.com/expo/skills/tree/main/plugins/expo-deployment) - Deploy Expo apps to production
-- [**expo/upgrading-expo**](https://github.com/expo/skills/tree/main/plugins/upgrading-expo) - Upgrade Expo SDK versions
-
-## 🔧 Installation
+## Quick Start Installation
 
 ### Option 1: Clone and Symlink (Recommended)
 
 ```bash
 # Clone this repository
-git clone https://github.com/TU-USUARIO/my-antigravity-skills.git
-
-# Create symlink to Antigravity skills directory
-# On macOS/Linux:
-ln -s $(pwd)/my-antigravity-skills/* ~/.gemini/antigravity/skills/
-
-# On Windows (run as Administrator):
-mklink /D "C:\Users\YOUR-USER\.gemini\antigravity\skills" "C:\path\to\my-antigravity-skills"
+git clone https://github.com/alunadev/ald-skills.git
 ```
 
-### Option 2: Manual Installation
+```bash
+# Create symlink to Antigravity skills directory
+# On macOS/Linux:
+ln -s $(pwd)/ald-skills/* ~/.gemini/antigravity/skills/
+
+# On Windows (run as Administrator):
+mklink /D "C:\Users\YOUR-USER\.gemini\antigravity\skills" "C:\path\to\ald-skills\skills"
+
+```
+### Option 2: Manual Copy
 
 ```bash
 # Clone this repository
-git clone https://github.com/TU-USUARIO/my-antigravity-skills.git
+git clone https://github.com/alunadev/ald-skills.git
 
 # Copy skills to Antigravity directory
-cp -r my-antigravity-skills/* ~/.gemini/antigravity/skills/
+cp -r ald-skills/* ~/.gemini/antigravity/skills/
 ```
 
 ## 📝 Usage
@@ -107,6 +38,54 @@ Skills are automatically detected by Antigravity when placed in the skills direc
 1. Ensure the skill is in your `~/.gemini/antigravity/skills/` directory
 2. Antigravity will automatically apply relevant skills based on context
 3. You can also explicitly reference skills in your prompts
+
+## Project Structure
+- `skills/`: The core directory containing all standardized skill packages.
+    - `brainstorming/`: Socratic discovery and technical design.
+    - `brand-identity/`: Single Source of Truth for design, tech stack, and voice.
+    - `planning/`: Atomic, TDD-focused implementation plans.
+    - `error-handling-patterns/`: Robust strategies for resilient apps.
+    - `react-best-practices/`: Performance optimization for React/Next.js.
+    - `frontend-design/`: Distinctive, production-grade frontend interfaces.
+    - `interface-design/`: Intentional interfaces for dashboards and SaaS.
+    - `changelog-generator/`: Technical-to-User-friendly release notes.
+    - `codebase-documenter/`: Beginner-friendly docs and architecture guides.
+    - `creating-skills/`: Meta-skill for generating new standardized skills.
+    - `deploying-to-github/`: Automated version control workflows.
+    - `requesting-code-review/`: AI-powered code review subagent.
+    - `running-inventory-tasks/`: LALIGA advertising inventory metrics.
+- `workflows/`: Standardized automation flows.
+- `GLOBAL_SKILLS.md`: A clean index and workflow integration guide.
+
+## Key Concepts
+- **Documentation-as-Code**: Each skill's documentation (`SKILL.md`) resides directly alongside its scripts and resources, making it version-controlled and executable by AI agents.
+- **Gerund Naming**: Skill names use gerund forms (e.g., `implementing-error-handling`) to describe active capabilities.
+- **Standardized Headers**: Every skill uses YAML frontmatter for clear discovery and triggering.
+
+## Common Tasks
+- **Adding a New Skill**: Use the `creating-skills` skill to generate a standardized directory structure.
+- **Updating Documentation**: Follow the templates in `skills/codebase-documenter/assets/templates/`.
+
+## 📚 References
+
+### Official Documentation
+- [Claude Code Skills](https://code.claude.com/docs/en/skills)
+- [Antigravity Skills](https://antigravity.google/docs/skills)
+
+### Curated Skill Collections
+- [Awesome Claude Skills (VoltAgent)](https://github.com/VoltAgent/awesome-claude-skills)
+- [Awesome Claude Skills (BehiSecc)](https://github.com/BehiSecc/awesome-claude-skills)
+- [Agent Skills Marketplace](https://skills.sh/)
+
+### Recommended External Skills
+- **Security**: [varlock-claude-skill](https://github.com/varlock/varlock-claude-skill) - Secure environment variable management.
+- **Testing**: [getsentry/find-bugs](https://github.com/getsentry/find-bugs), [getsentry/deslop](https://github.com/getsentry/deslop).
+- **Deployment**: [vercel-labs/vercel-deploy-claimable](https://github.com/vercel-labs/vercel-deploy-claimable).
+- **Mobile**: [Expo AI Skills](https://github.com/expo/expo) (expo-app-design, expo-deployment, upgrading-expo).
+
+## Troubleshooting
+- **Skill Not Loading**: Ensure the directory follows the `<skill-name>/SKILL.md` structure and is in the correct global skills folder.
+- **Ambiguous Triggers**: Refine the `description` in the YAML frontmatter to include more specific keywords.
 
 ## 📬 Contact
 If you want to contact me, you can reach me on [X](https://x.com/adrianlunadiaz).
