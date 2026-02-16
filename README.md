@@ -2,6 +2,7 @@
 
 ## What This Does
 This repository is a curated collection of agentic skills designed to extend the capabilities of AI coding assistants like Antigravity and Claude Code. Each skill is a modular unit of specialized knowledge, workflows, and instructions.
+This repository is a submodule of the ald-system repository.
 
 ## Quick Start Installation
 
