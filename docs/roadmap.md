@@ -2,308 +2,379 @@
 
 > Análisis del estado actual del repositorio `ald-skills` y plan de acción para construir el sistema definitivo de un Senior PM que desarrolla sus propios side projects.
 
----
-
-## 1. Estado Actual: Lo que ya tienes (y está bien)
-
-Tu repo tiene una arquitectura sólida. 18 skills con estructura consistente (`SKILL.md` + frontmatter YAML + `resources/`). Estos son los puntos fuertes:
-
-**Base técnica cubierta:**
-- `brainstorming` → Descubrimiento socrático antes de codear
-- `planning` → Planes atómicos con TDD
-- `react-best-practices` → Optimización React/Next.js
-- `frontend-design` → UI production-grade
-- `interface-design` → SaaS/dashboards
-- `error-handling-patterns` → Resiliencia de apps
-- `codebase-documenter` → Docs y READMEs
-- `changelog-generator` → Release notes
-- `deploying-to-github` → Version control automatizado
-- `requesting-code-review` → Code review subagent
-- `creating-skills` → Meta-skill para crear más skills ✅
-
-**Base PM cubierta:**
-- `prd-writer` → PRDs modernos con ejemplos AI (muy bueno, ya tiene 5 stages)
-- `idea-validator` → Validación brutal de ideas antes de construir
-- `brand-identity` → Design tokens, tech stack, voice & tone
-- `linkedin-viral-post-writer` → Contenido para LinkedIn
+**Última actualización:** 2026-03-03
+**Sprints completados:** Sprint 1 ✅ Sprint 2 ✅
 
 ---
 
-## 2. Gaps Identificados
+## 1. Estado Actual
 
-### Gaps PM (críticos para ti)
-| Gap | Por qué importa |
-|-----|----------------|
-| Product strategy & positioning | No tienes dónde definir visión, bets, roadmap estratégico |
-| Discovery interviews | El flujo de discovery está incompleto sin guías de entrevista |
-| User research synthesis | Cómo convertir feedback raw en insights accionables |
-| Metrics & analytics setup | Analytics tracking para apps propias |
-| Competitive analysis | Framework para analizar competidores |
-| Launch playbook | De "feature lista" a "feature en producción con usuarios" |
+### Skills existentes (tras Sprint 1 + 2)
 
-### Gaps técnicos (para side projects)
-| Gap | Fuente disponible |
-|-----|-------------------|
-| Prompt engineering patterns | `github.com/wshobson/agents` (tienes la URL) |
-| API design principles | `github.com/wshobson/agents` (tienes la URL) |
-| PostgreSQL / Supabase | `skills.sh/supabase` (tienes la URL) |
-| Systematic debugging | `github.com/obra/superpowers` (tienes la URL) |
-| Security (env vars) | `github.com/varlock` (en tu README) |
+**Product Management (6 skills)**
+- `product-strategy/` ✅ NUEVO Sprint 2 — North Star, Opportunity Tree, OKRs, 3 bets
+- `user-discovery/` ✅ NUEVO Sprint 2 — Interview protocol, synthesis, Opportunity Statements
+- `product-analytics/` ✅ NUEVO Sprint 2 — Metric tree, A/B design, tracking plan, HEART
+- `prd-writer/` ✅ EXISTENTE — Gold standard (398 líneas), 5 stages
+- `idea-validator/` ✅ EXISTENTE
+- `brand-identity/` ✅ EXISTENTE — Design tokens, tech stack, voice & tone
 
-### Gaps de contenido/escritura
-| Gap | Fuente disponible |
-|-----|-------------------|
-| Blog writing | Tienes varias URLs de writing skills |
-| Newsletter writing | Sin cubrir actualmente |
-| Writing system (X/Twitter) | `github.com/ashemag/x-writing-system-skill` |
+**Engineering & Development (9 skills)**
+- `prompt-engineering-patterns/` ✅ NUEVO Sprint 1 — 9-pattern library
+- `brainstorming/` ✅
+- `planning/` ✅
+- `react-best-practices/` ✅
+- `frontend-design/` ✅
+- `interface-design/` ✅
+- `error-handling-patterns/` ✅
+- `agent-workflow/` ✅
+- `creating-skills/` ✅ meta-skill
 
-### Gaps estructurales
-- No tienes `workflows/` bien desarrollados (solo `feature-documenter` y `systematic-debugging` sin terminar)
-- `agent-workflow` existe como skill pero no como workflow ejecutable
-- Falta un `CLAUDE.md` en la raíz para Claude Code
+**Documentation & Operations (6 skills)**
+- `codebase-documenter/` ✅
+- `maintaining-documentation/` ✅
+- `changelog-generator/` ✅
+- `deploying-to-github/` ✅
+- `requesting-code-review/` ✅
+- `linkedin-viral-post-writer/` ✅
 
----
+**Workflows**
+- `systematic-debugging/` ✅ NUEVO Sprint 1 — SKILL.md + `/debug` command
+- `feature-documenter/` ✅ EXISTENTE
 
-## 3. Skills a Importar y Adaptar (desde tus URLs)
-
-### Prioridad Alta — Integrar directamente
-
-**`prompt-engineering-patterns`** (de wshobson/agents)
-- URL: `github.com/wshobson/agents/tree/main/plugins/llm-application-dev/skills/prompt-engineering-patterns`
-- Adaptar: renombrar a `prompt-engineering-patterns/` y ajustar frontmatter a tu estilo
-
-**`systematic-debugging`** (de obra/superpowers)
-- URL: `github.com/obra/superpowers`
-- Ya tienes el archivo en `workflows/systematic-debugging` pero incompleto — completarlo
-
-**`supabase-postgres`** (de skills.sh/supabase)
-- URL: `skills.sh/supabase/agent-skills/supabase-postgres-best-practices`
-- Esencial para side projects con backend
-
-**`api-design-principles`** (de wshobson/agents)
-- URL: `github.com/wshobson/agents`
-- Clave cuando estés diseñando APIs de tus apps
-
-**`x-writing-system`** (de ashemag)
-- URL: `github.com/ashemag/x-writing-system-skill`
-- Para el sistema de escritura en X
-
-### Prioridad Media — Evaluar antes de incluir
-
-**`interface-design`** de skills.sh/dammyjay93 → Ya tienes la tuya propia, comparar y mergear lo mejor
-**`vercel-react-best-practices`** de skills.sh/vercel-labs → Mergear con tu `react-best-practices` actual
-**`codebase-documenter`** de ailabs-393 → Comparar con la tuya y extraer lo mejor
-**`update-docs`** de skills.sh/vercel → Útil como workflow, no como skill standalone
-
-### De PM Skills (skills.sh)
-Estas skills son de alto valor para tu perfil:
-- `product-strategy-frameworks` → Incluir en nuevo `product-strategy/`
-- `discovery-interview-guide` → Incluir en nuevo `user-discovery/`
-- `prd-generator` → Comparar con tu `prd-writer` actual (la tuya parece mejor)
-- `launch-playbook` → Incluir en nuevo `product-launch/`
-- `analytics-tracking-setup` → Incluir en nuevo `product-analytics/`
+**Templates y Docs**
+- `templates/CLAUDE.template.md` ✅ NUEVO Sprint 1
+- `docs/roadmap.md` (este archivo)
 
 ---
 
-## 4. Skills Nuevas a Crear (originales)
+## 2. Clasificación de Recursos Externos (Notion)
 
-Estas no existen en ninguna fuente externa y son específicas de tu perfil como Senior PM + Builder:
+Evaluación completa de todos los recursos pendientes en Notion.
 
-### `product-strategy/` ⭐ Prioridad 1
-```yaml
-name: product-strategy
-description: Creates product strategy documents, positioning, bets, and roadmap narratives. 
-Use when defining product vision, quarterly bets, OKRs, or strategic positioning.
-```
-Contenido: Vision framing, bet structure, opportunity sizing, north star metric, roadmap narrative.
+### ✅ Ya tienes una skill equivalente — no importar
 
-### `user-discovery/` ⭐ Prioridad 1
-```yaml
-name: user-discovery
-description: Guides discovery interviews, synthesis, and insight generation.
-Use when preparing interviews, analyzing feedback, or synthesizing user research.
-```
-Contenido: Interview guides (problem/solution/intent), synthesis frameworks, insight to decision pipeline.
+| Recurso | Ya cubierto por |
+|---------|----------------|
+| `skills.sh/prd-generator` | `prd-writer/` (la tuya es mejor: 5 stages, más completa) |
+| `skills.sh/discovery-interview-guide` | `user-discovery/` (Sprint 2) |
+| `skills.sh/product-strategy-frameworks` | `product-strategy/` (Sprint 2) |
+| `skills.sh/analytics-tracking-setup` | `product-analytics/` (Sprint 2) |
+| `skills.sh/dammyjay93-interface-design` | `interface-design/` (existente) |
+| `github.com/ailabs-393/codebase-documenter` | `codebase-documenter/` (existente, comparar y extraer lo mejor) |
+| `skills.sh/vercel-react-best-practices` | `react-best-practices/` (mergear — ver Sprint 3) |
 
-### `product-analytics/` ⭐ Prioridad 1
-```yaml
-name: product-analytics
-description: Sets up analytics tracking, defines events, and creates measurement plans.
-Use when instrumenting a new feature, defining KPIs, or setting up dashboards.
-```
-Contenido: Event taxonomy, funnel setup, retention cohorts, dashboard templates.
+### 🔴 Importar / Crear — Prioridad Alta
 
-### `product-launch/` ⭐ Prioridad 2
-```yaml
-name: product-launch
-description: Creates go-to-market plans and launch checklists for features and side projects.
-Use when preparing a feature or product for public release.
-```
-Contenido: Launch checklist, GTM narrative, comms plan, rollout gates.
+| Recurso | Acción | Sprint |
+|---------|--------|--------|
+| `skills.sh/supabase-postgres` | IMPORTAR y adaptar | Sprint 3 |
+| `github.com/wshobson/agents` → `api-design-principles` | IMPORTAR y adaptar | Sprint 3 |
+| `github.com/ashemag/x-writing-system-skill` | BASE para crear `writing-system/` propio | Sprint 3 |
+| `skills.sh/launch-playbook` | BASE para crear `product-launch/` | Sprint 3 |
+| `github.com/Shubhamsaboo/fullstack-developer` | CREAR skill original (ver nota abajo) | Sprint 3 |
 
-### `competitive-analysis/` Prioridad 2
-```yaml
-name: competitive-analysis
-description: Structures competitive research and positioning analysis.
-Use when evaluating competitors, defining differentiation, or entering new markets.
-```
+> **Nota `Shubhamsaboo/fullstack-developer`:** Evaluar el repo antes de crear. La skill de "fullstack developer" cubre el flujo completo de diseño → API → DB → deployment para side projects. No existe equivalente en ald_skills. Lo más probable es que sea una skill nueva que integre brainstorming + planning + react-best-practices + api-design + supabase en un workflow guiado. Evaluar si es mejor como skill standalone o como `workflows/full-stack-build/`.
 
-### `writing-system/` Prioridad 2
-```yaml
-name: writing-system
-description: Personal writing system for blogs, newsletters, and social content.
-Use when writing long-form content, newsletters, or social posts.
-```
-Basado en: ashemag x-writing-system + document-writer de onmax + tu estilo propio.
+### 🟡 Skills independientes — mantener separadas con cross-reference
+
+Estas skills tienen valor propio y **no se deben mergear** con las existentes. En cambio, se referencian mutuamente.
+
+| Skill nueva | Skill existente | Relación |
+|-------------|-----------------|----------|
+| `tailwind-design-system/` (de wshobson) | `brand-identity/` | `brand-identity` → "Ver también: tailwind-design-system para implementación en Tailwind" |
+| `tailwind-design-system/` | `frontend-design/` | `frontend-design` → "Ver también: tailwind-design-system para tokens y configuración Tailwind" |
+| `stitch-skills/` (de google-labs) | `frontend-design/` | `frontend-design` → "Ver también: stitch-skills para AI-generated UI components" |
+| `stitch-skills/` | `interface-design/` | `interface-design` → "Ver también: stitch-skills para generación de componentes con IA" |
+
+**Plan de implementación:**
+1. Crear `skills/tailwind-design-system/SKILL.md` adaptado del repo wshobson
+2. Crear `skills/stitch-skills/SKILL.md` adaptado del repo google-labs
+3. Añadir sección "Ver también" al final de `brand-identity/SKILL.md`, `frontend-design/SKILL.md`, `interface-design/SKILL.md`
+
+### 🗑️ Eliminar del repo público — contexto específico de proyecto
+
+| Recurso | Decisión | Destino |
+|---------|----------|---------|
+| `running-inventory-tasks/` | **ELIMINAR de ald_skills** | Mover a `ald-system/products/laliga/` |
+
+> **Nota `running-inventory-tasks`:** Esta skill es específica del proyecto LALIGA. No tiene valor en el repo público de skills porque depende de contexto, datos y procesos internos de ese proyecto. Opciones:
+> - Si tiene SKILL.md genérico → moverlo a `ald-system/products/laliga/skills/`
+> - Si es solo una instrucción de tarea → moverlo a `ald-system/products/laliga/CLAUDE.md`
+> - Confirmar con el usuario antes de eliminar del submodule
+
+### ⚙️ Commands (slash commands a crear)
+
+| Command | Source | Sprint |
+|---------|--------|--------|
+| `/prd` | Activar `prd-writer` con contexto del proyecto | Sprint 3 |
+| `/discovery` | Activar `user-discovery` con research brief | Sprint 3 |
+| `/metrics` | Activar `product-analytics` con decision first | Sprint 3 |
+| `/strategy` | Activar `product-strategy` con north star | Sprint 3 |
+
+### 📖 Solo referencias — no crear skill
+
+| Recurso | Por qué |
+|---------|---------|
+| `github.com/deanpeters/product-manager-prompts` | Prompts sueltos, no estructura de skill. Revisar y extraer los mejores como ejemplos en PM skills existentes |
+| `github.com/jarrodwatts/claude-code-config` | Patrones para CLAUDE.md, no skill |
+| `thegroundtruth.media` workflow article | Patrones de workflow, extraer al `CLAUDE.template.md` |
+| `x.com/clairevo` post | Tips de workflow personal |
+| `prompt-kit.com` | UI components shadcn para side projects (bookmark de referencia) |
+| `github.com/ibelick/ui-skills` | Evaluar para `frontend-design` como referencia |
+
+### ⏭️ Skip por ahora
+
+| Recurso | Por qué |
+|---------|---------|
+| `skills.sh/vercel/update-docs` | Ya cubierto por `maintaining-documentation/` + `codebase-documenter/` |
 
 ---
 
-## 5. Estructura Final Recomendada del Repo
+## 3. Flujo PM Completo (post Sprint 2)
 
 ```
-ald-skills/
+DISCOVER    → user-discovery      (interviews, synthesis, opportunity statements)
+     ↓
+STRATEGIZE  → product-strategy    (north star, bets, OKRs, positioning)
+     ↓
+SPECIFY     → prd-writer          (PRD moderno con success metrics)
+     ↓
+BUILD       → brainstorming → planning → react-best-practices → api-design → supabase-postgres
+     ↓
+REVIEW      → requesting-code-review
+     ↓
+HARDEN      → error-handling-patterns
+     ↓
+DOCUMENT    → codebase-documenter → changelog-generator
+     ↓
+RELEASE     → deploying-to-github → product-launch
+     ↓
+MEASURE     → product-analytics   (tracking, A/B, post-launch analysis)
+```
+
+---
+
+## 4. Estructura Final del Repo (objetivo)
+
+```
+ald_skills/
 ├── README.md
-├── architecture.md
-├── CLAUDE.md                        ← NUEVO: instrucciones para Claude Code
+├── GLOBAL_SKILLS.md
+├── docs/
+│   └── roadmap.md               ← este archivo
+├── templates/
+│   └── CLAUDE.template.md       ← ✅ Sprint 1
+│
 ├── skills/
 │   ├── GLOBAL_SKILLS.md
 │   │
-│   ├── [ESTRATEGIA & PRODUCTO]
-│   ├── product-strategy/            ← NUEVO
-│   ├── user-discovery/              ← NUEVO
-│   ├── competitive-analysis/        ← NUEVO
-│   ├── product-analytics/           ← NUEVO
-│   ├── product-launch/              ← NUEVO
-│   ├── prd-writer/                  ← EXISTENTE ✅ (muy bueno)
-│   ├── idea-validator/              ← EXISTENTE ✅
+│   ├── [PRODUCT MANAGEMENT]
+│   ├── product-strategy/        ✅ Sprint 2
+│   ├── user-discovery/          ✅ Sprint 2
+│   ├── product-analytics/       ✅ Sprint 2
+│   ├── prd-writer/              ✅ existente
+│   ├── idea-validator/          ✅ existente
+│   ├── product-launch/          ← Sprint 3 (crear original)
 │   │
 │   ├── [DISEÑO & FRONTEND]
-│   ├── brand-identity/              ← EXISTENTE ✅
-│   ├── design-guide/                ← EXISTENTE ✅
-│   ├── frontend-design/             ← EXISTENTE ✅
-│   ├── interface-design/            ← EXISTENTE ✅
+│   ├── brand-identity/          ✅ existente + cross-ref tailwind-design-system
+│   ├── design-guide/            ✅ existente
+│   ├── frontend-design/         ✅ existente + cross-ref tailwind-design-system, stitch-skills
+│   ├── interface-design/        ✅ existente + cross-ref stitch-skills
+│   ├── tailwind-design-system/  ← Sprint 3 (importar de wshobson)
+│   ├── stitch-skills/           ← Sprint 3 (importar de google-labs)
 │   │
 │   ├── [DESARROLLO]
-│   ├── brainstorming/               ← EXISTENTE ✅
-│   ├── planning/                    ← EXISTENTE ✅
-│   ├── react-best-practices/        ← EXISTENTE (mergear con vercel-labs)
-│   ├── api-design-principles/       ← IMPORTAR de wshobson
-│   ├── supabase-postgres/           ← IMPORTAR de skills.sh/supabase
-│   ├── error-handling-patterns/     ← EXISTENTE ✅
-│   ├── prompt-engineering-patterns/ ← IMPORTAR de wshobson
+│   ├── brainstorming/           ✅ existente
+│   ├── planning/                ✅ existente
+│   ├── react-best-practices/    ✅ existente (mergear con vercel-labs en Sprint 3)
+│   ├── api-design-principles/   ← Sprint 3 (importar de wshobson)
+│   ├── supabase-postgres/       ← Sprint 3 (importar de skills.sh)
+│   ├── error-handling-patterns/ ✅ existente
+│   ├── prompt-engineering-patterns/ ✅ Sprint 1
+│   ├── fullstack-developer/     ← Sprint 3 (crear original, evaluar Shubhamsaboo)
 │   │
 │   ├── [AGENTES & AI]
-│   ├── agent-workflow/              ← EXISTENTE (mejorar)
+│   ├── agent-workflow/          ✅ existente (mejorar en Sprint 4)
 │   │
 │   ├── [DOCUMENTACIÓN]
-│   ├── codebase-documenter/         ← EXISTENTE ✅ (comparar con ailabs)
-│   ├── maintaining-documentation/   ← EXISTENTE ✅
-│   ├── changelog-generator/         ← EXISTENTE ✅
+│   ├── codebase-documenter/     ✅ existente
+│   ├── maintaining-documentation/ ✅ existente
+│   ├── changelog-generator/     ✅ existente
 │   │
 │   ├── [ESCRITURA & CONTENIDO]
-│   ├── writing-system/              ← NUEVO (blog + newsletter + X)
-│   ├── linkedin-viral-post-writer/  ← EXISTENTE ✅
+│   ├── writing-system/          ← Sprint 3 (crear, base: ashemag)
+│   ├── linkedin-viral-post-writer/ ✅ existente
 │   │
 │   ├── [OPERACIONES]
-│   ├── requesting-code-review/      ← EXISTENTE ✅
-│   ├── deploying-to-github/         ← EXISTENTE ✅
-│   ├── creating-skills/             ← EXISTENTE ✅
-│   └── running-inventory-tasks/     ← EXISTENTE (specific to LALIGA)
+│   ├── requesting-code-review/  ✅ existente
+│   ├── deploying-to-github/     ✅ existente
+│   ├── creating-skills/         ✅ existente
+│   └── running-inventory-tasks/ ← MOVER a ald-system/products/laliga/ (ver Sprint 3)
 │
 └── workflows/
-    ├── feature-documenter/          ← EXISTENTE (completar)
-    ├── systematic-debugging/        ← COMPLETAR (archivo existe)
-    ├── idea-to-prd/                 ← NUEVO: idea-validator → brainstorming → prd-writer
-    ├── feature-to-launch/           ← NUEVO: prd → planning → build → changelog → launch
-    └── content-publishing/          ← NUEVO: writing-system → linkedin/blog/newsletter
+    ├── systematic-debugging/    ✅ Sprint 1
+    ├── feature-documenter/      ✅ existente
+    ├── idea-to-prd/             ← Sprint 4 (idea-validator → brainstorming → prd-writer)
+    ├── feature-to-launch/       ← Sprint 4 (prd → planning → build → changelog → launch)
+    ├── full-stack-build/        ← Sprint 4 (evaluar como alternativa a fullstack-developer skill)
+    └── content-publishing/      ← Sprint 4 (writing-system → linkedin/blog/newsletter)
 ```
 
 ---
 
-## 6. CLAUDE.md — El archivo que falta
+## 5. Screaming Architecture — ald-system
 
-El archivo más importante que no tienes. Va en la raíz de **cada proyecto** (no en el repo de skills) pero necesitas una plantilla. Este le dice a Claude Code quién eres y cómo trabajas:
+El repo `ald-system` es la "carpeta de dotfiles del AI" — su estructura debe gritar lo que hace, no cómo está organizado técnicamente.
 
-```markdown
-# Project: [Nombre del proyecto]
+### Propuesta de estructura
 
-## Stack
-- Frontend: Next.js 15, React 19, TypeScript, Tailwind, shadcn/ui
-- Backend: [Supabase / PlanetScale / etc.]
-- Deploy: Vercel
+```
+ald-system/
+├── CLAUDE.md                    ← instrucciones globales para Claude Code
+├── ald_skills/                  ← submodule (portable, público)
+│
+├── products/                    ← contexto específico de cada proyecto
+│   ├── laliga/
+│   │   ├── CLAUDE.md            ← instrucciones específicas del proyecto
+│   │   ├── skills/              ← skills solo para este proyecto
+│   │   │   └── running-inventory-tasks/  ← migrado desde ald_skills
+│   │   └── docs/
+│   │       └── context.md       ← contexto de negocio, stack, decisiones
+│   └── [otro-proyecto]/
+│       └── CLAUDE.md
+│
+├── docs/                        ← documentación del sistema AI
+│   ├── how-it-works.md
+│   ├── ai-workflow.md
+│   └── screaming-architecture.md  ← este análisis
+│
+└── templates/                   ← plantillas reutilizables
+    ├── canonical-docs/          ← estructura de docs para nuevos proyectos
+    │   ├── prd.md
+    │   ├── app-flow.md
+    │   ├── tech-stack.md
+    │   ├── design-system.md
+    │   ├── backend-structure/
+    │   ├── implementation-plan.md
+    │   ├── CLAUDE.md
+    │   └── progress.txt         ← añadir en Sprint 3
+    └── [otras plantillas]
+```
 
-## Skills activos
-@ald-skills/brainstorming
-@ald-skills/planning
-@ald-skills/frontend-design
-@ald-skills/react-best-practices
+### Canonical Docs Structure (para cada nuevo proyecto)
 
-## Convenciones
-- Commits en inglés, mensajes en imperativo
-- Componentes en PascalCase, funciones en camelCase
-- Tests con Vitest
-- Feature branches: feat/, fix/, chore/
+Basado en el análisis de la Notion page:
 
-## Contexto de negocio
-[Qué hace el producto, a quién va dirigido, métricas de éxito]
+```
+[proyecto]/
+├── docs/
+│   ├── product/
+│   │   ├── prd.md               ← PRD principal
+│   │   ├── app-flow.md          ← User flows y navegación
+│   │   └── progress.txt         ← Estado actual, decisiones recientes
+│   ├── design-system/
+│   │   └── design-system.md     ← Tokens, componentes, guía visual
+│   └── system/
+│       ├── tech-stack.md        ← Stack técnico y justificación
+│       ├── backend-structure/   ← Modelos, APIs, DB schema
+│       └── implementation-plan.md
+└── CLAUDE.md                    ← Skills activos, convenciones, contexto
 ```
 
 ---
 
-## 7. Plan de Acción — Orden de Ejecución
+## 6. Plan de Acción — Sprints Pendientes
 
-### Sprint 1 — Esta semana (completar lo roto)
-1. Completar `workflows/systematic-debugging` — tiene el archivo, falta el contenido
-2. Importar y adaptar `prompt-engineering-patterns` desde wshobson
-3. Crear `CLAUDE.md` template en la raíz
+### Sprint 3 — Técnico + Contenido + Correcciones
+*~10 archivos nuevos o modificados*
 
-### Sprint 2 — Próxima semana (PM core)
-4. Crear `product-strategy/SKILL.md`
-5. Crear `user-discovery/SKILL.md`  
-6. Crear `product-analytics/SKILL.md`
-7. Crear workflow `idea-to-prd/`
+**Importar desde fuentes externas:**
+1. Crear `skills/supabase-postgres/SKILL.md` (base: skills.sh/supabase)
+2. Crear `skills/api-design-principles/SKILL.md` (base: wshobson/agents)
+3. Crear `skills/tailwind-design-system/SKILL.md` (base: wshobson, mantener separado de brand-identity)
+4. Crear `skills/stitch-skills/SKILL.md` (base: google-labs, mantener separado de frontend-design)
 
-### Sprint 3 — Siguientes 2 semanas (técnico + contenido)
-8. Importar `supabase-postgres` y `api-design-principles`
-9. Crear `writing-system/SKILL.md`
-10. Crear workflow `feature-to-launch/`
-11. Crear workflow `content-publishing/`
+**Crear skills originales:**
+5. Crear `skills/product-launch/SKILL.md`
+6. Crear `skills/writing-system/SKILL.md` (base: ashemag + estilo propio)
+7. Evaluar `Shubhamsaboo/fullstack-developer` → crear `skills/fullstack-developer/SKILL.md` o `workflows/full-stack-build/`
 
-### Sprint 4 — Mantenimiento continuo
-12. Mergear `react-best-practices` con vercel-labs skill
-13. Actualizar `GLOBAL_SKILLS.md` con todas las nuevas skills
-14. Revisar y refinar `running-inventory-tasks` (¿sigue siendo relevante?)
+**Cross-references:**
+8. Añadir sección "Ver también" en `brand-identity/SKILL.md` → referencia a `tailwind-design-system`
+9. Añadir sección "Ver también" en `frontend-design/SKILL.md` → referencia a `tailwind-design-system` + `stitch-skills`
+10. Añadir sección "Ver también" en `interface-design/SKILL.md` → referencia a `stitch-skills`
+
+**Slash commands:**
+11. Crear `workflows/systematic-debugging/command.md` → `/prd`
+12. Crear command `/discovery`
+13. Crear command `/metrics`
+14. Crear command `/strategy`
+
+**Limpieza:**
+15. Confirmar con usuario → eliminar `skills/running-inventory-tasks/` del submodule
+16. Mover contenido a `ald-system/products/laliga/`
+
+**Templates:**
+17. Añadir `progress.txt` al `templates/CLAUDE.template.md`
+18. Mergear `react-best-practices` con vercel-labs skill
+
+### Sprint 4 — Workflows encadenados
+*Workflows que conectan múltiples skills*
+
+1. Crear `workflows/idea-to-prd/` — `idea-validator → brainstorming → prd-writer`
+2. Crear `workflows/feature-to-launch/` — `prd → planning → build → changelog → product-launch`
+3. Crear `workflows/content-publishing/` — `writing-system → linkedin / blog / newsletter`
+4. Evaluar y mejorar `agent-workflow/`
+
+### Sprint 5 — Screaming Architecture
+*Restructurar ald-system para que su estructura grite su propósito*
+
+1. Crear `ald-system/products/laliga/` con `CLAUDE.md` + skills específicas
+2. Crear `ald-system/templates/canonical-docs/` con estructura de Canonical Docs
+3. Actualizar `ald-system/CLAUDE.md` global
+4. Documentar el sistema en `ald-system/docs/how-it-works.md`
+
+### Sprint 6 — Mantenimiento y cierre
+1. Actualizar `GLOBAL_SKILLS.md` con todas las skills de Sprint 3+4
+2. Revisar y refinar cualquier skill con poco uso
+3. Documentar el flujo PM completo en `docs/pm-workflow.md`
+4. Publicar README.md mejorado en ald_skills
 
 ---
 
-## 8. Recursos Pendientes de Evaluar
+## 7. Decisiones Pendientes (requieren confirmación)
 
-Estos los tienes en Notion pero aún no has evaluado si merecen ser skills o solo referencias:
-
-| Recurso | Acción recomendada |
-|---------|-------------------|
-| `github.com/jarrodwatts/claude-code-config` | Leer y extraer lo mejor para tu `CLAUDE.md` template |
-| `github.com/deanpeters/product-manager-prompts` | Revisar — puede haber prompts para mergear en tus PM skills |
-| `github.com/google-labs-code/stitch-skills` | Evaluar para UI components |
-| `prompt-kit.com` | Evaluar shadcn UI components para tus side projects |
-| `github.com/ibelick/ui-skills` | Evaluar para `frontend-design` |
-| `thegroundtruth.media` workflow article | Leer y extraer patrones para tu `CLAUDE.md` |
-| `x.com/clairevo` post | Revisar tips para workflow personal |
+| Decisión | Opciones | Estado |
+|----------|----------|--------|
+| `running-inventory-tasks` | A) Eliminar del submodule y mover a `ald-system/products/laliga/` B) Eliminar completamente | Pendiente confirmación |
+| `fullstack-developer` | A) Skill standalone B) Workflow `full-stack-build/` C) Evaluar Shubhamsaboo primero | Evaluar en Sprint 3 |
+| `react-best-practices` + vercel-labs | Mergear manteniendo la estructura existente | Sprint 3 |
 
 ---
 
-## Resumen Visual
+## 8. Resumen Visual
 
 ```
-AHORA (18 skills, base sólida)
-         ↓
-SPRINT 1 (completar gaps críticos + prompt engineering)
-         ↓
-SPRINT 2 (convertirte en PM con superpoderes)
-         ↓
-SPRINT 3 (sistema completo de contenido + backend)
-         ↓
-SISTEMA FINAL (~30 skills + 5 workflows + CLAUDE.md template)
+COMPLETADO
+Sprint 1 ✅ (systematic-debugging, prompt-engineering-patterns, CLAUDE.template.md)
+Sprint 2 ✅ (product-strategy, user-discovery, product-analytics)
+
+PRÓXIMO
+Sprint 3 → api-design, supabase, tailwind-design-system, stitch-skills,
+           product-launch, writing-system, fullstack-developer,
+           cross-references, slash commands, running-inventory-tasks cleanup
+
+Sprint 4 → workflows encadenados (idea-to-prd, feature-to-launch, content-publishing)
+
+Sprint 5 → Screaming Architecture en ald-system + canonical-docs template
+
+Sprint 6 → GLOBAL_SKILLS.md, README, documentación del sistema
+
+OBJETIVO FINAL
+~32 skills + 6 workflows + CLAUDE.template.md + Screaming Architecture
+= Sistema completo de un Senior PM que construye sus propios productos con AI
 ```
 
-El objetivo no es tener el mayor número de skills, sino que cada skill represente una capacidad real que uses al menos una vez por semana. Las skills que no usas son ruido.
+> **Principio rector:** No importar skills que ya tienes cubiertas. Cada skill nueva debe representar una capacidad real que usarás al menos una vez por semana. Las skills que no usas son ruido.
