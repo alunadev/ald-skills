@@ -5,6 +5,11 @@
 **Última actualización:** 2026-03-03
 **Sprints completados:** Sprint 1 ✅ Sprint 2 ✅
 
+> **Decisiones cerradas (2026-03-03):**
+> - `running-inventory-tasks` → **Eliminar completamente** del repo
+> - `fullstack-developer` → **Skill standalone + Workflow `full-stack-build/`** (evaluar Shubhamsaboo primero en Sprint 3)
+> - `react-best-practices` → **Upgrade** de la skill existente a la versión completa (8 categorías, 58 reglas). También evaluar `web-design-guidelines` y `vercel-composition-patterns` como nuevas skills independientes
+
 ---
 
 ## 1. Estado Actual
@@ -23,7 +28,7 @@
 - `prompt-engineering-patterns/` ✅ NUEVO Sprint 1 — 9-pattern library
 - `brainstorming/` ✅
 - `planning/` ✅
-- `react-best-practices/` ✅
+- `react-best-practices/` ✅ INCOMPLETO — versión parcial de vercel-react-best-practices (3/8 categorías; upgrade en Sprint 3)
 - `frontend-design/` ✅
 - `interface-design/` ✅
 - `error-handling-patterns/` ✅
@@ -62,7 +67,8 @@ Evaluación completa de todos los recursos pendientes en Notion.
 | `skills.sh/analytics-tracking-setup` | `product-analytics/` (Sprint 2) |
 | `skills.sh/dammyjay93-interface-design` | `interface-design/` (existente) |
 | `github.com/ailabs-393/codebase-documenter` | `codebase-documenter/` (existente, comparar y extraer lo mejor) |
-| `skills.sh/vercel-react-best-practices` | `react-best-practices/` (mergear — ver Sprint 3) |
+| `skills.sh/vercel-react-best-practices` | `react-best-practices/` existente (tu skill YA es esta, pero incompleta — upgrade en Sprint 3 a las 8 categorías completas) |
+| `skills.sh/vercel-labs` (4 skills en total) | Las 4: `vercel-react-best-practices` (upgrade), `web-design-guidelines` (nueva), `vercel-composition-patterns` (nueva), `vercel-react-native-skills` (nueva) |
 
 ### 🔴 Importar / Crear — Prioridad Alta
 
@@ -72,7 +78,7 @@ Evaluación completa de todos los recursos pendientes en Notion.
 | `github.com/wshobson/agents` → `api-design-principles` | IMPORTAR y adaptar | Sprint 3 |
 | `github.com/ashemag/x-writing-system-skill` | BASE para crear `writing-system/` propio | Sprint 3 |
 | `skills.sh/launch-playbook` | BASE para crear `product-launch/` | Sprint 3 |
-| `github.com/Shubhamsaboo/fullstack-developer` | CREAR skill original (ver nota abajo) | Sprint 3 |
+| `github.com/Shubhamsaboo/fullstack-developer` | EVALUAR primero → CREAR `fullstack-developer/` (skill) + `workflows/full-stack-build/` | Sprint 3 |
 
 > **Nota `Shubhamsaboo/fullstack-developer`:** Evaluar el repo antes de crear. La skill de "fullstack developer" cubre el flujo completo de diseño → API → DB → deployment para side projects. No existe equivalente en ald_skills. Lo más probable es que sea una skill nueva que integre brainstorming + planning + react-best-practices + api-design + supabase en un workflow guiado. Evaluar si es mejor como skill standalone o como `workflows/full-stack-build/`.
 
@@ -86,6 +92,9 @@ Estas skills tienen valor propio y **no se deben mergear** con las existentes. E
 | `tailwind-design-system/` | `frontend-design/` | `frontend-design` → "Ver también: tailwind-design-system para tokens y configuración Tailwind" |
 | `stitch-skills/` (de google-labs) | `frontend-design/` | `frontend-design` → "Ver también: stitch-skills para AI-generated UI components" |
 | `stitch-skills/` | `interface-design/` | `interface-design` → "Ver también: stitch-skills para generación de componentes con IA" |
+| `web-design-guidelines/` (vercel-labs) | `interface-design/` | Skill independiente — UI review, accessibility, UX audit. No merge con interface-design |
+| `vercel-composition-patterns/` (vercel-labs) | `react-best-practices/` | Skill independiente — React composition patterns avanzados. Complementa pero no reemplaza |
+| `vercel-react-native-skills/` (vercel-labs) | — | Skill independiente — React Native + Expo best practices para apps móviles |
 
 **Plan de implementación:**
 1. Crear `skills/tailwind-design-system/SKILL.md` adaptado del repo wshobson
@@ -96,12 +105,7 @@ Estas skills tienen valor propio y **no se deben mergear** con las existentes. E
 
 | Recurso | Decisión | Destino |
 |---------|----------|---------|
-| `running-inventory-tasks/` | **ELIMINAR de ald_skills** | Mover a `ald-system/products/laliga/` |
-
-> **Nota `running-inventory-tasks`:** Esta skill es específica del proyecto LALIGA. No tiene valor en el repo público de skills porque depende de contexto, datos y procesos internos de ese proyecto. Opciones:
-> - Si tiene SKILL.md genérico → moverlo a `ald-system/products/laliga/skills/`
-> - Si es solo una instrucción de tarea → moverlo a `ald-system/products/laliga/CLAUDE.md`
-> - Confirmar con el usuario antes de eliminar del submodule
+| `running-inventory-tasks/` | **ELIMINAR completamente** del repo — sin migrar | — |
 
 ### ⚙️ Commands (slash commands a crear)
 
@@ -188,12 +192,15 @@ ald_skills/
 │   ├── [DESARROLLO]
 │   ├── brainstorming/           ✅ existente
 │   ├── planning/                ✅ existente
-│   ├── react-best-practices/    ✅ existente (mergear con vercel-labs en Sprint 3)
-│   ├── api-design-principles/   ← Sprint 3 (importar de wshobson)
-│   ├── supabase-postgres/       ← Sprint 3 (importar de skills.sh)
-│   ├── error-handling-patterns/ ✅ existente
+│   ├── react-best-practices/        ✅ existente — upgrade a 8 categorías en Sprint 3
+│   ├── vercel-composition-patterns/ ← Sprint 3 (importar de vercel-labs, separado)
+│   ├── web-design-guidelines/       ← Sprint 3 (importar de vercel-labs, separado)
+│   ├── vercel-react-native-skills/  ← Sprint 3 (importar de vercel-labs — mobile)
+│   ├── api-design-principles/       ← Sprint 3 (importar de wshobson)
+│   ├── supabase-postgres/           ← Sprint 3 (importar de skills.sh)
+│   ├── error-handling-patterns/     ✅ existente
 │   ├── prompt-engineering-patterns/ ✅ Sprint 1
-│   ├── fullstack-developer/     ← Sprint 3 (crear original, evaluar Shubhamsaboo)
+│   ├── fullstack-developer/         ← Sprint 3 (evaluar Shubhamsaboo → crear original)
 │   │
 │   ├── [AGENTES & AI]
 │   ├── agent-workflow/          ✅ existente (mejorar en Sprint 4)
@@ -290,35 +297,41 @@ Basado en el análisis de la Notion page:
 ### Sprint 3 — Técnico + Contenido + Correcciones
 *~10 archivos nuevos o modificados*
 
-**Importar desde fuentes externas:**
-1. Crear `skills/supabase-postgres/SKILL.md` (base: skills.sh/supabase)
-2. Crear `skills/api-design-principles/SKILL.md` (base: wshobson/agents)
-3. Crear `skills/tailwind-design-system/SKILL.md` (base: wshobson, mantener separado de brand-identity)
-4. Crear `skills/stitch-skills/SKILL.md` (base: google-labs, mantener separado de frontend-design)
+**Upgrade skills existentes:**
+1. Actualizar `skills/react-best-practices/SKILL.md` → incluir las 8 categorías completas (58 reglas) de vercel-react-best-practices (actualmente solo tiene 3/8)
 
-**Crear skills originales:**
-5. Crear `skills/product-launch/SKILL.md`
-6. Crear `skills/writing-system/SKILL.md` (base: ashemag + estilo propio)
-7. Evaluar `Shubhamsaboo/fullstack-developer` → crear `skills/fullstack-developer/SKILL.md` o `workflows/full-stack-build/`
+**Importar desde fuentes externas:**
+2. Crear `skills/supabase-postgres/SKILL.md` (base: skills.sh/supabase)
+3. Crear `skills/api-design-principles/SKILL.md` (base: wshobson/agents)
+4. Crear `skills/tailwind-design-system/SKILL.md` (base: wshobson, separado de brand-identity)
+5. Crear `skills/stitch-skills/SKILL.md` (base: google-labs, separado de frontend-design)
+6. Crear `skills/vercel-composition-patterns/SKILL.md` (base: vercel-labs, separado de react-best-practices)
+7. Crear `skills/web-design-guidelines/SKILL.md` (base: vercel-labs, separado de interface-design)
+8. Crear `skills/vercel-react-native-skills/SKILL.md` (base: vercel-labs — React Native + Expo)
+
+**Evaluar y crear skills originales:**
+9. Evaluar `github.com/Shubhamsaboo/fullstack-developer` → crear `skills/fullstack-developer/SKILL.md` (skill standalone)
+10. Crear `workflows/full-stack-build/` (workflow encadenado basado en fullstack-developer)
+11. Crear `skills/product-launch/SKILL.md`
+12. Crear `skills/writing-system/SKILL.md` (base: ashemag + estilo propio)
 
 **Cross-references:**
-8. Añadir sección "Ver también" en `brand-identity/SKILL.md` → referencia a `tailwind-design-system`
-9. Añadir sección "Ver también" en `frontend-design/SKILL.md` → referencia a `tailwind-design-system` + `stitch-skills`
-10. Añadir sección "Ver también" en `interface-design/SKILL.md` → referencia a `stitch-skills`
+13. Añadir sección "Ver también" en `brand-identity/SKILL.md` → referencia a `tailwind-design-system`
+14. Añadir sección "Ver también" en `frontend-design/SKILL.md` → referencia a `tailwind-design-system` + `stitch-skills` + `vercel-composition-patterns`
+15. Añadir sección "Ver también" en `interface-design/SKILL.md` → referencia a `stitch-skills` + `web-design-guidelines`
+16. Añadir sección "Ver también" en `react-best-practices/SKILL.md` → referencia a `vercel-composition-patterns`
 
 **Slash commands:**
-11. Crear `workflows/systematic-debugging/command.md` → `/prd`
-12. Crear command `/discovery`
-13. Crear command `/metrics`
-14. Crear command `/strategy`
+17. Crear command `/prd` (activa prd-writer con contexto del proyecto)
+18. Crear command `/discovery` (activa user-discovery con research brief)
+19. Crear command `/metrics` (activa product-analytics con decision first)
+20. Crear command `/strategy` (activa product-strategy con north star)
 
 **Limpieza:**
-15. Confirmar con usuario → eliminar `skills/running-inventory-tasks/` del submodule
-16. Mover contenido a `ald-system/products/laliga/`
+21. Eliminar `skills/running-inventory-tasks/` completamente del submodule
 
 **Templates:**
-17. Añadir `progress.txt` al `templates/CLAUDE.template.md`
-18. Mergear `react-best-practices` con vercel-labs skill
+22. Añadir `progress.txt` al `templates/CLAUDE.template.md`
 
 ### Sprint 4 — Workflows encadenados
 *Workflows que conectan múltiples skills*
@@ -344,13 +357,17 @@ Basado en el análisis de la Notion page:
 
 ---
 
-## 7. Decisiones Pendientes (requieren confirmación)
+## 7. Decisiones Cerradas
 
-| Decisión | Opciones | Estado |
-|----------|----------|--------|
-| `running-inventory-tasks` | A) Eliminar del submodule y mover a `ald-system/products/laliga/` B) Eliminar completamente | Pendiente confirmación |
-| `fullstack-developer` | A) Skill standalone B) Workflow `full-stack-build/` C) Evaluar Shubhamsaboo primero | Evaluar en Sprint 3 |
-| `react-best-practices` + vercel-labs | Mergear manteniendo la estructura existente | Sprint 3 |
+Todas las decisiones pendientes han sido confirmadas.
+
+| Decisión | Resolución |
+|----------|------------|
+| `running-inventory-tasks` | **Eliminar completamente** del repo en Sprint 3 |
+| `fullstack-developer` | **Skill standalone + Workflow** `full-stack-build/` — evaluar Shubhamsaboo primero en Sprint 3 |
+| `react-best-practices` + vercel-labs | **Upgrade** de la skill existente a las 8 categorías completas. `vercel-composition-patterns` y `web-design-guidelines` se crean como skills independientes |
+| `tailwind-design-system` vs `brand-identity` | **Mantener separadas** — solo cross-reference |
+| `stitch-skills` vs `frontend-design` | **Mantener separadas** — solo cross-reference |
 
 ---
 
