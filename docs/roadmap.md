@@ -3,7 +3,7 @@
 > Análisis del estado actual del repositorio `ald-skills` y plan de acción para construir el sistema definitivo de un Senior PM que desarrolla sus propios side projects.
 
 **Última actualización:** 2026-03-04
-**Sprints completados:** Sprint 1 ✅ Sprint 2 ✅ Sprint 3 ✅ Sprint 4 ✅
+**Sprints completados:** Sprint 1 ✅ Sprint 2 ✅ Sprint 3 ✅ Sprint 4 ✅ Sprint 5 ✅ Sprint 6 ✅
 
 > **Decisiones cerradas (2026-03-03):**
 > - `running-inventory-tasks` → **Eliminar completamente** del repo
@@ -382,13 +382,11 @@ Sprint 3 ✅ (api-design, supabase, tailwind-design-system, stitch-skills,
             cross-references, slash commands, running-inventory-tasks cleanup)
 Sprint 4 ✅ (workflows encadenados: idea-to-prd, feature-to-launch, content-publishing)
 
-EN PROGRESO
-Sprint 5 → Screaming Architecture en ald-system + canonical-docs template
+COMPLETADO
+Sprint 5 ✅ → Screaming Architecture (CLAUDE.md root, canonical-docs templates, how-it-works.md)
+Sprint 6 ✅ → README rewrite, official skill-creator, pm-workflow.md, description audit
 
-PRÓXIMO
-Sprint 6 → GLOBAL_SKILLS.md, README, documentación del sistema
-
-OBJETIVO FINAL
+OBJETIVO FINAL ✅
 ~32 skills + 6 workflows + CLAUDE.template.md + Screaming Architecture
 = Sistema completo de un Senior PM que construye sus propios productos con AI
 ```
