@@ -2,8 +2,8 @@
 
 > Análisis del estado actual del repositorio `ald-skills` y plan de acción para construir el sistema definitivo de un Senior PM que desarrolla sus propios side projects.
 
-**Última actualización:** 2026-03-03
-**Sprints completados:** Sprint 1 ✅ Sprint 2 ✅
+**Última actualización:** 2026-03-04
+**Sprints completados:** Sprint 1 ✅ Sprint 2 ✅ Sprint 3 ✅ Sprint 4 ✅
 
 > **Decisiones cerradas (2026-03-03):**
 > - `running-inventory-tasks` → **Eliminar completamente** del repo
@@ -377,16 +377,15 @@ Todas las decisiones pendientes han sido confirmadas.
 COMPLETADO
 Sprint 1 ✅ (systematic-debugging, prompt-engineering-patterns, CLAUDE.template.md)
 Sprint 2 ✅ (product-strategy, user-discovery, product-analytics)
+Sprint 3 ✅ (api-design, supabase, tailwind-design-system, stitch-skills,
+            product-launch, writing-system, fullstack-developer,
+            cross-references, slash commands, running-inventory-tasks cleanup)
+Sprint 4 ✅ (workflows encadenados: idea-to-prd, feature-to-launch, content-publishing)
 
-PRÓXIMO
-Sprint 3 → api-design, supabase, tailwind-design-system, stitch-skills,
-           product-launch, writing-system, fullstack-developer,
-           cross-references, slash commands, running-inventory-tasks cleanup
-
-Sprint 4 → workflows encadenados (idea-to-prd, feature-to-launch, content-publishing)
-
+EN PROGRESO
 Sprint 5 → Screaming Architecture en ald-system + canonical-docs template
 
+PRÓXIMO
 Sprint 6 → GLOBAL_SKILLS.md, README, documentación del sistema
 
 OBJETIVO FINAL
