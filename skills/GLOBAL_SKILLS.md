@@ -196,3 +196,6 @@ DISCOVER → STRATEGIZE → SPECIFY → BUILD → REVIEW → HARDEN → DOCUMENT
 - `workflows/systematic-debugging/` — Root-cause-first debugging protocol with `/debug` slash command
 - `workflows/feature-documenter/` — Feature documentation automation
 - `workflows/full-stack-build/` — End-to-end feature workflow: API design → DB schema → React → deploy, with `/fullstack` slash command
+- `workflows/idea-to-prd/` — idea-validator → brainstorming → prd-writer with gates, with `/idea` slash command
+- `workflows/feature-to-launch/` — PRD → full-stack-build → changelog → product-launch with readiness gates, with `/feature-launch` slash command
+- `workflows/content-publishing/` — writing-system → edit pass → platform publishing, with `/publish` slash command

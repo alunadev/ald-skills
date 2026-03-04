@@ -1,6 +1,6 @@
 ---
 name: agent-workflow
-description: Expert system for designing and architecting AI agent workflows based on proven Meta methodologies. Use when users need to build AI agents, create agent workflows, solve problems using agentic systems, integrate multiple tools into agent architectures, or need guidance on agent design patterns. Helps translate business problems into structured agent solutions with clear scope, tool integration, and multi-layer architecture planning.
+description: Expert system for designing and architecting AI agent workflows based on proven Meta methodologies. Use when building AI agents, designing multi-agent systems, integrating tools into agent architectures, choosing between single vs. multi-agent setups, or translating a business problem into an agentic solution. Triggers on: "build an agent", "design agent workflow", "multi-agent system", "agent architecture", "how should I structure this agent". Covers 9-step building process, 8-layer architecture framework, MCP integration, and pitfall avoidance.
 ---
 
 # Agent Workflow Designer
@@ -414,3 +414,9 @@ When users ask about existing tools:
 - Examples: Cursor (coding), Perplexity (research), Notion AI (writing)
 - Best for: Specific job-to-be-done with deep specialization
 - User type: Domain-specific professionals
+
+## See Also
+
+- `brainstorming` — For scoping the agent's purpose and data flows before building
+- `planning` — For breaking the agent implementation into atomic tasks
+- `full-stack-build` — For building agent-backed features end-to-end (API + DB + frontend)
