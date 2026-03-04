@@ -1,6 +1,6 @@
 ---
 name: maintaining-brand-identity
-description: Provides the single source of truth for brand guidelines, design tokens, technology choices, and voice/tone. Use this skill whenever generating UI components, styling applications, writing copy, or creating user-facing assets to ensure brand consistency.
+description: Provides the single source of truth for brand guidelines, design tokens, technology choices, and voice/tone. Use when applying brand colors, defining typography scale, configuring CSS custom properties, or writing copy that must match a specific brand voice. Triggers on: design tokens, brand colors, color palette, typography, font family, voice & tone, CSS variables, brand consistency, design system initialization.
 ---
 
 # Brand Identity & Guidelines

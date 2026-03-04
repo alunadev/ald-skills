@@ -1,6 +1,6 @@
 ---
 name: implementing-error-handling
-description: Master error handling patterns across languages including exceptions, Result types, error propagation, and graceful degradation to build resilient applications. Use when implementing error handling, designing APIs, or improving application reliability.
+description: Master error handling patterns across languages including exceptions, Result types, error propagation, and graceful degradation to build resilient applications. Use when adding try/catch blocks, handling async errors, fixing silent failures, or designing fallback strategies. Triggers on: unhandled exception, error boundary, async error, retry logic, fallback, graceful degradation, API error response, catch block, error state.
 ---
 
 # Error Handling Patterns

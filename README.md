@@ -1,92 +1,139 @@
-# My curated list of skills for any AI Agent: Antigravity and Claude Code
+# ALD Skills
 
-## What This Does
-This repository is a curated collection of agentic skills designed to extend the capabilities of AI coding assistants like Antigravity and Claude Code. Each skill is a modular unit of specialized knowledge, workflows, and instructions.
-This repository is a submodule of the ald-system repository.
+A public library of reusable AI skills for Claude Code. Each skill is a markdown file with YAML frontmatter that Claude loads on demand — giving it specialized knowledge for product management, engineering, and content workflows.
 
-## Quick Start Installation
+Used as a submodule inside [ald-system](https://github.com/alunadev/ald-system), the personal AI configuration repo.
 
-### Option 1: Clone and Symlink (Recommended)
+---
+
+## Quick Start
+
+### As a Git Submodule (Recommended)
 
 ```bash
-# Clone this repository
+# Add to your project
+git submodule add https://github.com/alunadev/ald-skills.git ald_skills
+git submodule update --init
+```
+
+Then reference in your project's `CLAUDE.md`:
+
+```markdown
+## Available Skills
+@ald_skills/skills/GLOBAL_SKILLS.md
+```
+
+### Standalone Clone
+
+```bash
 git clone https://github.com/alunadev/ald-skills.git
 ```
 
-```bash
-# Create symlink to Antigravity skills directory
-# On macOS/Linux:
-ln -s $(pwd)/ald-skills/* ~/.gemini/antigravity/skills/
+Reference skills by path: `@ald_skills/skills/<name>/SKILL.md`
 
-# On Windows (run as Administrator):
-mklink /D "C:\Users\YOUR-USER\.gemini\antigravity\skills" "C:\path\to\ald-skills\skills"
+---
+
+## Skills (31)
+
+### Product Management
+
+| Skill | Slash Command | Purpose |
+|-------|--------------|---------|
+| `user-discovery` | `/discovery` | Interview protocol, synthesis, Opportunity Statements |
+| `product-strategy` | `/strategy` | North Star, Opportunity Tree, 3 bets, OKRs |
+| `prd-writer` | `/prd` | Decision-focused PRDs with behavior contracts |
+| `product-analytics` | `/metrics` | Metric tree, A/B design, tracking plan, HEART |
+| `product-launch` | — | GTM brief, readiness checklists, rollout gates |
+| `idea-validator` | — | Brutal honest validation before committing resources |
+| `writing-system` | — | X threads, LinkedIn, blog, newsletter |
+| `linkedin-viral-post-writer` | — | Hook system for high-performance LinkedIn content |
+
+### Engineering & Development
+
+| Skill | Purpose |
+|-------|---------|
+| `brainstorming` | Socratic discovery and technical design |
+| `planning` | Atomic, TDD-focused implementation plans |
+| `brand-identity` | Design tokens, tech stack, voice & tone |
+| `frontend-design` | Production-grade frontend interfaces |
+| `interface-design` | Dashboards, SaaS apps, admin panels |
+| `react-best-practices` | Performance optimization, 8 categories, 58 rules |
+| `vercel-composition-patterns` | Compound components, CVA variants, React 19 |
+| `tailwind-design-system` | Tailwind v4, CSS-first @theme, OKLCH tokens |
+| `stitch-skills` | Convert Stitch AI screens to production React |
+| `web-design-guidelines` | 100+ accessibility, UX and code quality rules |
+| `api-design-principles` | REST and GraphQL API design conventions |
+| `supabase-postgres` | Indexes, RLS, connection pooling, schema design |
+| `fullstack-developer` | Scope → API → DB schema → frontend → deploy |
+| `error-handling-patterns` | Exceptions, Result types, graceful degradation |
+| `prompt-engineering` | 6-step framework for production AI prompts |
+| `prompt-engineering-patterns` | 9 production-tested prompting patterns |
+| `vercel-react-native-skills` | FlashList, Reanimated, expo-router, monorepo |
+| `agent-workflow` | Design and architect multi-agent AI workflows |
+
+### Documentation & Operations
+
+| Skill | Purpose |
+|-------|---------|
+| `changelog-generator` | Technical commits → user-friendly release notes |
+| `codebase-documenter` | READMEs, architecture guides, API docs |
+| `maintaining-documentation` | Keep docs as a living single source of truth |
+| `creating-skills` | Meta-skill for generating new standardized skills |
+| `deploying-to-github` | Automates version control workflows |
+| `requesting-code-review` | AI-powered code review subagent |
+
+---
+
+## Workflows
+
+Chained skills with explicit gates between steps.
+
+| Workflow | Slash Command | Chain |
+|----------|--------------|-------|
+| `systematic-debugging` | `/debug` | Root-cause-first debugging protocol |
+| `idea-to-prd` | `/idea` | idea-validator → brainstorming → prd-writer |
+| `full-stack-build` | `/fullstack` | API design → DB schema → frontend → deploy |
+| `feature-to-launch` | `/feature-launch` | PRD → build → changelog → product-launch |
+| `content-publishing` | `/publish` | Idea capture → draft → edit → platform publish |
+| `feature-documenter` | — | Feature documentation automation |
+
+---
+
+## Skill Format
+
+Every skill is a directory with a `SKILL.md` file:
 
 ```
-### Option 2: Manual Copy
-
-```bash
-# Clone this repository
-git clone https://github.com/alunadev/ald-skills.git
-
-# Copy skills to Antigravity directory
-cp -r ald-skills/* ~/.gemini/antigravity/skills/
+skills/<name>/
+├── SKILL.md          ← Required: YAML frontmatter + skill body
+└── references/       ← Optional: large rule sets loaded on demand
 ```
 
-## 📝 Usage
+YAML frontmatter:
 
-Skills are automatically detected by Antigravity when placed in the skills directory. To use a skill:
+```yaml
+---
+name: name-in-gerund-form          # lowercase, hyphens
+description: Third person. What it does and when to trigger it. Max 1024 chars.
+---
+```
 
-1. Ensure the skill is in your `~/.gemini/antigravity/skills/` directory
-2. Antigravity will automatically apply relevant skills based on context
-3. You can also explicitly reference skills in your prompts
+Use the `creating-skills` meta-skill to generate new skills following this format.
 
-## Project Structure
-- `skills/`: The core directory containing all standardized skill packages.
-    - `brainstorming/`: Socratic discovery and technical design.
-    - `brand-identity/`: Single Source of Truth for design, tech stack, and voice.
-    - `planning/`: Atomic, TDD-focused implementation plans.
-    - `error-handling-patterns/`: Robust strategies for resilient apps.
-    - `react-best-practices/`: Performance optimization for React/Next.js.
-    - `frontend-design/`: Distinctive, production-grade frontend interfaces.
-    - `interface-design/`: Intentional interfaces for dashboards and SaaS.
-    - `changelog-generator/`: Technical-to-User-friendly release notes.
-    - `codebase-documenter/`: Beginner-friendly docs and architecture guides.
-    - `creating-skills/`: Meta-skill for generating new standardized skills.
-    - `deploying-to-github/`: Automated version control workflows.
-    - `requesting-code-review/`: AI-powered code review subagent.
-    - `running-inventory-tasks/`: LALIGA advertising inventory metrics.
-- `workflows/`: Standardized automation flows.
-- `GLOBAL_SKILLS.md`: A clean index and workflow integration guide.
+---
 
-## Key Concepts
-- **Documentation-as-Code**: Each skill's documentation (`SKILL.md`) resides directly alongside its scripts and resources, making it version-controlled and executable by AI agents.
-- **Gerund Naming**: Skill names use gerund forms (e.g., `implementing-error-handling`) to describe active capabilities.
-- **Standardized Headers**: Every skill uses YAML frontmatter for clear discovery and triggering.
+## Full Skill Index
 
-## Common Tasks
-- **Adding a New Skill**: Use the `creating-skills` skill to generate a standardized directory structure.
-- **Updating Documentation**: Follow the templates in `skills/codebase-documenter/assets/templates/`.
+See `skills/GLOBAL_SKILLS.md` for the complete index with trigger conditions and the PM → Engineering → Release workflow integration.
 
-## 📚 References
+---
 
-### Official Documentation
-- [Claude Code Skills](https://code.claude.com/docs/en/skills)
-- [Antigravity Skills](https://antigravity.google/docs/skills)
+## References
 
-### Curated Skill Collections
+- [Claude Code Skills Docs](https://code.claude.com/docs/en/skills)
 - [Awesome Claude Skills (VoltAgent)](https://github.com/VoltAgent/awesome-claude-skills)
-- [Awesome Claude Skills (BehiSecc)](https://github.com/BehiSecc/awesome-claude-skills)
 - [Agent Skills Marketplace](https://skills.sh/)
 
-### Recommended External Skills
-- **Security**: [varlock-claude-skill](https://github.com/varlock/varlock-claude-skill) - Secure environment variable management.
-- **Testing**: [getsentry/find-bugs](https://github.com/getsentry/find-bugs), [getsentry/deslop](https://github.com/getsentry/deslop).
-- **Deployment**: [vercel-labs/vercel-deploy-claimable](https://github.com/vercel-labs/vercel-deploy-claimable).
-- **Mobile**: [Expo AI Skills](https://github.com/expo/expo) (expo-app-design, expo-deployment, upgrading-expo).
+---
 
-## Troubleshooting
-- **Skill Not Loading**: Ensure the directory follows the `<skill-name>/SKILL.md` structure and is in the correct global skills folder.
-- **Ambiguous Triggers**: Refine the `description` in the YAML frontmatter to include more specific keywords.
-
-## 📬 Contact
-If you want to contact me, you can reach me on [X](https://x.com/adrianlunadiaz).
+Built by [@adrianlunadiaz](https://x.com/adrianlunadiaz)

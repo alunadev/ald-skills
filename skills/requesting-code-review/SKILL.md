@@ -1,6 +1,6 @@
 ---
 name: requesting-code-review
-description: Dispatch superpowers:code-reviewer subagent to catch issues before they cascade. Core principle is review early, review often.
+description: Dispatch a code-reviewer subagent to catch issues before they cascade into production. Use before merging a PR, after completing a feature, or any time you want a second pass on code quality. Triggers on: "review my code", "check this PR", "code review", "review this", "before merge", "find bugs", "spot issues", pre-merge check.
 ---
 
 # Requesting Code Review
