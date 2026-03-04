@@ -86,3 +86,8 @@ Commit to ONE strategy:
 - `/interface-design:status`: Current system state
 - `/interface-design:audit`: Check code against system
 - `/interface-design:extract`: Extract patterns from code
+
+
+## See Also
+- `stitch-skills` — Para generación de componentes de interfaz con Stitch AI
+- `web-design-guidelines` — Para audit de accesibilidad, UX y Web Interface Guidelines compliance

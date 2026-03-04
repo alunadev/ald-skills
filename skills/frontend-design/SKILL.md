@@ -159,3 +159,9 @@ Every design implementation must be:
 ---
 
 **Remember**: Show what can truly be created when thinking outside the box and committing fully to a distinctive vision.
+
+
+## See Also
+- `tailwind-design-system` — Para tokens de diseño y configuración de Tailwind v4
+- `stitch-skills` — Para generación de componentes UI con Stitch AI design tool
+- `vercel-composition-patterns` — Para patterns de composición escalables en React

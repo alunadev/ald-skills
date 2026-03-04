@@ -37,3 +37,7 @@ If you are writing marketing copy, error messages, documentation, or user-facing
 - `resources/design-tokens.json`
 - `resources/tech-stack.md`
 - `resources/voice-tone.md`
+
+
+## See Also
+- `tailwind-design-system` — Para implementación de design tokens en Tailwind v4 con @theme y CVA components

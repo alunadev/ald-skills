@@ -130,6 +130,7 @@ Should I proceed with your original request, or try the alternative?
 ├── docs/
 │   ├── designs/           # Brainstorming outputs (YYYY-MM-DD-topic.md)
 │   └── plans/             # Planning outputs (YYYY-MM-DD-topic-plan.md)
+├── progress.txt           # Estado actual, decisiones tomadas esta semana (Claude lo lee automáticamente)
 └── CLAUDE.md              # This file
 ```
 
@@ -179,6 +180,8 @@ npm run lint
 **This week:** [What you're building right now]
 **Blocked on:** [Any blockers]
 **Next up:** [What comes after]
+
+> Mantener `progress.txt` en raíz del proyecto actualizado. Claude lo carga al inicio de cada sesión para saber dónde quedó el trabajo.
 
 ---
 

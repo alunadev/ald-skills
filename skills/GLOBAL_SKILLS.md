@@ -26,12 +26,22 @@ This repository serves as the central hub for reusable agentic skills. These ski
 - **Purpose**: Metrics frameworks, experiment design, and tracking plans. Pre-build metric definition and post-launch impact analysis.
 - **Triggers**: defining success criteria, designing an A/B test, setting up analytics tracking, post-launch analysis.
 
-### 5. Idea Validator
+### 5. Product Launch
+- **Path**: `skills/product-launch/`
+- **Purpose**: Go-to-market plans and launch checklists — GTM brief, technical/product/marketing readiness, rollout gates, post-launch review.
+- **Triggers**: "prepare launch", "go-to-market", "Product Hunt", "launch checklist", rollout plan.
+
+### 6. Idea Validator
 - **Path**: `skills/idea-validator/`
 - **Purpose**: Validates and stress-tests product ideas before committing resources.
 - **Triggers**: new idea, startup concept, feature proposal needing reality check.
 
-### 6. LinkedIn Viral Post Writer
+### 7. Writing System
+- **Path**: `skills/writing-system/`
+- **Purpose**: Personal writing system for X threads, LinkedIn posts, newsletters, and blog posts with platform-specific structure.
+- **Triggers**: "write a post", "draft newsletter", "write this up", "turn this into a thread", content calendar.
+
+### 8. LinkedIn Viral Post Writer
 - **Path**: `skills/linkedin-viral-post-writer/`
 - **Purpose**: Hook system and craftsmanship standards for high-performance LinkedIn content.
 - **Triggers**: writing a LinkedIn post, content strategy, thought leadership.
@@ -84,6 +94,46 @@ This repository serves as the central hub for reusable agentic skills. These ski
 - **Path**: `skills/prompt-engineering-patterns/`
 - **Purpose**: Library of 9 production-tested prompting patterns (CoT, Few-Shot, Structured Output, Tool-Use Routing, etc.)
 - **Triggers**: selecting a prompting technique, building AI pipelines, reviewing prompts for failure modes.
+
+### 22. Vercel Composition Patterns
+- **Path**: `skills/vercel-composition-patterns/`
+- **Purpose**: React composition patterns — compound components, CVA variants, React 19 APIs (no forwardRef, use()).
+- **Triggers**: components with too many boolean props, compound components, reusable APIs, context providers.
+
+### 23. Web Design Guidelines
+- **Path**: `skills/web-design-guidelines/`
+- **Purpose**: Audits web interfaces for accessibility, performance, UX, and code quality (100+ rules in 18 categories).
+- **Triggers**: "review my UI", "check accessibility", "audit design", pre-merge frontend check.
+
+### 24. React Native Best Practices
+- **Path**: `skills/vercel-react-native-skills/`
+- **Purpose**: React Native and Expo performance patterns — FlashList, Reanimated, expo-router, monorepo setup.
+- **Triggers**: React Native or Expo app, list performance, animations, native modules, monorepo.
+
+### 25. Tailwind Design System
+- **Path**: `skills/tailwind-design-system/`
+- **Purpose**: Build design systems with Tailwind CSS v4 — CSS-first @theme config, OKLCH tokens, CVA variants.
+- **Triggers**: Tailwind v4, design tokens, CVA, dark mode setup, migrating from Tailwind v3.
+
+### 26. API Design Principles
+- **Path**: `skills/api-design-principles/`
+- **Purpose**: REST and GraphQL API design — naming, error formats, versioning, pagination, OpenAPI-first.
+- **Triggers**: new API endpoint, API contract review, GraphQL schema, API conventions.
+
+### 27. Supabase & Postgres Best Practices
+- **Path**: `skills/supabase-postgres/`
+- **Purpose**: Supabase and PostgreSQL best practices — indexes, RLS, connection pooling, schema design.
+- **Triggers**: SQL queries, database schema, RLS policies, Postgres optimization, Supabase setup.
+
+### 28. Stitch Skills
+- **Path**: `skills/stitch-skills/`
+- **Purpose**: Convert Stitch AI design tool screens to production-ready React code and documentation.
+- **Triggers**: Stitch MCP server, "convert Stitch screen", "generate DESIGN.md", Stitch to React.
+
+### 29. Fullstack Developer
+- **Path**: `skills/fullstack-developer/`
+- **Purpose**: End-to-end feature implementation — scope → API contract → DB schema → frontend → deploy.
+- **Triggers**: "build this feature", "implement end-to-end", "new feature from scratch", side project setup.
 
 ---
 
@@ -145,3 +195,4 @@ DISCOVER → STRATEGIZE → SPECIFY → BUILD → REVIEW → HARDEN → DOCUMENT
 
 - `workflows/systematic-debugging/` — Root-cause-first debugging protocol with `/debug` slash command
 - `workflows/feature-documenter/` — Feature documentation automation
+- `workflows/full-stack-build/` — End-to-end feature workflow: API design → DB schema → React → deploy, with `/fullstack` slash command
