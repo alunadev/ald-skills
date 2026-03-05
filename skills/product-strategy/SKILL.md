@@ -94,6 +94,45 @@ Prioritize opportunities using two axes:
 **Priority score = Importance + (Importance - Satisfaction)**
 → High importance + low satisfaction = highest priority
 
+### Step 3b: Competitive Context (Optional)
+
+Use these frameworks when entering a competitive market or when stakeholders need strategic grounding before selecting bets. Pick the one that fits — you don't need all three.
+
+**SWOT — Internal + External Situation Assessment**
+Use when: entering a new area, responding to competitive pressure, or when bets need exec-level justification.
+
+| | Helpful | Harmful |
+|---|---|---|
+| **Internal** | Strengths: what we do better today | Weaknesses: honest gaps (resources, capability, coverage) |
+| **External** | Opportunities: market/user trends to exploit | Threats: competitive moves, regulation, shifts that undermine bets |
+
+→ Bets should leverage Strengths + Opportunities. Flag bets that depend on eliminating a Weakness.
+
+**Porter's 5 Forces — Competitive Intensity Assessment**
+Use when: evaluating a new market or product area before committing.
+
+| Force | Assessment (Low / Med / High) | Strategic implication |
+|---|---|---|
+| Threat of new entrants | | |
+| Buyer bargaining power | | |
+| Supplier bargaining power | | |
+| Threat of substitutes | | |
+| Competitive rivalry | | |
+
+→ High rivalry + low switching cost = bet must differentiate sharply. Low buyer power = retention investment pays more than acquisition.
+
+**Ansoff Matrix — Growth Strategy**
+Use when: a bet involves market or product expansion beyond the core.
+
+| | Existing Products | New Products |
+|---|---|---|
+| **Existing Markets** | Market Penetration *(lowest risk)* | Product Development |
+| **New Markets** | Market Development | Diversification *(highest risk)* |
+
+→ Name which quadrant each bet falls in. Bets in "New Markets + New Products" require 10x the evidence before committing.
+
+---
+
 ### Step 4: Bet Selection
 
 Present **exactly 3 bets** with trade-offs:

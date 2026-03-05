@@ -86,6 +86,63 @@ North Star: Weekly users completing ≥1 core workflow
     └── Feature adoption rate (% of active users using feature X)
 ```
 
+### Step 2b: Cohort Analysis (Optional — use for retention and lifecycle analysis)
+
+Use when you need to understand how behavior changes over time across user groups — or when diagnosing why retention is declining.
+
+**When to run cohort analysis:**
+- Retention is dropping — is it all cohorts or a specific one?
+- Measuring whether a product change improved long-term retention
+- Comparing behavior by acquisition channel, pricing tier, or onboarding variant
+
+**Define the cohort:**
+```
+Cohort dimension: [Time: signup week/month | Behavior: completed X | Attribute: from source Y]
+Metric: [What you're tracking per cohort over time]
+Time periods: [D1 / D7 / D30 / D90 — based on product's natural frequency]
+```
+
+**Retention table format:**
+```
+| Cohort     | Size  | D1  | D7  | D30 | D90 |
+|------------|-------|-----|-----|-----|-----|
+| Jan 2025   | 1,200 | 68% | 45% | 32% | 21% |
+| Feb 2025   | 980   | 71% | 48% | 35% |  —  |
+| Mar 2025   | 1,450 | 74% | 51% |  —  |  —  |
+```
+
+**Reading the table:**
+- Columns trending up across cohorts → product improvements are working
+- One cohort underperforms the rest → investigate what was different about that acquisition batch or onboarding period
+- All cohorts drop at the same time period → structural drop-off problem at that stage — fix the product moment, not the cohort
+
+**Diagnostic questions:**
+1. Which cohort performs best? What was different about its acquisition or onboarding?
+2. At which period does the biggest drop-off occur? What product experience does that correspond to?
+3. Are recent cohorts trending better or worse than older ones? (Leading indicator of product health trajectory)
+
+**Output block:**
+```
+## Cohort Analysis: [Feature / Time Period]
+
+Cohort dimension: [What defines each cohort]
+Metric: [What we're tracking]
+
+| Cohort | Size | [Period 1] | [Period 2] | [Period 3] | [Period 4] |
+|---|---|---|---|---|---|
+| [Cohort 1] | | | | | |
+| [Cohort 2] | | | | | |
+
+### Key Findings
+1. [Finding — specific]
+2. [Finding]
+
+### Decision Implication
+[What this tells us and what action it drives]
+```
+
+---
+
 ### Step 3: Define Success + Guardrail Metrics
 
 For each initiative or experiment:

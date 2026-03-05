@@ -46,6 +46,66 @@ This repository serves as the central hub for reusable agentic skills. These ski
 - **Purpose**: Hook system and craftsmanship standards for high-performance LinkedIn content.
 - **Triggers**: writing a LinkedIn post, content strategy, thought leadership.
 
+### 9. Competitor Analysis
+- **Path**: `skills/competitor-analysis/`
+- **Purpose**: Structured competitive analysis — profiles 5 competitors, identifies white space, and recommends a differentiated positioning. Produces a decision-ready competitive map, not a feature comparison table.
+- **Triggers**: competitive analysis, competitor research, market landscape, differentiation, competitive positioning, market entry, who are our competitors.
+
+### 10. User Personas
+- **Path**: `skills/user-personas/`
+- **Purpose**: Research-backed persona creation — max 3 personas per segment, grounded in JTBD, pain points, gains, and unexpected insights. Prevents persona theater (stock photos + demographics).
+- **Triggers**: user persona, JTBD, persona creation, user segmentation, who is our user, target audience, customer profile.
+
+### 11. Customer Journey Map
+- **Path**: `skills/customer-journey-map/`
+- **Purpose**: Maps end-to-end user journey from Awareness to Advocacy — touchpoints, emotions, friction, moments of truth, and prioritized improvements. Reveals where users get stuck, not just where they succeed.
+- **Triggers**: customer journey, journey map, touchpoints, onboarding experience, churn points, aha moment, user flow, drop-off analysis.
+
+### 12. Value Proposition
+- **Path**: `skills/value-proposition/`
+- **Purpose**: Designs a value proposition using a 6-part JTBD template (Who / Why / What Before / How / What After / Alternatives). One value prop per customer segment — not a tagline, a positioning decision.
+- **Triggers**: value proposition, value prop, JTBD, customer value, why us, positioning statement, product differentiation, customer benefit, what problem do we solve.
+
+### 13. Prioritization Frameworks
+- **Path**: `skills/prioritization-frameworks/`
+- **Purpose**: Selects and applies the right prioritization framework — Opportunity Score, RICE, ICE, MoSCoW, Kano — for the current context. Produces a ranked backlog with explicit scoring rationale.
+- **Triggers**: prioritization, RICE, ICE, MoSCoW, Kano, backlog prioritization, roadmap prioritization, what to build next, feature ranking, sprint backlog.
+
+### 14. Stakeholder Map
+- **Path**: `skills/stakeholder-map/`
+- **Purpose**: Maps stakeholders on a Power × Interest grid, produces a 4-quadrant communication plan, and surfaces conflict zones before they derail delivery.
+- **Triggers**: stakeholder management, power interest grid, cross-functional alignment, stakeholder communication, who needs to be involved, buy-in, executive alignment.
+
+### 15. Pre-Mortem
+- **Path**: `skills/pre-mortem/`
+- **Purpose**: Identifies launch risks using the Tigers / Paper Tigers / Elephants framework before execution begins. Produces a launch-blocking action plan — not a risk list that sits in a doc.
+- **Triggers**: pre-mortem, risk analysis, launch readiness, what could go wrong, failure modes, risk register, risk assessment.
+
+### 16. Sprint Plan
+- **Path**: `skills/sprint-plan/`
+- **Purpose**: Produces a structured sprint plan — goal, capacity estimate, story selection, dependency map, and risk flags — before the sprint starts. Sprint planning as a decision, not a calendar event.
+- **Triggers**: sprint planning, capacity planning, sprint goal, sprint prep, sprint kickoff, what goes in the sprint, sprint backlog.
+
+### 17. Retro
+- **Path**: `skills/retro/`
+- **Purpose**: Facilitates sprint retrospectives using Start/Stop/Continue, 4Ls, or Sailboat format. Produces 2-3 prioritized action items with owners and deadlines — not a venting session.
+- **Triggers**: retrospective, retro, sprint review, what went well, lessons learned, team improvement, action items, start stop continue, post-mortem, sprint reflection.
+
+### 18. Growth Loops
+- **Path**: `skills/growth-loops/`
+- **Purpose**: Identifies and designs growth loops (flywheels) for sustainable traction — evaluating 5 loop types: Viral, Usage, Collaboration, User-Generated, Referral. Includes K coefficient estimation and a build plan.
+- **Triggers**: growth loop, flywheel, viral loop, referral program, product-led growth, PLG, user acquisition, growth strategy, retention loop, compounding growth.
+
+### 19. Draft NDA
+- **Path**: `skills/draft-nda/`
+- **Purpose**: Drafts a Non-Disclosure Agreement covering parties, information types, duration, jurisdiction, and key clauses — with ⚠️ markers on clauses requiring legal review. For contractor and partnership work on side projects.
+- **Triggers**: NDA, non-disclosure agreement, confidentiality agreement, contractor agreement, partnership NDA, freelancer agreement.
+
+### 20. Privacy Policy
+- **Path**: `skills/privacy-policy/`
+- **Purpose**: Drafts a privacy policy covering data types collected, user rights, jurisdiction-specific requirements (GDPR, CCPA), and compliance considerations — with ⚠️ markers for legal review.
+- **Triggers**: privacy policy, GDPR, CCPA, data protection, data privacy, user data, cookie policy, compliance, data collection.
+
 ---
 
 ### Engineering & Development

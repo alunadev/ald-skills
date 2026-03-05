@@ -193,6 +193,60 @@ docs/discovery/YYYY-MM-DD-[topic]-discovery-synthesis.md
 
 This doc becomes the direct input to `prd-writer` (Opportunity Framing section) and `product-strategy` (Opportunity Tree).
 
+---
+
+### Phase 2: Assumption Mapping + Opportunity-Solution Tree (Optional)
+
+Use before committing a major bet to ensure the underlying assumptions are visible and testable — not hidden inside the solution.
+
+#### Step 5b: Assumption Mapping
+
+Surface and classify every assumption behind the proposed opportunity.
+
+**Assumption types:**
+- **Desirability**: Do users want this? *(validated by discovery)*
+- **Viability**: Is this commercially sustainable?
+- **Feasibility**: Can the team actually build it?
+- **Usability**: Will users understand and complete the flow?
+
+```
+| Assumption | Type | Confidence | Evidence | Risk if wrong |
+|---|---|---|---|---|
+| [Users want X] | Desirability | High | 6/8 interviews | Low — well validated |
+| [Users will pay $Y/mo] | Viability | Low | 0 data points | High — test before building |
+| [Team can ship in Q2] | Feasibility | Medium | Eng estimate | Medium |
+| [Users understand the UI] | Usability | Low | No usability test yet | High |
+```
+
+→ Flag every assumption with **Confidence < Medium** for validation before writing specs.
+
+#### Step 5c: Opportunity-Solution Tree (OST)
+
+Structure the path from discovery to experiments formally (Teresa Torres framework):
+
+```
+Desired Outcome (North Star metric)
+├── Opportunity 1: [Validated pain — from synthesis]
+│   ├── Solution A: [Specific hypothesis — not "improve X", but "add Y so users can Z"]
+│   │   └── Experiment: [Smallest test to validate A — survey, prototype, shadow]
+│   └── Solution B: [Alternative approach]
+│       └── Experiment: [Test for B]
+├── Opportunity 2: [Validated pain]
+│   └── Solution C: [Hypothesis]
+│       └── Experiment: [Test for C]
+└── Opportunity 3: [Validated pain]
+    └── Solution D: [Hypothesis]
+        └── Experiment: [Test for D]
+```
+
+**OST rules:**
+- Address one opportunity at a time — don't run solutions for multiple branches simultaneously
+- Solutions are hypotheses, not commitments — they live and die by their experiments
+- Every solution branch has a linked experiment (the smallest test that could disprove it)
+- Only graduate a solution to a PRD after its experiment validates demand
+
+---
+
 ## Output Format
 
 ```markdown
