@@ -33,7 +33,7 @@ Reference skills by path: `@ald_skills/skills/<name>/SKILL.md`
 
 ---
 
-## Skills (31)
+## Skills (33)
 
 ### Product Management
 
@@ -47,6 +47,8 @@ Reference skills by path: `@ald_skills/skills/<name>/SKILL.md`
 | `idea-validator` | — | Brutal honest validation before committing resources |
 | `writing-system` | — | X threads, LinkedIn, blog, newsletter |
 | `linkedin-viral-post-writer` | — | Hook system for high-performance LinkedIn content |
+| `case-study-solver` | — | Full methodology for PM/TPM hiring case studies — written + verbal |
+| `pm-interview-communication` | — | SCQA/STAR scaffolding, answer templates, English under pressure |
 
 ### Engineering & Development
 

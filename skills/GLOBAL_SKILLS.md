@@ -106,6 +106,16 @@ This repository serves as the central hub for reusable agentic skills. These ski
 - **Purpose**: Drafts a privacy policy covering data types collected, user rights, jurisdiction-specific requirements (GDPR, CCPA), and compliance considerations — with ⚠️ markers for legal review.
 - **Triggers**: privacy policy, GDPR, CCPA, data protection, data privacy, user data, cookie policy, compliance, data collection.
 
+### 21. Case Study Solver
+- **Path**: `skills/case-study-solver/`
+- **Purpose**: Structured methodology for solving, writing, and presenting hiring case studies for Senior PM and Technical PM roles. Covers the full process from problem understanding to final delivery, including data analysis, written response, interactive presentation, and verbal delivery protocol.
+- **Triggers**: case study, PM interview, TPM interview, hiring exercise, data analysis for interview, case study presentation, interview preparation.
+
+### 22. PM Interview Communication
+- **Path**: `skills/pm-interview-communication/`
+- **Purpose**: Structured verbal communication framework for Senior PM and TPM interviews. Covers SCQA/STAR scaffolding, answer templates by question type, pushback handling, English-under-pressure tactics, and post-interview debrief methodology.
+- **Triggers**: interview preparation, how do I answer this, rehearse with me, how would you say this, practice interview question, STAR answer, SCQA, behavioral question, verbal delivery.
+
 ---
 
 ### Engineering & Development

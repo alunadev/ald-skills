@@ -3,7 +3,7 @@
 > Análisis del estado actual del repositorio `ald-skills` y plan de acción para construir el sistema definitivo de un Senior PM que desarrolla sus propios side projects.
 
 **Última actualización:** 2026-03-04
-**Sprints completados:** Sprint 1 ✅ Sprint 2 ✅ Sprint 3 ✅ Sprint 4 ✅ Sprint 5 ✅ Sprint 6 ✅
+**Sprints completados:** Sprint 1 ✅ Sprint 2 ✅ Sprint 3 ✅ Sprint 4 ✅ Sprint 5 ✅ Sprint 6 ✅ Sprint 7 ✅
 
 > **Decisiones cerradas (2026-03-03):**
 > - `running-inventory-tasks` → **Eliminar completamente** del repo
@@ -385,9 +385,10 @@ Sprint 4 ✅ (workflows encadenados: idea-to-prd, feature-to-launch, content-pub
 COMPLETADO
 Sprint 5 ✅ → Screaming Architecture (CLAUDE.md root, canonical-docs templates, how-it-works.md)
 Sprint 6 ✅ → README rewrite, official skill-creator, pm-workflow.md, description audit
+Sprint 7 ✅ → case-study-solver (Phase 6 verbal protocol added), pm-interview-communication (new skill)
 
 OBJETIVO FINAL ✅
-~32 skills + 6 workflows + CLAUDE.template.md + Screaming Architecture
+~34 skills + 6 workflows + CLAUDE.template.md + Screaming Architecture
 = Sistema completo de un Senior PM que construye sus propios productos con AI
 ```
 
