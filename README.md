@@ -20,7 +20,7 @@ Then reference in your project's `CLAUDE.md`:
 
 ```markdown
 ## Available Skills
-@ald_skills/skills/GLOBAL_SKILLS.md
+@ald_skills/skills/README.md
 ```
 
 ### Standalone Clone
@@ -126,7 +126,7 @@ Use the `creating-skills` meta-skill to generate new skills following this forma
 
 ## Full Skill Index
 
-See `skills/GLOBAL_SKILLS.md` for the complete index with trigger conditions and the PM → Engineering → Release workflow integration.
+See `skills/README.md` for the complete index with trigger conditions and the PM → Engineering → Release workflow integration.
 
 ---
 
