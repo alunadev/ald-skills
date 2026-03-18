@@ -417,6 +417,49 @@ After packaging, direct the user to the resulting `.skill` file path so they can
 
 ---
 
+## Register in System Documentation
+
+After creating or significantly modifying a skill, register it in the system index. Skipping this step means the skill exists on disk but won't be discoverable — it won't appear in Claude's available skills list or in the index file.
+
+### Step 1: Add entry to README.md
+
+File: `ald_skills/skills/README.md`
+
+Add a numbered entry under the correct section (Product Management, Engineering & Development, or Documentation & Operations). Use this format:
+
+```markdown
+### N. [Skill Display Name]
+- **Path**: `skills/<folder-name>/`
+- **Purpose**: [One sentence — what it does and when to use it. Include key trigger keywords.]
+- **Triggers**: [comma-separated user phrases and contexts that should invoke this skill]
+```
+
+N must continue the global sequence — check the last entry in the section for the next number. Also update the **Workflow Integration** section at the bottom of `README.md` if the new skill fits into the PM → Engineering → Release flow.
+
+### Step 2: Commit and push the submodule
+
+```bash
+cd /Users/adrianlunadiaz/ald-os/ald-system/ald_skills
+git add skills/<new-skill-folder>/ skills/README.md
+git commit -m "feat(skills): add <skill-name> skill"
+git push origin main
+```
+
+### Step 3: Bump the submodule ref in ald-system
+
+```bash
+cd /Users/adrianlunadiaz/ald-os/ald-system
+git add ald_skills
+git commit -m "chore: update ald_skills submodule (add <skill-name>)"
+git push
+```
+
+Once both pushes complete, the new skill is live and discoverable in future sessions.
+
+> **Claude.ai / no-filesystem environments:** Skip Steps 2 and 3 — update the index file locally and note that the push is pending.
+
+---
+
 ## Claude.ai-specific instructions
 
 In Claude.ai, the core workflow is the same (draft → test → review → improve → repeat), but because Claude.ai doesn't have subagents, some mechanics change. Here's what to adapt:
