@@ -1,37 +1,107 @@
 ---
 name: planning
-description: Creates comprehensive, detailed implementation plans for approved designs. Use this skill after brainstorming or when requirements are already clear and you need a step-by-step execution roadmap.
+description: >
+  Creates atomic, TDD-focused implementation plans for features with approved designs. Use this
+  skill — always AFTER brainstorming or when a design is already clear — when the user needs a
+  step-by-step execution roadmap before coding starts. Triggers on: "write me a plan", "break
+  this into tasks", "implementation steps for", "what order should I build", "atomic tasks",
+  "TDD plan", "sprint breakdown", "create a plan for", "plan this feature", "step by step", "how
+  do I implement", "what's the order of operations", "break this down for me". Also use when a
+  user provides a spec and wants a concrete action plan with exact file paths and test commands.
+  Produces an ordered task list where each task maps to one commit, with TDD steps
+  (Red→Green→Refactor) and exact verification commands per task.
 ---
 
 # Implementation Planning
 
-## When to use this skill
-- A design has been finalized and approved (often via the `brainstorming` skill).
-- The user provides a clear spec and wants a concrete action plan.
-- You need to break down a complex task into manageable, atomic steps.
+## Why This Matters
+
+A good implementation plan is not a roadmap — it's a commit-by-commit recipe. Each task should be small enough that you can hold the entire change in your head, write the test first, implement the minimum code to pass it, and commit with confidence.
+
+The TDD discipline (Red→Green→Refactor) isn't ceremony — it's the mechanism that makes each task verifiable. If you can't write a failing test for a task, the task isn't atomic enough.
+
+## When to Use
+
+- A design has been finalized (often via the `brainstorming` skill)
+- The user provides a clear spec and wants a concrete execution plan
+- A complex feature needs breaking down into manageable, independently-committable pieces
 
 ## Workflow
 
-1.  **Plan Initialization**
-    - Create a new file `docs/plans/YYYY-MM-DD-<topic>-plan.md`.
-    - Use the standard header to define the goal, architecture, and tech stack.
+### 1. Plan Initialization
 
-2.  **Task Breakdown (The "Bite-Sized" Rule)**
-    - Break the feature into **atomic tasks** (2-5 minutes execution time each).
-    - Each task must correspond to a **single commit**.
-    - **Granularity:** "Write failing test" is one step. "Implement code" is another.
+Create `docs/plans/YYYY-MM-DD-<topic>-plan.md` with this header:
 
-3.  **Mandatory Task Details**
-    For *every* task in the plan, you must include:
-    - **Exact File Paths:** `src/components/Button.tsx` (not "the button component").
-    - **Code Snippets:** Specific logic to implement.
-    - **Verification:** The specific test command to run (e.g., `npm test -- -t 'Button'`).
-    - **Philosophy:** Enforce TDD (Red -> Green -> Refactor).
+```markdown
+# [Feature Name] Implementation Plan
 
-4.  **Review Loop**
-    - Present the plan to the user.
-    - Refine based on feedback.
-    - Once approved, the plan is ready for execution.
+**Goal:** [One sentence — what does "done" look like?]
+**Architecture:** [2-3 sentences on the approach chosen]
+**Tech Stack:** [Key technologies and libraries]
+**Dependencies:** [What must exist before this plan starts?]
 
-## Resources
-- [`resources/template.md`](resources/template.md) - The strict template for implementation plans.
+---
+```
+
+### 2. Task Breakdown — The Bite-Sized Rule
+
+Break the feature into **atomic tasks**: each task maps to one commit, takes 5-15 minutes to implement, and is independently testable.
+
+**Granularity test:** "Write failing test for X" is one task. "Implement X" is another. "Refactor X for clarity" is a third. If a task takes more than one commit, split it.
+
+**Sequencing:** Order tasks so each one builds on something that already works. The first task should produce something verifiable in under 10 minutes.
+
+### 3. Mandatory Task Details
+
+Every task in the plan must include:
+
+```markdown
+### Task N: [Descriptive Name]
+
+**Files:**
+- Create: `exact/path/to/new-file.ts`
+- Modify: `exact/path/to/existing.ts` (lines ~45-67)
+- Test: `tests/exact/path/to/new-file.test.ts`
+
+**Step 1 — Write the failing test (Red)**
+[Exact test code to write]
+
+Run: `npm test -- -t 'test name'`
+Expected: FAIL ✗
+
+**Step 2 — Minimal implementation (Green)**
+[Minimum code to make the test pass]
+
+Run: `npm test -- -t 'test name'`
+Expected: PASS ✓
+
+**Step 3 — Refactor (if needed)**
+[What to clean up, if anything]
+
+**Step 4 — Commit**
+`git commit -m "feat: [what this task does]"`
+```
+
+### 4. Review Loop
+
+Present the full plan to the user. Ask:
+- "Does the task order make sense?"
+- "Is anything missing or should anything be split further?"
+- "Are the file paths correct for your project structure?"
+
+Refine based on feedback. Once approved, the plan is the source of truth for implementation.
+
+## What Good Looks Like
+
+A completed plan leaves the user with:
+- A numbered task list they can follow without making decisions
+- Every test command spelled out — no "run the tests"
+- An order that surfaces integration issues early, not at the end
+- A first task that can be done in under 15 minutes (builds momentum)
+
+## References
+
+- `references/template.md` — The strict plan template with full task structure and header format
+- `references/task-breakdown-guide.md` — Task breakdown patterns by feature type (CRUD, auth, API integration, AI feature, data pipeline)
+
+Read `references/template.md` when generating a plan — it has the exact format to follow. Read `references/task-breakdown-guide.md` when unsure how to break down a specific feature type.

@@ -1,6 +1,15 @@
 ---
 name: product-strategy
-description: Expert product strategy advisor for Senior PMs. Use when defining a product vision, setting OKRs, building a roadmap, prioritizing between competing bets, entering a new product area, or when stakeholders disagree on direction. Produces a structured strategy document grounded in user outcomes, not feature lists.
+description: >
+  Expert product strategy advisor for Senior PMs. Use this skill — proactively and without waiting
+  to be asked — whenever defining a product vision, setting quarterly OKRs, building a roadmap,
+  choosing between competing bets, entering a new product area, or when stakeholders disagree on
+  direction. Also triggers for: "what should we prioritize", "we need a north star", "how do we
+  choose between X and Y", "roadmap conflict", "what are our bets this quarter", "strategy
+  alignment", "choosing what NOT to build", "three bets with trade-offs", "stakeholder
+  misalignment on direction", "product direction for next quarter", "OKR planning". Produces a
+  decision-focused strategy doc: North Star metric, Opportunity Tree, three bets with explicit
+  trade-offs (including do nothing), and a recommended bet with its key assumption.
 ---
 
 # Product Strategy

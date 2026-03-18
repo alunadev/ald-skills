@@ -14,7 +14,7 @@ This repository serves as the central hub for reusable agentic skills. These ski
 ### 2. Product Strategy
 - **Path**: `skills/product-strategy/`
 - **Purpose**: Decision-focused product strategy. Defines North Star, maps Opportunity Tree, and presents three bets with explicit trade-offs.
-- **Triggers**: quarterly OKRs, roadmap prioritization, new product area, stakeholder misalignment on direction.
+- **Triggers**: quarterly OKRs, roadmap prioritization, new product area, stakeholder misalignment on direction, north star definition, choosing what NOT to build.
 
 ### 3. PRD Writer
 - **Path**: `skills/prd-writer/`
@@ -49,7 +49,7 @@ This repository serves as the central hub for reusable agentic skills. These ski
 ### 9. Competitor Analysis
 - **Path**: `skills/competitor-analysis/`
 - **Purpose**: Structured competitive analysis — profiles 5 competitors, identifies white space, and recommends a differentiated positioning. Produces a decision-ready competitive map, not a feature comparison table.
-- **Triggers**: competitive analysis, competitor research, market landscape, differentiation, competitive positioning, market entry, who are our competitors.
+- **Triggers**: competitive analysis, competitor research, market landscape, differentiation, competitive positioning, market entry, who are our competitors, losing to a competitor, white space, pricing strategy.
 
 ### 10. User Personas
 - **Path**: `skills/user-personas/`
@@ -64,54 +64,59 @@ This repository serves as the central hub for reusable agentic skills. These ski
 ### 12. Value Proposition
 - **Path**: `skills/value-proposition/`
 - **Purpose**: Designs a value proposition using a 6-part JTBD template (Who / Why / What Before / How / What After / Alternatives). One value prop per customer segment — not a tagline, a positioning decision.
-- **Triggers**: value proposition, value prop, JTBD, customer value, why us, positioning statement, product differentiation, customer benefit, what problem do we solve.
+- **Triggers**: value proposition, value prop, JTBD, customer value, why us, positioning statement, product differentiation, customer benefit, what problem do we solve, win/loss, customer confusion, elevator pitch.
 
-### 13. Prioritization Frameworks
+### 13. Feature to Outcome
+- **Path**: `skills/feature-to-outcome/`
+- **Purpose**: Translates stakeholder feature requests into validated outcome statements using the 'One Framework. Four Questions.' protocol — Behavior Change → Assumption Test → Cheapest Test → Success Metric. Produces an Outcome Brief with embedded AI prompts ready to paste into any LLM.
+- **Triggers**: stakeholder pushing a specific feature, "we need a dashboard", outcomes not features, what problem does this solve, feature factory, push back on a request, translate feature to outcome, outcome vs output, assumption testing, discovery before delivery.
+
+### 14. Prioritization Frameworks
 - **Path**: `skills/prioritization-frameworks/`
 - **Purpose**: Selects and applies the right prioritization framework — Opportunity Score, RICE, ICE, MoSCoW, Kano — for the current context. Produces a ranked backlog with explicit scoring rationale.
 - **Triggers**: prioritization, RICE, ICE, MoSCoW, Kano, backlog prioritization, roadmap prioritization, what to build next, feature ranking, sprint backlog.
 
-### 14. Stakeholder Map
+### 15. Stakeholder Map
 - **Path**: `skills/stakeholder-map/`
 - **Purpose**: Maps stakeholders on a Power × Interest grid, produces a 4-quadrant communication plan, and surfaces conflict zones before they derail delivery.
 - **Triggers**: stakeholder management, power interest grid, cross-functional alignment, stakeholder communication, who needs to be involved, buy-in, executive alignment.
 
-### 15. Pre-Mortem
+### 16. Pre-Mortem
 - **Path**: `skills/pre-mortem/`
 - **Purpose**: Identifies launch risks using the Tigers / Paper Tigers / Elephants framework before execution begins. Produces a launch-blocking action plan — not a risk list that sits in a doc.
 - **Triggers**: pre-mortem, risk analysis, launch readiness, what could go wrong, failure modes, risk register, risk assessment.
 
-### 16. Sprint Plan
+### 17. Sprint Plan
 - **Path**: `skills/sprint-plan/`
 - **Purpose**: Produces a structured sprint plan — goal, capacity estimate, story selection, dependency map, and risk flags — before the sprint starts. Sprint planning as a decision, not a calendar event.
 - **Triggers**: sprint planning, capacity planning, sprint goal, sprint prep, sprint kickoff, what goes in the sprint, sprint backlog.
 
-### 17. Retro
+### 18. Retro
 - **Path**: `skills/retro/`
 - **Purpose**: Facilitates sprint retrospectives using Start/Stop/Continue, 4Ls, or Sailboat format. Produces 2-3 prioritized action items with owners and deadlines — not a venting session.
 - **Triggers**: retrospective, retro, sprint review, what went well, lessons learned, team improvement, action items, start stop continue, post-mortem, sprint reflection.
 
-### 18. Growth Loops
+### 19. Growth Loops
 - **Path**: `skills/growth-loops/`
 - **Purpose**: Identifies and designs growth loops (flywheels) for sustainable traction — evaluating 5 loop types: Viral, Usage, Collaboration, User-Generated, Referral. Includes K coefficient estimation and a build plan.
 - **Triggers**: growth loop, flywheel, viral loop, referral program, product-led growth, PLG, user acquisition, growth strategy, retention loop, compounding growth.
 
-### 19. Draft NDA
+### 20. Draft NDA
 - **Path**: `skills/draft-nda/`
 - **Purpose**: Drafts a Non-Disclosure Agreement covering parties, information types, duration, jurisdiction, and key clauses — with ⚠️ markers on clauses requiring legal review. For contractor and partnership work on side projects.
 - **Triggers**: NDA, non-disclosure agreement, confidentiality agreement, contractor agreement, partnership NDA, freelancer agreement.
 
-### 20. Privacy Policy
+### 21. Privacy Policy
 - **Path**: `skills/privacy-policy/`
 - **Purpose**: Drafts a privacy policy covering data types collected, user rights, jurisdiction-specific requirements (GDPR, CCPA), and compliance considerations — with ⚠️ markers for legal review.
 - **Triggers**: privacy policy, GDPR, CCPA, data protection, data privacy, user data, cookie policy, compliance, data collection.
 
-### 21. Case Study Solver
+### 22. Case Study Solver
 - **Path**: `skills/case-study-solver/`
 - **Purpose**: Structured methodology for solving, writing, and presenting hiring case studies for Senior PM and Technical PM roles. Covers the full process from problem understanding to final delivery, including data analysis, written response, interactive presentation, and verbal delivery protocol.
 - **Triggers**: case study, PM interview, TPM interview, hiring exercise, data analysis for interview, case study presentation, interview preparation.
 
-### 22. PM Interview Communication
+### 23. PM Interview Communication
 - **Path**: `skills/pm-interview-communication/`
 - **Purpose**: Structured verbal communication framework for Senior PM and TPM interviews. Covers SCQA/STAR scaffolding, answer templates by question type, pushback handling, English-under-pressure tactics, and post-interview debrief methodology.
 - **Triggers**: interview preparation, how do I answer this, rehearse with me, how would you say this, practice interview question, STAR answer, SCQA, behavioral question, verbal delivery.
@@ -120,124 +125,149 @@ This repository serves as the central hub for reusable agentic skills. These ski
 
 ### Engineering & Development
 
-### 7. Brainstorming
+### 24. Brainstorming
 - **Path**: `skills/brainstorming/`
-- **Purpose**: Socratic discovery and technical design.
-- **Triggers**: vague ideas, architectural changes, complex tasks.
+- **Purpose**: Socratic discovery and technical design. Explores ideas, architecture decisions, and design trade-offs before implementation. Produces a validated design doc with 2-3 options and a recommendation.
+- **Triggers**: vague ideas, architectural decisions, complex tasks, "should we use X or Y", "help me think through", "what's the best approach for", trade-off analysis, design before coding.
 
-### 8. Planning
+### 25. Planning
 - **Path**: `skills/planning/`
-- **Purpose**: Atomic, TDD-focused implementation plans.
-- **Triggers**: spec-ready features, plan generation.
+- **Purpose**: Atomic, TDD-focused implementation plans. Breaks approved designs into commit-sized tasks with exact file paths, test commands, and Red→Green→Refactor steps.
+- **Triggers**: spec-ready features, "write me a plan", "break this into tasks", "implementation steps for", "what order should I build", TDD plan, sprint breakdown.
 
-### 9. Brand Identity
+### 26. Brand Identity
 - **Path**: `skills/brand-identity/`
 - **Purpose**: Single Source of Truth for design, tech stack, and voice.
 - **Triggers**: UI generation, styling, copywriting.
 
-### 10. Error Handling Patterns
+### 27. Error Handling Patterns
 - **Path**: `skills/error-handling-patterns/`
 - **Purpose**: Robust strategies for resilient applications.
 - **Triggers**: API design, reliability improvements, debugging.
 
-### 11. React Best Practices
+### 28. React Best Practices
 - **Path**: `skills/react-best-practices/`
 - **Purpose**: Performance optimization for React and Next.js.
 - **Triggers**: component creation, layout shifts, bundle optimization.
 
-### 12. Frontend Design
+### 29. Frontend Design
 - **Path**: `skills/frontend-design/`
 - **Purpose**: Create distinctive, production-grade frontend interfaces.
 - **Triggers**: UI components, visual polish, web apps.
 
-### 13. Interface Design
+### 30. Interface Design
 - **Path**: `skills/interface-design/`
 - **Purpose**: Craft intentional interfaces for dashboards and SaaS.
 - **Triggers**: SaaS apps, dashboards, admin panels.
 
-### 14. Prompt Engineering
+### 31. Prompt Engineering
 - **Path**: `skills/prompt-engineering/`
 - **Purpose**: 6-step optimization framework for production AI prompts.
 - **Triggers**: optimizing a system prompt, building an AI feature, prompt failure analysis.
 
-### 15. Prompt Engineering Patterns
+### 32. Prompt Engineering Patterns
 - **Path**: `skills/prompt-engineering-patterns/`
 - **Purpose**: Library of 9 production-tested prompting patterns (CoT, Few-Shot, Structured Output, Tool-Use Routing, etc.)
 - **Triggers**: selecting a prompting technique, building AI pipelines, reviewing prompts for failure modes.
 
-### 22. Vercel Composition Patterns
+### 33. Vercel Composition Patterns
 - **Path**: `skills/vercel-composition-patterns/`
 - **Purpose**: React composition patterns — compound components, CVA variants, React 19 APIs (no forwardRef, use()).
 - **Triggers**: components with too many boolean props, compound components, reusable APIs, context providers.
 
-### 23. Web Design Guidelines
+### 34. Web Design Guidelines
 - **Path**: `skills/web-design-guidelines/`
 - **Purpose**: Audits web interfaces for accessibility, performance, UX, and code quality (100+ rules in 18 categories).
 - **Triggers**: "review my UI", "check accessibility", "audit design", pre-merge frontend check.
 
-### 24. React Native Best Practices
+### 35. React Native Best Practices
 - **Path**: `skills/vercel-react-native-skills/`
 - **Purpose**: React Native and Expo performance patterns — FlashList, Reanimated, expo-router, monorepo setup.
 - **Triggers**: React Native or Expo app, list performance, animations, native modules, monorepo.
 
-### 25. Tailwind Design System
+### 36. Tailwind Design System
 - **Path**: `skills/tailwind-design-system/`
 - **Purpose**: Build design systems with Tailwind CSS v4 — CSS-first @theme config, OKLCH tokens, CVA variants.
 - **Triggers**: Tailwind v4, design tokens, CVA, dark mode setup, migrating from Tailwind v3.
 
-### 26. API Design Principles
+### 37. API Design Principles
 - **Path**: `skills/api-design-principles/`
 - **Purpose**: REST and GraphQL API design — naming, error formats, versioning, pagination, OpenAPI-first.
 - **Triggers**: new API endpoint, API contract review, GraphQL schema, API conventions.
 
-### 27. Supabase & Postgres Best Practices
+### 38. Supabase & Postgres Best Practices
 - **Path**: `skills/supabase-postgres/`
 - **Purpose**: Supabase and PostgreSQL best practices — indexes, RLS, connection pooling, schema design.
 - **Triggers**: SQL queries, database schema, RLS policies, Postgres optimization, Supabase setup.
 
-### 28. Stitch Skills
+### 39. Stitch Skills
 - **Path**: `skills/stitch-skills/`
 - **Purpose**: Convert Stitch AI design tool screens to production-ready React code and documentation.
 - **Triggers**: Stitch MCP server, "convert Stitch screen", "generate DESIGN.md", Stitch to React.
 
-### 29. Fullstack Developer
+### 40. Fullstack Developer
 - **Path**: `skills/fullstack-developer/`
 - **Purpose**: End-to-end feature implementation — scope → API contract → DB schema → frontend → deploy.
 - **Triggers**: "build this feature", "implement end-to-end", "new feature from scratch", side project setup.
+
+### 41. Agent Workflow
+- **Path**: `skills/agent-workflow/`
+- **Purpose**: Expert system for designing and architecting AI agent workflows. Covers the 9-step building process, 8-layer architecture framework, MCP integration, and single vs. multi-agent decision making.
+- **Triggers**: "build an agent", "design agent workflow", "multi-agent system", "agent architecture", "how should I structure this agent", MCP integration, ReAct pattern, tool calling design.
+
+### 42. Design Guide
+- **Path**: `skills/design-guide/`
+- **Purpose**: Modern UI design system and guidelines for building clean, professional interfaces with consistent spacing, typography, colors, and interaction patterns.
+- **Triggers**: creating or modifying UI components, web pages, React components, HTML/CSS, visual interfaces, design consistency, spacing guidelines.
+
+### 43. Figma Reverse Engineering
+- **Path**: `skills/figma-reverse-engineering/`
+- **Purpose**: Reverse engineers Figma designs into complete technical specifications ready for code implementation — design tokens, layout structure, CSS properties, and implementation spec.
+- **Triggers**: "reverse engineering del diseño", "documenta este Figma", "quiero implementar este diseño", "dame las propiedades CSS", "convierte este diseño a código", screenshots of Figma designs, Figma layers and properties.
+
+### 44. Frontend Slides
+- **Path**: `skills/frontend-slides-main/`
+- **Purpose**: Creates zero-dependency, animation-rich HTML presentations from scratch or by converting PowerPoint files. Helps non-designers discover their aesthetic through visual exploration.
+- **Triggers**: "build a presentation", "convert PPT to web", "create slides", "HTML presentation", "slide deck for a talk", "pitch slides".
 
 ---
 
 ### Documentation & Operations
 
-### 16. Changelog Generator
+### 45. Changelog Generator
 - **Path**: `skills/changelog-generator/`
 - **Purpose**: Technical-to-User-friendly release notes.
 - **Triggers**: releases, weekly updates, customer comms.
 
-### 17. Codebase Documenter
+### 46. Codebase Documenter
 - **Path**: `skills/codebase-documenter/`
 - **Purpose**: Creating beginner-friendly docs and architecture guides.
 - **Triggers**: README updates, documentation audits.
 
-### 18. Maintaining Documentation
+### 47. Maintaining Documentation
 - **Path**: `skills/maintaining-documentation/`
 - **Purpose**: Keeps documentation as a living single source of truth.
 - **Triggers**: feature completion, architecture changes, pre-push doc check.
 
-### 19. Creating Skills
+### 48. Creating Skills
 - **Path**: `skills/creating-skills/`
 - **Purpose**: Meta-skill for generating new standardized skills.
 - **Triggers**: "Build me a skill for X".
 
-### 20. Deploying to GitHub
+### 49. Deploying to GitHub
 - **Path**: `skills/deploying-to-github/`
 - **Purpose**: Automates version control workflows and pushes.
 - **Triggers**: saving changes, pushing code, git operations.
 
-### 21. Requesting Code Review
+### 50. Requesting Code Review
 - **Path**: `skills/requesting-code-review/`
 - **Purpose**: Superpowers:code-reviewer subagent for early issue detection.
 - **Triggers**: PR review, feature completion, pre-commit check.
+
+### 51. Autoresearch
+- **Path**: `skills/autoresearch/`
+- **Purpose**: Autonomously optimizes any Claude Code skill by running it repeatedly, scoring outputs against binary evals, mutating the prompt, and keeping improvements. Based on Karpathy's autoresearch methodology.
+- **Triggers**: "optimize this skill", "improve this skill", "run autoresearch on", "make this skill better", "self-improve skill", "benchmark skill", "eval my skill", "run evals on".
 
 ---
 
@@ -250,16 +280,17 @@ DISCOVER → STRATEGIZE → SPECIFY → BUILD → REVIEW → HARDEN → DOCUMENT
 ```
 
 1. **Discover** → `user-discovery` *(understand user problems before building)*
-2. **Strategize** → `product-strategy` *(define bets, North Star, OKRs)*
-3. **Specify** → `prd-writer` + `product-analytics` *(write the PRD + define success metrics)*
-4. **Design** → `brainstorming` + `brand-identity` + `frontend-design` + `interface-design`
-5. **Plan** → `planning` *(atomic, TDD-focused implementation plan)*
-6. **Build** → `react-best-practices` + `prompt-engineering-patterns` *(if AI features)*
-7. **Review** → `requesting-code-review`
-8. **Harden** → `error-handling-patterns`
-9. **Document** → `codebase-documenter` + `maintaining-documentation`
-10. **Release** → `changelog-generator` + `deploying-to-github`
-11. **Measure** → `product-analytics` *(post-launch impact analysis)*
+2. **Reframe** → `feature-to-outcome` *(translate stakeholder features into validated outcomes)*
+3. **Strategize** → `product-strategy` *(define bets, North Star, OKRs)*
+4. **Specify** → `prd-writer` + `product-analytics` *(write the PRD + define success metrics)*
+5. **Design** → `brainstorming` + `brand-identity` + `frontend-design` + `interface-design`
+6. **Plan** → `planning` *(atomic, TDD-focused implementation plan)*
+7. **Build** → `react-best-practices` + `prompt-engineering-patterns` *(if AI features)*
+8. **Review** → `requesting-code-review`
+9. **Harden** → `error-handling-patterns`
+10. **Document** → `codebase-documenter` + `maintaining-documentation`
+11. **Release** → `changelog-generator` + `deploying-to-github`
+12. **Measure** → `product-analytics` *(post-launch impact analysis)*
 
 ### Workflows
 

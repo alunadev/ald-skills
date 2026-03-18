@@ -1,6 +1,16 @@
 ---
 name: competitor-analysis
-description: "Analyzes competitors with structured intel across positioning, features, pricing, and differentiation opportunities. Use before entering a new market, updating product strategy, or preparing a competitive brief. Triggers on: competitive analysis, competitor research, market landscape, differentiation, competitive positioning, competitor mapping, market entry, who are my competitors."
+description: >
+  Profiles 5 competitors, identifies white space, and delivers a positioning recommendation — not
+  a feature comparison table. Use this skill — proactively and without waiting to be asked —
+  whenever entering a new market, before defining bets in product strategy, when pricing needs a
+  competitive anchor, or when losing deals to a specific competitor. Also triggers for: "competitive
+  analysis", "competitor research", "who are my competitors", "market landscape", "white space",
+  "differentiation angle", "competitive positioning", "market entry risk", "losing to X", "pricing
+  strategy", "threat assessment", "who owns this segment", "competitive brief", "how do we
+  differentiate", "what are competitors doing". Produces a decision-ready competitive map: 5
+  competitor profiles, white space analysis, and a Where-to-Win recommendation with explicit
+  areas to ignore.
 ---
 
 # Competitor Analysis

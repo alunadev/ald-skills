@@ -1,6 +1,16 @@
 ---
 name: value-proposition
-description: "Designs a value proposition using a 6-part JTBD template: Who, Why, What before, How, What after, Alternatives. Use when articulating why customers should choose your product or when positioning requires clarity. Triggers on: value proposition, value prop, JTBD, customer value, why us, positioning statement, product differentiation, customer benefit, what problem do we solve."
+description: >
+  Designs a precise value proposition using a 6-part JTBD template (Who / Why / What Before / How
+  / What After / Alternatives). Use this skill — proactively and without waiting to be asked —
+  whenever the product's positioning is unclear, a new customer segment is being targeted, or
+  messaging is inconsistent across teams. Also triggers for: "value proposition", "value prop",
+  "why would customers choose us", "positioning for new segment", "win/loss analysis shows
+  customer confusion", "customers can't explain why they use us", "what's our differentiation",
+  "elevator pitch", "why us over competitors", "competitive differentiation", "JTBD template",
+  "what problem do we solve", "who is this product for". Produces one value prop per segment —
+  not a tagline, a positioning decision — with a synthesized 1-2 sentence statement ready for
+  a PRD problem statement, landing page headline, or sales deck.
 ---
 
 # Value Proposition
