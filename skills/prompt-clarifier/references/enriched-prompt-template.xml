@@ -1,0 +1,63 @@
+<!--
+  Enriched Prompt Template — Prompt Clarifier Skill
+  ===================================================
+  Copy this template and fill in each field after the clarification interview.
+  Use [assumed] to label fields filled without explicit user confirmation.
+  Use TBD for fields that require codebase research before filling.
+-->
+
+<enriched_prompt>
+
+  <!-- Paste the user's original verbatim prompt here, unchanged -->
+  <original_request></original_request>
+
+  <intent>
+    <!-- One sentence: what the user is actually trying to accomplish -->
+    <what_to_accomplish></what_to_accomplish>
+
+    <!-- Pick one: bug_fix | new_feature | refactor | performance | ui_improvement | other -->
+    <type></type>
+
+    <!-- Pick one: critical | high | normal -->
+    <priority></priority>
+  </intent>
+
+  <context>
+    <!-- The file, component, or system where work begins.
+         Use "TBD — search codebase" if the user didn't specify. -->
+    <entry_point></entry_point>
+
+    <!-- Comma-separated list of systems, components, or APIs this change touches -->
+    <affected_systems></affected_systems>
+  </context>
+
+  <constraints>
+    <!-- Existing behaviors, APIs, tests, or contracts that must stay intact.
+         Be specific — vague "don't break anything" is not useful here. -->
+    <must_not_break></must_not_break>
+
+    <!-- What is explicitly out of scope for this task.
+         Prevents scope creep during execution. -->
+    <scope_boundary></scope_boundary>
+
+    <!-- Security or compliance requirements.
+         Auth flows, logging restrictions, PII handling, rate limits, etc.
+         Use "none stated" if not applicable. -->
+    <security></security>
+  </constraints>
+
+  <success_criteria>
+    <!-- Each criterion must be observable and verifiable — not "it works" -->
+    <criterion></criterion>
+    <criterion></criterion>
+
+    <!-- The concrete test or check the user will run to accept the work as done -->
+    <definition_of_done></definition_of_done>
+  </success_criteria>
+
+  <output_format>
+    <!-- What the agent should produce: code change, explanation, PR description, etc. -->
+    <deliverable></deliverable>
+  </output_format>
+
+</enriched_prompt>
