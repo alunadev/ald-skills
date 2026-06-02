@@ -1,6 +1,6 @@
-# Global Antigravity Skills
+# Global ALD Skills
 
-This repository serves as the central hub for reusable agentic skills. These skills are designed to be portable and automatically discoverable by AI agents like Antigravity and Claude Code.
+This repository serves as the central hub for reusable agentic skills. These skills are designed to be portable and automatically discoverable by any AI agent (Claude Code, Codex, OpenCode, or any other).
 
 ## 🛠 Active Skills
 
@@ -296,6 +296,13 @@ DISCOVER → STRATEGIZE → SPECIFY → BUILD → REVIEW → HARDEN → DOCUMENT
 10. **Document** → `codebase-documenter` + `maintaining-documentation`
 11. **Release** → `changelog-generator` + `deploying-to-github`
 12. **Measure** → `product-analytics` *(post-launch impact analysis)*
+
+### 53. Web Research
+- **Path**: `skills/web-research/`
+- **Purpose**: Correct protocol for crawling external websites — homepage first, extract real hrefs, then visit confirmed URLs. Prevents the pattern of guessing URL paths that leads to cascading 404s.
+- **Triggers**: "research this site", "check their website", "find what X does", "scrape this competitor", "crawl this URL", "fetch pages from", any task requiring multiple pages from the same domain. Use proactively before any multi-page web crawl.
+
+---
 
 ### Workflows
 

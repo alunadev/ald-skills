@@ -423,7 +423,7 @@ After creating or significantly modifying a skill, register it in the system ind
 
 ### Step 1: Add entry to README.md
 
-File: `ald_skills/skills/README.md`
+File: `ald-skills/skills/README.md`
 
 Add a numbered entry under the correct section (Product Management, Engineering & Development, or Documentation & Operations). Use this format:
 
@@ -439,7 +439,7 @@ N must continue the global sequence — check the last entry in the section for 
 ### Step 2: Commit and push the submodule
 
 ```bash
-cd /Users/adrianlunadiaz/ald-os/ald-system/ald_skills
+cd /Users/adrianlunadiaz/ald-os/ald-system/ald-skills
 git add skills/<new-skill-folder>/ skills/README.md
 git commit -m "feat(skills): add <skill-name> skill"
 git push origin main
@@ -449,8 +449,8 @@ git push origin main
 
 ```bash
 cd /Users/adrianlunadiaz/ald-os/ald-system
-git add ald_skills
-git commit -m "chore: update ald_skills submodule (add <skill-name>)"
+git add ald-skills
+git commit -m "chore: update ald-skills submodule (add <skill-name>)"
 git push
 ```
 

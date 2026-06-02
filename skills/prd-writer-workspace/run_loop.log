@@ -1,0 +1,124 @@
+Split: 12 train, 8 test (holdout=0.4)
+
+============================================================
+Iteration 1/5
+Description: Expert PRD (Product Requirements Document) writer for the AI era. Use when users want to create PRDs, spec documents, product specifications, feature specs, or technical requirements documents. Also use when users ask to review/improve existing PRDs, want PRD templates, need guidance on product documentation, or mention writing product specs. Handles both traditional and AI-specific product features with emphasis on decision-making over documentation.
+============================================================
+Warning: query failed: [Errno 2] No such file or directory: 'claude'
+Warning: query failed: [Errno 2] No such file or directory: 'claude'
+Warning: query failed: [Errno 2] No such file or directory: 'claude'
+Warning: query failed: [Errno 2] No such file or directory: 'claude'
+Warning: query failed: [Errno 2] No such file or directory: 'claude'
+Warning: query failed: [Errno 2] No such file or directory: 'claude'
+Warning: query failed: [Errno 2] No such file or directory: 'claude'
+Warning: query failed: [Errno 2] No such file or directory: 'claude'
+Warning: query failed: [Errno 2] No such file or directory: 'claude'
+Warning: query failed: [Errno 2] No such file or directory: 'claude'
+Warning: query failed: [Errno 2] No such file or directory: 'claude'
+Warning: query failed: [Errno 2] No such file or directory: 'claude'
+Warning: query failed: [Errno 2] No such file or directory: 'claude'
+Warning: query failed: [Errno 2] No such file or directory: 'claude'
+Warning: query failed: [Errno 2] No such file or directory: 'claude'
+Warning: query failed: [Errno 2] No such file or directory: 'claude'
+Warning: query failed: [Errno 2] No such file or directory: 'claude'
+Warning: query failed: [Errno 2] No such file or directory: 'claude'
+Warning: query failed: [Errno 2] No such file or directory: 'claude'
+Warning: query failed: [Errno 2] No such file or directory: 'claude'
+Warning: query failed: [Errno 2] No such file or directory: 'claude'
+Warning: query failed: [Errno 2] No such file or directory: 'claude'
+Warning: query failed: [Errno 2] No such file or directory: 'claude'
+Warning: query failed: [Errno 2] No such file or directory: 'claude'
+Warning: query failed: [Errno 2] No such file or directory: 'claude'
+Warning: query failed: [Errno 2] No such file or directory: 'claude'
+Warning: query failed: [Errno 2] No such file or directory: 'claude'
+Warning: query failed: [Errno 2] No such file or directory: 'claude'
+Warning: query failed: [Errno 2] No such file or directory: 'claude'
+Warning: query failed: [Errno 2] No such file or directory: 'claude'
+Warning: query failed: [Errno 2] No such file or directory: 'claude'
+Warning: query failed: [Errno 2] No such file or directory: 'claude'
+Warning: query failed: [Errno 2] No such file or directory: 'claude'
+Warning: query failed: [Errno 2] No such file or directory: 'claude'
+Warning: query failed: [Errno 2] No such file or directory: 'claude'
+Warning: query failed: [Errno 2] No such file or directory: 'claude'
+Warning: query failed: [Errno 2] No such file or directory: 'claude'
+Warning: query failed: [Errno 2] No such file or directory: 'claude'
+Warning: query failed: [Errno 2] No such file or directory: 'claude'
+Warning: query failed: [Errno 2] No such file or directory: 'claude'
+Warning: query failed: [Errno 2] No such file or directory: 'claude'
+Warning: query failed: [Errno 2] No such file or directory: 'claude'
+Warning: query failed: [Errno 2] No such file or directory: 'claude'
+Warning: query failed: [Errno 2] No such file or directory: 'claude'
+Warning: query failed: [Errno 2] No such file or directory: 'claude'
+Warning: query failed: [Errno 2] No such file or directory: 'claude'
+Warning: query failed: [Errno 2] No such file or directory: 'claude'
+Warning: query failed: [Errno 2] No such file or directory: 'claude'
+Warning: query failed: [Errno 2] No such file or directory: 'claude'
+Warning: query failed: [Errno 2] No such file or directory: 'claude'
+Warning: query failed: [Errno 2] No such file or directory: 'claude'
+Warning: query failed: [Errno 2] No such file or directory: 'claude'
+Warning: query failed: [Errno 2] No such file or directory: 'claude'
+Warning: query failed: [Errno 2] No such file or directory: 'claude'
+Warning: query failed: [Errno 2] No such file or directory: 'claude'
+Warning: query failed: [Errno 2] No such file or directory: 'claude'
+Warning: query failed: [Errno 2] No such file or directory: 'claude'
+Warning: query failed: [Errno 2] No such file or directory: 'claude'
+Warning: query failed: [Errno 2] No such file or directory: 'claude'
+Warning: query failed: [Errno 2] No such file or directory: 'claude'
+Train: 18/36 correct, precision=100% recall=0% accuracy=50% (0.9s)
+  [FAIL] rate=0/3 expected=True: write the product requirements for our v2 search feature. we
+  [FAIL] rate=0/3 expected=True: help me document the requirements for this AI chatbot we're 
+  [FAIL] rate=0/3 expected=True: i have a PRD template i've been using for 2 years and it fee
+  [FAIL] rate=0/3 expected=True: can you review my prd? working on user onboarding redesign a
+  [FAIL] rate=0/3 expected=True: i need to write a prd for a new feature where users can shar
+  [FAIL] rate=0/3 expected=True: help me write a product spec for our checkout redesign. we h
+  [PASS] rate=0/3 expected=False: help me write a user story: as a user i want to reset my pas
+  [PASS] rate=0/3 expected=False: create a go-to-market plan for launching our new collaborati
+  [PASS] rate=0/3 expected=False: i want to plan user research sessions for our checkout flow.
+  [PASS] rate=0/3 expected=False: write a business case for increasing our engineering headcou
+  [PASS] rate=0/3 expected=False: write api documentation for our new rest endpoints: POST /us
+  [PASS] rate=0/3 expected=False: help me write a project plan for our q3 database migration —
+Test : 12/24 correct, precision=100% recall=0% accuracy=50% (0.0s)
+  [FAIL] rate=0/3 expected=True: need to write a spec for payments integration — adding strip
+  [FAIL] rate=0/3 expected=True: create a feature spec for a mobile push notification system.
+  [FAIL] rate=0/3 expected=True: write me a requirements doc for the AI summarization feature
+  [PASS] rate=0/3 expected=False: help me create a technical design doc for our microservices 
+  [FAIL] rate=0/3 expected=True: draft product requirements for the analytics dashboard our c
+  [PASS] rate=0/3 expected=False: help me build an okr framework for q3. north star is revenue
+  [PASS] rate=0/3 expected=False: i need to update my roadmap for q2. we have 12 backlog items
+  [PASS] rate=0/3 expected=False: write a job description for a senior pm role at a b2b saas s
+
+Improving description...
+Traceback (most recent call last):
+  File "<frozen runpy>", line 198, in _run_module_as_main
+  File "<frozen runpy>", line 88, in _run_code
+  File "/Users/adrianlunadiaz/Library/Application Support/Claude/local-agent-mode-sessions/skills-plugin/2f7b1754-6d6c-4314-b237-afd5b4f42b57/a40fedff-a2f4-4ce2-84e1-bbc4724e392e/skills/skill-creator/scripts/run_loop.py", line 332, in <module>
+    main()
+  File "/Users/adrianlunadiaz/Library/Application Support/Claude/local-agent-mode-sessions/skills-plugin/2f7b1754-6d6c-4314-b237-afd5b4f42b57/a40fedff-a2f4-4ce2-84e1-bbc4724e392e/skills/skill-creator/scripts/run_loop.py", line 297, in main
+    output = run_loop(
+             ^^^^^^^^^
+  File "/Users/adrianlunadiaz/Library/Application Support/Claude/local-agent-mode-sessions/skills-plugin/2f7b1754-6d6c-4314-b237-afd5b4f42b57/a40fedff-a2f4-4ce2-84e1-bbc4724e392e/skills/skill-creator/scripts/run_loop.py", line 202, in run_loop
+    new_description = improve_description(
+                      ^^^^^^^^^^^^^^^^^^^^
+  File "/Users/adrianlunadiaz/Library/Application Support/Claude/local-agent-mode-sessions/skills-plugin/2f7b1754-6d6c-4314-b237-afd5b4f42b57/a40fedff-a2f4-4ce2-84e1-bbc4724e392e/skills/skill-creator/scripts/improve_description.py", line 114, in improve_description
+    response = client.messages.create(
+               ^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/homebrew/lib/python3.11/site-packages/anthropic/_utils/_utils.py", line 282, in wrapper
+    return func(*args, **kwargs)
+           ^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/homebrew/lib/python3.11/site-packages/anthropic/resources/messages/messages.py", line 996, in create
+    return self._post(
+           ^^^^^^^^^^^
+  File "/opt/homebrew/lib/python3.11/site-packages/anthropic/_base_client.py", line 1364, in post
+    return cast(ResponseT, self.request(cast_to, opts, stream=stream, stream_cls=stream_cls))
+                           ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/homebrew/lib/python3.11/site-packages/anthropic/_base_client.py", line 1058, in request
+    request = self._build_request(options, retries_taken=retries_taken)
+              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/homebrew/lib/python3.11/site-packages/anthropic/_base_client.py", line 521, in _build_request
+    headers = self._build_headers(options, retries_taken=retries_taken)
+              ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/opt/homebrew/lib/python3.11/site-packages/anthropic/_base_client.py", line 451, in _build_headers
+    self._validate_headers(headers_dict, custom_headers)
+  File "/opt/homebrew/lib/python3.11/site-packages/anthropic/_client.py", line 196, in _validate_headers
+    raise TypeError(
+TypeError: "Could not resolve authentication method. Expected either api_key or auth_token to be set. Or for one of the `X-Api-Key` or `Authorization` headers to be explicitly omitted"

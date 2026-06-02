@@ -12,7 +12,7 @@ Used as a submodule inside [ald-system](https://github.com/alunadev/ald-system),
 
 ```bash
 # Add to your project
-git submodule add https://github.com/alunadev/ald-skills.git ald_skills
+git submodule add https://github.com/alunadev/ald-skills.git ald-skills
 git submodule update --init
 ```
 
@@ -20,7 +20,7 @@ Then reference in your project's `CLAUDE.md`:
 
 ```markdown
 ## Available Skills
-@ald_skills/skills/README.md
+@ald-skills/skills/README.md
 ```
 
 ### Standalone Clone
@@ -29,7 +29,7 @@ Then reference in your project's `CLAUDE.md`:
 git clone https://github.com/alunadev/ald-skills.git
 ```
 
-Reference skills by path: `@ald_skills/skills/<name>/SKILL.md`
+Reference skills by path: `@ald-skills/skills/<name>/SKILL.md`
 
 ---
 
