@@ -1,0 +1,4 @@
+interface:
+  display_name: "Email Builder"
+  short_description: "Bilingual email drafts with CTA and variants"
+  default_prompt: "Use $email-builder to draft a concise bilingual email for a product update to existing customers."

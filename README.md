@@ -33,12 +33,13 @@ Reference skills by path: `@ald-skills/skills/<name>/SKILL.md`
 
 ---
 
-## Skills (33)
+## Featured Skill Map
 
 ### Product Management
 
 | Skill | Slash Command | Purpose |
 |-------|--------------|---------|
+| `email-builder` | - | Bilingual emails with subject lines, preheaders, body copy, CTAs, placeholders, and variants |
 | `user-discovery` | `/discovery` | Interview protocol, synthesis, Opportunity Statements |
 | `product-strategy` | `/strategy` | North Star, Opportunity Tree, 3 bets, OKRs |
 | `prd-writer` | `/prd` | Decision-focused PRDs with behavior contracts |
