@@ -289,7 +289,7 @@ This repository serves as the central hub for reusable agentic skills. These ski
 - **Purpose**: Upgrades existing UIs to premium quality by auditing generic AI patterns and applying high-end design standards.
 - **Triggers**: "improve the design", "looks generic", "not polished enough", "redesign this", "elevate the UI", "apply taste", design review.
 
-### 56. DESIGN.md
+### 56. design-md
 - **Path**: `skills/design-md/`
 - **Purpose**: Write, read, and apply DESIGN.md files — Google Stitch's open AI-readable design-system format (YAML tokens + Markdown rationale). Covers the spec, canonical section order, and the reverse-engineering process for extracting a brand's visual identity from decks/sites/screenshots into agent-ready tokens.
 - **Triggers**: "create a design.md", "extract a design system from...", "document this brand for AI tools", "Stitch design system", reverse-engineering a brand identity.
