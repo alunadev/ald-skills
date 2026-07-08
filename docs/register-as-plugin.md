@@ -1,5 +1,7 @@
 # How to Register ALD Skills as a Claude Code Plugin
 
+> **Executed 2026-07-07** — the plugin is registered as `ald-skills@local` and a `.claude-plugin/marketplace.json` now enables public installs.
+
 ## Why this is needed
 
 The Claude Code `Skill` tool only recognizes skills from **installed plugins** registered in `~/.claude/plugins/installed_plugins.json`. The ALD skills live in this repo as plain markdown files — Claude can read them via file path, but cannot invoke them with the `Skill` tool automatically.

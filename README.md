@@ -1,35 +1,55 @@
 # ALD Skills
 
-A public library of reusable AI skills for Claude Code. Each skill is a markdown file with YAML frontmatter that Claude loads on demand — giving it specialized knowledge for product management, engineering, and content workflows.
+**57 skills and 6 workflows that turn Claude Code into a product team.**
 
-Used as a submodule inside [ald-system](https://github.com/alunadev/ald-system), the personal AI configuration repo.
+This is the public layer of [ald-os](https://github.com/alunadev) — a personal
+AI Product Management Operating System I use daily to run the full product
+loop with AI agents: `problem → context → PRD → prototype → build → ship → learn`.
+
+Every skill here is battle-tested on real work — PRDs, product strategy,
+full-stack side projects, design systems, interview prep, and content. Nothing
+in this library is theoretical: if a skill stopped earning its place in my
+daily workflow, it was rewritten or removed.
+
+Built by [Adrian Luna Díaz](https://alunadev.vercel.app) — AI-first Senior
+Product Manager and Product Builder.
 
 ---
 
-## Quick Start
-
-### As a Git Submodule (Recommended)
+## Install as a Claude Code Plugin (Recommended)
 
 ```bash
-# Add to your project
+# 1. Add this repo as a plugin marketplace
+claude plugin marketplace add alunadev/ald-skills
+
+# 2. Install the plugin
+claude plugin install ald-skills@ald-skills
+```
+
+All skills become auto-discoverable: Claude triggers them by context, or you
+invoke them by name ("use prd-writer", "apply brainstorming").
+
+### Alternative: Git Submodule
+
+```bash
 git submodule add https://github.com/alunadev/ald-skills.git ald-skills
 git submodule update --init
 ```
 
-Then reference in your project's `CLAUDE.md`:
+Reference skills by path from your `CLAUDE.md`:
+`ald-skills/skills/<name>/SKILL.md`
 
-```markdown
-## Available Skills
-@ald-skills/skills/README.md
-```
+---
 
-### Standalone Clone
+## Why this exists
 
-```bash
-git clone https://github.com/alunadev/ald-skills.git
-```
+AI coding agents are only as good as the context and process you give them.
+Instead of re-explaining how I write PRDs, structure discovery, design
+interfaces, or ship features in every session, each practice lives in a
+skill: a markdown file with YAML frontmatter that Claude loads on demand.
 
-Reference skills by path: `@ald-skills/skills/<name>/SKILL.md`
+The result is a system where product work compounds — every session starts
+with the accumulated judgment of all previous ones.
 
 ---
 
@@ -39,49 +59,65 @@ Reference skills by path: `@ald-skills/skills/<name>/SKILL.md`
 
 | Skill | Slash Command | Purpose |
 |-------|--------------|---------|
-| `email-builder` | - | Bilingual emails with subject lines, preheaders, body copy, CTAs, placeholders, and variants |
-| `user-discovery` | `/discovery` | Interview protocol, synthesis, Opportunity Statements |
-| `product-strategy` | `/strategy` | North Star, Opportunity Tree, 3 bets, OKRs |
 | `prd-writer` | `/prd` | Decision-focused PRDs with behavior contracts |
+| `product-strategy` | `/strategy` | North Star, Opportunity Tree, 3 bets, OKRs |
+| `user-discovery` | `/discovery` | Interview protocol, synthesis, Opportunity Statements |
 | `product-analytics` | `/metrics` | Metric tree, A/B design, tracking plan, HEART |
+| `feature-to-outcome` | — | Translate stakeholder feature requests into validated outcomes |
 | `product-launch` | — | GTM brief, readiness checklists, rollout gates |
-| `idea-validator` | — | Brutal honest validation before committing resources |
-| `writing-system` | — | X threads, LinkedIn, blog, newsletter |
-| `linkedin-viral-post-writer` | — | Hook system for high-performance LinkedIn content |
-| `case-study-solver` | — | Full methodology for PM/TPM hiring case studies — written + verbal |
-| `pm-interview-communication` | — | SCQA/STAR scaffolding, answer templates, English under pressure |
+| `idea-validator` | — | Brutally honest validation before committing resources |
+| `competitor-analysis` | — | 5 competitor profiles, white space, where-to-win |
+| `prioritization-frameworks` | — | RICE, ICE, MoSCoW, Kano — picked by context |
+| `case-study-solver` | — | Full methodology for PM/TPM hiring case studies |
+| `pm-interview-communication` | — | SCQA/STAR scaffolding, English under pressure |
 
 ### Engineering & Development
 
 | Skill | Purpose |
 |-------|---------|
-| `brainstorming` | Socratic discovery and technical design |
+| `brainstorming` | Socratic discovery and technical design before code |
 | `planning` | Atomic, TDD-focused implementation plans |
-| `brand-identity` | Design tokens, tech stack, voice & tone |
-| `frontend-design` | Production-grade frontend interfaces |
-| `interface-design` | Dashboards, SaaS apps, admin panels |
+| `fullstack-developer` | Scope → API → DB schema → frontend → deploy |
 | `react-best-practices` | Performance optimization, 8 categories, 58 rules |
-| `vercel-composition-patterns` | Compound components, CVA variants, React 19 |
-| `tailwind-design-system` | Tailwind v4, CSS-first @theme, OKLCH tokens |
-| `stitch-skills` | Convert Stitch AI screens to production React |
-| `web-design-guidelines` | 100+ accessibility, UX and code quality rules |
 | `api-design-principles` | REST and GraphQL API design conventions |
 | `supabase-postgres` | Indexes, RLS, connection pooling, schema design |
-| `fullstack-developer` | Scope → API → DB schema → frontend → deploy |
 | `error-handling-patterns` | Exceptions, Result types, graceful degradation |
 | `prompt-engineering` | 6-step framework for production AI prompts |
 | `prompt-engineering-patterns` | 9 production-tested prompting patterns |
-| `vercel-react-native-skills` | FlashList, Reanimated, expo-router, monorepo |
 | `agent-workflow` | Design and architect multi-agent AI workflows |
+| `vercel-composition-patterns` | Compound components, CVA variants, React 19 |
+| `vercel-react-native-skills` | FlashList, Reanimated, expo-router, monorepo |
+
+### Design
+
+| Skill | Purpose |
+|-------|---------|
+| `frontend-design` | Production-grade frontend interfaces, no AI-slop |
+| `interface-design` | Dashboards, SaaS apps, admin panels |
+| `design-md` | Extract brand systems into AI-readable DESIGN.md tokens |
+| `tailwind-design-system` | Tailwind v4, CSS-first @theme, OKLCH tokens |
+| `taste-redesign` | Audit and elevate generic UIs to premium quality |
+| `web-design-guidelines` | 100+ accessibility, UX and code quality rules |
+| `brand-identity` | Design tokens, tech stack, voice & tone |
+| `figma-reverse-engineering` | Figma designs → implementation-ready specs |
+
+### Content & Communication
+
+| Skill | Purpose |
+|-------|---------|
+| `writing-system` | X threads, LinkedIn, blog, newsletter |
+| `linkedin-viral-post-writer` | Hook system for high-performance LinkedIn content |
+| `email-builder` | Bilingual emails: subject lines, CTAs, variants |
+| `changelog-generator` | Technical commits → user-friendly release notes |
 
 ### Documentation & Operations
 
 | Skill | Purpose |
 |-------|---------|
-| `changelog-generator` | Technical commits → user-friendly release notes |
-| `codebase-documenter` | READMEs, architecture guides, API docs |
 | `maintaining-documentation` | Keep docs as a living single source of truth |
+| `codebase-documenter` | READMEs, architecture guides, API docs |
 | `creating-skills` | Meta-skill for generating new standardized skills |
+| `autoresearch` | Self-optimize any skill via eval loops |
 | `deploying-to-github` | Automates version control workflows |
 | `requesting-code-review` | AI-powered code review subagent |
 
@@ -116,18 +152,33 @@ YAML frontmatter:
 
 ```yaml
 ---
-name: name-in-gerund-form          # lowercase, hyphens
+name: skill-name                   # lowercase, hyphens
 description: Third person. What it does and when to trigger it. Max 1024 chars.
 ---
 ```
 
-Use the `creating-skills` meta-skill to generate new skills following this format.
+Use the `creating-skills` meta-skill to generate new skills following this
+format, and `autoresearch` to optimize them against evals.
 
 ---
 
 ## Full Skill Index
 
-See `skills/README.md` for the complete index with trigger conditions and the PM → Engineering → Release workflow integration.
+See [skills/README.md](skills/README.md) for the complete index with trigger
+conditions and the PM → Engineering → Release workflow integration.
+
+---
+
+## The System Behind This
+
+ald-skills is one layer of a larger operating system for AI-first product
+work. The other layers (private): per-product context folders, an evidence
+and profile pipeline, session logs with automatic rollup between repos, and
+hooks that enforce the operating rules. The concept: **product work should
+compound, not restart every session.**
+
+If you're building something similar, the skill format plus the
+`creating-skills` meta-skill is the best place to start.
 
 ---
 
@@ -139,4 +190,6 @@ See `skills/README.md` for the complete index with trigger conditions and the PM
 
 ---
 
-Built by [@adrianlunadiaz](https://x.com/adrianlunadiaz)
+Built by [@adrianlunadiaz](https://x.com/adrianlunadiaz) ·
+[Portfolio](https://alunadev.vercel.app) ·
+[GitHub](https://github.com/alunadev)

@@ -1,0 +1,14 @@
+{
+  "name": "ald-skills",
+  "owner": {
+    "name": "alunadev",
+    "url": "https://github.com/alunadev"
+  },
+  "plugins": [
+    {
+      "name": "ald-skills",
+      "source": "./",
+      "description": "Adrian Luna Díaz's skill library — 57 skills and 6 workflows for product management, engineering, design, and content, built for AI-first product work."
+    }
+  ]
+}
