@@ -325,3 +325,17 @@ DISCOVER → STRATEGIZE → SPECIFY → BUILD → REVIEW → HARDEN → DOCUMENT
 - `workflows/idea-to-prd/` — idea-validator → brainstorming → prd-writer with gates, with `/idea` slash command
 - `workflows/feature-to-launch/` — PRD → full-stack-build → changelog → product-launch with readiness gates, with `/feature-launch` slash command
 - `workflows/content-publishing/` — writing-system → edit pass → platform publishing, with `/publish` slash command
+
+## Routing vs official plugins (Claude Code)
+
+Some skills here mirror third-party content that also ships as official
+Claude Code plugins. In Claude Code, prefer the official plugin (kept current
+upstream); the copies here exist for Codex/Cursor portability.
+
+| ald-skills copy | Official plugin equivalent | In Claude Code use |
+|---|---|---|
+| react-best-practices | vercel:react-best-practices | official |
+| frontend-design | frontend-design (official) | official |
+| creating-skills | skill-creator (official) | official |
+| supabase-postgres | supabase plugin | official |
+| requesting-code-review | code-review / pr-review-toolkit | official |
