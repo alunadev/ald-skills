@@ -1,0 +1,26 @@
+## Current State
+[FILL IN: What's working right now? Where did you leave off?]
+
+## Last Session
+Date: YYYY-MM-DD
+- [FILL IN: What was done]
+- [FILL IN: Decisions made]
+- [FILL IN: What was left incomplete]
+
+## Active Task
+[FILL IN: The single task being worked on right now]
+
+## Next Up
+1. [FILL IN]
+2. [FILL IN]
+
+## Blockers
+- [FILL IN: any blocker or question pending]
+
+## Decisions Log
+| Date | Decision | Rationale |
+|------|----------|-----------|
+| YYYY-MM-DD | [FILL IN] | [FILL IN] |
+
+---
+<!-- Keep this file updated. The agent reads it at the start of each session to understand where you left off. Max 50 lines. -->

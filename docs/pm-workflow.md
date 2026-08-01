@@ -3,8 +3,21 @@
 Flujo completo de 11 pasos que cubre todo el ciclo: desde validar una idea hasta medir su impacto post-lanzamiento. Cada paso tiene una skill asignada, un output concreto, y condiciones de entrada.
 
 ```
-DISCOVER → STRATEGIZE → SPECIFY → DESIGN → PLAN → BUILD → REVIEW → HARDEN → DOCUMENT → RELEASE → MEASURE
+BOOTSTRAP → DISCOVER → STRATEGIZE → SPECIFY → DESIGN → PLAN → BUILD → REVIEW → HARDEN → DOCUMENT → RELEASE → MEASURE
 ```
+
+---
+
+## 0. BOOTSTRAP — Documentar el proyecto (una vez, no por feature)
+
+**Workflow:** `canonical-docs` · **Slash command:** `/canonical-docs [proyecto o producto]`
+
+**Cuándo usarlo:** Al arrancar un proyecto nuevo, o cuando un producto que solo tiene las notas ligeras (`context/*.md` + `CLAUDE.md` + `progress.txt`) pasa a build real. Se ejecuta una vez por proyecto, no una vez por feature — el resto del loop (pasos 1-11) asume que estos docs ya existen.
+
+**Input:** Nombre del proyecto/producto y contexto disponible (código existente, docs parciales, lo que ya se ha dicho en la conversación)
+**Output:** `CLAUDE.md`, `progress.txt`, `context/*.md`, `docs/product/prd.md`, `docs/product/app-flow.md`, `docs/design-system/design-system.md`, `docs/system/tech-stack.md`, `docs/system/backend-structure.md`, `docs/system/implementation-plan.md` — todos rellenados vía entrevista, nunca con `[FILL IN]` sin resolver
+
+**Gate de salida:** Cada doc está completo o tiene sus huecos marcados explícitamente como pregunta abierta — nunca un placeholder silencioso.
 
 ---
 

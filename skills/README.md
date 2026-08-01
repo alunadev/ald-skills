@@ -301,9 +301,12 @@ This repository serves as the central hub for reusable agentic skills. These ski
 ### Full PM → Engineering → Release Flow
 
 ```
-DISCOVER → STRATEGIZE → SPECIFY → BUILD → REVIEW → HARDEN → DOCUMENT → RELEASE
+BOOTSTRAP → DISCOVER → STRATEGIZE → SPECIFY → BUILD → REVIEW → HARDEN → DOCUMENT → RELEASE
 ```
 
+0. **Bootstrap** *(once per project, not per feature)* → `workflows/canonical-docs` *(grill-me
+   interview that fills PRD, App Flow, Design System, Tech Stack, Backend Structure, and
+   Implementation Plan before any feature work starts — `/canonical-docs`)*
 1. **Discover** → `user-discovery` *(understand user problems before building)*
 2. **Reframe** → `feature-to-outcome` *(translate stakeholder features into validated outcomes)*
 3. **Strategize** → `product-strategy` *(define bets, North Star, OKRs)*
@@ -319,6 +322,10 @@ DISCOVER → STRATEGIZE → SPECIFY → BUILD → REVIEW → HARDEN → DOCUMENT
 
 ### Workflows
 
+- `workflows/canonical-docs/` — Bootstraps or completes a project's full canonical docs (PRD, App
+  Flow, Design System, Tech Stack, Backend Structure, Implementation Plan) via a relentless,
+  one-question-at-a-time grill-me interview — never fills a field by assumption, with `/canonical-docs`
+  slash command
 - `workflows/systematic-debugging/` — Root-cause-first debugging protocol with `/debug` slash command
 - `workflows/feature-documenter/` — Feature documentation automation
 - `workflows/full-stack-build/` — End-to-end feature workflow: API design → DB schema → React → deploy, with `/fullstack` slash command
