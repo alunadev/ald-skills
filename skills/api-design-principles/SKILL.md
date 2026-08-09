@@ -1,5 +1,5 @@
 ---
-name: designing-api-principles
+name: api-design-principles
 description: Designs REST and GraphQL APIs following production best practices for resource naming, error handling, versioning, authentication, and documentation. Use this skill when designing new API endpoints, reviewing API contracts, implementing GraphQL schemas, establishing API conventions for a project, or writing API documentation. Apply when creating any route in Next.js API routes or route handlers, any Supabase Edge Function, or any backend endpoint — even if it starts small, these patterns prevent painful rewrites later.
 ---
 

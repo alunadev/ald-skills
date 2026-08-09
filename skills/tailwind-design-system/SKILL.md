@@ -1,5 +1,5 @@
 ---
-name: building-tailwind-design-system
+name: tailwind-design-system
 description: Builds production-ready design systems with Tailwind CSS v4 using CSS-first configuration, design tokens, CVA component variants, and native CSS animations. Use this skill when creating component libraries, implementing design tokens with @theme, setting up dark mode with @custom-variant, migrating from Tailwind v3 to v4, building type-safe component variants, or standardizing UI patterns across a codebase. Apply when you see tailwind.config.ts, @tailwind directives, or any Tailwind-related question — v4 changes the setup significantly.
 ---
 

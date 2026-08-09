@@ -1,5 +1,5 @@
 ---
-name: planning-product-launch
+name: product-launch
 description: Creates go-to-market plans and launch checklists for features and side projects. Use when preparing a feature for public release, planning a Product Hunt launch, defining a rollout strategy, creating a post-launch review framework, or coordinating the technical, product, and marketing work for a launch. Triggers on: "prepare launch", "go-to-market", "Product Hunt", "launch checklist", "rollout plan", "launch this feature".
 ---
 
