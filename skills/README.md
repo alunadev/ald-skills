@@ -167,7 +167,7 @@ This repository serves as the central hub for reusable agentic skills. These ski
 
 ### 32. Prompt Engineering
 - **Path**: `skills/prompt-engineering/`
-- **Purpose**: 6-step optimization framework for production AI prompts.
+- **Purpose**: 6-step optimization framework for prompts *inside an AI product you're building* (system prompts, chatbot/agent instructions) — not for clarifying your own requests to Claude Code, see `prompt-clarifier`.
 - **Triggers**: optimizing a system prompt, building an AI feature, prompt failure analysis.
 
 ### 33. Prompt Engineering Patterns

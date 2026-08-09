@@ -1,6 +1,6 @@
 ---
 name: prompt-engineering
-description: Expert prompt optimization system for building production-ready AI features. Use when users request help improving prompts, want to create system prompts, need prompt review/critique, ask for prompt optimization strategies, want to analyze prompt effectiveness, mention prompt engineering best practices, request prompt templates, or need guidance on structuring AI instructions. Also use when users provide prompts and want suggestions for improvement.
+description: Expert prompt optimization system for the prompts INSIDE an AI product you are building — system prompts, LLM feature prompts, chatbot/agent instructions. Use when the user wants to write or improve a system prompt for an AI feature they're shipping, review/critique an LLM prompt, apply prompt-engineering techniques (chain-of-thought, few-shot, structured output, hard constraints) to a product prompt, or optimize cost/latency of a production prompt. Do NOT use this to clarify or structure the user's own vague request to Claude Code — that is `prompt-clarifier`'s job, not this skill's.
 ---
 
 # Prompt Engineering Expert
