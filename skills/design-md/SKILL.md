@@ -174,3 +174,10 @@ for that exact filename next to `README.md`). If reverse-engineering from non-ca
 (PDF, screenshots, a live site you can't inspect pixel values on), say so explicitly in the
 `description` front-matter field and in "Known Gaps" — never present visual estimates as
 confirmed brand values.
+
+## See Also
+
+- `brand-identity` — runs the interview that decides *what* the brand should be for a new
+  project; hands off here for the actual `DESIGN.md` file format and spec.
+- `taste-redesign` — for elevating a UI that already has a `DESIGN.md`/identity, rather than
+  defining one from scratch.
