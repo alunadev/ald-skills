@@ -63,6 +63,8 @@ with the accumulated judgment of all previous ones.
 | `product-strategy` | `/strategy` | North Star, Opportunity Tree, 3 bets, OKRs |
 | `user-discovery` | `/discovery` | Interview protocol, synthesis, Opportunity Statements |
 | `product-analytics` | `/metrics` | Metric tree, A/B design, tracking plan, HEART |
+| `analytics-tracking` | `/tracking` | Event naming, GA4/GTM/Amplitude setup, debugging |
+| `ai-product-strategy` | `/ai-strategy` | Wedge, RAG vs. fine-tuning, autonomy, defensibility |
 | `feature-to-outcome` | — | Translate stakeholder feature requests into validated outcomes |
 | `product-launch` | — | GTM brief, readiness checklists, rollout gates |
 | `idea-validator` | — | Brutally honest validation before committing resources |
