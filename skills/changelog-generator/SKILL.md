@@ -1,5 +1,5 @@
 ---
-name: generating-changelogs
+name: changelog-generator
 description: Transforms technical git commits into polished, user-friendly changelogs. Use when preparing release notes, creating product update summaries, documenting changes for customers, or maintaining a public changelog page.
 ---
 
@@ -32,9 +32,15 @@ Transforms technical git commits into polished, user-friendly changelogs that yo
 
 ### Language Transformation Examples
 - **Before**: `feat: add redis cache layer for API responses`
-- **After**: **Faster API**: Responses now load 3x faster thanks to improved caching.
+- **After**: **Faster API**: Responses now load noticeably faster thanks to improved caching.
 - **Before**: `fix: resolve race condition in user sync`
 - **After**: Fixed issue where user data occasionally wouldn't sync across devices.
+
+**Never invent a number.** If the commit message or PR doesn't state a measured impact
+(a percentage, a duration, a count), describe what changed functionally — "loads faster,"
+"fewer failed syncs" — don't guess a multiplier or percentage to sound more impressive. A
+specific number belongs in a changelog only when it's real and you can point to where it
+came from (a benchmark, a PR description, a linked metric).
 
 ## Resources
 - Use `git log $(git describe --tags --abbrev=0)..HEAD --oneline` for analysis.
