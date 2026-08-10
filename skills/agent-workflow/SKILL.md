@@ -1,13 +1,13 @@
 ---
 name: agent-workflow
-description: Expert system for designing and architecting AI agent workflows based on proven Meta methodologies. Use when building AI agents, designing multi-agent systems, integrating tools into agent architectures, choosing between single vs. multi-agent setups, or translating a business problem into an agentic solution. Triggers on: "build an agent", "design agent workflow", "multi-agent system", "agent architecture", "how should I structure this agent". Covers 9-step building process, 8-layer architecture framework, MCP integration, and pitfall avoidance.
+description: Expert system for designing and architecting AI agent workflows. Use when building AI agents, designing multi-agent systems, integrating tools into agent architectures, choosing between single vs. multi-agent setups, or translating a business problem into an agentic solution. Triggers on: "build an agent", "design agent workflow", "multi-agent system", "agent architecture", "how should I structure this agent". Covers 9-step building process, 8-layer architecture framework, MCP integration, and pitfall avoidance.
 ---
 
 # Agent Workflow Designer
 
 ## Overview
 
-This skill guides the design and architecture of AI agent workflows using proven methodologies. When a user presents a problem, this skill helps structure an agent-based solution following the 9-step building process and 8-layer architecture framework validated at Meta.
+This skill guides the design and architecture of AI agent workflows. When a user presents a problem, this skill helps structure an agent-based solution following the 9-step building process and 8-layer architecture framework.
 
 ## Workflow Decision Tree
 
