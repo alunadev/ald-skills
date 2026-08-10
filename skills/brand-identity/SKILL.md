@@ -45,5 +45,7 @@ Starting point for step 1, not a rule — confirm or deviate per project:
 
 - `design-md` — the `DESIGN.md` format and spec this skill writes to. Read it for the exact
   YAML schema and canonical section order before drafting.
+- `taste-skill` — once the brand exists, use this to build the project's first UI from a brief
+  without generic-AI tells, respecting the identity this skill just generated.
 - `taste-redesign` — for elevating an *existing* UI that already has an identity, rather than
   defining a new one from scratch.

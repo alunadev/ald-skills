@@ -201,20 +201,25 @@ This repository serves as the central hub for reusable agentic skills. These ski
 
 ### 38. Taste Redesign
 - **Path**: `skills/taste-redesign/`
-- **Purpose**: Upgrades existing UIs to premium quality by auditing generic AI patterns and applying high-end design standards.
+- **Purpose**: Audits an EXISTING UI/codebase for generic AI patterns and applies craft fixes (layout, interactivity, content, iconography, code quality) without overriding a project's own identity — checks for a `DESIGN.md` first and skips typography/color changes if one exists.
 - **Triggers**: "improve the design", "looks generic", "not polished enough", "redesign this", "elevate the UI", "apply taste", design review.
 
-### 39. design-md
+### 39. Taste Skill
+- **Path**: `skills/taste-skill/`
+- **Purpose**: Anti-slop frontend design for building NEW UI from a brief — brief-first, three configurable dials (variance/motion/density), and an extensive banned-pattern checklist (em-dashes, generic names, fake screenshots, marketing-copy tells) to avoid default-AI output. Defers to an existing `DESIGN.md` when one exists.
+- **Triggers**: "build a landing page", "design a portfolio", "make this not look generic/templated/AI-generated", "anti-slop", starting UI work with a brief but no identity yet.
+
+### 40. design-md
 - **Path**: `skills/design-md/`
 - **Purpose**: Write, read, and apply DESIGN.md files — Google Stitch's open AI-readable design-system format (YAML tokens + Markdown rationale). Covers the spec, canonical section order, and the reverse-engineering process for extracting a brand's visual identity from decks/sites/screenshots into agent-ready tokens.
 - **Triggers**: "create a design.md", "extract a design system from...", "document this brand for AI tools", "Stitch design system", reverse-engineering a brand identity.
 
-### 40. AI Product Strategy
+### 41. AI Product Strategy
 - **Path**: `skills/ai-product-strategy/`
 - **Purpose**: Decision-focused strategy for products built on LLMs or agents — wedge selection, RAG vs. fine-tuning, non-deterministic UX design, graduated autonomy, and defensibility. Not general product strategy — see `product-strategy` for that.
 - **Triggers**: "should this be an agent", "RAG vs fine-tuning", "how much autonomy should this feature have", "is this AI feature defensible", "our AI feature keeps hallucinating and users don't trust it", "AI product wedge", "human-in-the-loop design".
 
-### 41. Analytics Tracking
+### 42. Analytics Tracking
 - **Path**: `skills/analytics-tracking/`
 - **Purpose**: Implementation layer for analytics — event naming conventions, tracking plans, GA4/GTM/Amplitude/Segment setup, UTM strategy, and debugging. Reference tool: Amplitude. Pairs with `product-analytics` (which covers what to measure and why); use this for the "how do we wire it up" step.
 - **Triggers**: "set up tracking", "GA4", "Amplitude", "event tracking", "UTM parameters", "tag manager", "GTM", "tracking plan", "event taxonomy", "are my events firing", "naming convention for events", "instrument this feature".
@@ -233,7 +238,7 @@ STRATEGIZE → SPECIFY → DESIGN → BUILD → REVIEW → HARDEN → DOCUMENT �
 2. **Strategize** → `product-strategy` *(define bets, North Star, OKRs)*
 3. **Specify** → `prd-writer` + `product-analytics` *(write the PRD + define success metrics)*
 4. **Design** → `brainstorming` + `brand-identity`
-5. **Build** → `react-best-practices` + `prompt-engineering-patterns` *(if AI features)*
+5. **Build** → `taste-skill` (new UI from the brief) or `taste-redesign` (upgrading existing UI) + `react-best-practices` + `prompt-engineering-patterns` *(if AI features)*
 6. **Review** → `requesting-code-review`
 7. **Harden** → `error-handling-patterns`
 8. **Document** → `maintaining-documentation`
