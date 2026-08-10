@@ -67,8 +67,6 @@ with the accumulated judgment of all previous ones.
 | `feature-to-outcome` | — | Translate stakeholder feature requests into validated outcomes |
 | `product-launch` | — | GTM brief, readiness checklists, rollout gates |
 | `competitor-analysis` | — | 5 competitor profiles, white space, where-to-win |
-| `case-study-solver` | — | Full methodology for PM/TPM hiring case studies |
-| `pm-interview-communication` | — | SCQA/STAR scaffolding, English under pressure |
 
 ### Engineering & Development
 
@@ -105,6 +103,13 @@ with the accumulated judgment of all previous ones.
 | `x-thread-writer` | Same voice standard, for X/Twitter threads |
 | `email-builder` | Bilingual emails: subject lines, CTAs, variants |
 | `changelog-generator` | Technical commits → user-friendly release notes |
+
+### Career & Interviews
+
+| Skill | Purpose |
+|-------|---------|
+| `case-study-solver` | Full methodology for PM/TPM hiring case studies, incl. wireframe standards |
+| `pm-interview-communication` | SCQA/STAR/C-F-I scaffolding, English + Spanish under pressure |
 
 ### Documentation & Operations
 
