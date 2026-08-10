@@ -1,43 +1,49 @@
 ---
-name: maintaining-brand-identity
-description: Provides the single source of truth for brand guidelines, design tokens, technology choices, and voice/tone. Use when applying brand colors, defining typography scale, configuring CSS custom properties, or writing copy that must match a specific brand voice. Triggers on: design tokens, brand colors, color palette, typography, font family, voice & tone, CSS variables, brand consistency, design system initialization.
+name: brand-identity
+description: Generates a bespoke brand identity for a new project through a short interview, then writes it as a DESIGN.md file (Google Stitch format) in that project's own repo. Use when starting a new project and its visual identity isn't defined yet, when asked "what's the brand for X", "define the brand for this project", "new project design system", or before the first UI work on a fresh project. Do NOT use this to restyle or elevate a project that already has an identity — that's `taste-redesign`.
 ---
 
-# Brand Identity & Guidelines
+# Brand Identity Generator
 
-This skill defines the core constraints for visual design and technical implementation for the brand. You must adhere to these guidelines strictly to maintain consistency.
+## Why per-project, not one fixed brand
 
-## When to use this skill
-- Generating UI components or styling applications.
-- Choosing libraries or structuring technical implementations.
-- Writing marketing copy, error messages, or documentation.
-- Ensuring visual and voice consistency across the project.
+Every project gets its own identity, generated for that project — this skill does not apply a
+single default brand across everything. There is no "the ALD brand" to fall back to; a
+generic look with no real decisions behind it is worse than one clearly generated for the
+project at hand.
 
 ## Workflow
-1.  **Analyze Task Type**: Determine if the task is visual, technical, or content-related.
-2.  **Retrieve Guidelines**: Read the relevant resource file (tokens, tech-stack, or voice-tone).
-3.  **Apply Constraints**: Implement the solution following the exact values and rules specified.
-4.  **Verify Consistency**: Cross-reference the output with the brand guidelines.
 
-## Instructions
+1. **Interview — up to 6 questions, one at a time, multiple-choice where possible:**
+   - What is this project, in one line? Who's it for?
+   - Industry / domain — anything that implies conventions to follow or break?
+   - Personality: 3 adjectives, or the closest reference brand(s)/products.
+   - Primary color or mood — or "surprise me based on the personality answer."
+   - Typography lean: serif / sans / mono / display — or "your call."
+   - Tech stack — default is Adrian's usual (below); only ask if this project needs
+     something different.
+2. **Draft the brand.** Propose concrete token values (colors, typography, spacing, shape)
+   that follow from the interview answers — not generic SaaS defaults.
+3. **Write it as `DESIGN.md`** at the project's repo root, following the exact format and
+   canonical section order from the `design-md` skill — read that skill first for the
+   YAML token schema and section order, don't improvise the format.
+4. If the tech stack deviates from Adrian's default, note it in `DESIGN.md`'s "Known Gaps"
+   section rather than creating a separate file for it.
+5. Never write brand output into this skill's own directory — the generated identity belongs
+   to the project it's for, not to `ald-skills`.
 
-### For Visual Design & UI Styling
-If you need exact colors, fonts, border radii, or spacing values, read:
-👉 **[`resources/design-tokens.json`](resources/design-tokens.json)**
+## Adrian's default stack
 
-### For Coding & Component Implementation
-If you are generating code, choosing libraries, or structuring UI components, read the technical constraints here:
-👉 **[`resources/tech-stack.md`](resources/tech-stack.md)**
+Starting point for step 1, not a rule — confirm or deviate per project:
 
-### For Copywriting & Content Generation
-If you are writing marketing copy, error messages, documentation, or user-facing text, read the persona guidelines here:
-👉 **[`resources/voice-tone.md`](resources/voice-tone.md)**
-
-## Resources
-- `resources/design-tokens.json`
-- `resources/tech-stack.md`
-- `resources/voice-tone.md`
-
+- React + TypeScript
+- Tailwind CSS v4 (CSS-first `@theme`)
+- shadcn/ui primitives
+- Lucide icons
 
 ## See Also
-- `tailwind-design-system` — Para implementación de design tokens en Tailwind v4 con @theme y CVA components
+
+- `design-md` — the `DESIGN.md` format and spec this skill writes to. Read it for the exact
+  YAML schema and canonical section order before drafting.
+- `taste-redesign` — for elevating an *existing* UI that already has an identity, rather than
+  defining a new one from scratch.

@@ -97,8 +97,8 @@ This repository serves as the central hub for reusable agentic skills. These ski
 
 ### 18. Brand Identity
 - **Path**: `skills/brand-identity/`
-- **Purpose**: Single Source of Truth for design, tech stack, and voice.
-- **Triggers**: UI generation, styling, copywriting.
+- **Purpose**: Generates a bespoke brand identity per new project through a short interview, written as a `DESIGN.md` file in that project's repo — not one fixed brand applied everywhere.
+- **Triggers**: starting a new project, "what's the brand for X", "define the brand for this project", new project design system, before first UI work on a fresh project.
 
 ### 19. Error Handling Patterns
 - **Path**: `skills/error-handling-patterns/`
