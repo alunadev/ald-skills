@@ -135,27 +135,22 @@ This repository serves as the central hub for reusable agentic skills. These ski
 - **Purpose**: React Native and Expo performance patterns — FlashList, Reanimated, expo-router, monorepo setup.
 - **Triggers**: React Native or Expo app, list performance, animations, native modules, monorepo.
 
-### 26. Tailwind Design System
-- **Path**: `skills/tailwind-design-system/`
-- **Purpose**: Build design systems with Tailwind CSS v4 — CSS-first @theme config, OKLCH tokens, CVA variants.
-- **Triggers**: Tailwind v4, design tokens, CVA, dark mode setup, migrating from Tailwind v3.
-
-### 27. API Design Principles
+### 26. API Design Principles
 - **Path**: `skills/api-design-principles/`
 - **Purpose**: REST and GraphQL API design — naming, error formats, versioning, pagination, OpenAPI-first.
 - **Triggers**: new API endpoint, API contract review, GraphQL schema, API conventions.
 
-### 28. Agent Workflow
+### 27. Agent Workflow
 - **Path**: `skills/agent-workflow/`
 - **Purpose**: Expert system for designing and architecting AI agent workflows. Covers the 9-step building process, 8-layer architecture framework, MCP integration, and single vs. multi-agent decision making.
 - **Triggers**: "build an agent", "design agent workflow", "multi-agent system", "agent architecture", "how should I structure this agent", MCP integration, ReAct pattern, tool calling design.
 
-### 29. Figma Reverse Engineering
+### 28. Figma Reverse Engineering
 - **Path**: `skills/figma-reverse-engineering/`
 - **Purpose**: Reverse engineers Figma designs into complete technical specifications ready for code implementation — design tokens, layout structure, CSS properties, and implementation spec.
 - **Triggers**: "reverse engineering del diseño", "documenta este Figma", "quiero implementar este diseño", "dame las propiedades CSS", "convierte este diseño a código", screenshots of Figma designs, Figma layers and properties.
 
-### 30. Frontend Slides
+### 29. Frontend Slides
 - **Path**: `skills/frontend-slides/`
 - **Purpose**: Creates zero-dependency, animation-rich HTML presentations from scratch or by converting PowerPoint files. Uses a project's `DESIGN.md` tokens when one exists, otherwise offers 12 curated presets. Helps non-designers discover their aesthetic through visual exploration.
 - **Triggers**: "build a presentation", "convert PPT to web", "create slides", "HTML presentation", "slide deck for a talk", "pitch slides".
@@ -164,62 +159,62 @@ This repository serves as the central hub for reusable agentic skills. These ski
 
 ### Documentation & Operations
 
-### 31. Changelog Generator
+### 30. Changelog Generator
 - **Path**: `skills/changelog-generator/`
 - **Purpose**: Technical-to-User-friendly release notes.
 - **Triggers**: releases, weekly updates, customer comms.
 
-### 32. Maintaining Documentation
+### 31. Maintaining Documentation
 - **Path**: `skills/maintaining-documentation/`
 - **Purpose**: Keeps documentation as a living single source of truth.
 - **Triggers**: feature completion, architecture changes, pre-push doc check.
 
-### 33. Creating Skills
+### 32. Creating Skills
 - **Path**: `skills/creating-skills/`
 - **Purpose**: Meta-skill for generating new standardized skills.
 - **Triggers**: "Build me a skill for X".
 
-### 34. Deploying to GitHub
+### 33. Deploying to GitHub
 - **Path**: `skills/deploying-to-github/`
 - **Purpose**: Automates version control workflows and pushes.
 - **Triggers**: saving changes, pushing code, git operations.
 
-### 35. Requesting Code Review
+### 34. Requesting Code Review
 - **Path**: `skills/requesting-code-review/`
 - **Purpose**: Superpowers:code-reviewer subagent for early issue detection.
 - **Triggers**: PR review, feature completion, pre-commit check.
 
-### 36. Autoresearch
+### 35. Autoresearch
 - **Path**: `skills/autoresearch/`
 - **Purpose**: Autonomously optimizes any Claude Code skill by running it repeatedly, scoring outputs against binary evals, mutating the prompt, and keeping improvements. Based on Karpathy's autoresearch methodology.
 - **Triggers**: "optimize this skill", "improve this skill", "run autoresearch on", "make this skill better", "self-improve skill", "benchmark skill", "eval my skill", "run evals on".
 
-### 37. Prompt Clarifier
+### 36. Prompt Clarifier
 - **Path**: `skills/prompt-clarifier/`
 - **Purpose**: Enriches vague, low-detail prompts into structured agent-optimized XML before execution. Runs a 2-3 question Socratic interview to extract intent, constraints, success criteria, and entry point. Use proactively — before any tool use — when a prompt is short, ambiguous, or missing success criteria. Also activates automatically via a UserPromptSubmit hook that detects vagueness without any LLM call.
 - **Triggers**: "clarify", "enrich this prompt", "help me describe this better", CLARIFIER_ADVISORY in context, any prompt under 10 words with no file path or error message, "fix the bug", "add authentication", "make this better", "refactor this", "clean this up", "improve performance", "add payments", "build the feature", "make it work".
 
-### 38. Taste Redesign
+### 37. Taste Redesign
 - **Path**: `skills/taste-redesign/`
 - **Purpose**: Audits an EXISTING UI/codebase for generic AI patterns and applies craft fixes (layout, interactivity, content, iconography, code quality) without overriding a project's own identity — checks for a `DESIGN.md` first and skips typography/color changes if one exists.
 - **Triggers**: "improve the design", "looks generic", "not polished enough", "redesign this", "elevate the UI", "apply taste", design review.
 
-### 39. Taste Skill
+### 38. Taste Skill
 - **Path**: `skills/taste-skill/`
 - **Purpose**: Anti-slop frontend design for building NEW UI from a brief — brief-first, three configurable dials (variance/motion/density), and an extensive banned-pattern checklist (em-dashes, generic names, fake screenshots, marketing-copy tells) to avoid default-AI output. Defers to an existing `DESIGN.md` when one exists.
 - **Triggers**: "build a landing page", "design a portfolio", "make this not look generic/templated/AI-generated", "anti-slop", starting UI work with a brief but no identity yet.
 
-### 40. design-md
+### 39. design-md
 - **Path**: `skills/design-md/`
 - **Purpose**: Write, read, and apply DESIGN.md files — Google Stitch's open AI-readable design-system format (YAML tokens + Markdown rationale). Covers the spec, canonical section order, and the reverse-engineering process for extracting a brand's visual identity from decks/sites/screenshots into agent-ready tokens.
 - **Triggers**: "create a design.md", "extract a design system from...", "document this brand for AI tools", "Stitch design system", reverse-engineering a brand identity.
 
-### 41. AI Product Strategy
+### 40. AI Product Strategy
 - **Path**: `skills/ai-product-strategy/`
 - **Purpose**: Decision-focused strategy for products built on LLMs or agents — wedge selection, RAG vs. fine-tuning, non-deterministic UX design, graduated autonomy, and defensibility. Not general product strategy — see `product-strategy` for that.
 - **Triggers**: "should this be an agent", "RAG vs fine-tuning", "how much autonomy should this feature have", "is this AI feature defensible", "our AI feature keeps hallucinating and users don't trust it", "AI product wedge", "human-in-the-loop design".
 
-### 42. Analytics Tracking
+### 41. Analytics Tracking
 - **Path**: `skills/analytics-tracking/`
 - **Purpose**: Implementation layer for analytics — event naming conventions, tracking plans, GA4/GTM/Amplitude/Segment setup, UTM strategy, and debugging. Reference tool: Amplitude. Pairs with `product-analytics` (which covers what to measure and why); use this for the "how do we wire it up" step.
 - **Triggers**: "set up tracking", "GA4", "Amplitude", "event tracking", "UTM parameters", "tag manager", "GTM", "tracking plan", "event taxonomy", "are my events firing", "naming convention for events", "instrument this feature".

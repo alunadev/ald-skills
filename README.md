@@ -1,6 +1,6 @@
 # ALD Skills
 
-**57 skills and 6 workflows that turn Claude Code into a product team.**
+**41 skills and 2 workflows that turn Claude Code into a product team.**
 
 This is the public layer of [ald-os](https://github.com/alunadev) — a personal
 AI Product Management Operating System I use daily to run the full product
@@ -61,15 +61,12 @@ with the accumulated judgment of all previous ones.
 |-------|--------------|---------|
 | `prd-writer` | `/prd` | Decision-focused PRDs with behavior contracts |
 | `product-strategy` | `/strategy` | North Star, Opportunity Tree, 3 bets, OKRs |
-| `user-discovery` | `/discovery` | Interview protocol, synthesis, Opportunity Statements |
 | `product-analytics` | `/metrics` | Metric tree, A/B design, tracking plan, HEART |
 | `analytics-tracking` | `/tracking` | Event naming, GA4/GTM/Amplitude setup, debugging |
 | `ai-product-strategy` | `/ai-strategy` | Wedge, RAG vs. fine-tuning, autonomy, defensibility |
 | `feature-to-outcome` | — | Translate stakeholder feature requests into validated outcomes |
 | `product-launch` | — | GTM brief, readiness checklists, rollout gates |
-| `idea-validator` | — | Brutally honest validation before committing resources |
 | `competitor-analysis` | — | 5 competitor profiles, white space, where-to-win |
-| `prioritization-frameworks` | — | RICE, ICE, MoSCoW, Kano — picked by context |
 | `case-study-solver` | — | Full methodology for PM/TPM hiring case studies |
 | `pm-interview-communication` | — | SCQA/STAR scaffolding, English under pressure |
 
@@ -78,11 +75,8 @@ with the accumulated judgment of all previous ones.
 | Skill | Purpose |
 |-------|---------|
 | `brainstorming` | Socratic discovery and technical design before code |
-| `planning` | Atomic, TDD-focused implementation plans |
-| `fullstack-developer` | Scope → API → DB schema → frontend → deploy |
 | `react-best-practices` | Performance optimization, 8 categories, 58 rules |
 | `api-design-principles` | REST and GraphQL API design conventions |
-| `supabase-postgres` | Indexes, RLS, connection pooling, schema design |
 | `error-handling-patterns` | Exceptions, Result types, graceful degradation |
 | `prompt-engineering` | 6-step framework for production AI prompts |
 | `prompt-engineering-patterns` | 9 production-tested prompting patterns |
@@ -94,14 +88,13 @@ with the accumulated judgment of all previous ones.
 
 | Skill | Purpose |
 |-------|---------|
-| `frontend-design` | Production-grade frontend interfaces, no AI-slop |
-| `interface-design` | Dashboards, SaaS apps, admin panels |
 | `design-md` | Extract brand systems into AI-readable DESIGN.md tokens |
-| `tailwind-design-system` | Tailwind v4, CSS-first @theme, OKLCH tokens |
-| `taste-redesign` | Audit and elevate generic UIs to premium quality |
+| `brand-identity` | Interview-driven brand generation per new project |
+| `taste-skill` | Anti-slop frontend design for NEW UI, brief-first |
+| `taste-redesign` | Audit and elevate an EXISTING UI to premium quality |
 | `web-design-guidelines` | 100+ accessibility, UX and code quality rules |
-| `brand-identity` | Design tokens, tech stack, voice & tone |
 | `figma-reverse-engineering` | Figma designs → implementation-ready specs |
+| `frontend-slides` | Animation-rich HTML presentations, brief or PPT conversion |
 
 ### Content & Communication
 
@@ -117,7 +110,6 @@ with the accumulated judgment of all previous ones.
 | Skill | Purpose |
 |-------|---------|
 | `maintaining-documentation` | Keep docs as a living single source of truth |
-| `codebase-documenter` | READMEs, architecture guides, API docs |
 | `creating-skills` | Meta-skill for generating new standardized skills |
 | `autoresearch` | Self-optimize any skill via eval loops |
 | `deploying-to-github` | Automates version control workflows |
@@ -132,11 +124,7 @@ Chained skills with explicit gates between steps.
 | Workflow | Slash Command | Chain |
 |----------|--------------|-------|
 | `systematic-debugging` | `/debug` | Root-cause-first debugging protocol |
-| `idea-to-prd` | `/idea` | idea-validator → brainstorming → prd-writer |
-| `full-stack-build` | `/fullstack` | API design → DB schema → frontend → deploy |
-| `feature-to-launch` | `/feature-launch` | PRD → build → changelog → product-launch |
 | `content-publishing` | `/publish` | Idea capture → draft → edit → platform publish |
-| `feature-documenter` | — | Feature documentation automation |
 
 ---
 

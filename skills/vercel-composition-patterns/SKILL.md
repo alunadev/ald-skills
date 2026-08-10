@@ -214,4 +214,3 @@ if (needsTheme) {
 ## See Also
 
 - `react-best-practices` — For rendering, bundle, and server-side performance patterns
-- `tailwind-design-system` — For CVA integration with Tailwind v4 design tokens
