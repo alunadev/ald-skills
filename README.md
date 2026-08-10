@@ -1,6 +1,6 @@
 # ALD Skills
 
-**41 skills and 2 workflows that turn Claude Code into a product team.**
+**42 skills and 2 workflows that turn Claude Code into a product team.**
 
 This is the public layer of [ald-os](https://github.com/alunadev) — a personal
 AI Product Management Operating System I use daily to run the full product
@@ -100,8 +100,9 @@ with the accumulated judgment of all previous ones.
 
 | Skill | Purpose |
 |-------|---------|
-| `writing-system` | X threads, LinkedIn, blog, newsletter |
-| `linkedin-viral-post-writer` | Hook system for high-performance LinkedIn content |
+| `writing-system` | Orchestrator: idea capture, platform pick, blog + newsletter |
+| `linkedin-post-writer` | LinkedIn posts in your own voice, no growth-hacking |
+| `x-thread-writer` | Same voice standard, for X/Twitter threads |
 | `email-builder` | Bilingual emails: subject lines, CTAs, variants |
 | `changelog-generator` | Technical commits → user-friendly release notes |
 

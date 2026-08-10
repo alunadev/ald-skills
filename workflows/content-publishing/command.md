@@ -6,7 +6,8 @@ What it does:
 1. Captures the idea as an atomic note (Insight + Context + Evidence) — Gate 1
 2. Selects the right platform and drafts using writing-system format
 3. Runs edit pass: cut 30%, add concrete example, read aloud — Gate 2
-4. For LinkedIn: optionally loads linkedin-viral-post-writer for hook optimization
+4. For LinkedIn: hands off to linkedin-post-writer; for X/Twitter: hands off to
+   x-thread-writer
 5. Publishes or prepares the final draft
 6. Saves to docs/content/YYYY-MM-DD-content-notes.md + schedules 30-day review
 
@@ -16,13 +17,13 @@ When to use:
 - When you want to avoid publishing an unedited draft
 
 What NOT to use it for:
-- Internal documentation (use codebase-documenter or maintaining-documentation)
+- Internal documentation (use maintaining-documentation)
 - PRDs or feature specs (use /prd)
-- Launch announcements (use alongside /feature-launch, not instead of it)
+- Launch announcements (use alongside `product-launch`, not instead of it)
 
 Platforms supported:
-- X/Twitter — thread format
-- LinkedIn — uses linkedin-viral-post-writer for hook optimization
+- X/Twitter — thread format, uses x-thread-writer
+- LinkedIn — uses linkedin-post-writer
 - Blog — saves to docs/content/ with front matter
 - Newsletter — subject line variants + preview text
 

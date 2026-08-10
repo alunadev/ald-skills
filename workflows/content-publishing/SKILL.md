@@ -103,14 +103,15 @@ This step is mandatory. Do not skip it to save time — unedited drafts lose rea
 
 ### X/Twitter
 
-Paste tweet by tweet. First tweet goes live first — verify it carries the full value of the thread standalone (it will be seen without context by most readers).
+Draft with `x-thread-writer` — it owns thread structure and the voice rules. Paste tweet by
+tweet. First tweet goes live first — verify it carries the full value of the thread standalone
+(it will be seen without context by most readers).
 
 ### LinkedIn
 
-Use `linkedin-viral-post-writer` for additional optimization if needed. Load it with your edited draft to:
-- Generate 3-5 hook variants
-- Check content type (ToF/MoF/BoF)
-- Verify emotional + informational value balance
+Draft with `linkedin-post-writer` — it owns post structure (Nota vs. Insight Post) and the
+voice rules. Load it with your edited draft to check it against its voice checklist before
+publishing.
 
 ### Blog
 
@@ -169,5 +170,6 @@ docs/content/YYYY-MM-DD-content-notes.md
 ## See Also
 
 - `writing-system` — The underlying writing skill this workflow orchestrates
-- `linkedin-viral-post-writer` — For optimizing LinkedIn posts specifically
+- `linkedin-post-writer` — For LinkedIn drafting specifically
+- `x-thread-writer` — For X/Twitter drafting specifically
 - `product-launch` — When the content is a launch announcement (use alongside this workflow)

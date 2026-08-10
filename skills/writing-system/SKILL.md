@@ -1,6 +1,6 @@
 ---
-name: using-writing-system
-description: Personal writing system for technical blogs, newsletters, X/Twitter threads, and LinkedIn posts. Use when writing long-form content, drafting social media posts, preparing newsletters, building a content calendar, repurposing existing content across platforms, or turning a technical insight into publishable writing. Triggers on: "write a post about", "turn this into a thread", "draft newsletter", "write this up", "content calendar", "publish this".
+name: writing-system
+description: Personal writing system for technical blogs, newsletters, X/Twitter threads, and LinkedIn posts. The orchestrator — captures the idea and picks the platform, then hands off to `linkedin-post-writer` or `x-thread-writer` for those two; Blog and Newsletter stay here. Use when writing long-form content, drafting social media posts, preparing newsletters, building a content calendar, repurposing existing content across platforms, or turning a technical insight into publishable writing. Triggers on: "write a post about", "turn this into a thread", "draft newsletter", "write this up", "content calendar", "publish this".
 ---
 
 # Using the Writing System
@@ -51,42 +51,17 @@ Choose one primary platform. Adapt for others after the primary draft is done.
 
 ### 3. Draft by Channel
 
-#### X/Twitter Thread
+#### X/Twitter Thread — hand off to `x-thread-writer`
 
-Structure:
-```
-Tweet 1 (Hook): The entire value of the thread in one tweet.
-                Someone who reads only this should walk away with something.
-Tweet 2-5 (Insights): One insight per tweet. Max 25 words each.
-                       Numbered: "2/ "
-Last tweet (Remate): Callback to tweet 1 + CTA or question.
-```
-
-Rules:
-- Tweet 1 carries full weight — most people won't click "read more"
-- No cliffhangers in tweet 1 ("Here's the thing..." is not a hook)
-- Each tweet works standalone — no "as I said above"
-- CTA at the end: one ask (follow / repost / reply) — never all three
+That skill owns thread structure, tweet-count discipline, and the voice rules. Come back
+here for Edit and the Performance Loop once the draft exists.
 
 ---
 
-#### LinkedIn
+#### LinkedIn — hand off to `linkedin-post-writer`
 
-Structure:
-```
-Line 1 (Hook): First line is all most people see. Make it count.
-Line 2 (blank)
-Lines 3-6 (Context): Why this matters. Brief.
-Lines 7-10 (Insight): The core idea or lesson.
-Lines 11-13 (Takeaway): What someone should do or think differently.
-Last line (CTA): One question or one action. Never ask for follows.
-```
-
-Rules:
-- No "I am humbled to share..." — start with the insight
-- Blank line after line 1 forces the hook to stand alone
-- LinkedIn's algorithm rewards comments over likes — end with a question
-- 150-400 words optimal. Longer posts bury the insight.
+That skill owns post structure (the Nota vs. the longer Insight Post), platform mechanics,
+and the voice rules. Come back here for Edit and the Performance Loop once the draft exists.
 
 ---
 
@@ -168,3 +143,8 @@ Output: `docs/content/YYYY-MM-DD-content-notes.md`
 - **Multiple CTAs** — "Follow me, repost this, comment below, read my newsletter" = decision paralysis. Pick one.
 - **Vague claims** — "This saved us a lot of time" tells the reader nothing. "This reduced our deploy time from 45 minutes to 8 minutes" is memorable.
 - **Saving performance analysis for "someday"** — The 30-day review is where you learn what actually works. Schedule it.
+
+## See Also
+
+- `linkedin-post-writer` — owns LinkedIn drafting once this skill picks that platform.
+- `x-thread-writer` — owns X/Twitter drafting once this skill picks that platform.
