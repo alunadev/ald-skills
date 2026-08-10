@@ -26,69 +26,77 @@ This repository serves as the central hub for reusable agentic skills. These ski
 - **Purpose**: Go-to-market plans and launch checklists — GTM brief, technical/product/marketing readiness, rollout gates, post-launch review.
 - **Triggers**: "prepare launch", "go-to-market", "Product Hunt", "launch checklist", rollout plan.
 
-### 5. Writing System
-- **Path**: `skills/writing-system/`
-- **Purpose**: Orchestrator — idea capture and platform selection, then hands off to `linkedin-post-writer` or `x-thread-writer`; Blog and Newsletter drafting stays here.
-- **Triggers**: "write a post", "draft newsletter", "write this up", "turn this into a thread", content calendar.
-
-### 6. Email Builder
-- **Path**: `skills/email-builder/`
-- **Purpose**: Builds complete bilingual emails from intent and audience, including subject lines, preheaders, structured body copy, CTAs, safe placeholders, and useful variants.
-- **Triggers**: write an email, draft outreach, customer update, follow-up, announcement, invite, sales email, campaign email, lifecycle email, subject lines, preheader, CTA, English and Spanish email.
-
-### 7. LinkedIn Post Writer
-- **Path**: `skills/linkedin-post-writer/`
-- **Purpose**: Writes LinkedIn posts in Adrian's own voice from a real observation — the Nota (short, dated) or the longer Insight Post — with a hard ban on growth-hacking/engagement-bait constructions.
-- **Triggers**: writing a LinkedIn post, turning a work observation into a post, reviewing a LinkedIn draft for tone.
-
-### 8. X Thread Writer
-- **Path**: `skills/x-thread-writer/`
-- **Purpose**: Same voice standard as `linkedin-post-writer`, adapted for X/Twitter's shorter format — single tweets or threads, same banned-construction list.
-- **Triggers**: writing an X/Twitter thread, turning an insight into a tweet, reviewing a thread draft for tone.
-
-### 9. Competitor Analysis
+### 5. Competitor Analysis
 - **Path**: `skills/competitor-analysis/`
 - **Purpose**: Structured competitive analysis — profiles 5 competitors, identifies white space, and recommends a differentiated positioning. Produces a decision-ready competitive map, not a feature comparison table.
 - **Triggers**: competitive analysis, competitor research, market landscape, differentiation, competitive positioning, market entry, who are our competitors, losing to a competitor, white space, pricing strategy.
 
-### 10. User Personas
+### 6. User Personas
 - **Path**: `skills/user-personas/`
 - **Purpose**: Research-backed persona creation — max 3 personas per segment, grounded in JTBD, pain points, gains, and unexpected insights. Prevents persona theater (stock photos + demographics).
 - **Triggers**: user persona, JTBD, persona creation, user segmentation, who is our user, target audience, customer profile.
 
-### 11. Customer Journey Map
+### 7. Customer Journey Map
 - **Path**: `skills/customer-journey-map/`
 - **Purpose**: Maps end-to-end user journey from Awareness to Advocacy — touchpoints, emotions, friction, moments of truth, and prioritized improvements. Reveals where users get stuck, not just where they succeed.
 - **Triggers**: customer journey, journey map, touchpoints, onboarding experience, churn points, aha moment, user flow, drop-off analysis.
 
-### 12. Feature to Outcome
+### 8. Feature to Outcome
 - **Path**: `skills/feature-to-outcome/`
 - **Purpose**: Translates stakeholder feature requests into validated outcome statements using the 'One Framework. Four Questions.' protocol — Behavior Change → Assumption Test → Cheapest Test → Success Metric. Produces an Outcome Brief with embedded AI prompts ready to paste into any LLM.
 - **Triggers**: stakeholder pushing a specific feature, "we need a dashboard", outcomes not features, what problem does this solve, feature factory, push back on a request, translate feature to outcome, outcome vs output, assumption testing, discovery before delivery.
 
-### 13. Stakeholder Map
+### 9. Stakeholder Map
 - **Path**: `skills/stakeholder-map/`
 - **Purpose**: Maps stakeholders on a Power × Interest grid, produces a 4-quadrant communication plan, and surfaces conflict zones before they derail delivery.
 - **Triggers**: stakeholder management, power interest grid, cross-functional alignment, stakeholder communication, who needs to be involved, buy-in, executive alignment.
 
-### 14. Sprint Plan
+### 10. Sprint Plan
 - **Path**: `skills/sprint-plan/`
 - **Purpose**: Produces a structured sprint plan — goal, capacity estimate, story selection, dependency map, and risk flags — before the sprint starts. Sprint planning as a decision, not a calendar event.
 - **Triggers**: sprint planning, capacity planning, sprint goal, sprint prep, sprint kickoff, what goes in the sprint, sprint backlog.
 
-### 15. Growth Loops
+### 11. Growth Loops
 - **Path**: `skills/growth-loops/`
 - **Purpose**: Identifies and designs growth loops (flywheels) for sustainable traction — evaluating 5 loop types: Viral, Usage, Collaboration, User-Generated, Referral. Includes K coefficient estimation and a build plan.
 - **Triggers**: growth loop, flywheel, viral loop, referral program, product-led growth, PLG, user acquisition, growth strategy, retention loop, compounding growth.
 
+---
+
+### Content & Social Media
+
+### 12. Writing System
+- **Path**: `skills/writing-system/`
+- **Purpose**: Orchestrator — idea capture and platform selection, then hands off to `linkedin-post-writer` or `x-thread-writer`; Blog and Newsletter drafting stays here.
+- **Triggers**: "write a post", "draft newsletter", "write this up", "turn this into a thread", content calendar.
+
+### 13. Email Builder
+- **Path**: `skills/email-builder/`
+- **Purpose**: Builds complete bilingual emails from intent and audience, including subject lines, preheaders, structured body copy, CTAs, safe placeholders, and useful variants.
+- **Triggers**: write an email, draft outreach, customer update, follow-up, announcement, invite, sales email, campaign email, lifecycle email, subject lines, preheader, CTA, English and Spanish email.
+
+### 14. LinkedIn Post Writer
+- **Path**: `skills/linkedin-post-writer/`
+- **Purpose**: Writes LinkedIn posts in Adrian's own voice from a real observation — the Nota (short, dated) or the longer Insight Post — with a hard ban on growth-hacking/engagement-bait constructions.
+- **Triggers**: writing a LinkedIn post, turning a work observation into a post, reviewing a LinkedIn draft for tone.
+
+### 15. X Thread Writer
+- **Path**: `skills/x-thread-writer/`
+- **Purpose**: Same voice standard as `linkedin-post-writer`, adapted for X/Twitter's shorter format — single tweets or threads, same banned-construction list.
+- **Triggers**: writing an X/Twitter thread, turning an insight into a tweet, reviewing a thread draft for tone.
+
+---
+
+### Career & Interviews
+
 ### 16. Case Study Solver
 - **Path**: `skills/case-study-solver/`
-- **Purpose**: Structured methodology for solving, writing, and presenting hiring case studies for Senior PM and Technical PM roles. Covers the full process from problem understanding to final delivery, including data analysis, written response, interactive presentation, and verbal delivery protocol.
+- **Purpose**: Structured methodology for solving, writing, and presenting hiring case studies for Senior PM and Technical PM roles. Covers the full process from problem understanding to final delivery, including data analysis, written response, interactive presentation (with wireframe standards from real feedback), and verbal delivery protocol.
 - **Triggers**: case study, PM interview, TPM interview, hiring exercise, data analysis for interview, case study presentation, interview preparation.
 
 ### 17. PM Interview Communication
 - **Path**: `skills/pm-interview-communication/`
-- **Purpose**: Structured verbal communication framework for Senior PM and TPM interviews. Covers SCQA/STAR scaffolding, answer templates by question type, pushback handling, English-under-pressure tactics, and post-interview debrief methodology.
+- **Purpose**: Structured verbal communication framework for Senior PM and TPM interviews. Covers SCQA/STAR/C-F-I scaffolding, answer templates by question type, pushback handling, English- and Spanish-under-pressure tactics, and post-interview debrief methodology.
 - **Triggers**: interview preparation, how do I answer this, rehearse with me, how would you say this, practice interview question, STAR answer, SCQA, behavioral question, verbal delivery.
 
 ---
@@ -166,7 +174,7 @@ This repository serves as the central hub for reusable agentic skills. These ski
 
 ### 31. Changelog Generator
 - **Path**: `skills/changelog-generator/`
-- **Purpose**: Technical-to-User-friendly release notes.
+- **Purpose**: Transforms technical git commits into a clear, compact, user-friendly changelog — flat one-line-per-entry format, no emoji.
 - **Triggers**: releases, weekly updates, customer comms.
 
 ### 32. Maintaining Documentation
@@ -248,4 +256,4 @@ STRATEGIZE → SPECIFY → DESIGN → BUILD → REVIEW → HARDEN → DOCUMENT �
 ### Workflows
 
 - `workflows/systematic-debugging/` — Root-cause-first debugging protocol with `/debug` slash command
-- `workflows/content-publishing/` — writing-system → edit pass → platform publishing, with `/publish` slash command
+- `workflows/content-publishing/` — writing-system → edit pass → platform publishing (real publish via Zernio, Gate 3 confirmation required), with `/publish` slash command
