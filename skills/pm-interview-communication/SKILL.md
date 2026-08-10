@@ -163,6 +163,29 @@ These are the specific failure modes for non-native English speakers in high-pre
 
 **Fix:** Every action sentence must have a subject doing a verb. Not "improvements were made" — "I built." Not "a decision was taken" — "we decided."
 
+### Failure 6: No thesis when asking a question, not just when answering one
+
+**What happens:** This one is easy to miss because every other failure mode here is about
+*answering*. The same collapse happens when *you* ask a clarifying or probing question under
+pressure — you build up to the question instead of stating it, the interviewer can't find the
+actual ask buried in the context, and you end up re-explaining the same point three different
+ways while they get more lost, not less. A real instance of this ended with the interviewer
+saying, flatly, they weren't following and it wasn't landing.
+
+**Fix:** Questions need the same conclusion-first structure as answers. State the question in
+one sentence first — the actual thing you want to know — then give context only if asked.
+Never build up to a question through three sentences of throat-clearing ("What I was
+thinking is... and then there's also... so my question is kind of...").
+
+**Wrong order:**
+> "I was discussing several options for doing X, and I even proposed one approach, though I
+> didn't mention it exactly like this, but I imagine if you have Y, then maybe Z could
+> connect to..."
+
+**Right order:**
+> "Why a notification/embed mechanism instead of a single unified product each brand plugs
+> into? That's my question — here's the context for why I'm asking."
+
 ---
 
 ## Spanish Under Pressure
