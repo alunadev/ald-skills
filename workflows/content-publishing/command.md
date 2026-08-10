@@ -7,9 +7,12 @@ What it does:
 2. Selects the right platform and drafts using writing-system format
 3. Runs edit pass: cut 30%, add concrete example, read aloud — Gate 2
 4. For LinkedIn: hands off to linkedin-post-writer; for X/Twitter: hands off to
-   x-thread-writer
-5. Publishes or prepares the final draft
-6. Saves to docs/content/YYYY-MM-DD-content-notes.md + schedules 30-day review
+   x-thread-writer — drafted together when both apply
+5. Shows the exact final text for every platform and waits for explicit
+   approval — Gate 3, no silent auto-publish
+6. Publishes via the Zernio CLI (LinkedIn + X in one call) once approved, or
+   falls back to manual copy/paste if Zernio isn't set up on this machine
+7. Saves to docs/content/YYYY-MM-DD-content-notes.md + schedules 30-day review
 
 When to use:
 - When you have an insight or idea worth sharing publicly

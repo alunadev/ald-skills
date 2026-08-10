@@ -5,7 +5,7 @@ description: End-to-end content workflow from raw idea to published post across 
 
 # Content Publishing Workflow
 
-Takes a raw idea or insight through capture, drafting, editing, and platform-specific publishing. This workflow enforces the two gates that most content processes skip: idea capture as a note (not drafting from memory) and the edit pass before publishing.
+Takes a raw idea or insight through capture, drafting, editing, and platform-specific publishing — including real publishing to LinkedIn and X via the Zernio CLI, once you explicitly approve the final text. This workflow enforces the three gates that most content processes skip: idea capture as a note (not drafting from memory), the edit pass before publishing, and an explicit yes before anything goes live.
 
 ## Skill Chain
 
@@ -15,7 +15,7 @@ Takes a raw idea or insight through capture, drafting, editing, and platform-spe
 writing-system (draft by platform)
     ↓ [Gate 2: Edit pass complete]
 platform publishing
-    ↓
+    ↓ [Gate 3: Final text shown, explicit approval received]
 → Performance review at 30 days
 ```
 
@@ -101,17 +101,57 @@ This step is mandatory. Do not skip it to save time — unedited drafts lose rea
 
 ## Step 4 — Platform Publishing
 
-### X/Twitter
+### X/Twitter and LinkedIn — draft together, publish together
 
-Draft with `x-thread-writer` — it owns thread structure and the voice rules. Paste tweet by
-tweet. First tweet goes live first — verify it carries the full value of the thread standalone
-(it will be seen without context by most readers).
+Draft both in the same pass, not one platform then the other later:
 
-### LinkedIn
+- **X**: `x-thread-writer` — owns thread structure and the voice rules. First tweet goes live
+  first — verify it carries the full value of the thread standalone (it will be seen without
+  context by most readers).
+- **LinkedIn**: `linkedin-post-writer` — owns post structure (Nota vs. Insight Post) and the
+  voice rules. Check the edited draft against its voice checklist.
 
-Draft with `linkedin-post-writer` — it owns post structure (Nota vs. Insight Post) and the
-voice rules. Load it with your edited draft to check it against its voice checklist before
-publishing.
+**Gate 3 — explicit publish confirmation (mandatory, no exceptions):** once both drafts pass
+their voice checklists, show the exact final text for each platform, formatted exactly as it
+will post (tweet-by-tweet for X, the full post for LinkedIn). Then stop and wait. Do not call
+a real publish command until the user replies with explicit approval — "looks good," "yes,"
+"publish it," or equivalent. A revision request is not approval; re-show the updated text and
+wait again. Silent auto-publish is never acceptable here, regardless of how confident the
+draft is.
+
+**Publish via the Zernio CLI**, once approved:
+
+```bash
+zernio posts:create \
+  --text "<final approved text>" \
+  --accounts <linkedin_account_id>,<x_account_id>
+```
+
+One call posts to both platforms at once — that's the point of drafting them together. For an
+X thread (multiple tweets), check `zernio posts:create --help` for the current thread-content
+flag (the CLI's own help is the source of truth here, not this doc, since command surfaces
+change) — the tweets should post in order as one Gate-3-approved unit, not one at a time
+re-confirmed per tweet.
+
+**Setup (one-time, per machine):**
+
+```bash
+npm install -g @zernio/cli
+zernio auth:login          # opens a browser, saves a key to ~/.zernio/config.json
+zernio auth:check          # confirms it worked
+zernio accounts:list       # find the LinkedIn and X account IDs for --accounts above
+```
+
+Alternatively, set `ZERNIO_API_KEY` as a local environment variable (get the key from the
+Zernio dashboard) — it overrides the config file and works well for non-interactive/CI use.
+**Never commit a real API key or account ID to `ald-skills` — this repo is public.** The key
+lives only in `~/.zernio/config.json` or the shell environment on Adrian's own machine; this
+file documents how to set it up, not what the value is.
+
+**No Zernio account configured yet?** Fall back to the manual flow: paste the X thread
+tweet-by-tweet, and post the LinkedIn draft by hand. The Gate 3 confirmation step still
+applies — showing the final text and getting a yes before you post it, manually or not, is the
+actual requirement; Zernio just removes the copy-paste step once it's set up.
 
 ### Blog
 
@@ -159,6 +199,7 @@ docs/content/YYYY-MM-DD-content-notes.md
 |------|-------------------|
 | Gate 1 | Atomic note with Insight + Context + Evidence written |
 | Gate 2 | All 4 edit steps complete |
+| Gate 3 | Final text shown exactly as it will post, explicit user approval received — before any real publish call (X and LinkedIn) |
 
 ## Common Antipatterns
 
@@ -166,6 +207,8 @@ docs/content/YYYY-MM-DD-content-notes.md
 - **Publishing before editing** — The first draft is never the best version. Cut pass is non-negotiable.
 - **Multiple CTAs** — "Follow me, repost this, reply below, read my newsletter" = no clicks. One ask only.
 - **Skipping the 30-day review** — You can't improve a process you don't measure. Schedule it at publication time.
+- **Auto-publishing without Gate 3** — even a great draft doesn't get posted silently. Show the exact final text and wait for an explicit yes, every time, no exceptions for "obviously fine" posts.
+- **A real API key anywhere in `ald-skills`** — this repo is public. Credentials live only in `~/.zernio/config.json` or a local env var on Adrian's machine.
 
 ## See Also
 
