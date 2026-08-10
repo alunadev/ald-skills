@@ -156,8 +156,8 @@ This repository serves as the central hub for reusable agentic skills. These ski
 - **Triggers**: "reverse engineering del diseño", "documenta este Figma", "quiero implementar este diseño", "dame las propiedades CSS", "convierte este diseño a código", screenshots of Figma designs, Figma layers and properties.
 
 ### 30. Frontend Slides
-- **Path**: `skills/frontend-slides-main/`
-- **Purpose**: Creates zero-dependency, animation-rich HTML presentations from scratch or by converting PowerPoint files. Helps non-designers discover their aesthetic through visual exploration.
+- **Path**: `skills/frontend-slides/`
+- **Purpose**: Creates zero-dependency, animation-rich HTML presentations from scratch or by converting PowerPoint files. Uses a project's `DESIGN.md` tokens when one exists, otherwise offers 12 curated presets. Helps non-designers discover their aesthetic through visual exploration.
 - **Triggers**: "build a presentation", "convert PPT to web", "create slides", "HTML presentation", "slide deck for a talk", "pitch slides".
 
 ---

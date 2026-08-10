@@ -1,6 +1,6 @@
 ---
 name: frontend-slides
-description: Create stunning, animation-rich HTML presentations from scratch or by converting PowerPoint files. Use when the user wants to build a presentation, convert a PPT/PPTX to web, or create slides for a talk/pitch. Helps non-designers discover their aesthetic through visual exploration rather than abstract choices.
+description: Create stunning, animation-rich HTML presentations from scratch or by converting PowerPoint files. Use when the user wants to build a presentation, convert a PPT/PPTX to web, or create slides for a talk/pitch. If the project already has a DESIGN.md, uses its tokens instead of the 12 built-in presets. Helps non-designers discover their aesthetic through visual exploration rather than abstract choices.
 ---
 
 # Frontend Slides Skill
@@ -406,6 +406,18 @@ This means curated images are factored in **before** style selection (Phase 2) a
   - "Adjust outline" — I want to change the slide structure
 
 This keeps the entire flow in the AskUserQuestion format without dropping to free-text chat.
+
+### Step 1.3: Check for an Existing Identity
+
+Before Phase 2, check whether the project this presentation is for already has a `DESIGN.md`
+at its repo root (see the `design-md` skill for the format).
+
+- **If `DESIGN.md` exists** — skip Phase 2 (Style Discovery) entirely. Use its color,
+  typography, and shape tokens to build the presentation directly, then go to Phase 3. Do not
+  offer the 12 presets below when a project's identity is already defined — that would
+  override a deliberate decision with a generic one.
+- **If no `DESIGN.md` exists** — proceed to Phase 2 as normal. The 12 presets are curated
+  defaults for exactly this case: no identity to preserve yet.
 
 ---
 
@@ -1399,11 +1411,13 @@ class TiltEffect {
 
 ---
 
-## Related Skills
+## See Also
 
-- **learn** — Generate FORZARA.md documentation for the presentation
-- **frontend-design** — For more complex interactive pages beyond slides
-- **design-and-refine:design-lab** — For iterating on component designs
+- `design-md` — if the project has a `DESIGN.md`, Step 1.3 uses its tokens instead of the 12
+  presets below.
+- `brand-identity` — generates a `DESIGN.md` for a project that doesn't have one yet.
+- `taste-skill` — the same anti-AI-tells discipline (banned em-dashes, generic filler,
+  fake-precision numbers) applies to slide copy, not just app UI.
 
 ---
 

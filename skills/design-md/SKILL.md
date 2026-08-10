@@ -183,3 +183,5 @@ confirmed brand values.
   then handles execution discipline (anti-AI-tells, dials) on top.
 - `taste-redesign` — for elevating a UI that already has a `DESIGN.md`/identity, rather than
   defining one from scratch.
+- `frontend-slides` — reads this file's tokens for presentations too, instead of its own
+  built-in presets, when a project already has an identity.
