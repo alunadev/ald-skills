@@ -1,21 +1,23 @@
 ---
 name: pm-interview-communication
-description: Structured verbal communication framework for Senior PM and TPM interviews. Use when preparing for interviews, rehearsing answers, practicing English delivery under pressure, or when any interview question needs to be answered in a crisp, structured way. Covers SCQA/STAR scaffolding, answer templates by question type, pushback handling, English-under-pressure tactics, and post-interview debrief methodology. Trigger on any variant of "how do I answer this?", "rehearse with me", "how would you say this?", or "practice interview question".
+description: Structured verbal communication framework for Senior PM and TPM interviews. Use when preparing for interviews, rehearsing answers, practicing English (or Spanish) delivery under pressure, or when any interview question needs to be answered in a crisp, structured way. Covers SCQA/STAR/C-F-I scaffolding, answer templates by question type, pushback handling, English- and Spanish-under-pressure tactics, and post-interview debrief methodology. Trigger on any variant of "how do I answer this?", "rehearse with me", "how would you say this?", or "practice interview question".
 ---
 
 # PM Interview Communication
 
-Structured verbal delivery framework for Senior PM and TPM interviews. Built from a real Groupon interview process where strong written analysis did not transfer cleanly into verbal communication — and from the specific rejection feedback: "crisp product storytelling, structured problem-framing, clear stakeholder communication."
+Structured verbal delivery framework for Senior PM and TPM interviews. Started from one Groupon process where strong written analysis didn't transfer cleanly into verbal communication. Confirmed since across 8+ processes with different companies and different interviewers (Joko, Fever, Valtech, Roche, Ideawise, Reveni, Kodify) — the pattern holds:
+
+> "Your product thinking impresses. Your verbal communication in English under pressure is the deciding factor against you — recurring, across different companies, with different interviewers."
 
 ## Core Principle
 
 Your thinking is not the problem. The packaging is.
 
-Most PM candidates who get rejected at the verbal stage have sound reasoning. The failure is in translation: from clear thought to clear English sentence, under pressure, in real time. This skill is not about what to think — it is about how to speak.
+Most PM candidates who get rejected at the verbal stage have sound reasoning. The failure is in translation: from clear thought to clear sentence, under pressure, in real time — in English most often, but the same collapse shows up in Spanish under pressure too. This skill is not about what to think — it is about how to speak.
 
 ---
 
-## The Two Scaffolds
+## The Three Scaffolds
 
 ### STAR — for behavioral questions
 
@@ -50,6 +52,27 @@ Use when asked about data, frameworks, metrics, architecture, or any "how would 
 **What it sounds like:**
 > "The dataset has 90,000 requests. 73% have no endpoint tag. That is not missing data — it's a structural signature of requests that failed before entering the booking funnel. The pre-funnel layer has a 13% error rate versus 7.5% in the funnel. Two separate problems requiring two separate responses."
 
+### C-F-I — the default skeleton when nothing else fits
+
+Use this as the fallback structure for any answer that isn't cleanly behavioral or cleanly
+analytical — it's the one named directly in the feedback pattern as the highest-leverage fix,
+because it forces a number into every answer instead of leaving impact implied.
+
+| Internal label | What you say |
+|---|---|
+| Causality | One sentence — what caused the situation or decision |
+| Framework | Name the framework or method used, explicitly, out loud |
+| Impact | One sentence with the number the decision produced |
+
+**What it sounds like:**
+> "Fantasy retention dropped in the last 10 minutes before kickoff — users hit a decision
+> fatigue wall. I applied a contextual-recommendation framework instead of a static one. That
+> drove 22% of premium revenue through that flow alone."
+
+The metrics almost always exist in your work — the gap the feedback names is that they don't
+always land connected to a named framework and an explicit cause. C-F-I is the check: if an
+answer has the number but not the cause, or the framework but not the number, it's incomplete.
+
 ---
 
 ## Answer Templates by Question Type
@@ -67,6 +90,11 @@ Example slots:
 Template: `[North star — 1 sentence]. [Tier 1: operational — 2 sentences]. [Tier 2: partner health — 1 sentence]. [Tier 3: business impact — 1 sentence]. [Why this hierarchy — 1 sentence connecting to strategy].`
 
 Never list metrics without saying why each one matters.
+
+**Name the framework, out loud.** If you're prioritizing, say "RICE" or "MoSCoW" or "cohort
+analysis" — don't just apply the logic implicitly and hope the interviewer recognizes it. A
+real, recurring piece of feedback: the reasoning was right but the framework was never named,
+so it read as intuition instead of method. Naming it is one sentence and it's free credibility.
 
 ### Evidence ("how do you know this is real?")
 Template: `[Volume claim — 1 sentence]. [Behavioral difference that proves it's structural — 1 sentence]. [The alert you cannot build without it — 1 sentence]. [The fix — 1 sentence].`
@@ -137,6 +165,43 @@ These are the specific failure modes for non-native English speakers in high-pre
 
 ---
 
+## Spanish Under Pressure
+
+Real transcripts (Tarlogic, Civitatis) show the same collapse in Spanish, not just English —
+different specific tics, same underlying cause: the written voice is tight and conclusion-
+first, the spoken voice hedges and takes longer to arrive.
+
+**The written vs. spoken gap, concretely:**
+
+Written (an application answer):
+> "The gap between what software could feel like and what it usually does. That's what pulls
+> me in every day."
+
+Spoken, same person, mid-answer in a real interview:
+> "A lo mejor la parte de registro, no sé, o sea, estoy dando valor, o en en alto, ¿no? Pero
+> es un poco tratar de indagar realmente el problema, porque al final sí tenemos un cuatro por
+> ciento de conversión, pero no sabemos el por qué."
+
+The content is right in both. The spoken version buries it. The fix is the same principle as
+English: state the conclusion first, then support it — practice doing in speech what already
+happens naturally in writing.
+
+**Specific fillers that show up repeatedly and what to do instead:**
+
+| Filler | What it's doing | Replace with |
+|---|---|---|
+| "o sea" (most frequent) | Verbal placeholder while formulating the next clause | A pause, or nothing — just continue the sentence |
+| "digamos" | Softens a statement that should be direct | State it directly, no hedge |
+| "es un poco..." | Softens the close of an argument | End on the actual claim, no "un poco" |
+| "¿no?" tagged at the end | Validation-seeking | Drop it — let the statement stand |
+| "a lo que voy es que..." | Long run-up before the actual point | Cut the run-up, start with the point |
+| "nada, es un poco el concepto" | Closing an answer without landing it | End with one direct sentence stating the concept |
+
+**Drill:** same as the English one — take an answer, write it out, circle every hedge word
+from the table above, say the sentence again without it.
+
+---
+
 ## Pushback Handling Protocol
 
 When someone challenges your finding, assumption, or conclusion in an interview:
@@ -150,6 +215,13 @@ When someone challenges your finding, assumption, or conclusion in an interview:
 
 4. **Name what would change your mind.** This is the highest-signal move in any technical interview. It shows you're reasoning from evidence, not from pride.
    > "If the engineering logs showed the tag assignment happens after validation — not before — that would flip my hypothesis. That's the specific thing I'd want to check first."
+
+5. **Prepare a second hypothesis before you present, not when you're challenged.** The most
+   predictable pushback tests whether your finding is the only explanation or just the first
+   one you found — "what if the user got what they wanted and left?", "what if this is
+   seasonal?" A real rejection came from answering this kind of question generically instead
+   of with a concrete second hypothesis. Have one ready before you walk in, for your own
+   thesis's most obvious blind spot.
 
 ---
 

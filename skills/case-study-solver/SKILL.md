@@ -5,7 +5,7 @@ description: Structured methodology for solving, writing, and presenting hiring 
 
 # Case Study Solver
 
-Structured methodology for solving hiring case studies at Senior PM and Technical PM level. Built from a real process used to complete a Groupon Senior TPM case study covering production systems, observability, and data analysis.
+Structured methodology for solving hiring case studies at Senior PM and Technical PM level. Built from real hiring processes: a Groupon Senior TPM case study (production systems, observability, data analysis) and a Kodify Senior PM final round (member retention, wireframe presentation, live challenge questions).
 
 ## Core Philosophy
 
@@ -205,6 +205,30 @@ Closing — actions by timeline
 
 Build keyboard navigation (arrow keys) as default. Add buttons as fallback. Include a progress indicator that shows position in the deck without requiring counting.
 
+### Wireframe standards (non-negotiable)
+
+From a real final-round rejection where the wireframe was the one explicit weakness in an
+otherwise strong presentation ("It's probably one of the only weaknesses in your
+presentation" — VP Product, live feedback): the wireframe is the artifact the interviewer
+looks at while you talk. Get it wrong and it undercuts everything else.
+
+1. **High contrast, always.** The wireframe's background must be clearly distinct from the
+   deck's. Never inherit the presentation's color palette — a dark wireframe on a dark slide
+   is illegible, and an interviewer squinting at gray-on-gray stops listening to you.
+2. **The 20-minute rule.** Spend at least 20 minutes on wireframe fidelity before submitting
+   anything. It is not decoration — it's the artifact that communicates the idea without your
+   narration.
+3. **Real UI elements, not gray boxes.** Include a nav bar with the brand name, real section
+   labels (not "Section 1"), visible CTA buttons, placeholder content with real-sounding
+   names (not "Lorem ipsum"), and a page structure someone would recognize as that product.
+4. **The silent comprehension test.** Could the interviewer understand the before/after by
+   looking at the slide alone, in silence, with no narration? If not, it's not ready — rebuild
+   it, don't just add more slide text explaining it.
+5. **Generate it with Claude Code — there's no excuse for skipping this.** A three-iteration
+   wireframe that's still "insufficient" because the goal was framed as "show the solution"
+   rather than "the wireframe IS part of the solution" is a criteria error, not a time
+   constraint.
+
 ### Tooling transparency slide
 
 Always include a slide that explains the tooling used — including AI tools — and specifically how they were used. The framing matters:
@@ -215,7 +239,7 @@ The wrong framing: AI as the source of the analysis.
 
 ---
 
-## Reusable patterns from the Groupon case study
+## Reusable patterns from real case studies (Groupon, Kodify)
 
 ### Pattern 1: Posture vs tooling
 
@@ -249,6 +273,29 @@ When a headline number (overall error rate, total volume) obscures more than it 
 
 "That number is misleading. Of the X total errors, Y% are a single category."
 
+### Pattern 7: Always have the second hypothesis ready
+
+The most predictable challenge question is the one that tests whether your finding is the
+only explanation, or just the first one you found — "what if the user got what they wanted
+and left?", "what if this is seasonal, not structural?" A real rejection came directly from
+answering this generically instead of concretely.
+
+Before presenting, name the obvious follow-up challenge to your own thesis and prepare the
+specific answer — not a hedge, a real second hypothesis with what it would mean and how
+you'd test it. Example of the right answer: segmenting the metric by the population your
+first hypothesis doesn't explain (completers vs. non-completers), because that's a different
+problem needing a different fix, not a rebuttal of the first finding.
+
+### Pattern 8: Curation needs a method, not just an outcome
+
+Any proposal that involves choosing among options for the user — which image represents a
+category, which content gets featured, which recommendation surfaces first — will get
+challenged on *how* you choose, not just *what* you'd show. "A category can be represented by
+100 different images — how do you know which one is right?" is a real question that was
+asked. Have a concrete selection mechanism ready (e.g., "use the thumbnail with the highest
+existing engagement among current members," not "editorial judgment") before you propose the
+curation itself.
+
 ---
 
 ## Anti-patterns to avoid
@@ -276,6 +323,11 @@ Before delivering any case study response:
 - [ ] The voice reads as Senior PM, not as a generated document
 - [ ] The full document has been read as a whole for coherence and consistency
 - [ ] If a prototype is included, it uses the company's actual brand tokens
+- [ ] If a prototype is included, it passes the wireframe standards above — high contrast,
+      20 minutes of fidelity, real UI elements, silent comprehension test
+- [ ] The obvious follow-up challenge to your own thesis has a real second hypothesis
+      prepared, not a placeholder answer
+- [ ] Any curation/selection proposal states the method, not just the outcome
 
 ---
 
@@ -354,7 +406,7 @@ This feeds back into Phase 0 of the next case study: you now know where your ver
 
 ## Integration with pm-interview-communication skill
 
-Phase 6 is the case study–specific layer. The broader verbal communication framework — SCQA structure, English-under-pressure tactics, pushback handling, answer templates by question type — lives in the `pm-interview-communication` skill. Both skills should be loaded when preparing for a live case study presentation.
+Phase 6 is the case study–specific layer. The broader verbal communication framework — SCQA/STAR/C-F-I structure, English- and Spanish-under-pressure tactics, pushback handling, answer templates by question type — lives in the `pm-interview-communication` skill. Both skills should be loaded when preparing for a live case study presentation.
 
-Use case-study-solver for: written response quality, data methodology, slide arc, content completeness.
-Use pm-interview-communication for: how to say it, how to handle pressure, how to answer in English, how to recover when challenged.
+Use case-study-solver for: written response quality, data methodology, slide arc, content completeness, wireframe standards.
+Use pm-interview-communication for: how to say it, how to handle pressure, how to answer in English or Spanish, how to recover when challenged.
