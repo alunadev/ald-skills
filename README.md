@@ -118,7 +118,7 @@ with the accumulated judgment of all previous ones.
 | `maintaining-documentation` | Keep docs as a living single source of truth |
 | `creating-skills` | Meta-skill for generating new standardized skills |
 | `autoresearch` | Self-optimize any skill via eval loops |
-| `deploying-to-github` | Safe git flow: submodule-first, worktrees, no blanket `add .` |
+| `deploying-to-github` | Branching, PRs, code review, submodules, worktrees |
 | `requesting-code-review` | AI-powered code review subagent |
 
 ---

@@ -189,8 +189,8 @@ This repository serves as the central hub for reusable agentic skills. These ski
 
 ### 34. Deploying to GitHub
 - **Path**: `skills/deploying-to-github/`
-- **Purpose**: Safe git workflow — no blanket `git add .`, pull-before-push, submodule-first flow, concurrent-session hygiene, and git worktrees for real parallel work.
-- **Triggers**: saving changes, pushing code, git operations, working with a submodule, setting up or cleaning up a worktree.
+- **Purpose**: General GitHub workflow — branching model, commit hygiene, pull requests and code review, secrets hygiene, tags/releases, submodules, and git worktrees for parallel work.
+- **Triggers**: saving changes, pushing code, opening a PR, git operations, working with a submodule, setting up or cleaning up a worktree.
 
 ### 35. Requesting Code Review
 - **Path**: `skills/requesting-code-review/`
