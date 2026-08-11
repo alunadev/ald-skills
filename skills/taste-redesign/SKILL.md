@@ -80,7 +80,7 @@ token file, or an established visual system in the codebase?
 
 ### Interactivity
 - Add hover states: background shift, scale, or translate
-- Add press feedback: `scale(0.98)` or `translateY(1px)`
+- Add press feedback: `scale(0.97)` on `:active` (unified with `emil-design-eng` — see references)
 - All transitions 200–300ms
 - Visible focus rings (accessibility requirement)
 - Skeleton loaders, not spinners
