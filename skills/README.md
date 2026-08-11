@@ -179,7 +179,7 @@ This repository serves as the central hub for reusable agentic skills. These ski
 
 ### 32. Maintaining Documentation
 - **Path**: `skills/maintaining-documentation/`
-- **Purpose**: Keeps documentation as a living single source of truth.
+- **Purpose**: Maintains the real canonical docs structure (CLAUDE.md, progress.txt, docs/product+system+design-system, context/) and keeps `log.md` (append-only session history) distinct from `progress.txt` (current-state snapshot).
 - **Triggers**: feature completion, architecture changes, pre-push doc check.
 
 ### 33. Creating Skills

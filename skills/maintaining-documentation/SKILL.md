@@ -1,31 +1,36 @@
 ---
 name: maintaining-documentation
-description: Maintains The Canonical Docs as single source of truth. Trigger after feature completion, before git push, on architecture changes, or explicit "update docs" requests. Skip for trivial changes (<10 LOC, no logic/schema/UI changes).
+description: Maintains a product repo's canonical docs structure (CLAUDE.md, progress.txt, docs/product+system+design-system, context/) as single source of truth, and keeps the log.md session history separate from the progress.txt state snapshot. Trigger after feature completion, before git push, on architecture changes, at session end, or explicit "update docs"/"sync documentation" requests. Skip for trivial changes (<10 LOC, no logic/schema/UI changes).
 ---
 
 # Documentation Maintenance Skill
 
+Maintains the canonical docs structure for a product repo bootstrapped from a
+`templates/canonical-docs/`-style scaffold. This is for individual product repos — a system
+repo with its own bespoke docs layout (a meta-repo indexing many products, for instance)
+follows its own root `CLAUDE.md` instead; don't force this structure onto a repo that never
+adopted it.
+
 ## When to use this skill
 
-### ✅ ALWAYS Trigger
-- **Post-Feature:** After completing any user story or AC
-- **Pre-Commit:** Before `git push` if files changed in `/src`, `/app`, `/lib`, `/db`
-- **Architecture Change:** DB schema, API contracts, auth logic modified
-- **New Route/Page:** Any file added to `/app` directory
-- **Design Token Change:** Modifications to colors, spacing, typography in code
-- **Explicit Request:** User says "update docs", "sync documentation", "cleanup docs"
+### Always trigger
+- **Post-feature**: after completing any user story or acceptance criterion.
+- **Pre-commit**: before `git push` if files changed under the app/source directories.
+- **Architecture change**: DB schema, API contracts, auth logic modified.
+- **Session end**: every working session should end with a `log.md` entry (see below) —
+  this is separate from, and in addition to, any docs updates the change itself needs.
+- **Explicit request**: "update docs", "sync documentation", "cleanup docs".
 
-### ❌ NEVER Trigger
-- Trivial changes (<10 lines, no business logic)
-- Fixing typos in code comments
-- Refactoring without behavior change
-- Package updates in `package.json` (unless major version or new package)
-- Test file additions (unless testing new features)
+### Never trigger
+- Trivial changes (<10 lines, no business logic).
+- Fixing typos in code comments.
+- Refactoring without behavior change.
+- Dependency bumps (unless a major version or a new package).
 
-### ⚠️ ASK FIRST
-- Experimental features (ask: "Should I document this now or wait until stable?")
-- Breaking changes (ask: "Should I document the migration path?")
-- Hotfixes (ask: "Update docs now or after proper solution?")
+### Ask first
+- Experimental features: "Document this now or wait until it's stable?"
+- Breaking changes: "Document the migration path?"
+- Hotfixes: "Update docs now or after the proper fix?"
 
 ---
 
@@ -33,304 +38,228 @@ description: Maintains The Canonical Docs as single source of truth. Trigger aft
 
 ```
 /
-├── CLAUDE.md                      # ⭐ AI reads FIRST every session
+├── CLAUDE.md                      # AI reads this FIRST every session
+├── progress.txt                   # Current-state snapshot (root, max ~50 lines)
+├── log.md                         # Append-only session history (create lazily)
+├── agents/                        # Versioned mirror of personal subagents, if used
+├── context/
+│   ├── product-context.md         # Vision, value prop, strategic pillars
+│   ├── team-context.md            # Team structure, ways of working, constraints
+│   └── user-personas.md           # Who this is built for
 └── docs/
-    ├── progress.txt               # Session memory bridge
     ├── product/
-    │   ├── prd.md                 # Feature requirements + status
-    │   ├── app-flow.md            # Navigation + user flows
-    │   ├── product-overview.md    # Vision + goals
-    │   ├── product-roadmap.md     # Planned features
-    │   ├── sections/
-    │   │   └── [section-id]/
-    │   │       └── spec.md        # Detailed US + AC
-    │   ├── shell/
-    │   │   ├── spec.md            # Layout/nav spec
-    │   │   └── components/        # Shell components
-    │   └── types.ts               # Shared types
-    ├── design-system/
-    │   ├── guidelines.md          # Design rules (prose)
-    │   ├── design-system.json     # Tokens (structured)
-    │   ├── components.md          # Component library
-    │   └── design-rules.md        # Optional constraints
-    └── system/
-        ├── tech-stack.md          # Dependencies (exact versions)
-        ├── data-flow.md           # Data sources + viz logic
-        ├── data-consistency.md    # ⭐ GOLDEN formulas
-        ├── implementation-plan.md # Build sequence
-        └── backend-structure/
-            ├── backend-structure.md
-            ├── database-model.md       # Schema + relations
-            ├── architecture-overview.md
-            ├── api-expectations.md     # Endpoint contracts
-            ├── module-map.md           # Code organization
-            └── auth-model.md           # Auth flows
+    │   ├── prd.md                 # Problem statement, success metrics, solution
+    │   └── app-flow.md            # Navigation + user flows
+    ├── system/
+    │   ├── tech-stack.md          # Stack decisions and rationale
+    │   └── implementation-plan.md # Build sequence
+    └── design-system/
+        └── design-system.md       # Tokens + component rules, prose and structured
 ```
+
+Every doc under `docs/` carries YAML frontmatter — `title`, `status` (`draft` / `approved` /
+`shipped`, adjust per doc type), `date`. Keep it current when a doc's state changes.
+
+If the actual repo's structure differs from this (extra files, a different layout it settled
+into), follow the repo's real structure — this is the default shape, not a rule to force onto
+an established project.
+
+---
+
+## progress.txt vs. log.md — different jobs, don't conflate them
+
+This is the single most important distinction in this skill, and the one most likely to be
+gotten wrong.
+
+- **`progress.txt`** — the **current-state snapshot**. Overwritten in place, not appended to.
+  Sections: Current State, Last Session, Active Task, Next Up, Blockers, Decisions Log. Answers
+  "where do things stand right now?" Keep it under ~50 lines — it's read at the start of every
+  session, so it has to stay scannable.
+- **`log.md`** — the **append-only session history**. A new entry gets added at the top on
+  every working session; old entries are never edited or removed. Answers "what happened,
+  session by session, and why?"
+
+Update `progress.txt` whenever the state meaningfully changes. Append to `log.md` every
+working session, regardless of whether `progress.txt` also changed — a session that only
+investigated something without changing state still deserves a log entry saying so.
+
+### log.md format
+
+```markdown
+# Session Log
+
+<!-- Append newest entry at the TOP, below this line. -->
+
+## YYYY-MM-DD HH:MM — Short title of what happened
+- model: <model used>
+- status: done | in-progress | blocked
+- issue: <the problem being worked on, or the blocker — "none" if clean>
+
+- done: what actually changed (1-2 bullets max)
+- next: the single most useful next step
+```
+
+Write only what a future session needs: decisions made and why, state changes, the concrete
+next step with file paths, open blockers. Don't narrate every command, don't repeat what's
+already in git history, don't summarize unchanged things. Keep each entry under ~10 lines —
+if it needs more, the detail belongs in a doc or commit message, linked from the entry.
+
+Create `log.md` lazily — the first time a session does real work in a repo that doesn't have
+one yet, not preemptively.
+
+### If the repo generates a cross-repo rollup file (e.g. `NOW.md`)
+
+Some setups generate a single "what's live, what's next" view across multiple repos, derived
+from each repo's `progress.txt` and `log.md`. If one exists in this repo, it's generated —
+**never hand-edit it.** Update the source files (`progress.txt`, `log.md`) and let the
+generation step (whatever the repo uses — a script, a hook) pick up the change.
 
 ---
 
 ## Decision Tree: What to Update
 
-Use this deterministic tree to decide which docs need updates:
-
 ```
 START
 │
-├─ Changed /app routes or pages?
-│  ├─ YES → Update app-flow.md + progress.txt
-│  │       └─ New feature? → Create sections/[id]/spec.md
-│  └─ NO → Continue
+├─ Changed a route, page, or user flow?
+│  └─ YES → Update app-flow.md
 │
-├─ Changed DB schema or API?
-│  ├─ YES → Update backend-structure/database-model.md
-│  │       └─ API contracts changed? → Update api-expectations.md
-│  │       └─ New dependencies? → Update tech-stack.md
-│  └─ NO → Continue
+├─ Changed DB schema, API contracts, or auth logic?
+│  └─ YES → Update tech-stack.md if new dependencies; document the change in
+│           implementation-plan.md if it's part of an in-flight build
 │
-├─ Changed business logic or calculations?
-│  ├─ YES → Update data-consistency.md (GOLDEN SOURCE)
-│  │       └─ grep all docs for old formula → Replace with LINK
-│  └─ NO → Continue
+├─ Changed design tokens or component rules?
+│  └─ YES → Update design-system.md
 │
-├─ Changed UI components or design tokens?
-│  ├─ YES → Update design-system.json tokens
-│  │       └─ New component? → Update components.md
-│  │       └─ Design rule changed? → Update guidelines.md
-│  └─ NO → Continue
+├─ Feature status changed (draft → shipped)?
+│  └─ YES → Update prd.md status, and progress.txt
 │
-├─ Feature status changed?
-│  ├─ YES → Update prd.md status (🚧 → ✅)
-│  │       └─ Update progress.txt with [x]
-│  └─ NO → Continue
+├─ Product vision, team structure, or personas changed?
+│  └─ YES → Update the relevant context/ file
 │
-└─ DONE
+└─ Always: update progress.txt if state changed, and append a log.md entry
+   at session end regardless of what else changed.
 ```
 
 ---
 
 ## Update Workflow
 
-### Step 1: Session Start
-```bash
-# ALWAYS do this first
-1. Read CLAUDE.md to load project context
-2. Read progress.txt to understand current state
-3. Ask: "What changed since last session?"
-```
+### Step 1: Session start
+1. Read `CLAUDE.md` to load project context.
+2. Read `progress.txt` to understand current state.
+3. If `log.md` exists, its last few entries give session-by-session context `progress.txt`
+   alone doesn't carry.
 
-### Step 2: Determine Scope (use Decision Tree above)
+### Step 2: Determine scope
+Use the Decision Tree above.
 
-### Step 3: Execute Updates
-
-**For each file to update:**
-
-1. **Check redundancy:** Does this info exist elsewhere?
-   - If YES → Add link, don't duplicate
-   - If NO → Proceed
-
-2. **Update the file:**
-   - Find exact section to modify
-   - Make minimal, surgical change
-   - Preserve existing structure
-
-3. **Update cross-references:**
-   - If file moved/renamed → `grep -r "old-name" docs/`
-   - Fix all broken links
-
-4. **Update progress.txt:**
-   - Mark items [x] done
-   - Add new items [ ] if needed
+### Step 3: Execute updates
+For each file:
+1. **Check redundancy** — does this info already live in its owner doc? If yes, link to it,
+   don't duplicate.
+2. **Update surgically** — find the exact section, make the minimal change, preserve
+   structure.
+3. **Fix cross-references** if a file moved or was renamed — `grep -r "old-name" docs/` and
+   fix every hit.
+4. **Update `progress.txt`** if state changed.
 
 ### Step 4: Validate
 ```bash
-# Run these checks
-1. grep -r "\[.*\](.*.md)" docs/  # Find all internal links
-2. Check each link exists
-3. Verify no duplicate content (same formula in 2 places)
-4. Confirm progress.txt reflects reality
+grep -r "\[.*\](.*\.md)" docs/ context/     # find internal links
+# check each target exists
+# check for the same content duplicated in two files
 ```
+
+### Step 5: Session end
+- Append the `log.md` entry — mandatory, even if `progress.txt` didn't need changes.
 
 ---
 
 ## Golden Rules
 
-### Single Source of Truth
-| Topic | Owner Document |
-|-------|----------------|
-| Calculations/formulas | `data-consistency.md` |
-| DB schema | `backend-structure/database-model.md` |
-| API contracts | `backend-structure/api-expectations.md` |
-| Dependencies | `tech-stack.md` |
-| Design tokens | `design-system.json` |
-| User flows | `app-flow.md` |
+### Single source of truth
+| Topic | Owner document |
+|---|---|
+| Problem, success metrics, solution | `docs/product/prd.md` |
+| Navigation and user flows | `docs/product/app-flow.md` |
+| Stack decisions | `docs/system/tech-stack.md` |
+| Build sequence | `docs/system/implementation-plan.md` |
+| Design tokens, component rules | `docs/design-system/design-system.md` |
+| Product vision and strategy | `context/product-context.md` |
+| Team structure and constraints | `context/team-context.md` |
+| Who this is built for | `context/user-personas.md` |
+| Current state | `progress.txt` |
+| Session-by-session history | `log.md` |
 
-**Rule:** If info exists in owner doc → Link to it. Never copy.
+**Rule:** if the info exists in its owner doc, link to it. Never copy it into a second file.
 
-### File Placement
-- ❌ **Never** put loose .md files in `/docs/` root
-- ✅ **Always** organize under `product/`, `system/`, or `design-system/`
-- ✅ **Exception:** Only `CLAUDE.md` (root), `progress.txt` (docs/)
+### File placement
+- Don't put loose `.md` files at the repo root or in `docs/` root — organize under
+  `product/`, `system/`, `design-system/`, or `context/`.
+- Exceptions: `CLAUDE.md` and `progress.txt` belong at the repo root; `log.md` too.
 
-### CLAUDE.md Priority
-- CLAUDE.md is AI's operating manual
-- Update it when conventions change
-- Keep it under 2000 words (AI loads it every session)
-
-### Progress.txt Discipline
-- Update EVERY feature completion
-- Format: `[x] Feature name - Brief status`
-- Acts as session memory bridge
+### CLAUDE.md priority
+`CLAUDE.md` is the AI's operating manual — update it when conventions change, keep it under
+~2000 words since it loads every session.
 
 ---
 
 ## Common Scenarios
 
-### Scenario 1: "Feature X is complete"
-```
-Trigger: Post-feature
-Files to check:
-1. progress.txt → Mark [x]
-2. prd.md → Update status to ✅
-3. sections/X/spec.md → Verify spec matches implementation
-4. app-flow.md → If new routes added
-5. data-consistency.md → If formulas involved
-```
+### "Feature X is complete"
+1. `progress.txt` → update Current State / Active Task / Next Up.
+2. `docs/product/prd.md` → status to `shipped`.
+3. `docs/product/app-flow.md` → if new routes were added.
+4. `log.md` → session entry, `status: done`.
 
-### Scenario 2: "Changed DB schema"
-```
-Trigger: Architecture change
-Files to update:
-1. backend-structure/database-model.md → Document new schema
-2. backend-structure/api-expectations.md → If endpoints changed
-3. tech-stack.md → If new DB packages added
-4. progress.txt → Record change
-```
+### "Changed DB schema or API"
+1. `docs/system/tech-stack.md` → if new dependencies.
+2. `docs/system/implementation-plan.md` → if this is part of an in-flight build.
+3. `progress.txt` → record the change.
+4. `log.md` → session entry.
 
-### Scenario 3: "Added /dashboard/analytics page"
-```
-Trigger: New route
-Files to update:
-1. app-flow.md → Add route + user flow description
-2. progress.txt → Add to completed
-3. sections/analytics/spec.md → Create if new feature domain
-4. prd.md → If this fulfills a requirement
-```
+### "Changed a design token"
+1. `docs/design-system/design-system.md` → update the token and, if the rationale changed,
+   the surrounding prose.
+2. Don't touch individual component files that reference the token — they inherit it.
 
-### Scenario 4: "Changed button radius from 16px to 12px"
-```
-Trigger: Design token change
-Files to update:
-1. design-system.json → Update radius-button token
-2. design-system/guidelines.md → Update if explanation needed
-3. DO NOT update individual component files (they reference tokens)
-```
-
-### Scenario 5: "Formula for inventory calculation changed"
-```
-Trigger: Business logic change
-Files to update:
-1. data-consistency.md → Update THE formula (golden source)
-2. Run: grep -r "old formula pattern" docs/
-3. Replace all occurrences with LINK to data-consistency.md
-4. sections/inventory/spec.md → Link to data-consistency.md
-```
-
-### Scenario 6: "Cleanup documentation"
-```
-Trigger: Explicit request
-Actions:
-1. find docs/ -name "*.md" -type f
-2. Check each file against canonical structure
-3. Move misplaced files to correct folders
-4. rm temp_*.md old_*.md backup_*.md
-5. Run link audit: grep -r "\[.*\](.*.md)" docs/
-6. Fix broken links
-7. Report summary of changes
-```
-
-### Scenario 7: "Starting new session"
-```
-Trigger: Session start
-Actions:
-1. Read CLAUDE.md first (AI context)
-2. Read progress.txt (what's done/in-progress)
-3. Ask user: "What are we working on today?"
-4. Proceed with work
-```
+### "Cleanup documentation"
+1. `find . -name "*.md" -not -path "./node_modules/*"` and check each file against the
+   canonical structure above.
+2. Move misplaced files into the right folder.
+3. Remove genuinely stale files (`temp_*.md`, `old_*.md`, `backup_*.md`).
+4. Run the link audit (Step 4 above) and fix anything broken.
+5. Report a summary of what moved/changed.
 
 ---
 
-## Pre-Commit Checklist
+## Session-End Checklist
 
-Before `git push`, verify:
-
-```
-[ ] progress.txt updated?
-[ ] Feature status in prd.md reflects reality?
-[ ] Relevant spec files synced with implementation?
-[ ] New pages documented in app-flow.md?
-[ ] Design changes in design-system/?
-[ ] Backend changes in backend-structure/?
-[ ] No broken internal links? (grep check)
-[ ] No duplicate content? (same info in 2+ places)
-[ ] CLAUDE.md updated if conventions changed?
-```
-
----
-
-## Validation Commands
-
-Run these to verify docs health:
-
-```bash
-# Find all internal markdown links
-grep -r "\[.*\](.*.md)" docs/
-
-# Find potential duplicates (same heading in multiple files)
-grep -r "^## " docs/ | sort | uniq -d
-
-# Find files not in canonical structure
-find docs/ -maxdepth 1 -name "*.md" ! -name "progress.txt"
-
-# Check for TODO/FIXME in docs
-grep -r "TODO\|FIXME" docs/
-```
+- [ ] `progress.txt` reflects the actual current state, not last week's
+- [ ] `log.md` has a new entry for this session, even if brief
+- [ ] Feature status in `prd.md` matches reality
+- [ ] New routes/flows are in `app-flow.md`
+- [ ] Design changes are in `design-system.md`
+- [ ] No broken internal links (`grep` check)
+- [ ] No duplicate content across two files
+- [ ] `CLAUDE.md` updated if conventions changed
+- [ ] No hand-edits to a generated rollup file, if the repo has one
 
 ---
 
 ## Error Prevention
 
-### Common Mistakes to Avoid
-
-1. **Updating latest instead of best**
-   - ❌ Always updating the newest file
-   - ✅ Check if older version has better info
-
-2. **Duplicating instead of linking**
-   - ❌ Copying formula to multiple docs
-   - ✅ Reference data-consistency.md
-
-3. **Forgetting progress.txt**
-   - ❌ Only updating specs
-   - ✅ Always update progress.txt too
-
-4. **Breaking links when moving files**
-   - ❌ Moving file without updating references
-   - ✅ grep for all references first
-
-5. **Over-documenting trivial changes**
-   - ❌ Updating docs for 2-line fix
-   - ✅ Use "When NOT to use" criteria
-
----
-
-## Success Metrics
-
-After using this skill, docs should be:
-
-✅ **Consistent** - No contradictions between files  
-✅ **Complete** - All implemented features documented  
-✅ **Current** - Reflects actual codebase state  
-✅ **Linked** - Cross-references work, no duplicates  
-✅ **Organized** - Files in correct canonical folders  
-✅ **Accessible** - CLAUDE.md + progress.txt provide entry points
+1. **Duplicating instead of linking** — copying a decision or a schema description into a
+   second file instead of linking to its owner doc. Costs nothing to link, costs a real drift
+   bug later to duplicate.
+2. **Forgetting the log.md entry** — updating specs but skipping the session log means the
+   next session re-derives context that already existed.
+3. **Confusing progress.txt with log.md** — progress.txt gets overwritten with the current
+   state; log.md gets a new entry appended. Don't append to progress.txt, don't overwrite
+   log.md.
+4. **Breaking links when moving files** — `grep -r "old-name"` before moving, not after.
+5. **Over-documenting trivial changes** — a 2-line fix doesn't need a docs pass; use the
+   "Never trigger" list above.
+6. **Hand-editing a generated file** — if the repo has a generated cross-repo view, edit the
+   source files instead and let generation happen normally.

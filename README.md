@@ -115,7 +115,7 @@ with the accumulated judgment of all previous ones.
 
 | Skill | Purpose |
 |-------|---------|
-| `maintaining-documentation` | Keep docs as a living single source of truth |
+| `maintaining-documentation` | Real canonical-docs structure; log.md vs. progress.txt |
 | `creating-skills` | Meta-skill for generating new standardized skills |
 | `autoresearch` | Self-optimize any skill via eval loops |
 | `deploying-to-github` | Branching, PRs, code review, submodules, worktrees |
