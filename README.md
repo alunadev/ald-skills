@@ -1,6 +1,6 @@
 # ALD Skills
 
-**42 skills and 2 workflows that turn Claude Code into a product team.**
+**52 skills and 2 workflows that turn Claude Code into a product team.**
 
 This is the public layer of [ald-os](https://github.com/alunadev) — a personal
 AI Product Management Operating System I use daily to run the full product
@@ -93,6 +93,16 @@ with the accumulated judgment of all previous ones.
 | `web-design-guidelines` | 100+ accessibility, UX and code quality rules |
 | `figma-reverse-engineering` | Figma designs → implementation-ready specs |
 | `frontend-slides` | Animation-rich HTML presentations, brief or PPT conversion |
+| `emil-design-eng` | Design engineering philosophy — animation decisions, component craft |
+| `animate` | Build one animation from scratch, following the full decision framework |
+| `review-animations` | Strict diff review against 10 non-negotiable motion standards |
+| `improve-animations` | Codebase-wide motion audit → prioritized implementation plans |
+| `find-animation-opportunities` | Finds UI missing motion — and what *not* to animate |
+| `animation-vocabulary` | Reverse-lookup glossary — name any motion effect |
+| `apple-design` | Fluid-interface physics — springs, gestures, momentum, materials |
+| `ask-sonner` | Setup, styling, and troubleshooting for the Sonner toast library |
+| `design-lab` | Interview → 5 live variants → real feedback → implementation plan (manual invoke) |
+| `prototype` | Fast no-interview picker — 3-5 variants of one component (auto-triggers on any UI decision) |
 
 ### Content & Communication
 

@@ -232,6 +232,56 @@ This repository serves as the central hub for reusable agentic skills. These ski
 - **Purpose**: Implementation layer for analytics — event naming conventions, tracking plans, GA4/GTM/Amplitude/Segment setup, UTM strategy, and debugging. Reference tool: Amplitude. Pairs with `product-analytics` (which covers what to measure and why); use this for the "how do we wire it up" step.
 - **Triggers**: "set up tracking", "GA4", "Amplitude", "event tracking", "UTM parameters", "tag manager", "GTM", "tracking plan", "event taxonomy", "are my events firing", "naming convention for events", "instrument this feature".
 
+### 43. Design Engineering (emil-design-eng)
+- **Path**: `skills/emil-design-eng/`
+- **Purpose**: Emil Kowalski's design engineering philosophy — the reference/philosophy layer for interaction craft: animation decision framework, spring configs, component-building principles, CSS transform mastery, performance rules. The 8 skills below (44-51) are the task-specific pieces of this same philosophy.
+- **Triggers**: general animation/UI-polish questions, "why does this feel off", reviewing component craft.
+
+### 44. Animate
+- **Path**: `skills/animate/`
+- **Purpose**: Builds one animation from scratch — should it animate at all, purpose, tool, properties, curve/duration, interruption, exit — following `emil-design-eng`'s bar. Writes the implementation, not a menu of options.
+- **Triggers**: "animate this", "add motion", "make this feel alive", "build a transition".
+
+### 45. Review Animations
+- **Path**: `skills/review-animations/`
+- **Purpose**: Strict diff review against the ten non-negotiable animation standards — findings table + Block/Approve verdict. Manually invoked only.
+- **Triggers**: "review this animation", "check the motion in this diff".
+
+### 46. Improve Animations
+- **Path**: `skills/improve-animations/`
+- **Purpose**: Codebase-wide motion audit → prioritized findings → self-contained implementation plans for any executor. Read-only; never modifies source directly.
+- **Triggers**: "improve the animations", "audit the motion", "make this app feel better".
+
+### 47. Find Animation Opportunities
+- **Path**: `skills/find-animation-opportunities/`
+- **Purpose**: Sweeps a UI for moments that would genuinely benefit from motion (and rejects most candidates) — a 4-question gate (frequency, purpose, speed, function) plus a required "rejected candidates" section.
+- **Triggers**: "what could be animated here", "make this feel more alive".
+
+### 48. Animation Vocabulary
+- **Path**: `skills/animation-vocabulary/`
+- **Purpose**: Reverse-lookup glossary — turns a vague motion description ("the bouncy popover thing") into its exact term ("Pop in"), for naming an effect, not building it.
+- **Triggers**: "what's it called when...", describing a motion effect without knowing its name.
+
+### 49. Apple Design
+- **Path**: `skills/apple-design/`
+- **Purpose**: Apple's fluid-interface physics translated for the web — interruptible springs, velocity handoff, momentum projection, rubber-banding, translucent materials, optical typography. Deeper gesture/spring model than `emil-design-eng` covers.
+- **Triggers**: gesture-driven UI, spring animations, drag/swipe/sheet interactions, translucent materials, "make this feel like iOS".
+
+### 50. Ask Sonner
+- **Path**: `skills/ask-sonner/`
+- **Purpose**: Setup, styling, theming, and troubleshooting guide for Sonner (the React toast library) — Toaster placement, promise/loading toasts, the styling escalation ladder, common failure symptoms.
+- **Triggers**: working with Sonner, toasts that don't appear/duplicate/lose styles/ignore dark mode.
+
+### 51. Design Lab
+- **Path**: `skills/design-lab/`
+- **Purpose**: Full design exploration workflow — interview, infer the project's real visual language, generate 5 distinct variants of a component or page, collect real feedback via `visual-review`'s `human-review` mechanism, synthesize, and produce an implementation plan + Design Memory. For exploring a direction that's still open, before writing production code. **Manually invoked only** (`disable-model-invocation: true`) — deliberately heavier than `prototype`, called by name when the full workflow is actually warranted.
+- **Triggers**: explicit invocation only — "run design-lab", "explore design options for X", "redesign this component/page" when you want the full interview + feedback + plan.
+
+### 52. Prototype
+- **Path**: `skills/prototype/`
+- **Purpose**: Fast, no-interview variant picker — 3-5 genuinely different versions of one described UI piece, behind a live keyboard-driven picker, flip and promote a winner. Lighter weight than `design-lab`. **Auto-triggers** — Adrian wants this reflexive whenever a new feature, layout, section, visual, or UI decision comes up, not just on request.
+- **Triggers**: evaluating a new feature/layout/section/visual/design/UI, "show me a few options for this button/card/toast", any UI decision worth diverging on before settling.
+
 ---
 
 ## 🔄 Workflow Integration
@@ -246,7 +296,7 @@ STRATEGIZE → SPECIFY → DESIGN → BUILD → REVIEW → HARDEN → DOCUMENT �
 2. **Strategize** → `product-strategy` *(define bets, North Star, OKRs)*
 3. **Specify** → `prd-writer` + `product-analytics` *(write the PRD + define success metrics)*
 4. **Design** → `brainstorming` + `brand-identity`
-5. **Build** → `taste-skill` (new UI from the brief) or `taste-redesign` (upgrading existing UI) + `react-best-practices` + `prompt-engineering-patterns` *(if AI features)*
+5. **Build** → `taste-skill` (new UI from the brief) or `taste-redesign` (upgrading existing UI) — or `design-lab`/`prototype` first if the direction itself is still open — + `animate`/`emil-design-eng` for motion + `react-best-practices` + `prompt-engineering-patterns` *(if AI features)*
 6. **Review** → `requesting-code-review`
 7. **Harden** → `error-handling-patterns`
 8. **Document** → `maintaining-documentation`

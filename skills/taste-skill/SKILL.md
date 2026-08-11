@@ -9,8 +9,11 @@ description: >
   page." For auditing and upgrading an EXISTING UI, use `taste-redesign` instead — this skill
   is for the moment before code exists. Triggers on: "build a landing page", "design a
   portfolio", "make this not look generic/templated/AI-generated", "anti-slop", starting UI
-  work with a brief but no established identity yet.
-  Source: github.com/Leonxlnx/taste-skill (taste-skill, the main v2 variant).
+  work with a brief but no established identity yet. Also owns component-library selection
+  (which package for toasts, dropdowns, charts, drag-and-drop, state, etc.) — use this instead
+  of hand-rolling a component or guessing at a dependency.
+  Source: github.com/Leonxlnx/taste-skill (taste-skill, the main v2 variant); library table
+  merged from github.com/emilkowalski/skills' pick-ui-library.
 ---
 
 # Taste Skill — Anti-Slop Frontend Design
@@ -74,7 +77,83 @@ Use-case presets, if the brief maps cleanly to one:
   shadcn/ui) — use the official package, don't reimplement it.
 - **Aesthetic directions** without an official package (glassmorphism, brutalism, editorial) —
   build with native CSS + Tailwind + maintained components, not from-scratch primitives.
-- Check `package.json` before importing any library.
+- Check `package.json` before importing any library. If the project already uses a listed
+  library below, use it — if it uses a competitor (e.g. `react-window` instead of `Virtuoso`),
+  flag the alternative but don't churn the dependency without being asked.
+
+### Component library picks (curated, don't substitute without a reason)
+
+Identify the task, not the library the tech asked for — "I need a dropdown" is a
+UI-primitives task (`base-ui`) even if someone asked about something else. Recommend one
+library, state what it's for in one sentence, and install/wire it up if that's part of the
+request — don't present a menu when the table has a clear answer. If the task isn't covered,
+say so explicitly and recommend from general knowledge, but be clear you've left this table.
+
+**UI components & primitives**
+
+| Task | Library |
+| --- | --- |
+| Unstyled, accessible UI components (dialogs, popovers, menus, selects…) | `base-ui` |
+| Command menus (⌘K palettes) | `cmdk` |
+| Toasts / notifications | Sonner — see `ask-sonner` |
+| One-time password / verification code inputs | `input-otp` |
+| Customizable GUIs / control panels | `Leva` (`dialkit` as an alternative) |
+
+**Motion & visuals**
+
+| Task | Library |
+| --- | --- |
+| General-purpose animation (springs, layout animations, enter/exit) | Motion (Framer Motion) — see `emil-design-eng` / `animate` for when it's actually warranted |
+| Animating numbers (counters, prices, stats) | `NumberFlow` |
+| Animated text components | `torph` |
+| 3D globes | `Cobe` |
+| Dynamic OG images (HTML/CSS → SVG/PNG) | `Satori` |
+| Syntax highlighting | `shiki` |
+
+Reach for Motion when you need springs, layout animations, exit animations, or gesture-driven
+values. A simple hover or fade doesn't need it — plain CSS transitions are the right tool
+there.
+
+**Charts**
+
+| Task | Library |
+| --- | --- |
+| Real-time / streaming charts | `Liveline` |
+| General charts (static or interactive dashboards) | `recharts` |
+
+The split: if data points arrive live and the chart scrolls with time, use Liveline.
+Everything else is recharts.
+
+**Interaction & performance**
+
+| Task | Library |
+| --- | --- |
+| Drag and drop | `dnd kit` |
+| Virtualization (long lists, large tables) | `Virtuoso` |
+
+**State & styling**
+
+| Task | Library |
+| --- | --- |
+| State management | `zustand` |
+| Constructing className strings conditionally | `clsx` |
+| Type-safe, variant-driven styling for Tailwind | `cva` |
+| Theme switching / dark mode (no flash on load) | `next-themes` |
+
+The styling split: `clsx` for ad-hoc conditional classes; `cva` when a component has real
+variants (size, intent, state) that deserve a typed API. They compose — `cva` uses
+`clsx`-style inputs internally.
+
+**Common mismatches to catch**
+
+- Toasts built by hand or with a modal library → Sonner exists for exactly this.
+- A `<div>`-based dropdown/dialog with manual focus handling → `base-ui`, which handles
+  accessibility, focus trapping, and dismissal.
+- Animating a number by re-rendering text → `NumberFlow` handles digit transitions properly.
+- Rendering a 1,000+ row list directly → `Virtuoso` before reaching for pagination hacks.
+- A `useState`-per-component web of props for shared state → `zustand`.
+- Template-literal className ternaries three conditions deep → `clsx` (or `cva` if it's
+  variant-shaped).
 
 ## Step 3: Architecture Defaults
 
@@ -202,3 +281,8 @@ fails, the work is not done.
   (Sections 5-9), not identity definition.
 - `brand-identity` — runs the interview that produces a new project's `DESIGN.md` in the
   first place, before this skill's brief-first process has anything to read.
+- `emil-design-eng` / `animate` — the full animation decision framework and build sequence
+  behind this skill's short motion rules in Step 4/5.
+- `ask-sonner` — setup and troubleshooting once the library table above points to Sonner.
+- `design-lab` / `prototype` — for exploring multiple UI directions before committing to one,
+  rather than declaring a single direction from dials and building it.
