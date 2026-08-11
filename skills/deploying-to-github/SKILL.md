@@ -174,6 +174,40 @@ Don't `rm -rf` a worktree directory directly — it leaves stale references in t
 Use a worktree when two branches genuinely need to be checked out *simultaneously*; for
 sequential work, switching branches in place is simpler.
 
+### Cleanup — worktrees are disk and memory, not free
+
+A worktree is a full second checkout: it holds its own working files, its own `node_modules`
+or equivalent if the project has one, and — if the repo has a submodule — its own submodule
+checkout too. Left around after the work is done, they quietly accumulate disk space and
+clutter, and a stale one can also confuse tooling that assumes one checkout per repo.
+
+**Treat a worktree as scoped to one task, and remove it the moment that task is merged or
+abandoned** — not "later," not "when I get around to it."
+
+Periodic audit, especially before starting new work in a repo you haven't touched in a while:
+
+```bash
+git worktree list                       # see everything currently checked out
+```
+
+For each entry that isn't active work:
+
+```bash
+git worktree remove ../path-to-old-worktree
+```
+
+If a worktree's directory was already deleted by hand (breaking the rule above, but it
+happens) and `git worktree list` still shows it as a dangling reference:
+
+```bash
+git worktree prune
+```
+
+A reasonable default: if a worktree's branch has been merged and you haven't opened it in
+over a week, remove it. If in doubt whether something is still needed, `git worktree remove`
+only deletes the checkout — the branch and its commits stay intact in `.git` history unless
+you separately delete the branch, so removing an idle worktree is low-risk.
+
 ---
 
 ## 8. Working alongside other active sessions
