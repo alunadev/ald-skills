@@ -194,8 +194,8 @@ This repository serves as the central hub for reusable agentic skills. These ski
 
 ### 35. Requesting Code Review
 - **Path**: `skills/requesting-code-review/`
-- **Purpose**: Superpowers:code-reviewer subagent for early issue detection.
-- **Triggers**: PR review, feature completion, pre-commit check.
+- **Purpose**: Self-contained code review checklist (formatting, type safety, duplication, readable conditions, logic-out-of-UI, tests, comments) that adapts to whatever tooling the project actually has. **In Claude Code, prefer the official `code-review` skill or the `pr-review-toolkit`/`feature-dev` code-reviewer agents instead** — both are real, installed, and do a deeper pass than this checklist. This copy exists so the same discipline is available in Codex/Cursor, which don't have those agents.
+- **Triggers**: PR review, feature completion, pre-commit check — when no agent-based reviewer is available.
 
 ### 36. Autoresearch
 - **Path**: `skills/autoresearch/`

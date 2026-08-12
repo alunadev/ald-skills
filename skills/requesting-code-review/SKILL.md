@@ -1,6 +1,6 @@
 ---
 name: requesting-code-review
-description: Self-contained code review checklist — formatting, type safety, duplication, readable conditions, logic-out-of-UI, test coverage, comment quality. Adapts to whatever tooling the project actually has (skips Prettier/TypeScript/test-runner checks if unconfigured). Use before merging, after completing a feature, or any time you want a second pass on code quality. In Claude Code, prefer the official `code-review` skill or `pr-review-toolkit`/`feature-dev` code-reviewer agents instead (see ald-skills/skills/README.md routing table) — this copy exists for Codex/Cursor portability.
+description: Self-contained code review checklist — formatting, type safety, duplication, readable conditions, logic-out-of-UI, test coverage, comment quality. Adapts to whatever tooling the project actually has (skips Prettier/TypeScript/test-runner checks if unconfigured). Use before merging, after completing a feature, or any time you want a second pass on code quality. In Claude Code, prefer the official `code-review` skill or `pr-review-toolkit`/`feature-dev` code-reviewer agents instead — both are real, installed, and go deeper than this checklist. This copy exists for Codex/Cursor portability, where those agents aren't available.
 ---
 
 # Code Review

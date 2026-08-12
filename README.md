@@ -129,7 +129,7 @@ with the accumulated judgment of all previous ones.
 | `creating-skills` | Meta-skill for generating new standardized skills |
 | `autoresearch` | Self-optimize any skill via eval loops |
 | `deploying-to-github` | Branching, PRs, code review, submodules, worktrees |
-| `requesting-code-review` | AI-powered code review subagent |
+| `requesting-code-review` | Self-contained review checklist (portable to Codex/Cursor); prefer the official `code-review` skill or `pr-review-toolkit` agents in Claude Code |
 
 ---
 
