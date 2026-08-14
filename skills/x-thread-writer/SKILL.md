@@ -27,18 +27,25 @@ more substantial — that's padding, and it reads as padding.
 ### Thread (for a real multi-step insight)
 
 ```
-Tweet 1 (Hook): Carries the entire value of the thread by itself. Someone who reads
-                only this walks away with something real. State the claim, don't tease it.
+Tweet 1 (Hook): Carries the entire value of the thread by itself. Clear and engaging —
+                someone who reads only this walks away with something real. State the
+                claim, don't tease it.
 Tweet 2-5 (Insights): One insight per tweet, numbered ("2/"). Max ~25 words each —
-                       shorter reads better than clever.
-Last tweet (Close): Callback to tweet 1, then one CTA — never more than one.
+                       shorter reads better than clever. Each tweet builds on the last,
+                       carrying momentum toward the close — not a flat list of unrelated
+                       observations that happen to share a topic.
+Last tweet (Close): Impactful enough that the reader reflects on the whole thread, not
+                     just the last point — callback to tweet 1, then one CTA.
 ```
 
 Rules specific to threads:
 - Tweet 1 carries full weight. Most readers won't click "show more" or scroll past it.
 - No cliffhangers in tweet 1 — "here's the thing..." is not a hook, it's a stall.
-- Each tweet works standalone. No "as I said above" — assume someone lands on tweet 3
-  first.
+- Each tweet works standalone (no "as I said above" — assume someone lands on tweet 3
+  first) *and* flows into the next — standalone-readable isn't the same as disconnected;
+  the sequence should still build anticipation tweet to tweet.
+- The last tweet should land, not just stop — write it so the reader reflects on the
+  thread as a whole, not just the final point.
 - One CTA at the end (follow, or reply, or repost) — never stack all three.
 
 ## Platform Mechanics (facts, not voice)
@@ -54,6 +61,7 @@ Rules specific to threads:
 - **No hype vocabulary**: "dive into", "unlock", "elevate", "unleash", "next-gen",
   "game-changer", "synergy", "robust", "leverage", "landscape".
 - **No urgency, scarcity, or exclusivity devices.**
+- **No hashtags — ever, on any tweet.**
 - **No claim you couldn't defend if quote-tweeted by someone who knows the details.**
 - **A counted number beats a superlative.**
 - **Plain first tweet beats a formula.** State the claim; don't tease a "secret."
@@ -64,7 +72,9 @@ Rules specific to threads:
       tend to perform
 - [ ] Grep for "no es… es" / "not X, but Y" — zero hits, including tweet 1
 - [ ] Zero em dashes, zero hype words from the banned list above
-- [ ] Every tweet works if someone reads it alone
+- [ ] Zero hashtags, on every tweet
+- [ ] Every tweet works if someone reads it alone, and every tweet is ≤280 characters
+- [ ] Last tweet is impactful enough to reflect on, not just a stop
 - [ ] One CTA max at the end
 - [ ] Every number is real and counted
 
