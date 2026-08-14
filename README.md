@@ -1,6 +1,6 @@
 # ALD Skills
 
-**52 skills and 2 workflows that turn Claude Code into a product team.**
+**55 skills and 2 workflows that turn Claude Code into a product team.**
 
 This is the public layer of [ald-os](https://github.com/alunadev) — a personal
 AI Product Management Operating System I use daily to run the full product
@@ -103,6 +103,8 @@ with the accumulated judgment of all previous ones.
 | `ask-sonner` | Setup, styling, and troubleshooting for the Sonner toast library |
 | `design-lab` | Interview → 5 live variants → real feedback → implementation plan (manual invoke) |
 | `prototype` | Fast no-interview picker — 3-5 variants of one component (auto-triggers on any UI decision) |
+| `grilling` | Short clarifying interview before non-trivial engineering work — requirement, scope, done-criteria |
+| `tdd` | Red-green-refactor discipline — test at the public interface, mock only at boundaries |
 
 ### Content & Communication
 
@@ -130,6 +132,7 @@ with the accumulated judgment of all previous ones.
 | `autoresearch` | Self-optimize any skill via eval loops |
 | `deploying-to-github` | Branching, PRs, code review, submodules, worktrees |
 | `requesting-code-review` | Self-contained review checklist (portable to Codex/Cursor); prefer the official `code-review` skill or `pr-review-toolkit` agents in Claude Code |
+| `writing-for-agents` | Writing standards for any doc an agent consumes — a skill, CLAUDE.md/AGENTS.md, a doc reached by a pointer |
 
 ---
 

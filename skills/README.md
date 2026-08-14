@@ -284,6 +284,25 @@ This repository serves as the central hub for reusable agentic skills. These ski
 
 ---
 
+### Engineering Discipline (mattpocock/skills)
+
+### 53. Grilling
+- **Path**: `skills/grilling/`
+- **Purpose**: Short clarifying interview before non-trivial engineering work — surfaces the actual requirement, what's explicitly out of scope, and what proves it's done, before code gets written. The engineering counterpart to `brand-identity`'s design interview. Operationalizes Engineering #12 in `product-builder-principles.md`.
+- **Triggers**: starting a task whose requirement, scope, or definition of done isn't already unambiguous; "let's build X" with no clear spec yet.
+
+### 54. TDD
+- **Path**: `skills/tdd/`
+- **Purpose**: Red-green-refactor test-driven development discipline — write a failing test at the public interface first, minimal code to pass it, refactor later rather than inside the loop. Mock only at system boundaries. Operationalizes Engineering #13 in `product-builder-principles.md`.
+- **Triggers**: writing new logic, fixing a bug (write the regression test first), any code where correctness matters more than raw speed.
+
+### 55. Writing for Agents
+- **Path**: `skills/writing-for-agents/`
+- **Purpose**: Writing standards for any document an agent consumes — a skill, `CLAUDE.md`/`AGENTS.md`, or a doc reached by a pointer. Context pointers, context load vs. cognitive load, progressive disclosure, leading words, pruning. Operationalizes Engineering #14 in `product-builder-principles.md`.
+- **Triggers**: creating or editing a skill, writing/editing `CLAUDE.md` or `AGENTS.md`, any reference doc meant for agent consumption.
+
+---
+
 ## 🔄 Workflow Integration
 
 ### Full PM → Engineering → Release Flow
