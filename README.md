@@ -1,6 +1,6 @@
 # ALD Skills
 
-**55 skills and 2 workflows that turn Claude Code into a product team.**
+**57 skills and 2 workflows that turn Claude Code into a product team.**
 
 This is the public layer of [ald-os](https://github.com/alunadev) — a personal
 AI Product Management Operating System I use daily to run the full product
@@ -105,6 +105,8 @@ with the accumulated judgment of all previous ones.
 | `prototype` | Fast no-interview picker — 3-5 variants of one component (auto-triggers on any UI decision) |
 | `grilling` | Short clarifying interview before non-trivial engineering work — requirement, scope, done-criteria |
 | `tdd` | Red-green-refactor discipline — test at the public interface, mock only at boundaries |
+| `codebase-design` | Deep-module vocabulary — the deletion test, one-vs-two-adapters seam rule |
+| `domain-modeling` | Project glossary (`CONTEXT.md`) + gated ADRs, reduced single-project scope |
 
 ### Content & Communication
 

@@ -301,6 +301,16 @@ This repository serves as the central hub for reusable agentic skills. These ski
 - **Purpose**: Writing standards for any document an agent consumes — a skill, `CLAUDE.md`/`AGENTS.md`, or a doc reached by a pointer. Context pointers, context load vs. cognitive load, progressive disclosure, leading words, pruning. Operationalizes Engineering #14 in `product-builder-principles.md`.
 - **Triggers**: creating or editing a skill, writing/editing `CLAUDE.md` or `AGENTS.md`, any reference doc meant for agent consumption.
 
+### 56. Codebase Design
+- **Path**: `skills/codebase-design/`
+- **Purpose**: Shared vocabulary for designing deep modules — small interface, lots of behavior behind it. Module/Interface/Seam/Adapter/Depth glossary, the deletion test, the one-vs-two-adapters rule for when a seam is real. Operationalizes Engineering #1 and #10 in `product-builder-principles.md`.
+- **Triggers**: designing or improving a module's interface, deciding where a seam belongs, deciding whether to extract or merge modules, making code more testable.
+
+### 57. Domain Modeling
+- **Path**: `skills/domain-modeling/`
+- **Purpose**: Maintains a project's `CONTEXT.md` glossary and gated ADRs (`docs/adr/`) as decisions get made, not documentation written once and left to rot. Reduced-scope port — single-project only, no `CONTEXT-MAP.md`/bounded contexts. Operationalizes Engineering #14-15 in `product-builder-principles.md`.
+- **Triggers**: terminology conflicts or turns fuzzy, a decision that's hard to reverse/surprising/a real trade-off, a stated domain rule that doesn't match what the code does.
+
 ---
 
 ## 🔄 Workflow Integration
