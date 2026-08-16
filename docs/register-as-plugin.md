@@ -1,6 +1,6 @@
 # How to Register ALD Skills as a Claude Code Plugin
 
-> **Executed 2026-07-07** — the plugin is registered as `ald-skills@local` and a `.claude-plugin/marketplace.json` now enables public installs.
+> **Superseded 2026-08-16.** This was Adrian's own registration path from 2026-07-07 to 2026-08-16 — `ald-skills@local` is no longer installed on his machine. The plugin surfaced skills correctly only from within this repo's own working directory; sessions in other project directories saw an empty skill list, with no diagnosed fix. His personal setup now symlinks each `ald-skills/skills/<name>` (and `workflows/<name>`) directly into Claude Code's native `~/.claude/skills/<name>` and the cross-agent `~/.agents/skills/<name>`, with `command.md` files symlinked into `~/.claude/commands/<slash-name>.md` — see the root `CLAUDE.md` in `ald-system`. This guide is kept as a reference for the plugin path (still valid for other Claude Code users installing from GitHub — see the main [README](../README.md)), not as current instructions for this machine.
 
 ## Why this is needed
 

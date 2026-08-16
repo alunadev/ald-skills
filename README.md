@@ -16,18 +16,41 @@ Product Manager and Product Builder.
 
 ---
 
-## Install as a Claude Code Plugin (Recommended)
+## Install
+
+This is a skills library, not a plugin — plain markdown files any agent can
+read. Two ways to wire it in:
+
+### Symlink into your agent's global skills folder (Recommended)
 
 ```bash
-# 1. Add this repo as a plugin marketplace
-claude plugin marketplace add alunadev/ald-skills
+git clone https://github.com/alunadev/ald-skills.git
 
-# 2. Install the plugin
+# Claude Code
+for d in ald-skills/skills/*/ ald-skills/workflows/*/; do
+  ln -s "$(pwd)/$d" ~/.claude/skills/"$(basename "$d")"
+done
+
+# Any other agent that reads a shared skills folder (Codex, Cursor, OpenCode, ...)
+for d in ald-skills/skills/*/ ald-skills/workflows/*/; do
+  ln -s "$(pwd)/$d" ~/.agents/skills/"$(basename "$d")"
+done
+```
+
+Skills become auto-discoverable in every session, on every project, with no
+extra registration step. Pull the repo to update; the symlinks pick it up
+immediately.
+
+### Alternative: Claude Code Plugin
+
+```bash
+claude plugin marketplace add alunadev/ald-skills
 claude plugin install ald-skills@ald-skills
 ```
 
-All skills become auto-discoverable: Claude triggers them by context, or you
-invoke them by name ("use prd-writer", "apply brainstorming").
+Convenient for a one-line install, but plugin-scoped discovery has been
+unreliable outside the plugin's own working directory in testing — the
+symlink method above is what this repo's author actually runs.
 
 ### Alternative: Git Submodule
 
