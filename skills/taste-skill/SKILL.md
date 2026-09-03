@@ -103,7 +103,7 @@ say so explicitly and recommend from general knowledge, but be clear you've left
 
 | Task | Library |
 | --- | --- |
-| General-purpose animation (springs, layout animations, enter/exit) | Motion (Framer Motion) — see `emil-design-eng` / `animate` for when it's actually warranted |
+| General-purpose animation (springs, layout animations, enter/exit) | Motion (Framer Motion) — see `emil-design-eng` / `animation` for when it's actually warranted |
 | Animating numbers (counters, prices, stats) | `NumberFlow` |
 | Animated text components | `torph` |
 | 3D globes | `Cobe` |
@@ -158,7 +158,7 @@ variants (size, intent, state) that deserve a typed API. They compose — `cva` 
 ## Step 3: Architecture Defaults
 
 - React/Next.js, Tailwind v4, the Motion library, `next/font` — unless the brief or an
-  existing `DESIGN.md`/tech-stack note says otherwise (check `brand-identity`'s output first).
+  existing `DESIGN.md`/tech-stack note says otherwise (check `design-md`'s output first).
 - Avoid loading Google Fonts via `<link>` tags in production; use `next/font`.
 
 ## Step 4: Design Engineering Directives
@@ -279,9 +279,9 @@ fails, the work is not done.
 - `design-md` — if a `DESIGN.md` exists for this project, its tokens override the generic
   typography/color defaults in Step 4; this skill's job becomes execution discipline
   (Sections 5-9), not identity definition.
-- `brand-identity` — runs the interview that produces a new project's `DESIGN.md` in the
+- `design-md` — runs the interview that produces a new project's `DESIGN.md` in the
   first place, before this skill's brief-first process has anything to read.
-- `emil-design-eng` / `animate` — the full animation decision framework and build sequence
+- `emil-design-eng` / `animation` — the full animation decision framework and build sequence
   behind this skill's short motion rules in Step 4/5.
 - `ask-sonner` — setup and troubleshooting once the library table above points to Sonner.
 - `design-lab` / `prototype` — for exploring multiple UI directions before committing to one,

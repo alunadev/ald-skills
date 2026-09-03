@@ -1,16 +1,11 @@
 ---
 name: prompt-clarifier
 description: >
-  Enriches vague, low-detail prompts into structured, agent-optimized XML before execution.
-  INVOKE IMMEDIATELY — before any tool use or file reads — when you detect any of these signals:
-  prompt under 10 words with no file path or error message; vague action verbs with no object
-  ("fix the bug", "make it better", "clean this up", "refactor this", "optimize performance",
-  "improve the UI", "add authentication", "add payments", "add notifications", "build the feature");
-  CLARIFIER_ADVISORY in your context window; user says "clarify", "help me describe this",
-  "enrich this prompt", "structure my request". Also triggers on: "make this work", "it's broken",
-  "it looks bad", "add X" with no further detail, "implement Y" with no constraints.
-  Do NOT trigger on: prompts ending with ?, prompts containing error messages or stack traces,
-  prompts with specific file paths, prompts already containing acceptance criteria or success metrics.
+  Turns a vague request into a structured brief before work starts, through a short interview:
+  intent, scope, constraints, definition of done, entry point. Use when a request names no file,
+  no error and no success criteria, or when CLARIFIER_ADVISORY is in context. Skip when the
+  codebase already makes the intent unambiguous, or the request is a question.
+
 ---
 
 # Prompt Clarifier

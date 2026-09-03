@@ -1,6 +1,6 @@
 ---
 name: figma-reverse-engineering
-description: Reverse engineering de diseños Figma para generar especificaciones técnicas completas listas para implementar en código. Usar cuando el usuario comparte capturas, exports o descripciones de un diseño en Figma y quiere documentarlo técnicamente, extraer tokens de diseño, entender la estructura de layouts, o preparar una spec para que un desarrollador o Claude Code lo implemente. También usar cuando el usuario dice "reverse engineering del diseño", "documenta este Figma", "quiero implementar este diseño", "dame las propiedades CSS de este diseño", "convierte este diseño a código", o cuando comparte pantallazos de Figma (layers, propiedades, canvas). Activar también cuando el usuario quiere crear documentación técnica de un diseño existente antes de pasarlo a Claude Code.
+description: Turns a Figma design into a complete, implementable technical spec — design tokens, layout structure, and CSS properties. Use when the user shares Figma screenshots, exports, or descriptions and wants it documented technically before it gets built, or asks to extract tokens, convert a design to code, or hand a spec to a developer or coding agent.
 ---
 
 # Figma Reverse Engineering

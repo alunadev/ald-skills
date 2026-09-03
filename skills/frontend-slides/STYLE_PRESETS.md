@@ -4,27 +4,15 @@ Curated visual styles for Frontend Slides. Each preset is inspired by real desig
 
 ---
 
-## ⚠️ CRITICAL: Viewport Fitting (Non-Negotiable)
+## Viewport Fitting
 
-**Every slide MUST fit exactly in the viewport. No scrolling within slides, ever.**
+One slide is one viewport; content that overflows gets split across slides. The density limits per slide type live in `SKILL.md` → "Viewport Fitting" — that table is the single source of truth, this file just carries the CSS.
 
-### Content Density Limits Per Slide
-
-| Slide Type | Maximum Content |
-|------------|-----------------|
-| Title slide | 1 heading + 1 subtitle |
-| Content slide | 1 heading + 4-6 bullets (max 2 lines each) |
-| Feature grid | 1 heading + 6 cards (2x3 or 3x2) |
-| Code slide | 1 heading + 8-10 lines of code |
-| Quote slide | 1 quote (max 3 lines) + attribution |
-
-**Too much content? → Split into multiple slides. Never scroll.**
-
-### Required Base CSS (Include in ALL Presentations)
+### Base CSS (include in every presentation)
 
 ```css
 /* ===========================================
-   VIEWPORT FITTING: MANDATORY
+   VIEWPORT FITTING: BASE STYLES
    Copy this entire block into every presentation
    =========================================== */
 
@@ -44,7 +32,7 @@ html {
     width: 100vw;
     height: 100vh;
     height: 100dvh; /* Dynamic viewport for mobile */
-    overflow: hidden; /* CRITICAL: No overflow ever */
+    overflow: hidden; /* no scroll inside a slide */
     scroll-snap-align: start;
     display: flex;
     flex-direction: column;
@@ -154,7 +142,7 @@ Before finalizing any presentation, verify:
 - [ ] All font sizes use `clamp(min, preferred, max)`
 - [ ] All spacing uses `clamp()` or viewport units
 - [ ] Breakpoints exist for heights: 700px, 600px, 500px
-- [ ] Content respects density limits (max 6 bullets, max 6 cards)
+- [ ] Content respects the density limits in `SKILL.md` (4-6 bullets, max 6 cards)
 - [ ] No fixed pixel heights on content elements
 - [ ] Images have `max-height` constraints
 - [ ] No negated CSS functions (use `calc(-1 * clamp(...))` not `-clamp(...)`)

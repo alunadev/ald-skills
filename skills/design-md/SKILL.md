@@ -1,6 +1,13 @@
 ---
 name: design-md
-description: Write, read, and apply DESIGN.md files — Google Stitch's open AI-readable design-system format (YAML design tokens + Markdown rationale). Use when asked to "create a design.md", "extract a design system from [brand/PDF/site/screenshots]", "document this brand for AI tools", or when reverse-engineering a brand's visual identity into reusable tokens for an AI coding agent to apply consistently.
+description: >
+  Owns DESIGN.md end to end — Google Stitch's open AI-readable design-system format (YAML tokens
+  + Markdown rationale). Three directions: invent an identity for a new project through a short
+  interview, extract one from an existing brand (deck, site, screenshots, Figma), or read an
+  existing DESIGN.md and apply it. Use when starting a new project with no visual identity yet,
+  when asked what the brand for something should be, when documenting a brand for AI tools, or
+  when reverse-engineering a visual identity into reusable tokens. For elevating a UI that
+  already has an identity, use `taste-redesign` instead.
 ---
 
 # DESIGN.md — AI-readable design system files
@@ -26,8 +33,17 @@ etc.) lives at https://github.com/voltagent/awesome-design-md — each entry pai
 with `preview.html`/`preview-dark.html` visual catalogs. Use these as calibration references for
 tone, token granularity, and section depth.
 
+## Three directions
+
+| Direction | Situation | Where to go |
+|---|---|---|
+| **Invent** | New project, no identity yet | "Inventing an identity" below — interview first, then the format |
+| **Extract** | Identity exists somewhere (deck, site, screenshots, Figma) | "How to write one" — read the sources, then the format |
+| **Apply** | `DESIGN.md` already exists | Read its tokens and build against them |
+
 ## When to use this skill
 
+- User is **starting a new project** and its visual identity isn't defined yet.
 - User asks to **create/write a `DESIGN.md`** for a project, brand, or product.
 - User wants to **reverse-engineer a brand's visual identity** (from a PDF deck, screenshots, a
   live site, Figma file, or brand guidelines) into a portable, agent-readable spec.
@@ -127,6 +143,38 @@ npx @google/design.md export --target=tailwind-v4   # convert to Tailwind/DTCG f
 npx @google/design.md spec                # print the formal specification
 ```
 
+## Inventing an identity (new project, nothing to extract from)
+
+Every project gets its own identity, generated for that project. There is no default house brand
+to fall back on — a generic look with no real decisions behind it is worse than one clearly made
+for the project at hand.
+
+**Interview — up to 6 questions, one at a time, multiple-choice where possible:**
+
+1. What is this project, in one line? Who's it for?
+2. Industry / domain — anything that implies conventions to follow or break?
+3. Personality: 3 adjectives, or the closest reference brand(s)/products.
+4. Primary color or mood — or "surprise me based on the personality answer."
+5. Typography lean: serif / sans / mono / display — or "your call."
+6. Tech stack — default below; only ask if this project needs something different.
+
+**Then draft the brand:** propose concrete token values (colors, typography, spacing, shape)
+that follow from the answers — not generic SaaS defaults. Write it using the format and
+canonical section order in this file; don't improvise the structure.
+
+If the tech stack deviates from the default, note it in "Known Gaps" rather than creating a
+separate file for it.
+
+**Default stack** — a starting point for question 6, not a rule:
+
+- React + TypeScript
+- Tailwind CSS v4 (CSS-first `@theme`)
+- shadcn/ui primitives
+- Lucide icons
+
+**Never write brand output into this skill's own directory.** The generated identity belongs to
+the project it's for, not to `ald-skills`.
+
 ## How to write one (process)
 
 1. **Gather source material** — brand deck/PDF, live site, screenshots, Figma file, or brand
@@ -177,8 +225,6 @@ confirmed brand values.
 
 ## See Also
 
-- `brand-identity` — runs the interview that decides *what* the brand should be for a new
-  project; hands off here for the actual `DESIGN.md` file format and spec.
 - `taste-skill` — builds NEW UI from a brief; reads this file's tokens first when they exist,
   then handles execution discipline (anti-AI-tells, dials) on top.
 - `taste-redesign` — for elevating a UI that already has a `DESIGN.md`/identity, rather than

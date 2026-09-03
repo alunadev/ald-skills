@@ -2,16 +2,15 @@
 name: design-lab
 description: >
   Conduct a design interview, generate 5 distinct UI variations in a temporary route, collect
-  real click-to-comment feedback on the live rendered variants via human-review, and produce
-  an implementation plan. Use when the user wants to explore UI design options, redesign an
+  your reaction to the live rendered variants, and produce an implementation plan. Use when the user wants to explore UI design options, redesign an
   existing component/page, or create new UI with multiple genuinely different approaches to
-  compare — before writing production code or committing to a direction. For a lighter,
-  single-component variant picker with no interview, use `prototype` instead. For reviewing a
-  UI that's already real (not exploring new directions), use `visual-review`.
+  compare — before writing production code or committing to a direction. Heavier than
+  `prototype` on purpose: use that one for a single component whose direction is already
+  clear, this one when the direction itself is open and the scope is a whole page or flow. For reviewing a
+  UI that's already real (not exploring new directions), use `taste-redesign`.
   Source: adapted from github.com/0xdesign/design-plugin's design-lab skill (interview +
-  5-variant structure), with feedback collection replaced by this repo's own `visual-review`
-  skill (human-review) instead of a bespoke overlay component.
-disable-model-invocation: true
+  5-variant structure), with feedback collection replaced by a plain rendered route you open
+  and judge yourself — no overlay component, no external tooling.
 ---
 
 # Design Lab
@@ -23,9 +22,9 @@ on the live thing, refine, and finalize into an implementation plan.
 
 **Explore before you commit, and get feedback on the real rendered thing — not a description
 of it.** Five meaningfully different directions, live at real size in real context, beat one
-direction refined in isolation. And the feedback step reuses `visual-review`'s own rule: the
-user reacts to the actual rendered UI via `human-review`'s click-to-comment gesture, not to a
-report or a summary you wrote about it.
+direction refined in isolation. And the feedback step holds to one rule: the user reacts to
+the actual rendered UI, at real size, in real context — not to a report or a summary you wrote
+about it.
 
 This skill differs from `prototype` in weight: `prototype` diverges 3-5 versions of one
 component with no interview and a lightweight picker, for a fast "which feels right" check.
@@ -64,7 +63,7 @@ Tailwind; `@mui/material` → Material UI; `@chakra-ui/react` → Chakra; `antd`
 redundant interview questions.
 
 **Design source check** — before inferring anything generically, check for `DESIGN.md`
-(`design-md`'s format) or an existing `brand-identity` output. If one exists, its tokens are
+(`design-md`'s format). If one exists, its tokens are
 the source of truth — read them and skip straight to matching them across all 5 variants
 instead of running visual-style inference from scratch.
 
@@ -154,9 +153,8 @@ Display a summary to the user before proceeding.
 └── run-log.md
 ```
 
-No custom feedback overlay here — Phase 5 opens the live route with `human-review` directly
-(see `visual-review`), so there's no `feedback/` subdirectory or bespoke React component to
-build and later delete.
+No feedback overlay here and no external tooling — Phase 5 just opens the live route and the
+user tells you what they think. Nothing extra to build, wire in, or delete at cleanup.
 
 ### Route integration
 
@@ -169,7 +167,7 @@ build and later delete.
 ### Variant generation guidelines
 
 Apply the craft bar from `taste-skill`/`taste-redesign` (layout, typography, color, AI-tells)
-and `emil-design-eng`/`animate` (motion timing, easing, reduced-motion) — but **do not use
+and `emil-design-eng`/`animation` (motion timing, easing, reduced-motion) — but **do not use
 predefined visual styles**. Infer them from the project (Phase 0), or from the existing
 `DESIGN.md` if one was found.
 
@@ -195,7 +193,7 @@ distinct directions, all using the project's own visual language:
   actual rendered variant, key-difference notes. Desktop: 2-3 column grid. Mobile: horizontal
   scroll or tabs.
 - **Shared fixture data** across all variants — fair comparison.
-- Every element you want feedback anchored to should be real, rendered UI — `human-review`
+- Every element you want feedback on should be real, rendered UI — the reviewer
   identifies elements itself (nearest heading + tag, or a text snippet); no manual annotation
   needed.
 
@@ -223,32 +221,33 @@ http://localhost:3000/__design_lab
 
 ---
 
-## Phase 5: Collect Real Feedback (via human-review)
+## Phase 5: Collect Real Feedback
 
-This is where this port diverges from the source skill. Instead of a custom-built
-click-to-comment overlay component that has to be generated, wired into the route, and deleted
-again at cleanup, use this repo's own `visual-review` skill — same click-to-comment gesture,
-zero bespoke code to maintain.
+The variants are already rendered at a real route. There is nothing to install and nothing to
+wire in — you open it, the user looks, and they tell you what they think in their own words.
 
-1. Open the live lab route directly:
+1. Serve the route and give the user the URL:
    ```sh
-   npx -y human-review@0.3.0 http://localhost:3000/__design_lab
+   # whatever the project's dev server is
+   npm run dev    # then: http://localhost:3000/__design_lab
    ```
-2. Tell the user it's open — real craft, their reaction, comparing all 5 side by side, exactly
-   as rendered.
-3. Poll for the batch, in the foreground, without ending the turn:
-   ```sh
-   npx -y human-review@0.3.0 poll http://localhost:3000/__design_lab --timeout 600
-   ```
-   On `{"status":"timeout"}`, run it again. On `{"status":"closed"}`, stop polling.
-4. Read the verdict per `visual-review`'s table (edits with `kind: "deleted"` → remove that
-   element; `comments[]` → act on the note; `kind: "edited"` → carry the exact wording across
-   verbatim). Every comment/edit carries `human-review`'s own element label — cross-reference
-   it against `data-variant="X"` on each variant's container (keep that attribute on every
-   variant wrapper specifically so feedback can be attributed to the right one) to know which
-   variant a given piece of feedback belongs to.
-5. **The safety gate**: an empty batch plus a closed session means the user looked and had
-   nothing to flag, or didn't get to it — not approval for a sweeping change. If unsure, ask.
+   If the project has no dev server, write the variants to a single self-contained
+   `.claude-design/lab/index.html` and give the user the file path instead — same picker chrome
+   as `prototype`'s `PICKER.md`, one file, opens in any browser.
+
+2. Tell the user it's open, and what to look at: all five side by side, at real size, with real
+   content. Their reaction to the rendered thing is the entire point of this phase.
+
+3. **Wait for them.** Do not proceed, do not summarize, do not guess a winner. This is a
+   deliberate stop.
+
+4. Take the feedback in whatever form it arrives — "B's spacing, A's type scale", "none of these,
+   they're all too corporate", a list of specific gripes. Keep `data-variant="X"` on each
+   variant's wrapper so you can map a comment back to the variant it refers to when the user
+   names one.
+
+5. **The safety gate**: silence is not approval. If the user says nothing specific, or says only
+   "looks fine", ask before making sweeping changes — they may not have looked yet.
 
 ### Stage: is there a winner?
 
@@ -266,7 +265,7 @@ After the batch, ask (`AskUserQuestion`): *"Is there one variant you like as is?
 Build a new **Variant F** combining the specific elements called out from each source variant,
 the best structural decisions across all of them, and any pattern that appeared in more than
 one. Replace the lab view with F prominently shown plus 1-2 of the closest originals for
-comparison; drop variants nothing was liked from. Re-open `human-review` on the updated route
+comparison; drop variants nothing was liked from. Re-open the updated route
 and collect another round of feedback. Support multiple synthesis passes until the user is
 satisfied, then proceed to Phase 7.
 
@@ -338,8 +337,8 @@ actionable.
 ## See Also
 
 - `prototype` — the lighter, no-interview variant picker for a single component.
-- `visual-review` — the feedback mechanism this skill reuses; also the right tool once a
-  design is already real and you just want a review pass, not an exploration.
+- `taste-redesign` — the right tool once a design is already real and you just want a
+  review-and-improve pass, not an exploration.
 - `taste-skill` / `taste-redesign` — the craft bar variants are held to.
-- `brand-identity` / `design-md` — where an existing project identity comes from, checked in
+- `design-md` — where an existing project identity comes from, checked in
   Phase 0 before inferring anything generically.

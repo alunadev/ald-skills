@@ -90,9 +90,8 @@ matches how `design-lab` (manual) vs. `prototype` (auto-triggers) are split in t
 
 ## See also
 
-- `creating-skills` — the meta-skill for generating a new skill's structure. This skill is the
-  writing discipline underneath it: `creating-skills` decides what a skill contains,
-  `writing-for-agents` decides how any of it should be worded.
+- `ald-skills/CONTRIBUTING.md` — how a skill gets registered, symlinked and committed in this
+  repo. That file owns the mechanics; this skill owns the wording.
 - `products/ald-os/context/product-builder-principles.md` — Engineering #14, Documentation is
   part of the deliverable. This skill is that principle's operational form.
 

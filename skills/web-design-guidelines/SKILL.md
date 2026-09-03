@@ -222,5 +222,5 @@ Group findings by category, ordered by priority (CRITICAL first).
 
 ## See Also
 
-- `interface-design` — For intentional design thinking, product domain exploration, and layout decisions
-- `web-design-guidelines` applies at the code review level; `interface-design` applies at the design decision level
+- `taste-skill` / `taste-redesign` — for design intent and layout decisions
+- this skill applies at the code-review level; `taste-skill`/`taste-redesign` apply at the design-decision level

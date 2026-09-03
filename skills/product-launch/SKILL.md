@@ -154,6 +154,5 @@ docs/launches/YYYY-MM-DD-[feature]-launch.md
 
 ## See Also
 
-- `building-fullstack-features` — For the technical implementation before launch
 - `product-strategy` — For positioning this launch within broader strategy
 - `product-analytics` — For defining success metrics and post-launch analysis

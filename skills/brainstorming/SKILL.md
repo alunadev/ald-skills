@@ -1,16 +1,11 @@
 ---
 name: brainstorming
 description: >
-  Expert Socratic discovery skill for exploring ideas, architecture decisions, and technical design
-  before writing any code. Use this skill — proactively and always first — when requirements are
-  vague, when the user is debating between technical approaches, when the problem is unclear, or
-  when a design decision could have significant architectural consequences. Triggers on: "should we
-  use X or Y", "help me think through", "I'm not sure how to approach this", "what's the best
-  architecture for", "trade-offs between", "design before I code", "let's think through this", "I
-  have an idea", "how should I structure", "help me design", "I want to build X but not sure how",
-  "what approach would you recommend", "is this the right way to". Produces a validated design doc
-  with 2-3 implementation options, trade-offs, and a recommendation. Always use before planning
-  when the approach is not yet locked.
+  Socratic discovery for a design decision that isn't locked yet. Use before writing code when
+  the approach is genuinely open, when two or more technical directions are in play, or when the
+  requirement is still fuzzy enough that building would be guessing. Produces a design doc with
+  2-3 options, their trade-offs, and a recommendation.
+
 ---
 
 # Brainstorming — Socratic Design Discovery
@@ -76,7 +71,7 @@ Cover in order:
 
 ### 5. Output
 
-Save the validated design to `docs/designs/YYYY-MM-DD-<topic>.md`. Once the design is locked, suggest moving to the `planning` skill for atomic task breakdown.
+Save the validated design to `docs/designs/YYYY-MM-DD-<topic>.md`. Once the design is locked, break it into atomic tasks before implementation starts.
 
 ## What Good Looks Like
 

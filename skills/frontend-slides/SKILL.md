@@ -13,13 +13,13 @@ Create zero-dependency, animation-rich HTML presentations that run entirely in t
 2. **Show, Don't Tell** — People don't know what they want until they see it. Generate visual previews, not abstract choices.
 3. **Distinctive Design** — Avoid generic "AI slop" aesthetics. Every presentation should feel custom-crafted.
 4. **Production Quality** — Code should be well-commented, accessible, and performant.
-5. **Viewport Fitting (CRITICAL)** — Every slide MUST fit exactly within the viewport. No scrolling within slides, ever. This is non-negotiable.
+5. **Viewport Fitting** — one slide is one viewport; a slide that overflows gets split. A deck that scrolls inside a slide is broken on a projector. See "Viewport Fitting" below.
 
 ---
 
-## CRITICAL: Viewport Fitting Requirements
+## Viewport Fitting
 
-**This section is mandatory for ALL presentations. Every slide must be fully visible without scrolling on any screen size.**
+This is the one hard constraint in the skill: a slide that needs scrolling is unusable on a projector, so every slide must be fully visible at any screen size. Everything below serves that.
 
 ### The Golden Rule
 
@@ -46,13 +46,13 @@ To guarantee viewport fitting, enforce these limits per slide:
 
 ### Required CSS Architecture
 
-Every presentation MUST include this base CSS for viewport fitting:
+Include this base CSS in every presentation:
 
 ```css
 /* ===========================================
-   VIEWPORT FITTING: MANDATORY BASE STYLES
-   These styles MUST be included in every presentation.
-   They ensure slides fit exactly in the viewport.
+   VIEWPORT FITTING: BASE STYLES
+   Include in every presentation — these are what make slides
+   fit exactly in the viewport.
    =========================================== */
 
 /* 1. Lock html/body to viewport */
@@ -71,7 +71,7 @@ html {
     width: 100vw;
     height: 100vh;
     height: 100dvh; /* Dynamic viewport height for mobile browsers */
-    overflow: hidden; /* CRITICAL: Prevent ANY overflow */
+    overflow: hidden; /* no scroll inside a slide */
     scroll-snap-align: start;
     display: flex;
     flex-direction: column;
@@ -262,7 +262,7 @@ First, determine what the user wants:
 **Mode C: Existing Presentation Enhancement**
 - User has an HTML presentation and wants to improve it
 - Read the existing file, understand the structure, then enhance
-- **CRITICAL: When modifying existing slides, ALWAYS ensure viewport fitting is maintained**
+- When modifying existing slides, re-check viewport fitting — it is the constraint most easily broken by an edit
 
 ### Mode C: Critical Modification Rules
 
@@ -423,7 +423,7 @@ at its repo root (see the `design-md` skill for the format).
 
 ## Phase 2: Style Discovery (Visual Exploration)
 
-**CRITICAL: This is the "show, don't tell" phase.**
+**This is the "show, don't tell" phase.**
 
 Most people can't articulate design preferences in words. Instead of asking "do you want minimalist or bold?", we generate mini-previews and let them react.
 
@@ -676,7 +676,7 @@ This keeps the HTML file small and images easy to swap. Only use base64 encoding
 
 **Image CSS classes (adapt border/glow colors to match the chosen style):**
 ```css
-/* Base image constraint — CRITICAL for viewport fitting */
+/* Base image constraint — keeps images inside the viewport */
 .slide-image {
     max-width: 100%;
     max-height: min(50vh, 400px);
@@ -752,14 +752,14 @@ Follow this structure for all presentations:
             --accent: #00ffcc;
             --accent-glow: rgba(0, 255, 204, 0.3);
 
-            /* Typography - MUST use clamp() for responsive scaling */
+            /* Typography — clamp() so it scales with the viewport */
             --font-display: 'Clash Display', sans-serif;
             --font-body: 'Satoshi', sans-serif;
             --title-size: clamp(2rem, 6vw, 5rem);
             --subtitle-size: clamp(0.875rem, 2vw, 1.25rem);
             --body-size: clamp(0.75rem, 1.2vw, 1rem);
 
-            /* Spacing - MUST use clamp() for responsive scaling */
+            /* Spacing — clamp() so it scales with the viewport */
             --slide-padding: clamp(1.5rem, 4vw, 4rem);
             --content-gap: clamp(1rem, 2vw, 2rem);
 
@@ -793,7 +793,7 @@ Follow this structure for all presentations:
 
         /* ===========================================
            SLIDE CONTAINER
-           CRITICAL: Each slide MUST fit exactly in viewport
+           Each slide fits exactly in the viewport
            - Use height: 100vh (NOT min-height)
            - Use overflow: hidden to prevent scroll
            - Content must scale with clamp() values
@@ -1067,15 +1067,7 @@ class CustomCursor {
 - Never negate CSS functions directly — `-clamp()`, `-min()`, `-max()` are silently ignored by browsers with no console error
 - Always use `calc(-1 * clamp(...))` instead. See STYLE_PRESETS.md → "CSS Gotchas" for details.
 
-**Responsive & Viewport Fitting (CRITICAL):**
-
-**See the "CRITICAL: Viewport Fitting Requirements" section above for complete CSS and guidelines.**
-
-Quick reference:
-- Every `.slide` must have `height: 100vh; height: 100dvh; overflow: hidden;`
-- All typography and spacing must use `clamp()`
-- Respect content density limits (max 4-6 bullets, max 6 cards, etc.)
-- Include breakpoints for heights: 700px, 600px, 500px
+**Responsive & viewport fitting:** see the "Viewport Fitting" section above — it holds the CSS, the density limits, and the height breakpoints.
 - When content doesn't fit → split into multiple slides, never scroll
 
 ---
@@ -1415,7 +1407,7 @@ class TiltEffect {
 
 - `design-md` — if the project has a `DESIGN.md`, Step 1.3 uses its tokens instead of the 12
   presets below.
-- `brand-identity` — generates a `DESIGN.md` for a project that doesn't have one yet.
+- `design-md` — generates a `DESIGN.md` for a project that doesn't have one yet.
 - `taste-skill` — the same anti-AI-tells discipline (banned em-dashes, generic filler,
   fake-precision numbers) applies to slide copy, not just app UI.
 

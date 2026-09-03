@@ -6,7 +6,7 @@ description: Short clarifying interview before starting non-trivial engineering 
 # Grilling
 
 A short, structured interview before code gets written — the engineering counterpart to
-`brand-identity`'s design interview. The goal isn't exhaustive requirements-gathering; it's
+`design-md`'s design interview. The goal isn't exhaustive requirements-gathering; it's
 surfacing the handful of decisions that would otherwise get assumed silently and cost more to
 unwind later than to ask now.
 
@@ -52,7 +52,7 @@ nice-to-have.
 
 ## See also
 
-- `brand-identity` — the same pattern, applied to design instead of engineering.
+- `design-md` — the same pattern, applied to design instead of engineering.
 - `products/ald-os/context/product-builder-principles.md` — Engineering #12, Clarify before
   building. This skill is that principle's operational form.
 

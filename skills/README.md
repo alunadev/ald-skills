@@ -18,8 +18,8 @@ This repository serves as the central hub for reusable agentic skills. These ski
 
 ### 3. Product Analytics
 - **Path**: `skills/product-analytics/`
-- **Purpose**: Metrics frameworks, experiment design, and tracking plans. Pre-build metric definition and post-launch impact analysis.
-- **Triggers**: defining success criteria, designing an A/B test, setting up analytics tracking, post-launch analysis.
+- **Purpose**: The whole analytics loop in one skill — metric trees and guardrails, event taxonomy and naming, instrumenting a flow, experiment design, post-launch analysis, and debugging events that don't fire. Amplitude is the reference standard: lowercase `snake_case`, object first, action second (`order_completed`); Title Case in the Amplitude UI only. Commands: `/metrics` (measurement) and `/tracking` (instrumentation).
+- **Triggers**: defining success criteria, A/B design, post-launch analysis, "set up tracking", event naming, tagging onboarding or a new feature, "why isn't this event firing", GA4/GTM/Amplitude/Segment setup, UTM strategy.
 
 ### 4. Product Launch
 - **Path**: `skills/product-launch/`
@@ -108,62 +108,42 @@ This repository serves as the central hub for reusable agentic skills. These ski
 - **Purpose**: Socratic discovery and technical design. Explores ideas, architecture decisions, and design trade-offs before implementation. Produces a validated design doc with 2-3 options and a recommendation.
 - **Triggers**: vague ideas, architectural decisions, complex tasks, "should we use X or Y", "help me think through", "what's the best approach for", trade-off analysis, design before coding.
 
-### 19. Brand Identity
-- **Path**: `skills/brand-identity/`
-- **Purpose**: Generates a bespoke brand identity per new project through a short interview, written as a `DESIGN.md` file in that project's repo — not one fixed brand applied everywhere.
-- **Triggers**: starting a new project, "what's the brand for X", "define the brand for this project", new project design system, before first UI work on a fresh project.
-
-### 20. Error Handling Patterns
+### 19. Error Handling Patterns
 - **Path**: `skills/error-handling-patterns/`
 - **Purpose**: Robust strategies for resilient applications.
 - **Triggers**: API design, reliability improvements, debugging.
 
-### 21. React Best Practices
-- **Path**: `skills/react-best-practices/`
-- **Purpose**: Performance optimization for React and Next.js.
-- **Triggers**: component creation, layout shifts, bundle optimization.
-
-### 22. Prompt Engineering
-- **Path**: `skills/prompt-engineering/`
-- **Purpose**: 6-step optimization framework for prompts *inside an AI product you're building* (system prompts, chatbot/agent instructions) — not for clarifying your own requests to Claude Code, see `prompt-clarifier`.
-- **Triggers**: optimizing a system prompt, building an AI feature, prompt failure analysis.
-
-### 23. Prompt Engineering Patterns
-- **Path**: `skills/prompt-engineering-patterns/`
-- **Purpose**: Library of 9 production-tested prompting patterns (CoT, Few-Shot, Structured Output, Tool-Use Routing, etc.)
-- **Triggers**: selecting a prompting technique, building AI pipelines, reviewing prompts for failure modes.
-
-### 24. Vercel Composition Patterns
+### 20. Vercel Composition Patterns
 - **Path**: `skills/vercel-composition-patterns/`
 - **Purpose**: React composition patterns — compound components, CVA variants, React 19 APIs (no forwardRef, use()).
 - **Triggers**: components with too many boolean props, compound components, reusable APIs, context providers.
 
-### 25. Web Design Guidelines
+### 21. Web Design Guidelines
 - **Path**: `skills/web-design-guidelines/`
 - **Purpose**: Audits web interfaces for accessibility, performance, UX, and code quality (100+ rules in 18 categories).
 - **Triggers**: "review my UI", "check accessibility", "audit design", pre-merge frontend check.
 
-### 26. React Native Best Practices
+### 22. React Native Best Practices
 - **Path**: `skills/vercel-react-native-skills/`
 - **Purpose**: React Native and Expo performance patterns — FlashList, Reanimated, expo-router, monorepo setup.
 - **Triggers**: React Native or Expo app, list performance, animations, native modules, monorepo.
 
-### 27. API Design Principles
+### 23. API Design Principles
 - **Path**: `skills/api-design-principles/`
 - **Purpose**: REST and GraphQL API design — naming, error formats, versioning, pagination, OpenAPI-first.
 - **Triggers**: new API endpoint, API contract review, GraphQL schema, API conventions.
 
-### 28. Agent Workflow
+### 24. Agent Workflow
 - **Path**: `skills/agent-workflow/`
 - **Purpose**: Expert system for designing and architecting AI agent workflows. Covers the 9-step building process, 8-layer architecture framework, MCP integration, and single vs. multi-agent decision making.
 - **Triggers**: "build an agent", "design agent workflow", "multi-agent system", "agent architecture", "how should I structure this agent", MCP integration, ReAct pattern, tool calling design.
 
-### 29. Figma Reverse Engineering
+### 25. Figma Reverse Engineering
 - **Path**: `skills/figma-reverse-engineering/`
 - **Purpose**: Reverse engineers Figma designs into complete technical specifications ready for code implementation — design tokens, layout structure, CSS properties, and implementation spec.
 - **Triggers**: "reverse engineering del diseño", "documenta este Figma", "quiero implementar este diseño", "dame las propiedades CSS", "convierte este diseño a código", screenshots of Figma designs, Figma layers and properties.
 
-### 30. Frontend Slides
+### 26. Frontend Slides
 - **Path**: `skills/frontend-slides/`
 - **Purpose**: Creates zero-dependency, animation-rich HTML presentations from scratch or by converting PowerPoint files. Uses a project's `DESIGN.md` tokens when one exists, otherwise offers 12 curated presets. Helps non-designers discover their aesthetic through visual exploration.
 - **Triggers**: "build a presentation", "convert PPT to web", "create slides", "HTML presentation", "slide deck for a talk", "pitch slides".
@@ -172,112 +152,77 @@ This repository serves as the central hub for reusable agentic skills. These ski
 
 ### Documentation & Operations
 
-### 31. Changelog Generator
+### 27. Changelog Generator
 - **Path**: `skills/changelog-generator/`
 - **Purpose**: Transforms technical git commits into a clear, compact, user-friendly changelog — flat one-line-per-entry format, no emoji.
 - **Triggers**: releases, weekly updates, customer comms.
 
-### 32. Maintaining Documentation
+### 28. Maintaining Documentation
 - **Path**: `skills/maintaining-documentation/`
 - **Purpose**: Maintains the real canonical docs structure (CLAUDE.md, progress.txt, docs/product+system+design-system, context/) and keeps `log.md` (append-only session history) distinct from `progress.txt` (current-state snapshot).
 - **Triggers**: feature completion, architecture changes, pre-push doc check.
 
-### 33. Creating Skills
-- **Path**: `skills/creating-skills/`
-- **Purpose**: Meta-skill for generating new standardized skills.
-- **Triggers**: "Build me a skill for X".
-
-### 34. Deploying to GitHub
+### 29. Deploying to GitHub
 - **Path**: `skills/deploying-to-github/`
 - **Purpose**: General GitHub workflow — branching model, commit hygiene, pull requests and code review, secrets hygiene, tags/releases, submodules, and git worktrees for parallel work.
 - **Triggers**: saving changes, pushing code, opening a PR, git operations, working with a submodule, setting up or cleaning up a worktree.
 
-### 35. Requesting Code Review
-- **Path**: `skills/requesting-code-review/`
-- **Purpose**: Self-contained code review checklist (formatting, type safety, duplication, readable conditions, logic-out-of-UI, tests, comments) that adapts to whatever tooling the project actually has. **In Claude Code, prefer the official `code-review` skill or the `pr-review-toolkit`/`feature-dev` code-reviewer agents instead** — both are real, installed, and do a deeper pass than this checklist. This copy exists so the same discipline is available in Codex/Cursor, which don't have those agents.
-- **Triggers**: PR review, feature completion, pre-commit check — when no agent-based reviewer is available.
-
-### 36. Autoresearch
-- **Path**: `skills/autoresearch/`
-- **Purpose**: Autonomously optimizes any Claude Code skill by running it repeatedly, scoring outputs against binary evals, mutating the prompt, and keeping improvements. Based on Karpathy's autoresearch methodology.
-- **Triggers**: "optimize this skill", "improve this skill", "run autoresearch on", "make this skill better", "self-improve skill", "benchmark skill", "eval my skill", "run evals on".
-
-### 37. Prompt Clarifier
+### 30. Prompt Clarifier
 - **Path**: `skills/prompt-clarifier/`
 - **Purpose**: Enriches vague, low-detail prompts into structured agent-optimized XML before execution. Runs a 2-3 question Socratic interview to extract intent, constraints, success criteria, and entry point. Use proactively — before any tool use — when a prompt is short, ambiguous, or missing success criteria. Also activates automatically via a UserPromptSubmit hook that detects vagueness without any LLM call.
 - **Triggers**: "clarify", "enrich this prompt", "help me describe this better", CLARIFIER_ADVISORY in context, any prompt under 10 words with no file path or error message, "fix the bug", "add authentication", "make this better", "refactor this", "clean this up", "improve performance", "add payments", "build the feature", "make it work".
 
-### 38. Taste Redesign
+### 31. Taste Redesign
 - **Path**: `skills/taste-redesign/`
 - **Purpose**: Audits an EXISTING UI/codebase for generic AI patterns and applies craft fixes (layout, interactivity, content, iconography, code quality) without overriding a project's own identity — checks for a `DESIGN.md` first and skips typography/color changes if one exists.
 - **Triggers**: "improve the design", "looks generic", "not polished enough", "redesign this", "elevate the UI", "apply taste", design review.
 
-### 39. Taste Skill
+### 32. Taste Skill
 - **Path**: `skills/taste-skill/`
 - **Purpose**: Anti-slop frontend design for building NEW UI from a brief — brief-first, three configurable dials (variance/motion/density), and an extensive banned-pattern checklist (em-dashes, generic names, fake screenshots, marketing-copy tells) to avoid default-AI output. Defers to an existing `DESIGN.md` when one exists.
 - **Triggers**: "build a landing page", "design a portfolio", "make this not look generic/templated/AI-generated", "anti-slop", starting UI work with a brief but no identity yet.
 
-### 40. design-md
+### 33. design-md
 - **Path**: `skills/design-md/`
 - **Purpose**: Write, read, and apply DESIGN.md files — Google Stitch's open AI-readable design-system format (YAML tokens + Markdown rationale). Covers the spec, canonical section order, and the reverse-engineering process for extracting a brand's visual identity from decks/sites/screenshots into agent-ready tokens.
 - **Triggers**: "create a design.md", "extract a design system from...", "document this brand for AI tools", "Stitch design system", reverse-engineering a brand identity.
 
-### 41. AI Product Strategy
+### 34. AI Product Strategy
 - **Path**: `skills/ai-product-strategy/`
 - **Purpose**: Decision-focused strategy for products built on LLMs or agents — wedge selection, RAG vs. fine-tuning, non-deterministic UX design, graduated autonomy, and defensibility. Not general product strategy — see `product-strategy` for that.
 - **Triggers**: "should this be an agent", "RAG vs fine-tuning", "how much autonomy should this feature have", "is this AI feature defensible", "our AI feature keeps hallucinating and users don't trust it", "AI product wedge", "human-in-the-loop design".
 
-### 42. Analytics Tracking
-- **Path**: `skills/analytics-tracking/`
-- **Purpose**: Implementation layer for analytics — event naming conventions, tracking plans, GA4/GTM/Amplitude/Segment setup, UTM strategy, and debugging. Reference tool: Amplitude. Pairs with `product-analytics` (which covers what to measure and why); use this for the "how do we wire it up" step.
-- **Triggers**: "set up tracking", "GA4", "Amplitude", "event tracking", "UTM parameters", "tag manager", "GTM", "tracking plan", "event taxonomy", "are my events firing", "naming convention for events", "instrument this feature".
-
-### 43. Design Engineering (emil-design-eng)
+### 35. Design Engineering (emil-design-eng)
 - **Path**: `skills/emil-design-eng/`
 - **Purpose**: Emil Kowalski's design engineering philosophy — the reference/philosophy layer for interaction craft: animation decision framework, spring configs, component-building principles, CSS transform mastery, performance rules. The 8 skills below (44-51) are the task-specific pieces of this same philosophy.
 - **Triggers**: general animation/UI-polish questions, "why does this feel off", reviewing component craft.
 
-### 44. Animate
-- **Path**: `skills/animate/`
-- **Purpose**: Builds one animation from scratch — should it animate at all, purpose, tool, properties, curve/duration, interruption, exit — following `emil-design-eng`'s bar. Writes the implementation, not a menu of options.
-- **Triggers**: "animate this", "add motion", "make this feel alive", "build a transition".
+### 36. Animation
+- **Path**: `skills/animation/`
+- **Purpose**: All motion work at one craft bar, in four modes — **build** an animation from scratch (full decision sequence, recipes), **review** a diff against ten non-negotiable standards, **audit** a codebase into prioritized self-contained implementation plans, **discover** what should animate but doesn't (and reject what shouldn't). Restraint is the default; "this shouldn't animate" is a valid result in every mode.
+- **Triggers**: "animate this", "add a transition", "make it feel alive", "review the motion", "improve the animations", "audit the motion", "what could be animated here".
 
-### 45. Review Animations
-- **Path**: `skills/review-animations/`
-- **Purpose**: Strict diff review against the ten non-negotiable animation standards — findings table + Block/Approve verdict. Manually invoked only.
-- **Triggers**: "review this animation", "check the motion in this diff".
-
-### 46. Improve Animations
-- **Path**: `skills/improve-animations/`
-- **Purpose**: Codebase-wide motion audit → prioritized findings → self-contained implementation plans for any executor. Read-only; never modifies source directly.
-- **Triggers**: "improve the animations", "audit the motion", "make this app feel better".
-
-### 47. Find Animation Opportunities
-- **Path**: `skills/find-animation-opportunities/`
-- **Purpose**: Sweeps a UI for moments that would genuinely benefit from motion (and rejects most candidates) — a 4-question gate (frequency, purpose, speed, function) plus a required "rejected candidates" section.
-- **Triggers**: "what could be animated here", "make this feel more alive".
-
-### 48. Animation Vocabulary
+### 37. Animation Vocabulary
 - **Path**: `skills/animation-vocabulary/`
 - **Purpose**: Reverse-lookup glossary — turns a vague motion description ("the bouncy popover thing") into its exact term ("Pop in"), for naming an effect, not building it.
 - **Triggers**: "what's it called when...", describing a motion effect without knowing its name.
 
-### 49. Apple Design
+### 38. Apple Design
 - **Path**: `skills/apple-design/`
 - **Purpose**: Apple's fluid-interface physics translated for the web — interruptible springs, velocity handoff, momentum projection, rubber-banding, translucent materials, optical typography. Deeper gesture/spring model than `emil-design-eng` covers.
 - **Triggers**: gesture-driven UI, spring animations, drag/swipe/sheet interactions, translucent materials, "make this feel like iOS".
 
-### 50. Ask Sonner
+### 39. Ask Sonner
 - **Path**: `skills/ask-sonner/`
 - **Purpose**: Setup, styling, theming, and troubleshooting guide for Sonner (the React toast library) — Toaster placement, promise/loading toasts, the styling escalation ladder, common failure symptoms.
 - **Triggers**: working with Sonner, toasts that don't appear/duplicate/lose styles/ignore dark mode.
 
-### 51. Design Lab
+### 40. Design Lab
 - **Path**: `skills/design-lab/`
-- **Purpose**: Full design exploration workflow — interview, infer the project's real visual language, generate 5 distinct variants of a component or page, collect real feedback via `visual-review`'s `human-review` mechanism, synthesize, and produce an implementation plan + Design Memory. For exploring a direction that's still open, before writing production code. **Manually invoked only** (`disable-model-invocation: true`) — deliberately heavier than `prototype`, called by name when the full workflow is actually warranted.
+- **Purpose**: Full design exploration workflow — interview, infer the project's real visual language, generate 5 distinct variants of a component or page, collect real feedback on the rendered route, synthesize, and produce an implementation plan + Design Memory. For exploring a direction that's still open, before writing production code. Auto-triggers, and available as `/design-lab`. Deliberately heavier than `prototype` — that one handles a single component whose direction is already clear.
 - **Triggers**: explicit invocation only — "run design-lab", "explore design options for X", "redesign this component/page" when you want the full interview + feedback + plan.
 
-### 52. Prototype
+### 41. Prototype
 - **Path**: `skills/prototype/`
 - **Purpose**: Fast, no-interview variant picker — 3-5 genuinely different versions of one described UI piece, behind a live keyboard-driven picker, flip and promote a winner. Lighter weight than `design-lab`. **Auto-triggers** — Adrian wants this reflexive whenever a new feature, layout, section, visual, or UI decision comes up, not just on request.
 - **Triggers**: evaluating a new feature/layout/section/visual/design/UI, "show me a few options for this button/card/toast", any UI decision worth diverging on before settling.
@@ -286,27 +231,27 @@ This repository serves as the central hub for reusable agentic skills. These ski
 
 ### Engineering Discipline (mattpocock/skills)
 
-### 53. Grilling
+### 42. Grilling
 - **Path**: `skills/grilling/`
-- **Purpose**: Short clarifying interview before non-trivial engineering work — surfaces the actual requirement, what's explicitly out of scope, and what proves it's done, before code gets written. The engineering counterpart to `brand-identity`'s design interview. Operationalizes Engineering #12 in `product-builder-principles.md`.
+- **Purpose**: Short clarifying interview before non-trivial engineering work — surfaces the actual requirement, what's explicitly out of scope, and what proves it's done, before code gets written. The engineering counterpart to `design-md`'s design interview. Operationalizes Engineering #12 in `product-builder-principles.md`.
 - **Triggers**: starting a task whose requirement, scope, or definition of done isn't already unambiguous; "let's build X" with no clear spec yet.
 
-### 54. TDD
+### 43. TDD
 - **Path**: `skills/tdd/`
 - **Purpose**: Red-green-refactor test-driven development discipline — write a failing test at the public interface first, minimal code to pass it, refactor later rather than inside the loop. Mock only at system boundaries. Operationalizes Engineering #13 in `product-builder-principles.md`.
 - **Triggers**: writing new logic, fixing a bug (write the regression test first), any code where correctness matters more than raw speed.
 
-### 55. Writing for Agents
+### 44. Writing for Agents
 - **Path**: `skills/writing-for-agents/`
 - **Purpose**: Writing standards for any document an agent consumes — a skill, `CLAUDE.md`/`AGENTS.md`, or a doc reached by a pointer. Context pointers, context load vs. cognitive load, progressive disclosure, leading words, pruning. Operationalizes Engineering #14 in `product-builder-principles.md`.
 - **Triggers**: creating or editing a skill, writing/editing `CLAUDE.md` or `AGENTS.md`, any reference doc meant for agent consumption.
 
-### 56. Codebase Design
+### 45. Codebase Design
 - **Path**: `skills/codebase-design/`
 - **Purpose**: Shared vocabulary for designing deep modules — small interface, lots of behavior behind it. Module/Interface/Seam/Adapter/Depth glossary, the deletion test, the one-vs-two-adapters rule for when a seam is real. Operationalizes Engineering #1 and #10 in `product-builder-principles.md`.
 - **Triggers**: designing or improving a module's interface, deciding where a seam belongs, deciding whether to extract or merge modules, making code more testable.
 
-### 57. Domain Modeling
+### 46. Domain Modeling
 - **Path**: `skills/domain-modeling/`
 - **Purpose**: Maintains a project's `CONTEXT.md` glossary and gated ADRs (`docs/adr/`) as decisions get made, not documentation written once and left to rot. Reduced-scope port — single-project only, no `CONTEXT-MAP.md`/bounded contexts. Operationalizes Engineering #14-15 in `product-builder-principles.md`.
 - **Triggers**: terminology conflicts or turns fuzzy, a decision that's hard to reverse/surprising/a real trade-off, a stated domain rule that doesn't match what the code does.
@@ -324,9 +269,9 @@ STRATEGIZE → SPECIFY → DESIGN → BUILD → REVIEW → HARDEN → DOCUMENT �
 1. **Reframe** → `feature-to-outcome` *(translate stakeholder features into validated outcomes)*
 2. **Strategize** → `product-strategy` *(define bets, North Star, OKRs)*
 3. **Specify** → `prd-writer` + `product-analytics` *(write the PRD + define success metrics)*
-4. **Design** → `brainstorming` + `brand-identity`
-5. **Build** → `taste-skill` (new UI from the brief) or `taste-redesign` (upgrading existing UI) — or `design-lab`/`prototype` first if the direction itself is still open — + `animate`/`emil-design-eng` for motion + `react-best-practices` + `prompt-engineering-patterns` *(if AI features)*
-6. **Review** → `requesting-code-review`
+4. **Design** → `brainstorming` + `design-md`
+5. **Build** → `taste-skill` (new UI from the brief) or `taste-redesign` (upgrading existing UI) — or `design-lab`/`prototype` first if the direction itself is still open — + `animation`/`emil-design-eng` for motion + the `vercel` plugin's `react-best-practices` *(React/Next.js)*
+6. **Review** → the built-in `code-review` skill or `pr-review-toolkit` agents
 7. **Harden** → `error-handling-patterns`
 8. **Document** → `maintaining-documentation`
 9. **Release** → `changelog-generator` + `deploying-to-github`

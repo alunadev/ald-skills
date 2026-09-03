@@ -15,20 +15,27 @@
 
 ## Event Naming Convention
 
-Format: `[action]_[object]_[context]`
+Amplitude standard. Lowercase `snake_case` in code; Title Case in the Amplitude UI only.
+
+Format: `[object]_[action]` — object first, action second. Add `_[context]` only when the context
+changes the meaning of the event; otherwise context is a **property**.
 
 | Segment | Values |
 |---|---|
-| Action | `view`, `click`, `submit`, `complete`, `error`, `activate`, `dismiss`, `start`, `cancel` |
-| Object | `button`, `form`, `page`, `modal`, `feature`, `step`, `card`, `link` |
-| Context | [Specific context: `onboarding`, `dashboard`, `pricing`, `settings`] |
+| Object | `order`, `product`, `onboarding_step`, `feature`, `page`, `form`, `modal` |
+| Action | `viewed`, `clicked`, `submitted`, `completed`, `started`, `activated`, `dismissed`, `cancelled`, `failed` |
+| Context (rare) | Only when it splits a genuinely different funnel |
 
 **Examples:**
-- `page_view_dashboard`
-- `button_click_upgrade_pricing_page`
-- `form_submit_onboarding_step_2`
-- `feature_activate_export_first_time`
-- `error_display_api_timeout`
+- `page_viewed` — with a `page_name: dashboard` property
+- `upgrade_clicked` — with `source: pricing_page`
+- `onboarding_step_completed` — with `step_number: 2`
+- `feature_activated` — with `feature_id: export`, `is_first_time: true`
+- `api_request_failed` — with `error_type: timeout`
+
+**Not this:** `page_view_dashboard`, `button_click_upgrade_pricing_page` — action-first, and
+context baked into the name where a property belongs. That shape multiplies event names instead of
+letting you slice one event.
 
 ---
 
@@ -36,12 +43,12 @@ Format: `[action]_[object]_[context]`
 
 | Property | Type | Description | Example |
 |---|---|---|---|
-| `timestamp` | datetime | UTC timestamp of event | `2025-03-01T14:22:31Z` |
+| `timestamp` | datetime | UTC timestamp of event | `2026-03-01T14:22:31Z` |
 | `user_id` | string | Stable user identifier | `usr_abc123` |
 | `session_id` | string | Session identifier | `ses_xyz789` |
 | `platform` | string | `web` / `ios` / `android` | `web` |
 | `user_segment` | string | `free` / `pro` / `enterprise` | `pro` |
-| `signup_date` | date | For cohort analysis | `2025-01-15` |
+| `signup_date` | date | For cohort analysis | `2026-01-15` |
 
 **For A/B experiments, also include:**
 | Property | Type | Description |
@@ -116,9 +123,12 @@ Track errors as first-class events — they reveal reliability and UX issues.
 
 | Error | Event Name | Properties |
 |---|---|---|
-| API failure | `error_display_api_[endpoint]_failed` | `error_code`, `error_message`, `retry_count` |
-| Form validation | `error_display_form_validation` | `field_name`, `error_type` |
-| Empty state | `state_display_empty_[context]` | `reason`, `has_onboarding_completed` |
+| API failure | `api_request_failed` | `endpoint`, `error_code`, `error_message`, `retry_count` |
+| Form validation | `form_validation_failed` | `form_name`, `field_name`, `error_type` |
+| Empty state | `empty_state_viewed` | `context`, `reason`, `has_onboarding_completed` |
+
+Note how the object moved into a property (`endpoint`, `form_name`, `context`) rather than into
+the event name — one event you can slice, instead of one event name per endpoint.
 
 ---
 

@@ -96,7 +96,7 @@ When the branching model calls for a PR:
 
 1. Push the feature branch, open the PR with a description that states *why*, not just a
    diff summary.
-2. Use the `requesting-code-review` skill before merging anything non-trivial — catching
+2. Run a code review before merging anything non-trivial — catching
    issues before a human reviewer sees them is strictly better than after.
 3. Wait for CI to pass before merging, if the repo has CI.
 4. Prefer a clean merge strategy the repo already uses (merge commit, squash, or rebase) —
@@ -229,5 +229,4 @@ than force-pushing.
 
 ## See Also
 
-- `requesting-code-review` — run before merging any non-trivial PR.
 - `changelog-generator` — pair with tagging a release.

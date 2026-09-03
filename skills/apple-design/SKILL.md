@@ -391,4 +391,4 @@ Tactical rules that serve these:
 
 - `emil-design-eng` — the general-purpose animation philosophy this skill's gesture/spring
   model supplements.
-- `animate` — plugs these values into the build sequence's step 5-6.
+- `animation` — build mode plugs these values into steps 5-6 of its build sequence.

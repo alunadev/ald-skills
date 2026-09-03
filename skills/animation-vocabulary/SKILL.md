@@ -233,4 +233,4 @@ User: "That iOS scroll where it resists and snaps back when you pull too far."
 ## See Also
 
 - `emil-design-eng` — where these terms are put into practice.
-- `find-animation-opportunities` — for deciding whether an effect belongs somewhere at all.
+- `animation` (discover mode) — for deciding whether an effect belongs somewhere at all.

@@ -7,7 +7,8 @@ description: >
   a section, a visual, a design, or any UI decision — divergent options beat a single guess.
   Fast, no interview, single-component scope. For a full structured exploration (interview, 5
   variants of a whole page, real feedback collection, implementation plan) when the direction
-  itself is still open, use `design-lab` instead — that one requires explicit invocation.
+  itself is still open, use `design-lab` instead. Both are also available as `/prototype`
+  and `/design-lab`.
   Source: github.com/emilkowalski/skills.
 ---
 
@@ -16,8 +17,8 @@ description: >
 A divergence skill. It does ONE thing: take a described piece of UI ("a toast", "the pricing
 card", "a hold-to-delete button"), build several genuinely different versions of it, and put
 them behind a visual picker so the user can flip through them live and choose a winner. It does
-not review existing UI (that's `review-animations`), plan fixes for it (that's
-`improve-animations`), or choose dependencies (that's `taste-skill`'s library table).
+not review existing UI or plan fixes for it (that's `animation`, review and audit modes), or
+choose dependencies (that's `taste-skill`'s library table).
 
 ## Operating Posture
 
@@ -151,8 +152,8 @@ padded to three.
 ## See Also
 
 - `design-lab` — the full structured version of this skill: interview, project-context
-  inference, 5 variants of a whole page or component, real feedback collection via
-  `visual-review`, and a persisted implementation plan. Use this (`prototype`) when the scope
+  inference, 5 variants of a whole page or component, a real feedback pass on the rendered
+  result, and a persisted implementation plan. Use this (`prototype`) when the scope
   is already clear and you just want to compare directly; use `design-lab` when the direction
   itself is still open.
 - `emil-design-eng` — the craft bar every variant must individually meet.

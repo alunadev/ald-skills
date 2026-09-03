@@ -1,62 +1,103 @@
 ---
 name: product-analytics
-description: Expert product analytics advisor for Senior PMs. Use when defining success metrics for a PRD, designing an A/B experiment, setting up an analytics tracking plan, analyzing post-launch impact, or when data exists but there's no clarity on what to measure. Produces structured metrics frameworks that connect to product decisions, not dashboards.
+description: >
+  Everything analytics for a product: what to measure, how to name and define events, how to
+  instrument a flow, how to design an experiment, and how to debug tracking that isn't firing.
+  Amplitude is the reference standard. Use when defining success metrics for a PRD, building a
+  tracking plan, tagging onboarding or a new feature, designing an A/B test, analyzing
+  post-launch impact, or when an event isn't showing up where it should.
 ---
 
 # Product Analytics
 
-This skill turns the vague intent to "be data-driven" into specific, decision-ready metrics frameworks. It covers pre-PRD metric definition, experiment design, tracking plans, and post-launch impact analysis.
+One skill for the whole analytics loop — from "what should we measure?" through "why isn't this
+event firing?". It replaces the earlier split between metric definition and tracking
+implementation, because in practice those are the same conversation held twice.
 
-## Core Philosophy
+## The naming standard — locked
 
-**Metrics without decisions are vanity. Every metric needs an owner and a threshold.**
+**Amplitude is the reference.** Every project follows this unless it already has shipped events
+in another convention, in which case match what exists rather than introducing a second style.
 
-"We'll track engagement" is not a success criterion. "D30 retention ≥55%, measured 30 days post-launch, with a kill switch if D7 drops below 40%" is a success criterion.
+| Where | Form | Example |
+|---|---|---|
+| In code, SDK calls, the data layer, the warehouse | lowercase `snake_case` | `order_completed` |
+| In the Amplitude UI, dashboards, docs written for people | Title Case | `Order Completed` |
 
-Great product analytics:
-- Defines metrics before building, not after
-- Ties every metric to a decision it will inform
-- Names guardrails (what cannot degrade) alongside success criteria
-- Makes experiment design boring and rigorous, not exciting and sloppy
+**Object first, action second.** The object stays constant while the verb varies — never both.
 
-**The fatal flaw of bad product analytics**: Beautiful dashboards that nobody uses to make decisions.
+```
+[object]_[action]           order_completed, product_viewed, checkout_started
+[object]_[action]_[context] onboarding_step_completed   ← only when context changes the meaning
+```
 
-## When to use this skill
+Context belongs in a **property**, not the name, unless the two paths are genuinely different
+funnels you would analyze separately. `order_completed` with `payment_method: apple_pay` — not
+`apple_pay_order_completed`.
 
-- **Pre-PRD:** To define success criteria before writing specs (feeds into prd-writer's "Success Measurement" section)
-- **Pre-build:** To design an A/B test before writing the first line of code
-- **Pre-launch:** To build the analytics tracking plan and instrument events
-- **Post-launch:** To analyze impact and decide to iterate, scale, or kill
-- **Ad hoc:** When metrics exist but there's no clarity on which ones matter and why
+Actor perspective is always the user's: `message_sent` means the user sent it, not that the
+system did.
 
-## Key Principles
+## Which part do you need?
 
-1. **Decision first** — Every metric answers a decision. "Should we ship this?" "Should we iterate or kill?" "Which variant wins?"
-2. **North Star alignment** — Every metric has a clear causal link to the North Star. Metrics that don't tie to value creation are noise.
-3. **Guardrails are non-negotiable** — Define what cannot degrade. Ship nothing that violates a guardrail.
-4. **Specificity wins** — "≥10% improvement" not "improve." "D30 retention" not "retention."
-5. **Fewer metrics, used well** — 3 great metrics > 15 metrics that sit in a dashboard nobody reads.
+| You're asking | Go to |
+|---|---|
+| What should we measure for this product or feature? | Part 1 — What to measure |
+| How do I define and name the events? | Part 2 — Event taxonomy |
+| How do I tag onboarding? How do I tag this new feature? | Part 3 — Instrumenting a flow |
+| Did it work? Should we ship, iterate, or kill? | Part 4 — Experiments and post-launch |
+| Why isn't my event firing / firing twice / missing properties? | Part 5 — Validate and debug |
 
-## Workflow
+## Core philosophy
 
-### Step 1: Goal Clarification
+**Metrics without decisions are vanity. A taxonomy nobody can maintain is worse than none.**
 
-Before defining any metric, answer:
+"We'll track engagement" is not a success criterion. "D30 retention ≥55%, measured 30 days
+post-launch, with a kill switch if D7 drops below 40%" is one.
+
+And the biggest failure in implementation isn't missing events — it's inconsistent ones. Two
+teams shipping `Song Played` and `song_played` for the same intended event produce two separate,
+unreconcilable streams.
+
+The two fatal flaws, stated plainly: a beautiful dashboard nobody makes decisions from, and a
+dashboard technically full of data that nobody trusts enough to build on.
+
+## Key principles
+
+1. **Decision first** — every metric answers a decision. "Should we ship?" "Which variant wins?"
+2. **North Star alignment** — every metric has a causal link to the North Star. The rest is noise.
+3. **Guardrails are non-negotiable** — define what cannot degrade. Ship nothing that violates one.
+4. **Specificity wins** — "D30 retention ≥55%" not "improve retention."
+5. **Fewer metrics, used well** — 3 great metrics beat 15 nobody reads.
+6. **Decide the convention before the second event** — retrofitting a naming convention across a
+   live taxonomy is expensive. The standard above settles it; document it in the project.
+7. **Properties on the event, context in the name only when it changes meaning** — see the
+   standard above.
+8. **No more than ~20 properties per event** — past that it's probably two events.
+9. **Resist tracking everything** — every event traces to a business question someone will ask.
+   Untraceable events bury the ones that matter.
+
+---
+
+# Part 1 — What to measure
+
+### Step 1: Goal clarification
+
+Before defining any metric:
 
 ```
 Decision to make: [What choice will these metrics help us make?]
 Time horizon: [When will we have enough data to decide?]
-Stakes: [What's the cost of a false positive? Of a false negative?]
+Stakes: [Cost of a false positive? Of a false negative?]
 ```
 
 Ask the user:
-> "When you have the data from this, what decision will you make? And what threshold would change your mind?"
+> "When you have this data, what decision will you make? And what threshold would change your mind?"
 
-### Step 2: Metric Tree
+### Step 2: Metric tree
 
 Build a causal tree from North Star down to measurable signals.
 
-**Format:**
 ```
 North Star: [Metric — measures user value]
 │
@@ -78,48 +119,43 @@ North Star: Weekly users completing ≥1 core workflow
 │   ├── Onboarding completion rate
 │   └── Time to first action (median, in minutes)
 │
-├── Retention: Users returning in week 2 (D7 retention)
-│   ├── Notification click-through rate
-│   └── Session frequency per user per week
-│
-└── Engagement: Workflows completed per active user per week
-    └── Feature adoption rate (% of active users using feature X)
+└── Feature adoption rate (% of active users using feature X)
 ```
 
-### Step 2b: Cohort Analysis (Optional — use for retention and lifecycle analysis)
+### Step 2b: Cohort analysis (optional — retention and lifecycle)
 
-Use when you need to understand how behavior changes over time across user groups — or when diagnosing why retention is declining.
+Use when behavior changes over time across user groups, or when diagnosing declining retention.
 
-**When to run cohort analysis:**
-- Retention is dropping — is it all cohorts or a specific one?
-- Measuring whether a product change improved long-term retention
+**When to run it:**
+- Retention is dropping — is it all cohorts or one?
+- Measuring whether a change improved long-term retention
 - Comparing behavior by acquisition channel, pricing tier, or onboarding variant
 
 **Define the cohort:**
 ```
 Cohort dimension: [Time: signup week/month | Behavior: completed X | Attribute: from source Y]
 Metric: [What you're tracking per cohort over time]
-Time periods: [D1 / D7 / D30 / D90 — based on product's natural frequency]
+Time periods: [D1 / D7 / D30 / D90 — based on the product's natural frequency]
 ```
 
-**Retention table format:**
+**Retention table:**
 ```
-| Cohort     | Size  | D1  | D7  | D30 | D90 |
-|------------|-------|-----|-----|-----|-----|
-| Jan 2025   | 1,200 | 68% | 45% | 32% | 21% |
-| Feb 2025   | 980   | 71% | 48% | 35% |  —  |
-| Mar 2025   | 1,450 | 74% | 51% |  —  |  —  |
+| Cohort   | Size  | D1  | D7  | D30 | D90 |
+|----------|-------|-----|-----|-----|-----|
+| Jan 2026 | 1,200 | 68% | 45% | 32% | 21% |
+| Feb 2026 |   980 | 71% | 48% | 35% |  —  |
+| Mar 2026 | 1,450 | 74% | 51% |  —  |  —  |
 ```
 
-**Reading the table:**
+**Reading it:**
 - Columns trending up across cohorts → product improvements are working
-- One cohort underperforms the rest → investigate what was different about that acquisition batch or onboarding period
-- All cohorts drop at the same time period → structural drop-off problem at that stage — fix the product moment, not the cohort
+- One cohort underperforms → investigate that acquisition batch or onboarding period
+- All cohorts drop at the same period → structural drop-off; fix the product moment, not the cohort
 
 **Diagnostic questions:**
 1. Which cohort performs best? What was different about its acquisition or onboarding?
-2. At which period does the biggest drop-off occur? What product experience does that correspond to?
-3. Are recent cohorts trending better or worse than older ones? (Leading indicator of product health trajectory)
+2. At which period is the biggest drop-off? What product experience does that correspond to?
+3. Are recent cohorts trending better or worse? (Leading indicator of product health.)
 
 **Output block:**
 ```
@@ -130,22 +166,15 @@ Metric: [What we're tracking]
 
 | Cohort | Size | [Period 1] | [Period 2] | [Period 3] | [Period 4] |
 |---|---|---|---|---|---|
-| [Cohort 1] | | | | | |
-| [Cohort 2] | | | | | |
 
 ### Key Findings
 1. [Finding — specific]
-2. [Finding]
 
 ### Decision Implication
 [What this tells us and what action it drives]
 ```
 
----
-
-### Step 3: Define Success + Guardrail Metrics
-
-For each initiative or experiment:
+### Step 3: Success and guardrail metrics
 
 ```
 ## Success Metrics (what must improve)
@@ -153,7 +182,6 @@ For each initiative or experiment:
 | Metric | Current baseline | Target | By when | Owner |
 |---|---|---|---|---|
 | [Primary metric] | [X] | [Y — specific threshold] | [Date] | [Name] |
-| [Secondary metric] | [X] | [Y] | [Date] | [Name] |
 
 ## Guardrail Metrics (what cannot degrade)
 
@@ -163,13 +191,164 @@ For each initiative or experiment:
 | [Guardrail 2] | [X] | Must stay ≤ [Y] | Rollback immediately |
 
 ## OEC (Overall Evaluation Criterion)
-[If metrics conflict, which one wins? Define the hierarchy.]
+[If metrics conflict, which wins?]
 "Primary metric takes precedence. If primary improves but [guardrail] is violated, we rollback."
 ```
 
-### Step 4: Experiment Design (A/B Test)
+---
 
-Use this when testing a specific hypothesis with a control and variant.
+# Part 2 — Event taxonomy
+
+### Build the tracking plan
+
+Structure every event identically, so the plan is scannable and diffable:
+
+```
+| Event Name | Trigger | Properties | Priority |
+|---|---|---|---|
+| [event_name] | [Exact user action that fires it] | [Required properties] | Required / Nice-to-have |
+```
+
+**For each event, ask:**
+- What business question does this answer? If there isn't one, don't track it.
+- One event with a distinguishing property, or genuinely separate events? Prefer one event plus a
+  property unless the paths are distinct funnels worth analyzing independently.
+- Are the properties this event needs present on **every other event in the same funnel**? A
+  property that holds a funnel step constant (e.g. `product_id` linking `product_viewed` →
+  `product_added`) must appear on every event in the chain, or funnel analysis silently breaks.
+
+**Standard property categories** — reuse these, don't reinvent per event:
+
+```
+User:      user_id, user_type, plan_tier, signup_date
+Page:      page_title, page_location, referrer
+Campaign:  utm_source, utm_medium, utm_campaign, utm_content, utm_term
+Object:    object_id, object_type, category, price
+Experiment: variant   ← always include on events inside a running experiment
+```
+
+Property names are `snake_case` too. Keep them specific: `item_type` and `payment_type`, never a
+shared generic `type`.
+
+For starting event lists by product type (general site, ecommerce, B2B/SaaS, media, healthcare,
+gaming), see `references/event-library.md`.
+
+---
+
+# Part 3 — Instrumenting a flow
+
+### Worked example: tagging onboarding
+
+Onboarding is a funnel, so the events must share a held-constant property or the funnel breaks.
+
+```
+| Event Name                  | Trigger                          | Properties                        |
+|-----------------------------|----------------------------------|-----------------------------------|
+| onboarding_started          | First onboarding screen renders  | onboarding_id, entry_point        |
+| onboarding_step_completed   | User advances a step             | onboarding_id, step_number, step_name |
+| onboarding_step_skipped     | User skips a skippable step      | onboarding_id, step_number, step_name |
+| onboarding_completed        | Final step submitted             | onboarding_id, duration_seconds, steps_skipped |
+| onboarding_abandoned        | Session ends mid-flow            | onboarding_id, last_step_number   |
+```
+
+`onboarding_id` is the held-constant property — it appears on **every** event above. Without it
+you cannot tell whether the user who completed step 3 is the one who abandoned at step 4.
+
+Note what is *not* here: five separate `onboarding_step_1_completed`, `..._step_2_completed`
+events. Step number is a property. That single decision is the difference between a funnel you
+can slice and a taxonomy you have to rewrite next quarter.
+
+### Worked example: tagging a new feature
+
+1. **Name the question first.** "Do users who use [feature] retain better?" — not "let's track
+   the feature."
+2. **Find the minimum event set that answers it.** Usually: discovered → activated → used again.
+   ```
+   feature_viewed      → the entry point rendered
+   feature_activated   → first meaningful use
+   feature_used        → subsequent uses, with a `use_count` property
+   ```
+3. **Add the held-constant property** linking them (`feature_id`, or the object the feature acts on).
+4. **Add `variant`** if this ships behind an experiment.
+5. **Check it against Part 1's metric tree** — if an event doesn't feed a metric in the tree,
+   it doesn't ship.
+
+### Implement
+
+Pick the path that matches the stack. Don't reach for GTM if there's no tag-management need, and
+don't hand-roll SDK calls if GTM is already the org standard.
+
+**Amplitude (the reference):**
+```js
+amplitude.track('order_completed', {
+  payment_method: 'credit_card',
+  order_value: 49.99,
+  item_count: 3,
+});
+```
+
+**GA4 via gtag.js:**
+```js
+gtag('event', 'order_completed', {
+  payment_method: 'credit_card',
+  value: 49.99,
+  items: 3,
+});
+```
+
+**Google Tag Manager (data layer):**
+```js
+dataLayer.push({
+  event: 'order_completed',
+  payment_method: 'credit_card',
+  order_value: 49.99,
+});
+```
+
+**If the codebase already has an analytics wrapper or prior instrumentation**, read it first and
+match its patterns rather than introducing a new call style — a second pattern in the same
+codebase recreates the exact inconsistency this skill exists to prevent.
+
+**Repo-level convention file** — recommended once more than a couple of people instrument events.
+Keep the rules checked in, e.g. `.agents/analytics-conventions.md`, so every future pass (human or
+agent) starts from the same rules:
+
+```markdown
+# Analytics conventions
+
+## Naming
+- Events: lowercase snake_case, object_action (`order_completed`)
+- Displayed in Amplitude as Title Case (`Order Completed`)
+- Properties: snake_case
+
+## Required properties
+[the held-constant properties per funnel]
+
+## Tool
+[Amplitude / GA4 / Segment / PostHog — and which is the source of truth]
+```
+
+### UTM strategy (if paid or campaign traffic matters)
+
+```
+| Parameter    | Purpose                  | Example          |
+|--------------|--------------------------|------------------|
+| utm_source   | Traffic source           | google, newsletter |
+| utm_medium   | Marketing medium         | cpc, email, social |
+| utm_campaign | Campaign name            | spring_sale      |
+| utm_content  | Differentiate versions   | hero_cta         |
+| utm_term     | Paid search keywords     | running_shoes    |
+```
+
+Lowercase everything, pick underscores or hyphens and stay consistent, be specific but concise
+(`blog_footer_cta`, not `cta1`). Document every combination in use somewhere a teammate can find
+it — undocumented UTMs are exactly as bad as undocumented event names.
+
+---
+
+# Part 4 — Experiments and post-launch
+
+### Experiment design (A/B test)
 
 **Hypothesis format:**
 ```
@@ -182,103 +361,54 @@ because [causal mechanism].
 ## Experiment: [Name]
 
 Hypothesis: [Full hypothesis statement]
-Primary metric: [Metric — this is what determines winner/loser]
+Primary metric: [What determines winner/loser]
 Guardrails: [Metrics that cannot degrade]
 
 Control: [What users see today]
 Variant(s): [What we're testing — be specific]
 
-Traffic split: [50/50 / 80/20 / other — and why]
-Randomization unit: [User-level / session-level / device-level]
+Traffic split: [50/50 / 80/20 — and why]
+Randomization unit: [User / session / device]
 Why this unit: [Prevents contamination because...]
 
 ## Sample Size Calculation
-Baseline rate: [Current conversion/metric value]
-Minimum Detectable Effect (MDE): [Smallest improvement worth detecting — e.g., +5%]
+Baseline rate: [Current value]
+Minimum Detectable Effect (MDE): [Smallest improvement worth detecting — e.g. +5%]
 Statistical power: 80% (standard)
 Significance level: 5% (p < 0.05)
 Required sample: [N users per variant]
-Estimated duration: [X days at current traffic levels]
+Estimated duration: [X days at current traffic]
 
 ## Decision Criteria
 Ship if: Primary metric improves ≥ MDE, p < 0.05, no guardrail violations
-Iterate if: Results are directionally positive but underpowered
-Kill if: Primary metric doesn't improve, or guardrail violated
+Iterate if: Directionally positive but underpowered
+Kill if: Primary doesn't improve, or a guardrail is violated
 ```
 
 **Power calculation reference:**
 ```
 Sample size (per variant) ≈ (16 × σ²) / δ²
 
-Where:
 σ = standard deviation of the metric
 δ = minimum detectable effect (absolute, not relative)
 
 For binary metrics (conversion rates):
-n ≈ (2 × p̄(1-p̄)) / δ²   × 8    [for 80% power, 5% significance]
+n ≈ (2 × p̄(1-p̄)) / δ²  × 8    [80% power, 5% significance]
 
-Where p̄ = average conversion rate and δ = MDE
+p̄ = average conversion rate, δ = MDE
 ```
 
-### Step 5: Analytics Tracking Plan
+Every event inside a running experiment carries the `variant` property. Without it the experiment
+is unanalyzable after the fact.
 
-Define what to instrument before writing a single line of code.
-
-**Event taxonomy:**
-```
-[Action]_[Object]_[Context]
-
-Examples:
-- button_click_upgrade_pricing_page
-- form_submit_onboarding_step2
-- feature_activate_dashboard_first_time
-- error_display_api_call_failed
-```
-
-**Tracking plan format:**
+### Post-launch analysis
 
 ```
-## Tracking Plan: [Feature/Experiment Name]
-
-### Events to Instrument
-
-| Event Name | Trigger | Properties | Priority |
-|---|---|---|---|
-| [event_name] | [When it fires] | [Key properties to capture] | Required/Nice |
-| [event_name] | [When it fires] | [Properties] | Required/Nice |
-
-### Properties Reference
-
-User properties (capture once, reuse):
-- user_id: [Stable identifier]
-- user_segment: [e.g., free / pro / enterprise]
-- signup_date: [For cohort analysis]
-- [Other stable user attributes]
-
-Event properties (capture per event):
-- timestamp: [Always]
-- session_id: [For funnel analysis]
-- variant: [For A/B tests — always include]
-- [Relevant context for this specific event]
-
-### Funnel Definition
-
-Step 1: [Event] → Step 2: [Event] → Step 3: [Event]
-
-Success = reaching Step [N] within [X days/sessions]
-```
-
-### Step 6: Post-Launch Analysis
-
-After enough time has passed:
-
-**Analysis checklist:**
-```
-□ Primary metric: [actual result] vs target [Y] → [Hit / Miss / Underpowered]
-□ Statistical significance: p = [value] → [Significant / Not significant]
-□ Guardrails: [Status of each guardrail metric]
-□ Segment breakdown: [Did results differ by user segment, platform, cohort?]
-□ Unexpected signals: [Any metrics that moved that we didn't expect?]
+□ Primary metric: [actual] vs target [Y] → [Hit / Miss / Underpowered]
+□ Statistical significance: p = [value] → [Significant / Not]
+□ Guardrails: [Status of each]
+□ Segment breakdown: [Did results differ by segment, platform, cohort?]
+□ Unexpected signals: [Metrics that moved that we didn't expect]
 ```
 
 **Decision:**
@@ -286,107 +416,147 @@ After enough time has passed:
 ## Ship / Iterate / Kill
 
 Decision: [Ship / Iterate / Kill]
-
-Rationale: [2-3 sentences on why, referencing the data]
+Rationale: [2-3 sentences, referencing the data]
 
 If shipping:
 - Rollout plan: [% → %, timeline, who monitors]
-- Monitoring: [What we'll watch for the first 2 weeks post full-ship]
+- Monitoring: [What to watch for the first 2 weeks post full-ship]
 
 If iterating:
-- Hypothesis update: [What we now believe, based on results]
-- Next experiment: [What we'll test next]
+- Hypothesis update: [What we now believe]
+- Next experiment: [What we'll test]
 
 If killing:
-- What we learned: [1-2 key learnings to carry forward]
-- What this tells us about the opportunity: [Should we pursue it differently?]
+- What we learned: [1-2 learnings to carry forward]
+- What this says about the opportunity: [Pursue it differently?]
 ```
 
-### Step 7: Output
+---
 
-Save the metrics framework:
+# Part 5 — Validate and debug
+
+Validation is part of "done", not a follow-up task.
+
 ```
-docs/analytics/YYYY-MM-DD-[feature-or-topic]-metrics.md
-```
-
-## Output Format
-
-```markdown
-# Metrics Framework: [Feature / Initiative]
-
-**Owner:** [Name]
-**Date:** [YYYY-MM-DD]
-**Status:** Pre-launch / Active experiment / Post-launch analysis
-
-## Decision to Make
-[What choice will these metrics inform?]
-
-## Metric Tree
-[North Star → Input Metrics → Sub-metrics — causal tree]
-
-## Success Metrics
-[Table: metric, baseline, target, date, owner]
-
-## Guardrail Metrics
-[Table: metric, baseline, threshold, action if violated]
-
-## Experiment Design (if applicable)
-[Hypothesis, control, variant, traffic split, sample size, duration, decision criteria]
-
-## Tracking Plan
-[Events, properties, funnel definition]
-
-## Post-Launch Analysis (to fill after launch)
-[Results vs targets, decision, learnings]
+□ Event fires on the correct trigger — not early, not late, not on every render
+□ Property values populate correctly (not undefined, not the wrong type)
+□ No duplicate firing (double-mounted listeners, multiple containers)
+□ Fires across the platforms it needs to (desktop/mobile, supported browsers)
+□ No PII in event properties (names, emails, free-text fields especially)
+□ Conversion events marked as conversions in the tool, if applicable
 ```
 
-## Quality Checklist
+**Debugging tools:**
 
-Before shipping metrics framework:
+| Tool | Use for |
+|---|---|
+| Amplitude live event stream / Chrome extension | Inspect events as they fire, verify properties |
+| GA4 DebugView | Real-time event monitoring during implementation |
+| GTM Preview Mode | Test triggers and variables before publishing |
+| Browser devtools network tab | Confirm the call actually leaves the browser |
 
-**Clarity**
+**Common issues:**
+
+| Symptom | Check first |
+|---|---|
+| Event not firing at all | Trigger configuration; script/tag actually loaded on the page |
+| Wrong or missing property values | Data-layer path; timing (property read before the value is set) |
+| Duplicate events | Multiple containers/SDKs initialized, or a trigger firing on every re-render |
+| Funnel not connecting steps | The held-constant property is missing on one event in the chain |
+
+### Privacy and compliance
+
+```
+□ Cookie/tracking consent required in EU/UK/California — gate tracking on consent
+□ No PII in event or user properties — use IDs and pseudonymous values
+□ Data retention settings match policy
+□ Users can request deletion — confirm the tool supports it before it's needed
+```
+
+Wire consent state into the SDK or tag manager (most tools have a consent mode that queues or
+blocks tracking until consent is granted) rather than bolting privacy on after the taxonomy exists.
+
+---
+
+## Output
+
+```
+docs/analytics/YYYY-MM-DD-[feature]-metrics.md          ← Part 1 / Part 4 output
+docs/analytics/YYYY-MM-DD-[feature]-tracking-plan.md    ← Part 2 / Part 3 output
+```
+
+Both templates are in `references/`. Small features can use a single combined document; keep them
+separate once the tracking plan spans more than one feature.
+
+## Quality checklist
+
+**Measurement**
 - [ ] Primary metric is specific (number, direction, by when)
-- [ ] Guardrail metrics defined with clear thresholds
+- [ ] Guardrails defined with thresholds and an action if violated
 - [ ] OEC defined if metrics could conflict
+- [ ] Decision criteria written *before* data collection (prevents p-hacking)
+- [ ] Owner named for each metric
+
+**Taxonomy**
+- [ ] Every event name is lowercase `snake_case`, object first, action second
+- [ ] No event duplicated with different casing or word order anywhere in the codebase
+- [ ] Every event traces to a business question
+- [ ] Held-constant properties present on every event in each funnel
+- [ ] No more than ~20 properties on any event
+- [ ] `variant` present on every event inside a running experiment
 
 **Rigor**
-- [ ] Sample size calculated before starting experiment
+- [ ] Sample size calculated before starting
 - [ ] Randomization unit chosen to prevent contamination
-- [ ] Duration estimated at current traffic levels
+- [ ] Duration estimated at current traffic
 
-**Actionability**
-- [ ] Decision criteria written before data is collected (to prevent p-hacking)
-- [ ] Owner named for each metric
-- [ ] Ship / iterate / kill thresholds defined in advance
+**Implementation**
+- [ ] Matches existing instrumentation patterns in the codebase, if any
+- [ ] No duplicate firing (checked in the live event stream / DebugView / Preview Mode)
+- [ ] No PII in any property; consent respected where required
 
-**Tracking**
-- [ ] All required events listed in tracking plan
-- [ ] Event naming follows [action]_[object]_[context] convention
-- [ ] Experiment variant property included in all relevant events
+## Common antipatterns
 
-## Common Antipatterns
+**Metric theater** — "We'll track engagement, satisfaction, retention, and revenue." Tracking
+everything, deciding nothing. → Name the ONE primary metric that determines success.
 
-### Antipattern 1: Metric Theater
-**Symptom**: "We'll track engagement, satisfaction, retention, and revenue" — tracking everything, deciding nothing
-**Fix**: Name the ONE primary metric that determines success. Secondary metrics are context, not decision drivers.
+**Post-hoc metric selection** — running the experiment, then choosing metrics that look good. →
+Lock metrics and decision criteria before data collection, with a timestamp.
 
-### Antipattern 2: Post-hoc Metric Selection
-**Symptom**: Running an experiment, then choosing metrics that show positive results
-**Fix**: Lock metrics and decision criteria before data collection. Write them down with a timestamp.
+**Significance without practical significance** — "p=0.03, ship it!" on a trivial effect. →
+Define MDE first. Smaller than MDE isn't practically significant, whatever the p-value.
 
-### Antipattern 3: Statistical Significance Without Practical Significance
-**Symptom**: "We got p=0.03! Shipping it!" — even though the effect size is tiny
-**Fix**: Define MDE (Minimum Detectable Effect) before the experiment. If the detected effect is smaller than MDE, it's not practically significant regardless of p-value.
+**Ignoring guardrails** — primary metric improved, support tickets spiked, ship anyway. →
+Guardrails are non-negotiable. Define them first so you can't rationalize around them later.
 
-### Antipattern 4: Ignoring Guardrails
-**Symptom**: Primary metric improved, but support tickets spiked — ship anyway
-**Fix**: Guardrails are non-negotiable. If violated, stop. Define them first so you can't rationalize around them later.
+**Dashboard without decisions** — a beautiful Amplitude dashboard nobody has ever decided from. →
+For every metric on it, write the decision it informs and the threshold that triggers action. If
+you can't, remove it.
 
-### Antipattern 5: Dashboard Without Decisions
-**Symptom**: Beautiful Amplitude/Mixpanel dashboard, no product decisions ever made from it
-**Fix**: For every metric on the dashboard, write the decision it informs and the threshold that would trigger action. If you can't, remove it from the dashboard.
+**Two conventions, one codebase** — `Order Completed` and `order_completed` both live, sent by
+different features. → The standard at the top of this file settles it. Migrate the outlier; never
+add a third style to "fix" it.
 
-## Reference Resources
+**One event, many clones** — `apple_pay_order_completed`, `credit_card_order_completed`. → One
+`order_completed` with a `payment_method` property.
 
-- `references/metrics-template.md` — Metrics framework template (copy-paste ready)
-- `references/tracking-plan-template.md` — Analytics tracking plan with event taxonomy
+**Tracking everything** — every click and hover, "in case it's useful later." → If nobody can name
+the question it answers, don't ship the event.
+
+**Shipping without validation** — events go live, nobody checks, three weeks later half fire twice
+or carry `undefined`. → Run the Part 5 checklist before merging.
+
+**PII in properties** — a property captures a raw email, full name, or free-text field. → IDs and
+pseudonymous values. If analysis genuinely needs PII, it belongs in a separately governed system.
+
+## Reference resources
+
+- `references/metrics-template.md` — metrics framework template (copy-paste ready)
+- `references/tracking-plan-template.md` — tracking plan template
+- `references/event-library.md` — starting event lists by product type, adapted from Amplitude's
+  official taxonomy guidance
+
+## Related skills
+
+- `prd-writer` — this skill's Part 1 output feeds the PRD's Success Measurement section
+- `product-strategy` — where the North Star this skill measures against gets set

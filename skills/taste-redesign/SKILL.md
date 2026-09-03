@@ -26,7 +26,7 @@ token file, or an established visual system in the codebase?
   Layout, Interactivity, Content Quality, Component Patterns, Iconography, and Code Quality
   instead — those are craft fixes, not identity decisions.
 - **If no** — the project has no defined identity yet, and this really is generic-AI-slop
-  cleanup. The full checklist below applies. Consider pointing the user at `brand-identity`
+  cleanup. The full checklist below applies. Consider pointing the user at `design-md`
   first if this is more than a one-off page.
 
 ## Method
@@ -161,4 +161,4 @@ token file, or an established visual system in the codebase?
   configurable dials), rather than upgrading an existing one.
 - `design-md` — the format an existing identity is usually recorded in; check for this file
   before doing anything in the Typography or Color sections above.
-- `brand-identity` — generates a new project's identity if Step 0 finds none.
+- `design-md` — generates a new project's identity if Step 0 finds none.

@@ -4,10 +4,9 @@ description: >
   Encodes Emil Kowalski's design engineering philosophy — UI polish, component design,
   animation decisions, and the invisible details that make software feel great. Use as the
   reference/philosophy layer for interaction craft. For the narrower, task-specific pieces of
-  this same philosophy, see `animate` (build one animation), `review-animations` (review a
-  diff), `improve-animations` (audit a codebase), `find-animation-opportunities` (find what's
-  missing motion), `animation-vocabulary` (name an effect), `apple-design` (gesture/spring
-  physics), `ask-sonner` (the Sonner toast library). Source: github.com/emilkowalski/skills.
+  this same philosophy, see `animation` (build, review, audit or discover motion),
+  `animation-vocabulary` (name an effect), `apple-design` (gesture/spring physics),
+  `ask-sonner` (the Sonner toast library). Source: github.com/emilkowalski/skills.
 ---
 
 # Design Engineering
@@ -384,11 +383,8 @@ imperfections you missed during development.
 
 ## See Also
 
-- `animate` — construction skill: turns a request for motion into implementation, following this
+- `animation` — the four working modes over this philosophy: build turns motion requests into implementation following this
   same philosophy step by step.
-- `review-animations` — strict diff review against this bar.
-- `improve-animations` — codebase-wide audit and implementation plans.
-- `find-animation-opportunities` — finds UI that's missing motion (and tells you what *not* to animate).
 - `animation-vocabulary` — reverse-lookup glossary for naming an effect.
 - `apple-design` — the full gesture/spring physics model this skill only summarizes.
 - `ask-sonner` — setup, styling, and troubleshooting for the Sonner toast library.

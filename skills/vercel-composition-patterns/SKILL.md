@@ -213,4 +213,5 @@ if (needsTheme) {
 
 ## See Also
 
-- `react-best-practices` — For rendering, bundle, and server-side performance patterns
+- the `vercel` plugin's `react-best-practices` skill — for rendering, bundle, and
+  server-side performance patterns

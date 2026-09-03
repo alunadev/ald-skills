@@ -119,7 +119,7 @@ North Star: [Metric]
 
 ## Tracking Plan
 
-**Event naming convention:** `[action]_[object]_[context]`
+**Event naming convention:** `[object]_[action]` in lowercase `snake_case` (Amplitude standard) — see `tracking-plan-template.md`
 
 ### Required Events
 

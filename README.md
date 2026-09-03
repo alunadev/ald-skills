@@ -84,8 +84,7 @@ with the accumulated judgment of all previous ones.
 |-------|--------------|---------|
 | `prd-writer` | `/prd` | Decision-focused PRDs with behavior contracts |
 | `product-strategy` | `/strategy` | North Star, Opportunity Tree, 3 bets, OKRs |
-| `product-analytics` | `/metrics` | Metric tree, A/B design, tracking plan, HEART |
-| `analytics-tracking` | `/tracking` | Event naming, GA4/GTM/Amplitude setup, debugging |
+| `product-analytics` | `/metrics` `/tracking` | Metric tree, A/B design, event taxonomy, instrumentation, debugging — Amplitude standard |
 | `ai-product-strategy` | `/ai-strategy` | Wedge, RAG vs. fine-tuning, autonomy, defensibility |
 | `feature-to-outcome` | — | Translate stakeholder feature requests into validated outcomes |
 | `product-launch` | — | GTM brief, readiness checklists, rollout gates |
@@ -96,11 +95,8 @@ with the accumulated judgment of all previous ones.
 | Skill | Purpose |
 |-------|---------|
 | `brainstorming` | Socratic discovery and technical design before code |
-| `react-best-practices` | Performance optimization, 8 categories, 58 rules |
 | `api-design-principles` | REST and GraphQL API design conventions |
 | `error-handling-patterns` | Exceptions, Result types, graceful degradation |
-| `prompt-engineering` | 6-step framework for production AI prompts |
-| `prompt-engineering-patterns` | 9 production-tested prompting patterns |
 | `agent-workflow` | Design and architect multi-agent AI workflows |
 | `vercel-composition-patterns` | Compound components, CVA variants, React 19 |
 | `vercel-react-native-skills` | FlashList, Reanimated, expo-router, monorepo |
@@ -110,17 +106,13 @@ with the accumulated judgment of all previous ones.
 | Skill | Purpose |
 |-------|---------|
 | `design-md` | Extract brand systems into AI-readable DESIGN.md tokens |
-| `brand-identity` | Interview-driven brand generation per new project |
 | `taste-skill` | Anti-slop frontend design for NEW UI, brief-first |
 | `taste-redesign` | Audit and elevate an EXISTING UI to premium quality |
 | `web-design-guidelines` | 100+ accessibility, UX and code quality rules |
 | `figma-reverse-engineering` | Figma designs → implementation-ready specs |
 | `frontend-slides` | Animation-rich HTML presentations, brief or PPT conversion |
 | `emil-design-eng` | Design engineering philosophy — animation decisions, component craft |
-| `animate` | Build one animation from scratch, following the full decision framework |
-| `review-animations` | Strict diff review against 10 non-negotiable motion standards |
-| `improve-animations` | Codebase-wide motion audit → prioritized implementation plans |
-| `find-animation-opportunities` | Finds UI missing motion — and what *not* to animate |
+| `animation` | Build, review, audit, or discover motion — four modes, one craft bar |
 | `animation-vocabulary` | Reverse-lookup glossary — name any motion effect |
 | `apple-design` | Fluid-interface physics — springs, gestures, momentum, materials |
 | `ask-sonner` | Setup, styling, and troubleshooting for the Sonner toast library |
@@ -153,10 +145,7 @@ with the accumulated judgment of all previous ones.
 | Skill | Purpose |
 |-------|---------|
 | `maintaining-documentation` | Real canonical-docs structure; log.md vs. progress.txt |
-| `creating-skills` | Meta-skill for generating new standardized skills |
-| `autoresearch` | Self-optimize any skill via eval loops |
 | `deploying-to-github` | Branching, PRs, code review, submodules, worktrees |
-| `requesting-code-review` | Self-contained review checklist (portable to Codex/Cursor); prefer the official `code-review` skill or `pr-review-toolkit` agents in Claude Code |
 | `writing-for-agents` | Writing standards for any doc an agent consumes — a skill, CLAUDE.md/AGENTS.md, a doc reached by a pointer |
 
 ---
@@ -191,8 +180,7 @@ description: Third person. What it does and when to trigger it. Max 1024 chars.
 ---
 ```
 
-Use the `creating-skills` meta-skill to generate new skills following this
-format, and `autoresearch` to optimize them against evals.
+See `CONTRIBUTING.md` for how a skill gets registered, symlinked, and committed.
 
 ---
 
@@ -212,7 +200,7 @@ hooks that enforce the operating rules. The concept: **product work should
 compound, not restart every session.**
 
 If you're building something similar, the skill format plus the
-`creating-skills` meta-skill is the best place to start.
+`CONTRIBUTING.md` is the best place to start.
 
 ---
 

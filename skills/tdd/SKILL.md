@@ -15,7 +15,7 @@ change entirely; the test shouldn't.
 2. **Green.** Write the minimum code to pass it. Resist building ahead for behavior you haven't
    tested yet.
 3. **Refactor — later, not here.** Don't refactor inside the red-green loop; that's
-   `requesting-code-review`'s job, or a deliberate follow-up pass. Mixing refactor into the loop
+   the code-review pass's job, or a deliberate follow-up. Mixing refactor into the loop
    makes it unclear whether a failure is a real regression or a refactor artifact.
 
 Repeat per vertical slice. Each test is a tracer bullet revealing what to build next — writing

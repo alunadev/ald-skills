@@ -1,23 +1,21 @@
-Activates the Product Analytics skill for a feature or question.
+Activates Product Analytics on the measurement side — what to measure and whether it worked.
 
 Usage: /metrics [feature name or analytical question]
 
 What it does:
-1. Loads the product-analytics skill
-2. Asks: what decision needs to be made, what data is available, and whether this is an experiment design or a post-hoc analysis
-3. Builds a metric tree (North Star → L1 → L2 metrics) or an A/B experiment design with sample size and duration
-4. Output: docs/analytics/YYYY-MM-DD-[feature]-metrics.md or experiment design doc
+1. Loads the product-analytics skill, Part 1 and Part 4
+2. Asks what decision the data will inform, what's available, and whether this is
+   experiment design or post-hoc analysis
+3. Builds the metric tree (North Star → input metrics → sub-metrics), or an A/B
+   design with sample size, MDE, and ship/iterate/kill criteria
+4. Names guardrails — what cannot degrade — with the action if violated
+5. Output: docs/analytics/YYYY-MM-DD-[feature]-metrics.md
 
 When to use:
-- When defining success criteria for a feature before launch
-- When designing an A/B test (sizing, variants, guardrail metrics)
-- When doing post-launch analysis ("did this feature work?")
-- When building a tracking plan for a new feature
+- Defining success criteria before a feature is built (feeds prd-writer)
+- Designing an experiment before the first line of code
+- Analyzing impact after launch to decide ship / iterate / kill
+- Data exists but nobody knows which numbers matter
 
-What NOT to use it for:
-- Qualitative research (use /discovery instead)
-- Business-level financial modeling (that's FP&A territory)
-
-Example: /metrics did the new checkout flow improve conversion?
-Example: /metrics design an A/B test for the onboarding email
-Example: /metrics what metrics should I track for the new notifications feature?
+For the instrumentation side — naming events, building the tracking plan, tagging
+a flow, debugging events that don't fire — use `/tracking`. Same skill, other half.

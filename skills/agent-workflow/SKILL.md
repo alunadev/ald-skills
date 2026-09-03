@@ -418,5 +418,3 @@ When users ask about existing tools:
 ## See Also
 
 - `brainstorming` — For scoping the agent's purpose and data flows before building
-- `planning` — For breaking the agent implementation into atomic tasks
-- `full-stack-build` — For building agent-backed features end-to-end (API + DB + frontend)

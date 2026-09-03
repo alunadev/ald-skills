@@ -36,7 +36,7 @@ These skills are loaded for this project. Reference them explicitly when relevan
 @ald-skills/brainstorming          — Use before any new feature
 @ald-skills/planning               — Use after design is approved
 @ald-skills/prd-writer             — Use for any non-trivial feature spec
-@ald-skills/brand-identity         — Use for any UI/copy work
+@ald-skills/design-md              — Use for any UI/copy work
 @ald-skills/frontend-design        — Use for new components
 @ald-skills/react-best-practices   — Use for all React code
 @ald-skills/error-handling-patterns — Use when writing API calls

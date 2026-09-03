@@ -1,17 +1,12 @@
 ---
 name: feature-to-outcome
 description: >
-  Translates stakeholder feature requests into validated outcome statements before any work is
-  committed. Use this skill — proactively and without waiting to be asked — whenever a stakeholder,
-  exec, or customer arrives with a pre-packaged solution: "we need a dashboard", "add a Slack
-  notification", "build an export feature", "create a report", "let's add a filter", "can we just
-  add X". Also triggers for: "how do I push back on this request", "what outcome does this feature
-  solve", "outcome vs output", "outcomes not features", "what are we really trying to achieve",
-  "we're being a feature factory", "I need to reframe this as a problem", "the stakeholder is
-  pushing a specific solution", "discovery before delivery", "assumption testing", "translate this
-  request into an outcome", "ship outcomes not features". Runs the 'One Framework. Four Questions.'
-  protocol (Liatti + Cagan + Torres): Behavior Change → Assumption Test → Cheapest Test → Success
-  Metric. Produces an Outcome Brief with embedded AI prompts ready to paste into any LLM.
+  Turns a stakeholder's pre-packaged feature request into a validated outcome before anyone
+  commits to building it. Use when someone arrives with a solution rather than a problem, when
+  you need to push back on a request without simply saying no, or when work is being measured in
+  shipped features instead of changed behavior. Produces an Outcome Brief: behavior change,
+  riskiest assumption, cheapest test, success metric.
+
 ---
 
 # Feature → Outcome
