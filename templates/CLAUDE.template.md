@@ -33,16 +33,16 @@ Testing:    Vitest · Playwright (E2E)
 These skills are loaded for this project. Reference them explicitly when relevant.
 
 ```
-@ald-skills/brainstorming          — Use before any new feature
-@ald-skills/planning               — Use after design is approved
-@ald-skills/prd-writer             — Use for any non-trivial feature spec
-@ald-skills/design-md              — Use for any UI/copy work
-@ald-skills/frontend-design        — Use for new components
-@ald-skills/react-best-practices   — Use for all React code
-@ald-skills/error-handling-patterns — Use when writing API calls
-@ald-skills/systematic-debugging   — Use when something is broken
-@ald-skills/codebase-documenter    — Use when updating docs
-@ald-skills/changelog-generator    — Use before each release
+@ald-skills/skills/brainstorming/SKILL.md            — Before any new feature
+@ald-skills/skills/grilling/SKILL.md                 — Before non-trivial work
+@ald-skills/skills/prd-writer/SKILL.md               — Any non-trivial feature spec
+@ald-skills/skills/design-md/SKILL.md                — The project's visual identity
+@ald-skills/skills/taste-skill/SKILL.md              — New UI from a brief
+@ald-skills/skills/taste-redesign/SKILL.md           — Upgrading existing UI
+@ald-skills/skills/tdd/SKILL.md                      — New logic and bug fixes
+@ald-skills/workflows/systematic-debugging/SKILL.md  — When something is broken
+@ald-skills/skills/maintaining-documentation/SKILL.md — When updating docs
+@ald-skills/skills/changelog-generator/SKILL.md      — Before each release
 ```
 
 ---

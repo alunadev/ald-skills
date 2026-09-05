@@ -43,7 +43,3 @@ Build resilient applications with robust error handling strategies that graceful
 - **Error Aggregation**: Collect multiple errors before failing.
 - **Graceful Degradation**: Provide fallbacks for non-critical failures.
 
-## Resources
-- `references/exception-hierarchy-design.md`
-- `references/error-recovery-strategies.md`
-- `references/async-error-handling.md`

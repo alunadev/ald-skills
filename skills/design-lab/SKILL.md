@@ -232,8 +232,9 @@ wire in — you open it, the user looks, and they tell you what they think in th
    npm run dev    # then: http://localhost:3000/__design_lab
    ```
    If the project has no dev server, write the variants to a single self-contained
-   `.claude-design/lab/index.html` and give the user the file path instead — same picker chrome
-   as `prototype`'s `PICKER.md`, one file, opens in any browser.
+   `.claude-design/lab/index.html` and give the user the file path instead — one file, opens
+   in any browser. Load `ald-skills/skills/prototype/PICKER.md` and copy its markup, CSS and
+   keyboard wiring verbatim; the picker is harness chrome, not a design decision.
 
 2. Tell the user it's open, and what to look at: all five side by side, at real size, with real
    content. Their reaction to the rendered thing is the entire point of this phase.

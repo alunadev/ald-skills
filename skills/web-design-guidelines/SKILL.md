@@ -1,5 +1,5 @@
 ---
-name: applying-web-design-guidelines
+name: web-design-guidelines
 description: Audits and enforces web interface standards covering accessibility, performance, UX, and code quality from Vercel Engineering's Web Interface Guidelines. Use this skill when reviewing UI code, checking accessibility compliance, auditing design implementations, running pre-merge frontend checks, or when someone asks to "review my UI", "check accessibility", "check my site", "audit design", or "is this component correct". Apply proactively when writing form elements, interactive components, images, animations, or anything that users directly touch — these guidelines prevent common mistakes before they reach production.
 ---
 

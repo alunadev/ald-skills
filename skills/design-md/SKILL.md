@@ -37,7 +37,7 @@ tone, token granularity, and section depth.
 
 | Direction | Situation | Where to go |
 |---|---|---|
-| **Invent** | New project, no identity yet | "Inventing an identity" below — interview first, then the format |
+| **Invent** | New project, no identity yet | "Inventing an identity" below — interview first, then the format. If the identity has to be *right*, run `art-direction` first and skip the interview |
 | **Extract** | Identity exists somewhere (deck, site, screenshots, Figma) | "How to write one" — read the sources, then the format |
 | **Apply** | `DESIGN.md` already exists | Read its tokens and build against them |
 
@@ -144,6 +144,15 @@ npx @google/design.md spec                # print the formal specification
 ```
 
 ## Inventing an identity (new project, nothing to extract from)
+
+**If `ART-DIRECTION.md` exists, read it and skip the interview below.** The `art-direction`
+skill answers all six questions with far more behind each answer — the chosen concept's
+typographic and chromatic territory becomes the real values, §1 and §2 become the Overview
+prose, §4 becomes the imagery and motion rules, and §6 "what we don't want" is copied into
+Don'ts verbatim. Go straight to drafting tokens.
+
+The interview below is the fast path for a project where a consistent identity matters more
+than the right one.
 
 Every project gets its own identity, generated for that project. There is no default house brand
 to fall back on — a generic look with no real decisions behind it is worse than one clearly made

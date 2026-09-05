@@ -16,13 +16,13 @@ Ground every insight in actual research data. A persona invented in a workshop i
 - After user interviews or surveys — to synthesize findings into actionable profiles
 - Before defining product scope — to force explicit prioritization of which user to serve
 - When roadmap debates stall — to tie features back to specific user needs with evidence
-- When user-discovery is complete and needs to feed into a PRD or strategy document
+- When user research is complete and needs to feed into a PRD or strategy document
 
 ## Workflow
 
 ### 1. Gather and Read the Research Data
 
-Before writing anything, read all available inputs: interview transcripts, survey responses, support tickets, behavioral analytics, NPS comments. If no data exists, run user-discovery first — don't create fictional personas.
+Before writing anything, read all available inputs: interview transcripts, survey responses, support tickets, behavioral analytics, NPS comments. If no data exists, gather it first — don't create fictional personas.
 
 ### 2. Identify Patterns, Not Individuals
 

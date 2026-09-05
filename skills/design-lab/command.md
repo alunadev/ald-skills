@@ -10,8 +10,8 @@ What it does:
    inferring anything generically
 3. Runs the design interview and saves a structured brief
 4. Generates 5 variants, each on a different named axis, in a temporary route
-5. Opens the live route so you react to the actual rendered UI and mark up
-   what you want changed
+5. Hands you the live route so you react to the actual rendered UI and say,
+   in your own words, what works and what doesn't
 6. Synthesizes the feedback into an implementation plan + Design Memory
 7. Cleans up every temporary file it created
 

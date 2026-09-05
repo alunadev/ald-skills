@@ -256,6 +256,11 @@ This repository serves as the central hub for reusable agentic skills. These ski
 - **Purpose**: Maintains a project's `CONTEXT.md` glossary and gated ADRs (`docs/adr/`) as decisions get made, not documentation written once and left to rot. Reduced-scope port — single-project only, no `CONTEXT-MAP.md`/bounded contexts. Operationalizes Engineering #14-15 in `product-builder-principles.md`.
 - **Triggers**: terminology conflicts or turns fuzzy, a decision that's hard to reverse/surprising/a real trade-off, a stated domain rule that doesn't match what the code does.
 
+### 47. Art Direction
+- **Path**: `skills/art-direction/`
+- **Purpose**: Sets a new product's visual territory before any font, hex value or screen exists — central idea, drawable visual attributes, cultural references from outside the sector, photographic direction, three divergent typographic/chromatic concepts, and the permanent anti-cliche list. Produces `ART-DIRECTION.md`, the input `design-md` turns into tokens. Slash command: `/art-direction`.
+- **Triggers**: a new product or brand with no visual identity yet, an identity being rebuilt from zero, the moment the next step would be picking colors on a blank canvas.
+
 ---
 
 ## 🔄 Workflow Integration
@@ -269,7 +274,7 @@ STRATEGIZE → SPECIFY → DESIGN → BUILD → REVIEW → HARDEN → DOCUMENT �
 1. **Reframe** → `feature-to-outcome` *(translate stakeholder features into validated outcomes)*
 2. **Strategize** → `product-strategy` *(define bets, North Star, OKRs)*
 3. **Specify** → `prd-writer` + `product-analytics` *(write the PRD + define success metrics)*
-4. **Design** → `brainstorming` + `design-md`
+4. **Design** → `art-direction` *(new product with no identity yet)* → `design-md` + `brainstorming`
 5. **Build** → `taste-skill` (new UI from the brief) or `taste-redesign` (upgrading existing UI) — or `design-lab`/`prototype` first if the direction itself is still open — + `animation`/`emil-design-eng` for motion + the `vercel` plugin's `react-best-practices` *(React/Next.js)*
 6. **Review** → the built-in `code-review` skill or `pr-review-toolkit` agents
 7. **Harden** → `error-handling-patterns`

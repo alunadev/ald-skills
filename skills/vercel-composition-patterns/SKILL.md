@@ -1,5 +1,5 @@
 ---
-name: applying-composition-patterns
+name: vercel-composition-patterns
 description: Applies React composition patterns to build flexible, maintainable components. Use this skill when refactoring components that have accumulated too many boolean props, designing a reusable component API from scratch, building compound components (Tabs, Accordion, Select), working with context providers, or reviewing components that are hard to extend. Triggers on: "this component is getting hard to use", "too many props", "how do I make this reusable", "compound component", "component API design", "context pattern".
 ---
 

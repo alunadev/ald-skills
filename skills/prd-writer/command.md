@@ -5,7 +5,7 @@ Usage: /prd [feature name or brief description]
 What it does:
 1. Loads the prd-writer skill
 2. Asks: current stage (planning / kickoff / solution review), feature type (UI / AI / infrastructure), and whether existing documentation is available
-3. Guides you through the 5-stage PRD evolution: Opportunity → Hypothesis → Solution → Spec → Handoff
+3. Guides you through the 5-stage PRD evolution: Planning (Speclet) → Kickoff → Solution Review → Launch Readiness → Impact Review
 4. Produces a structured PRD document in docs/prd/YYYY-MM-DD-[feature].md
 
 When to use:

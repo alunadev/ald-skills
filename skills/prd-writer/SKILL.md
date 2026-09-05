@@ -382,9 +382,7 @@ If no, the PRD needs more specificity.
 
 For additional guidance, see:
 - `references/prd-template.md` - Complete template with examples
-- `references/ai-examples.md` - 50+ AI behavior examples
 - `references/before-after.md` - Real PRD transformations
-- `references/metrics-library.md` - Common metrics with thresholds
 
 ## Key Reminders
 

@@ -1,5 +1,5 @@
 ---
-name: applying-react-native-best-practices
+name: vercel-react-native-skills
 description: React Native and Expo best practices for building performant mobile apps. Use this skill when building React Native or Expo applications, optimizing list performance with FlashList, implementing animations with Reanimated, configuring native modules, routing with expo-router, managing state in mobile contexts, or working in monorepo setups with Expo. Apply proactively when writing FlatList, useEffect for animations, TouchableOpacity, or setting up navigation — these patterns prevent common mobile performance pitfalls.
 ---
 

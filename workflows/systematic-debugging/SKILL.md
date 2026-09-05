@@ -1,6 +1,6 @@
 ---
 name: systematic-debugging
-description: Enforces a disciplined, evidence-based debugging protocol. Use when the user reports a bug, an unexpected behavior, a broken test, or asks "why is X not working?". Prevents premature fixes and treats symptoms. Blocks code changes until a root cause is confirmed.
+description: Enforces a disciplined, evidence-based debugging protocol. Use when the user reports a bug, an unexpected behavior, a broken test, or asks "why is X not working?". Prevents premature fixes that only treat symptoms. Blocks code changes until a root cause is confirmed.
 ---
 
 # Systematic Debugging

@@ -40,7 +40,9 @@ nothing about the direction it represents.
    the user picked.
 2. **Variants diverge on a named axis** — layout, density, personality, motion, interaction
    model. Before building, you must be able to state each variant's axis in a phrase. Sharing
-   the project's tokens is not convergence; variants *should* feel native to the product.
+   the project's tokens is not convergence; variants *should* feel native to the product. Read
+   `DESIGN.md` for those tokens if the project has one — variants that ignore the identity are
+   not shippable options, and an unshippable variant is not a real choice.
 3. **Every variant fully works.** Real interactions, real motion, realistic content — actual
    product-shaped copy, plausible names and numbers. No lorem ipsum, no dead buttons, no
    "imagine this part."
