@@ -224,7 +224,7 @@ looks at while you talk. Get it wrong and it undercuts everything else.
 4. **The silent comprehension test.** Could the interviewer understand the before/after by
    looking at the slide alone, in silence, with no narration? If not, it's not ready — rebuild
    it, don't just add more slide text explaining it.
-5. **Generate it with Claude Code — there's no excuse for skipping this.** A three-iteration
+5. **Generate it with your coding agent — there's no excuse for skipping this.** A three-iteration
    wireframe that's still "insufficient" because the goal was framed as "show the solution"
    rather than "the wireframe IS part of the solution" is a criteria error, not a time
    constraint.

@@ -15,7 +15,7 @@ Un documento `.md` con:
 - CSS/HTML de referencia para cada sección
 - Decisiones de diseño documentadas
 - Comportamiento responsive
-- Instrucciones listas para Claude Code
+- Instrucciones listas para el agente de código
 
 ---
 
@@ -199,12 +199,12 @@ Documentar antes de pasar a implementación:
 
 ---
 
-### Fase 8 — Instrucciones para Claude Code
+### Fase 8 — Instrucciones para el agente de código
 
 Al final del documento, incluir siempre un bloque listo para copiar:
 
 ```markdown
-## Instrucciones para Claude Code
+## Instrucciones para el agente de código
 
 Stack: [framework, CSS approach, librerías]
 Assets en /public: [lista de archivos]
@@ -286,4 +286,4 @@ Estructura del documento:
 7. Skeleton HTML completo
 8. Decisiones de diseño
 9. Stack técnico
-10. Instrucciones para Claude Code
+10. Instrucciones para el agente de código
