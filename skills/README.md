@@ -261,9 +261,23 @@ This repository serves as the central hub for reusable agentic skills. These ski
 - **Purpose**: Sets a new product's visual territory before any font, hex value or screen exists — central idea, drawable visual attributes, cultural references from outside the sector, photographic direction, three divergent typographic/chromatic concepts, and the permanent anti-cliche list. Produces `ART-DIRECTION.md`, the input `design-md` turns into tokens. Slash command: `/art-direction`.
 - **Triggers**: a new product or brand with no visual identity yet, an identity being rebuilt from zero, the moment the next step would be picking colors on a blank canvas.
 
+### 48. New Product
+- **Path**: `skills/new-product/`
+- **Purpose**: Orchestrates the zero-to-one loop — the order the documents get written and which skill writes each one, from frame and art direction through to measure. Each stage's document is the next stage's input. Slash command: `/new-product`.
+- **Triggers**: starting a new product, app, site or tool with nothing built yet; an empty folder where the next move would be writing code.
+
+### 49. Evolve Product
+- **Path**: `skills/evolve-product/`
+- **Purpose**: Orchestrates work on a product that already ships. Two modes: the adoption pass that derives a live product's missing documents backwards from what actually exists, and the normal iteration loop built around the constraints gate. Slash command: `/evolve-product`.
+- **Triggers**: adding a feature or changing something already built; a live project with no `DESIGN.md` or `constraints.md` yet.
+
 ---
 
 ## 🔄 Workflow Integration
+
+> Two orchestrators sit above this list: `new-product` runs the zero-to-one loop,
+> `evolve-product` runs the loop for something that already ships. The skills below are the
+> disciplines they call.
 
 ### Full PM → Engineering → Release Flow
 
