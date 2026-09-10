@@ -1,6 +1,6 @@
 # ALD Skills
 
-**57 skills and 2 workflows that turn Claude Code into a product team.**
+**49 skills and 2 workflows that turn Claude Code into a product team.**
 
 This is the public layer of [ald-os](https://github.com/alunadev) — a personal
 AI Product Management Operating System I use daily to run the full product
@@ -215,3 +215,4 @@ If you're building something similar, the skill format plus the
 Built by [@adrianlunadiaz](https://x.com/adrianlunadiaz) ·
 [Portfolio](https://alunadev.vercel.app) ·
 [GitHub](https://github.com/alunadev)
+
