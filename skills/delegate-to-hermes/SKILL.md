@@ -30,10 +30,17 @@ verify the local configuration rather than assuming a stale setting still applie
 hermes chat -w --oneshot --provider ai-gateway --model deepseek/deepseek-v4-pro-0813 --query-file /path/to/delegation-prompt.txt
 ```
 
-`--query-file` passes the file literally; `--oneshot` answers and exits. Keep the worktree,
-branch, and resulting diff available for review. A successful command exit is not acceptance.
-If the run fails or stops partway, inspect its state before retrying; do not treat a partial
-diff as finished work.
+`--query-file` passes the file literally; `--oneshot` answers and exits.
+
+**The prompt file must end with an explicit commit step** (e.g. `git add <files>` +
+`git commit -m ...`). Verified on the installed version (2026-09-25): without a commit,
+Hermes deletes the worktree AND its branch on exit and the work is unrecoverable. With a
+commit, it warns "Worktree has unpushed commits, keeping" and preserves worktree + branch
+for review. There is no CLI flag or config setting to disable that cleanup (checked
+`hermes chat --help` and `~/.hermes/config.yaml`).
+
+A successful command exit is not acceptance. If the run fails or stops partway, inspect
+its state before retrying; do not treat a partial diff as finished work.
 
 For a deliberate *interactive* continuation of an existing Claude session,
 `hermes --resume @claude` opens a picker and imports a copy of that session. This is a
@@ -44,7 +51,8 @@ manually switch the current session, and it is not a substitute for reviewing th
 
 ## Review gate
 
-- Inspect the full diff on the isolated branch, including any files outside the request.
+- Inspect the full diff on the isolated branch (`git show hermes/<id>`), including any
+  files outside the request.
 - Claude reviews the change and reruns the relevant checks independently before accepting,
   cherry-picking, or merging anything. Report failures and uncertainty; never auto-accept.
 - Keep approvals enabled. Never use `approvals.mode: off` or `--yolo`. Deny
@@ -52,20 +60,23 @@ manually switch the current session, and it is not a substitute for reviewing th
 - Do not let Hermes push, merge, release, or change shared state as part of a bounded
   delegation unless that separate action has been expressly reviewed and authorized.
 
-## Validate before relying on this
+## Validation status
 
-Whether calling the Hermes CLI is the right orchestration pattern is still unvalidated.
-Before using this as a routine workflow:
+Tested on the installed version (2026-09-25, macOS):
 
-1. Test what `hermes -z` actually does with approvals on the installed version. Do **not**
-   assume it auto-enables YOLO: the docs describe `-z` as a scripted one-shot and place
-   `approvals.single_query_mode` on finite chat runs, but do not establish an approval bypass.
-   Keep `chat -w --oneshot --query-file` as the handoff form until tested.
-2. Run one trivial delegation end to end in a disposable repository or branch. Inspect the
-   worktree, resulting diff, approval prompts, and exit status; then have Claude rerun checks.
-3. Run `hermes doctor` and resolve any relevant failures before trusting the workflow.
+1. DONE: trivial end-to-end delegation in a disposable repo. Confirmed: `-w` isolates the
+   work (main branch untouched), and the brief MUST request a commit or the cleanup
+   discards worktree + branch with no recovery. See "Run the handoff".
+2. DONE: `hermes doctor` clean; provider `ai-gateway`, model `deepseek/deepseek-v4-pro-0813`.
+3. PENDING: what `hermes -z` actually does with approvals. Do **not** assume it
+   auto-enables YOLO: the docs describe `-z` as a scripted one-shot and place
+   `approvals.single_query_mode` on finite chat runs, but do not establish an approval
+   bypass. Keep `chat -w --oneshot --query-file` as the handoff form until tested.
+4. PENDING: `hermes --resume @claude` picker + what context survives the import (imported
+   transcripts omit system prompts, raw tool output and injected context).
 
-If the test does not work, drop this orchestration pattern rather than relying on the skill.
+If future tests contradict the commit-in-brief behavior, drop this orchestration pattern
+rather than relying on the skill.
 
 ## Sources
 
