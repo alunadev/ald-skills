@@ -68,12 +68,14 @@ Tested on the installed version (2026-09-25, macOS):
    work (main branch untouched), and the brief MUST request a commit or the cleanup
    discards worktree + branch with no recovery. See "Run the handoff".
 2. DONE: `hermes doctor` clean; provider `ai-gateway`, model `deepseek/deepseek-v4-pro-0813`.
-3. PENDING: what `hermes -z` actually does with approvals. Do **not** assume it
-   auto-enables YOLO: the docs describe `-z` as a scripted one-shot and place
-   `approvals.single_query_mode` on finite chat runs, but do not establish an approval
-   bypass. Keep `chat -w --oneshot --query-file` as the handoff form until tested.
-4. PENDING: `hermes --resume @claude` picker + what context survives the import (imported
-   transcripts omit system prompts, raw tool output and injected context).
+3. DONE: `hermes -z` runs with NO approval net. Verified: a file-write request executed
+   immediately with no prompt. Never use `-z` for delegations or commands with effects;
+   read-only quick queries only. The delegation handoff form stays
+   `chat -w --oneshot --query-file` with a commit in the brief.
+4. DONE: `hermes --resume @claude` opens the session picker and the import works; the
+   resumed session answered a "what were we doing" summary correctly. Per the docs the
+   imported transcript still omits system prompts, raw tool output and injected context,
+   so restate load-bearing details before continuing real work on an import.
 
 If future tests contradict the commit-in-brief behavior, drop this orchestration pattern
 rather than relying on the skill.
