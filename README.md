@@ -98,6 +98,7 @@ with the accumulated judgment of all previous ones.
 | `api-design-principles` | REST and GraphQL API design conventions |
 | `error-handling-patterns` | Exceptions, Result types, graceful degradation |
 | `agent-workflow` | Design and architect multi-agent AI workflows |
+| `delegate-to-hermes` | Bounded coding handoffs to Hermes in an isolated worktree, with Claude review before acceptance |
 | `vercel-composition-patterns` | Compound components, CVA variants, React 19 |
 | `vercel-react-native-skills` | FlashList, Reanimated, expo-router, monorepo |
 
