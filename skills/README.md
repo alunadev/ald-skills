@@ -327,6 +327,12 @@ This repository serves as the central hub for reusable agentic skills. These ski
 - **Triggers**: Claude's usage window is exhausted, or a well-scoped subtask is worth running on a cheaper model; never the default coding driver.
 
 
+### 51. Market References
+
+- **Path**: `skills/market-references/`
+- **Purpose**: Grounds a design review or redesign in real products: picks 4–6 market apps (category leader, best-in-class adjacent, platform reference, niche competitor), pulls their official App Store screenshots for free via Apple's public iTunes API (`scripts/appstore_refs.py`, no Mobbin, no are.na Premium), builds one contact sheet per app, and maps each pattern to a change with its source cited. Structure and behaviour from the market; brand stays with `DESIGN.md`.
+- **Triggers**: "no inventes", "mira qué hacen otras apps", "referencias del mercado", Mobbin-style research without a paid account, design review of an existing screen whose direction should come from proven products.
+
 ---
 
 ## 🔄 Workflow Integration
