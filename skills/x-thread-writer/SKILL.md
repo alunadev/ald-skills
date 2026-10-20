@@ -16,6 +16,14 @@ Same rule as `linkedin-post-writer`: one thread is one observation or one earned
 never a manufactured hook. X rewards speed and directness more than LinkedIn does — that
 changes the format, not the honesty standard.
 
+## Before Drafting: The User's Own Voice
+
+If the user's instructions (`CLAUDE.md`, `AGENTS.md`) point to a personal voice or writing
+guide, read it **before the first draft**. Its platform-specific sections and published
+references decide angle, wording and structure. The generic rules in this skill still apply
+on top of it. Without that guide, drafts come out correct but generic, and the user ends up
+rewriting them to add the lived detail.
+
 ## Two Formats
 
 ### Single Tweet (default — the X equivalent of a Nota)
@@ -52,6 +60,9 @@ Rules specific to threads:
 
 - ~280 characters per tweet — write for it, don't fight it with abbreviations that hurt
   readability.
+- Premium accounts can post longer, but the timeline folds anything past ~280 characters
+  behind "Show more". The payoff (the number, the result) must sit inside the first ~280.
+  Count the characters rather than estimating, and trim filler words before cutting meaning.
 - Thread numbering ("2/", "3/") only past 2 tweets; a 2-tweet thread doesn't need numbers.
 
 ## Voice Rules (non-negotiable — same standard as linkedin-post-writer)
@@ -68,12 +79,14 @@ Rules specific to threads:
 
 ## Before Publishing
 
+- [ ] The user's voice guide was read before drafting, if their instructions point to one
 - [ ] Real observation or earned insight, not a topic picked because threads about it
       tend to perform
 - [ ] Grep for "no es… es" / "not X, but Y" — zero hits, including tweet 1
 - [ ] Zero em dashes, zero hype words from the banned list above
 - [ ] Zero hashtags, on every tweet
 - [ ] Every tweet works if someone reads it alone, and every tweet is ≤280 characters
+      (counted, not estimated; also on Premium, where the payoff must land before "Show more")
 - [ ] Last tweet is impactful enough to reflect on, not just a stop
 - [ ] One CTA max at the end
 - [ ] Every number is real and counted
