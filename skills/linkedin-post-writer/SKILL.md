@@ -20,6 +20,14 @@ language (ToF/MoF/BoF), no fabricated stats, no "link in comments" bait. If a po
 trick to work, the observation underneath it isn't strong enough yet — find a better one
 instead of engineering around a weak one.
 
+## Before Drafting: The User's Own Voice
+
+If the user's instructions (`CLAUDE.md`, `AGENTS.md`) point to a personal voice or writing
+guide, read it **before the first draft**. Its platform-specific sections and published
+references decide angle, wording and structure. The generic rules in this skill still apply
+on top of it. Without that guide, drafts come out correct but generic, and the user ends up
+rewriting them to add the lived detail.
+
 ## Two Formats
 
 ### The Nota (default — use this for most posts)
@@ -73,6 +81,7 @@ engagement filler.
 
 ## Before Publishing
 
+- [ ] The user's voice guide was read before drafting, if their instructions point to one
 - [ ] Real observation or earned insight — not a topic picked because it "performs"
 - [ ] Grep your own draft for "no es… es" / "not X, but Y" — zero hits, including the opening
       line
