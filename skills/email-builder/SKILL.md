@@ -22,10 +22,12 @@ If details are missing, infer a sensible first pass from context. Ask at most on
 Always produce the English version first, then the Spanish version. For each language include:
 - 3 subject lines.
 - 1-2 preheaders.
-- Body with greeting, hook, value, proof, and CTA.
-- Primary CTA, plus an optional secondary CTA when useful.
+- Body with greeting, hook, value, proof, and CTA (full drafts only; see below).
+- Primary CTA when the email has an ask, plus an optional secondary CTA when useful.
 - Short and long variants when the context benefits from length options.
 - Safe placeholders such as `{{FirstName}}`, `{{Company}}`, `{{Date}}`, `{{Link}}`, or `{{Metric}}` when details are missing.
+
+Short replies and confirmations do not need the full structure above: no subject-line or preheader sets, no hook/value/proof, and no CTA. Include a CTA only when there is an ask. The user's personal voice guide and any specific instructions take precedence over this structure.
 
 Keep formatting easy to scan. Use short paragraphs and minimal bullets.
 
@@ -42,46 +44,20 @@ Prioritize:
 
 Localize tone to the audience. Default Spanish to neutral international Spanish unless the audience region calls for a different register.
 
-## Personal Voice Profile
+## Before Drafting: The User's Own Voice
 
-When the user asks for the email in Adrian's style, my style, or gives no competing tone instruction, use this voice profile by default.
+If the user's instructions (`CLAUDE.md`, `AGENTS.md`) point to a personal voice or
+writing guide, read it **before the first draft**. Its email-specific file or section
+and its confirmed examples decide greeting, closing, length, language and level of
+formality. Without that guide, drafts come out correct but generic, and the user
+ends up rewriting them to add the lived detail.
 
-Core voice:
-- Close, clear, direct, and professional.
-- Practical PM tone: give context quickly, explain the issue or opportunity, propose a path, and close with a concrete ask.
-- Friendly without being casual to the point of losing precision.
-- Natural Spanish business tone with the informal second person by default, not stiff formal language.
-- Concise English for international work contexts: context, issue, ask.
+Precedence: when the user's personal guide conflicts with the generic rules in this
+skill (structure, language, formality, CTA, length), the personal guide wins. The
+generic rules are the fallback for users without a personal guide.
 
-Default structure:
-1. Simple greeting: `Hola {{FirstName}}` or `Hi {{FirstName}}`.
-2. Short context: `Te escribo por...`, `Tras revisarlo con el equipo...`, `Comparto...`, or `We are seeing...`.
-3. Clear explanation of the problem, doubt, or proposal.
-4. Recommendation or next step, framed collaboratively.
-5. Concrete CTA.
-6. Warm close when appropriate: `Thanks!` plus an optional football emoji in close professional contexts.
-
-Preferred phrasing patterns:
-- `Te escribo por...`
-- `Tras revisarlo con el equipo...`
-- `Creemos que...`
-- `Nuestra propuesta...`
-- `Ya me dices`
-- `Si necesitas que nos juntemos 10 mins me dices por supuesto`
-- `Can you review it please?`
-
-Formatting habits:
-- Use short paragraphs.
-- Use bold section headers for complex messages, such as `Feedback principal`, `Nuestra propuesta`, or `En resumen`.
-- Use bullets only when they make a decision, list of concerns, or recommendation easier to scan.
-- Keep the ask near the end and make it easy to answer.
-
-Avoid:
-- Corporate filler, grand claims, or theatrical persuasion.
-- Over-polished marketing language.
-- Excessive courtesy.
-- Literal translation when a localized version would sound more natural.
-- Forcing the warm close in legal, HR, finance, conflict, or highly formal contexts.
+Keep the user's private voice data out of this public skill: reference the guide,
+never copy its contents here.
 
 ## Editorial Rules
 
@@ -103,7 +79,10 @@ Avoid:
 
 ## CTA Guidance
 
-Choose one clear primary CTA:
+A CTA exists only when the email has an ask. Short replies and confirmations get no
+CTA at all; if a personal voice guide applies, its length and closing rules decide.
+
+When there is an ask, choose one clear primary CTA:
 - Book a meeting.
 - Reply with a decision or preference.
 - Review a link.
@@ -120,7 +99,7 @@ Before answering, verify:
 - English appears before Spanish.
 - Both versions cover the same meaning without becoming literal translations when localization would read better.
 - Subject lines and preheaders do not repeat each other.
-- The body has greeting, hook, value, proof, and CTA.
+- A full draft has greeting, hook, value, proof, and CTA; short replies and confirmations follow the personal guide (or common sense) instead.
 - Placeholders are safe and explicit.
 - Tone fits the audience and context.
 - No unsupported fact has been introduced.
