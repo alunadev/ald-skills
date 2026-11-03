@@ -333,6 +333,12 @@ This repository serves as the central hub for reusable agentic skills. These ski
 - **Purpose**: Grounds a design review or redesign in real products: picks 4–6 market apps (category leader, best-in-class adjacent, platform reference, niche competitor), pulls their official App Store screenshots for free via Apple's public iTunes API (`scripts/appstore_refs.py`, no Mobbin, no are.na Premium), builds one contact sheet per app, and maps each pattern to a change with its source cited. Structure and behaviour from the market; brand stays with `DESIGN.md`.
 - **Triggers**: "no inventes", "mira qué hacen otras apps", "referencias del mercado", Mobbin-style research without a paid account, design review of an existing screen whose direction should come from proven products.
 
+### 52. Automerge Gate
+
+- **Path**: `skills/automerge-gate/`
+- **Purpose**: Installs a "merge without the owner" gate in a project: a `CLAUDE.md` rule (one approved plan step, no excluded paths, green on the current head, independent review with no blockers, log entry in the same PR), a repo-scoped `Bash(gh pr merge *)` permission the owner writes, a background check-waiting script, and a read-only `pr-gate-reviewer` subagent on Sonnet that posts its verdict on the PR. Hands over as a PR the owner merges by hand. Slash command: `/automerge-gate`. User-invoked only.
+- **Triggers**: letting agents merge routine plan steps on their own, "merge without me", automerge rules for a project, adding a reviewer subagent before merge.
+
 ---
 
 ## 🔄 Workflow Integration
@@ -355,7 +361,7 @@ STRATEGIZE → SPECIFY → DESIGN → BUILD → REVIEW → HARDEN → DOCUMENT �
 6. **Review** → the built-in `code-review` skill or `pr-review-toolkit` agents
 7. **Harden** → `error-handling-patterns`
 8. **Document** → `maintaining-documentation`
-9. **Release** → `changelog-generator` + `deploying-to-github`
+9. **Release** → `changelog-generator` + `deploying-to-github` *(+ `automerge-gate` once, to let agents merge approved plan steps)*
 10. **Measure** → `product-analytics` *(post-launch impact analysis)*
 
 ### Workflows
