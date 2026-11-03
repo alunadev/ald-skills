@@ -28,9 +28,15 @@ done
 
 rollup '.statusCheckRollup[] | "\(.name // .context): \(.conclusion // .state)"'
 BAD=$(rollup '[.statusCheckRollup[] | (.conclusion // .state) | select(. != "SUCCESS" and . != "NEUTRAL" and . != "SKIPPED")] | length')
-NAMES=$(rollup '.statusCheckRollup[] | (.name // .context)')
+# Required checks must exist and be SUCCESS: SKIPPED or NEUTRAL only pass for optional ones.
+RESULTS=$(rollup '.statusCheckRollup[] | "\(.name // .context)\t\(.conclusion // .state)"')
 for name in "$@"; do
-  grep -qxF "$name" <<<"$NAMES" || { echo "MISSING required check: $name"; BAD=$((BAD + 1)); }
+  STATES=$(awk -F'\t' -v n="$name" '$1 == n { print $2 }' <<<"$RESULTS")
+  if [ -z "$STATES" ]; then
+    echo "MISSING required check: $name"; BAD=$((BAD + 1))
+  elif grep -qvx SUCCESS <<<"$STATES"; then
+    echo "REQUIRED check not SUCCESS: $name ($(tr '\n' ' ' <<<"$STATES"))"; BAD=$((BAD + 1))
+  fi
 done
 
 [ "$BAD" -eq 0 ] && { echo "GREEN $SHA"; exit 0; }
