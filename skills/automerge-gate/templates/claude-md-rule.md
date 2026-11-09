@@ -17,8 +17,9 @@ holds**. One failing condition, or any doubt, means: leave the PR open, tell the
    **Migrations never qualify.** They follow their own flow: explicit owner approval for each
    migration, tested locally first, read-only checks before and after it runs.
 3. **Green.** {{GREEN_LOCAL}} pass locally, and every check on the PR's **current head
-   commit** has finished green, including {{REQUIRED_CHECKS}}. Wait with the background loop
-   below; never judge by an older commit's checks.
+   commit** has finished green, including {{REQUIRED_CHECKS}} (GitHub Actions, workflow
+   `{{REQUIRED_WORKFLOW}}`). Wait with the background loop below; never judge by an older
+   commit's checks.
 4. **Review.** The `pr-gate-reviewer` subagent (Sonnet, `.claude/agents/pr-gate-reviewer.md`),
    which did not write the code, has posted its verdict on the PR, the verdict is
    `VERDICT: PASS`, and its `Reviewed head` equals the current head. If a blocker gets fixed,
@@ -32,10 +33,17 @@ holds**. One failing condition, or any doubt, means: leave the PR open, tell the
 2. Run the reviewer: delegate to `pr-gate-reviewer` with the PR number, `{{PLAN_DOC}}` and the
    step name. Blockers → fix, push, review again.
 3. Wait for checks in the **background** so the turn doesn't end while idle:
-   `.claude/automerge/wait-for-green.sh <pr> {{REQUIRED_CHECK_ARGS}}`
+   `REQUIRED_WORKFLOW="{{REQUIRED_WORKFLOW}}" .claude/automerge/wait-for-green.sh <pr> {{REQUIRED_CHECK_ARGS}}`
+   (a required check only counts when it is a GitHub Actions check run from the
+   `{{REQUIRED_WORKFLOW}}` workflow; a commit status, or a check from another app with the same
+   name, does not satisfy it)
    (exit 0 green, 1 not green, 2 head moved → back to step 2, 3 timeout → stop and report).
-4. Re-read the head SHA and the latest reviewer comment; both must still match.
-5. Merge: `gh pr merge <pr> {{MERGE_FLAGS}}`.
+   The script prints `GREEN <sha>`: that is the commit the checks belong to.
+4. Re-read the head SHA and the latest reviewer comment; both must still match that `<sha>`.
+5. Merge, tied to the reviewed commit:
+   `gh pr merge <pr> {{MERGE_FLAGS}} --match-head-commit <sha>`.
+   Never with `--admin`, never against another repository (`-R`). If the head moved, GitHub
+   refuses the merge: go back to step 2.
 6. Verify production: {{PROD_VERIFY}}
 7. Tell the owner: PR link, what shipped, the production check result.
 
