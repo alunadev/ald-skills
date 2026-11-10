@@ -1,6 +1,6 @@
 ---
 name: maintaining-documentation
-description: Maintains a product repo's canonical docs structure (CLAUDE.md, progress.txt, docs/product+system+design-system, context/) as single source of truth, and keeps the log.md session history separate from the progress.txt state snapshot. Trigger after feature completion, before git push, on architecture changes, at session end, or explicit "update docs"/"sync documentation" requests. Skip for trivial changes (<10 LOC, no logic/schema/UI changes).
+description: Maintains a product repo's canonical docs structure (CLAUDE.md, progress.txt, docs/product+system+design-system, context/) as single source of truth, and keeps the session history in logs/ (one file per entry) separate from the progress.txt state snapshot. Trigger after feature completion, before git push, on architecture changes, at session end, or explicit "update docs"/"sync documentation" requests. Skip for trivial changes (<10 LOC, no logic/schema/UI changes).
 ---
 
 # Documentation Maintenance Skill
@@ -17,7 +17,7 @@ adopted it.
 - **Post-feature**: after completing any user story or acceptance criterion.
 - **Pre-commit**: before `git push` if files changed under the app/source directories.
 - **Architecture change**: DB schema, API contracts, auth logic modified.
-- **Session end**: every working session should end with a `log.md` entry (see below) —
+- **Session end**: every working session should end with a new entry file in `logs/` (see below) —
   this is separate from, and in addition to, any docs updates the change itself needs.
 - **Explicit request**: "update docs", "sync documentation", "cleanup docs".
 
@@ -40,7 +40,7 @@ adopted it.
 /
 ├── CLAUDE.md                      # AI reads this FIRST every session
 ├── progress.txt                   # Current-state snapshot (root, max ~50 lines)
-├── log.md                         # Append-only session history (create lazily)
+├── logs/                          # Session history, one file per entry (created by the first)
 ├── agents/                        # Versioned mirror of personal subagents, if used
 ├── context/
 │   ├── product-context.md         # Vision, value prop, strategic pillars
@@ -66,7 +66,7 @@ an established project.
 
 ---
 
-## progress.txt vs. log.md — different jobs, don't conflate them
+## progress.txt vs. logs/ — different jobs, don't conflate them
 
 This is the single most important distinction in this skill, and the one most likely to be
 gotten wrong.
@@ -75,21 +75,23 @@ gotten wrong.
   Sections: Current State, Last Session, Active Task, Next Up, Blockers, Decisions Log. Answers
   "where do things stand right now?" Keep it under ~50 lines — it's read at the start of every
   session, so it has to stay scannable.
-- **`log.md`** — the **append-only session history**. A new entry gets added at the top on
-  every working session; old entries are never edited or removed. Answers "what happened,
-  session by session, and why?"
+- **`logs/`** — the **session history, one file per entry**. Every working session adds a new
+  file; existing entries are never edited or removed. Answers "what happened, session by
+  session, and why?"
 
-Update `progress.txt` whenever the state meaningfully changes. Append to `log.md` every
+Update `progress.txt` whenever the state meaningfully changes. Add a `logs/` entry every
 working session, regardless of whether `progress.txt` also changed — a session that only
 investigated something without changing state still deserves a log entry saying so.
 
-### log.md format
+Why one file per entry and not one shared file: when every session adds to the same file, two
+PRs open at the same time both edit it at the same spot and always conflict. Separate files
+never touch each other, so the log cannot cause a merge conflict.
+
+### Entry format
+
+One file per entry, `logs/YYYY-MM-DD-HHMM-short-title.md`, holding exactly one `##` heading:
 
 ```markdown
-# Session Log
-
-<!-- Append newest entry at the TOP, below this line. -->
-
 ## YYYY-MM-DD HH:MM — Short title of what happened
 - model: <model used>
 - status: done | in-progress | blocked
@@ -104,14 +106,22 @@ next step with file paths, open blockers. Don't narrate every command, don't rep
 already in git history, don't summarize unchanged things. Keep each entry under ~10 lines —
 if it needs more, the detail belongs in a doc or commit message, linked from the entry.
 
-Create `log.md` lazily — the first time a session does real work in a repo that doesn't have
-one yet, not preemptively.
+Commit the entry on the same branch as the work, before pushing, so it ships in the same PR.
+The folder is created lazily, by the first entry — not preemptively.
+
+### Repos that still keep a single `log.md`
+
+Some older repos keep their whole history in one `log.md` at the root. Keep following that
+repo's own rule until it is migrated on purpose — don't migrate it as a side effect of another
+task. A migration, when asked for, is its own change: create `logs/` with a first entry,
+freeze `log.md` with a note at the top (its entries are never touched), and update every
+instruction in the repo that still points at `log.md` in the same PR.
 
 ### If the repo generates a cross-repo rollup file (e.g. `NOW.md`)
 
 Some setups generate a single "what's live, what's next" view across multiple repos, derived
-from each repo's `progress.txt` and `log.md`. If one exists in this repo, it's generated —
-**never hand-edit it.** Update the source files (`progress.txt`, `log.md`) and let the
+from each repo's `progress.txt` and session log. If one exists in this repo, it's generated —
+**never hand-edit it.** Update the source files (`progress.txt`, `logs/`) and let the
 generation step (whatever the repo uses — a script, a hook) pick up the change.
 
 ---
@@ -137,7 +147,7 @@ START
 ├─ Product vision, team structure, or personas changed?
 │  └─ YES → Update the relevant context/ file
 │
-└─ Always: update progress.txt if state changed, and append a log.md entry
+└─ Always: update progress.txt if state changed, and add a logs/ entry
    at session end regardless of what else changed.
 ```
 
@@ -148,8 +158,8 @@ START
 ### Step 1: Session start
 1. Read `CLAUDE.md` to load project context.
 2. Read `progress.txt` to understand current state.
-3. If `log.md` exists, its last few entries give session-by-session context `progress.txt`
-   alone doesn't carry.
+3. The newest few files in `logs/` (or, in a repo not yet migrated, the end of `log.md`) give
+   session-by-session context `progress.txt` alone doesn't carry.
 
 ### Step 2: Determine scope
 Use the Decision Tree above.
@@ -172,7 +182,8 @@ grep -r "\[.*\](.*\.md)" docs/ context/     # find internal links
 ```
 
 ### Step 5: Session end
-- Append the `log.md` entry — mandatory, even if `progress.txt` didn't need changes.
+- Add the session's `logs/` entry and commit it with the work, before pushing — mandatory, even
+  if `progress.txt` didn't need changes.
 
 ---
 
@@ -190,14 +201,14 @@ grep -r "\[.*\](.*\.md)" docs/ context/     # find internal links
 | Team structure and constraints | `context/team-context.md` |
 | Who this is built for | `context/user-personas.md` |
 | Current state | `progress.txt` |
-| Session-by-session history | `log.md` |
+| Session-by-session history | `logs/` (a frozen `log.md`, if any, is older history) |
 
 **Rule:** if the info exists in its owner doc, link to it. Never copy it into a second file.
 
 ### File placement
 - Don't put loose `.md` files at the repo root or in `docs/` root — organize under
   `product/`, `system/`, `design-system/`, or `context/`.
-- Exceptions: `CLAUDE.md` and `progress.txt` belong at the repo root; `log.md` too.
+- Exceptions: `CLAUDE.md` and `progress.txt` belong at the repo root, and so does `logs/`.
 
 ### CLAUDE.md priority
 `CLAUDE.md` is the AI's operating manual — update it when conventions change, keep it under
@@ -211,13 +222,13 @@ grep -r "\[.*\](.*\.md)" docs/ context/     # find internal links
 1. `progress.txt` → update Current State / Active Task / Next Up.
 2. `docs/product/prd.md` → status to `shipped`.
 3. `docs/product/app-flow.md` → if new routes were added.
-4. `log.md` → session entry, `status: done`.
+4. `logs/` → new session entry, `status: done`.
 
 ### "Changed DB schema or API"
 1. `docs/system/tech-stack.md` → if new dependencies.
 2. `docs/system/implementation-plan.md` → if this is part of an in-flight build.
 3. `progress.txt` → record the change.
-4. `log.md` → session entry.
+4. `logs/` → new session entry.
 
 ### "Changed a design token"
 1. `docs/design-system/design-system.md` → update the token and, if the rationale changed,
@@ -237,7 +248,7 @@ grep -r "\[.*\](.*\.md)" docs/ context/     # find internal links
 ## Session-End Checklist
 
 - [ ] `progress.txt` reflects the actual current state, not last week's
-- [ ] `log.md` has a new entry for this session, even if brief
+- [ ] `logs/` has a new entry file for this session, even if brief, committed with the work
 - [ ] Feature status in `prd.md` matches reality
 - [ ] New routes/flows are in `app-flow.md`
 - [ ] Design changes are in `design-system.md`
@@ -253,13 +264,14 @@ grep -r "\[.*\](.*\.md)" docs/ context/     # find internal links
 1. **Duplicating instead of linking** — copying a decision or a schema description into a
    second file instead of linking to its owner doc. Costs nothing to link, costs a real drift
    bug later to duplicate.
-2. **Forgetting the log.md entry** — updating specs but skipping the session log means the
+2. **Forgetting the log entry** — updating specs but skipping the session log means the
    next session re-derives context that already existed.
-3. **Confusing progress.txt with log.md** — progress.txt gets overwritten with the current
-   state; log.md gets a new entry appended. Don't append to progress.txt, don't overwrite
-   log.md.
-4. **Breaking links when moving files** — `grep -r "old-name"` before moving, not after.
-5. **Over-documenting trivial changes** — a 2-line fix doesn't need a docs pass; use the
+3. **Confusing progress.txt with logs/** — progress.txt gets overwritten with the current
+   state; logs/ gets a new file. Don't append to progress.txt, don't edit an existing entry.
+4. **Adding to a shared log file** — appending the entry to a single `log.md` in a repo that
+   already uses `logs/`, or putting two entries in one file, brings the merge conflicts back.
+5. **Breaking links when moving files** — `grep -r "old-name"` before moving, not after.
+6. **Over-documenting trivial changes** — a 2-line fix doesn't need a docs pass; use the
    "Never trigger" list above.
-6. **Hand-editing a generated file** — if the repo has a generated cross-repo view, edit the
+7. **Hand-editing a generated file** — if the repo has a generated cross-repo view, edit the
    source files instead and let generation happen normally.
