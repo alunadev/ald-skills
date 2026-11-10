@@ -187,7 +187,7 @@ This repository serves as the central hub for reusable agentic skills. These ski
 ### 28. Maintaining Documentation
 
 - **Path**: `skills/maintaining-documentation/`
-- **Purpose**: Maintains the real canonical docs structure (CLAUDE.md, progress.txt, docs/product+system+design-system, context/) and keeps `log.md` (append-only session history) distinct from `progress.txt` (current-state snapshot).
+- **Purpose**: Maintains the real canonical docs structure (CLAUDE.md, progress.txt, docs/product+system+design-system, context/) and keeps `logs/` (session history, one file per entry) distinct from `progress.txt` (current-state snapshot).
 - **Triggers**: feature completion, architecture changes, pre-push doc check.
 
 ### 29. Deploying to GitHub

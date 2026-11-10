@@ -78,7 +78,8 @@ answer.
      production deployment in the host (Vercel: Instant Rollback), then tell the owner." A
      rollback in the host changes no code; a revert or fix-forward never goes through the gate.
 5. **Session log.** Where the log entry goes. Default: whatever the repo already uses
-   (`log.md`, `logs/`, `progress.txt`, `CHANGELOG.md`).
+   (`logs/`, `log.md`, `progress.txt`, `CHANGELOG.md`); for a repo with none yet, `logs/`, one
+   new file per entry.
 
 Also ask the merge style if the repo shows no clear one (default `--squash --delete-branch`).
 

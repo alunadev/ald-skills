@@ -145,7 +145,7 @@ with the accumulated judgment of all previous ones.
 
 | Skill | Purpose |
 |-------|---------|
-| `maintaining-documentation` | Real canonical-docs structure; log.md vs. progress.txt |
+| `maintaining-documentation` | Real canonical-docs structure; logs/ vs. progress.txt |
 | `deploying-to-github` | Branching, PRs, code review, submodules, worktrees |
 | `writing-for-agents` | Writing standards for any doc an agent consumes — a skill, CLAUDE.md/AGENTS.md, a doc reached by a pointer |
 
