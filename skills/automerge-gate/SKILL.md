@@ -43,8 +43,11 @@ default shown, and accept "default" as an answer.
    - deploy and CI config (`vercel.json`, `netlify.toml`, `Dockerfile`, `.github/`, infra)
    - `CLAUDE.md` and `.claude/` (always, not negotiable)
 3. **Green.** Local commands that must pass (default: the repo's `build` and `test` scripts)
-   and the check names that must be present and green on the PR (default: every check seen on
-   the last merged PR, e.g. the CI job and the preview deploy).
+   and the required checks: the GitHub Actions job names that must be present and green on the
+   PR, plus the `name:` of the workflow they belong to (default: the jobs of the repo's CI
+   workflow, and `CI` as the workflow name). A required check only counts as a check run from
+   that workflow, so checks from other apps (a preview deploy, for instance) cannot be listed
+   as required; they still have to finish green like every other check on the commit.
 4. **Production check.** How to tell the deploy worked. Default: the production deployment for
    the merge commit reaches Ready, then the main URL returns 200 and the changed screen or
    endpoint behaves as the step describes.
@@ -97,6 +100,14 @@ the existing `permissions.allow` array; nothing else changes.
 - **It has to reach the main branch.** Worktree and fresh sessions read `.claude/` from the
   branch they start on. Until the install PR is merged, no session can merge anything.
 
+**Known risk: the permission is broad.** `Bash(gh pr merge *)` also matches `--admin`, `-R
+<other repo>` and a merge with no `--match-head-commit`; only the `CLAUDE.md` rule forbids
+those, nothing enforces it. Say this to the owner when you show the JSON. The tighter
+alternative is a wrapper script (say `.claude/automerge/merge.sh <pr> <sha>`) that runs the one
+allowed command with `--match-head-commit` and fixed flags, with the permission granted to that
+script instead of to `gh pr merge`. Which one to use is the owner's decision; the template
+keeps the broad permission.
+
 ## 5. Hand over as a PR
 
 Commit everything on a branch (`chore/automerge-gate`), push, and open a PR. The body says:
@@ -125,3 +136,11 @@ Then stop. Never merge this PR, never ask another session to.
   earlier review stale. Re-review, wait for the new commit's checks, then merge.
 - **A blocked merge is an answer.** If auto mode refuses the merge, the right move is to stop
   with the PR open, not to find another route.
+- **Read the commit and its checks in one call.** Separate calls can describe two different
+  commits. The script takes `headRefOid` and `statusCheckRollup` from one `gh pr view`, judges
+  that snapshot, and checks the head once more before printing `GREEN` (exit 2 if it moved).
+- **A check name proves nothing.** Any commit status or app can publish a check called `ci`. A
+  required check counts only as a `CheckRun` whose `workflowName` is the trusted workflow
+  (`REQUIRED_WORKFLOW`, default `CI`).
+- **Tie the merge to the reviewed commit.** `gh pr merge … --match-head-commit <sha>` makes
+  GitHub refuse if a push landed after the review and the green. Never `--admin`, never `-R`.
