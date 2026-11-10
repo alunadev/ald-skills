@@ -1,4 +1,6 @@
 #!/usr/bin/env bash
+# automerge-gate v2: installed from ald-skills (skills/automerge-gate). Fix the skill, not only this copy.
+#
 # Wait until every check on a PR's CURRENT head commit has finished, then report.
 # Run it in the background so the session's turn doesn't end while it waits.
 #

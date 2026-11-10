@@ -1,0 +1,35 @@
+# automerge-gate v2: installed from ald-skills (skills/automerge-gate). Fix the skill, not only this copy.
+#
+# Minimal CI for the automerge gate. Install only when the repo has no CI yet.
+# Keep: the workflow name (the gate trusts checks from it by name, REQUIRED_WORKFLOW),
+# the job id `ci` (the required check), read-only permissions and the pinned SHAs.
+# Adapt: the run steps to the repo's own scripts, the Node version, the package manager.
+# Dependabot (dependabot.yml) keeps the pinned SHAs up to date.
+
+name: CI
+
+on:
+  pull_request:
+  push:
+    branches: [main]
+
+permissions:
+  contents: read
+
+jobs:
+  ci:
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    steps:
+      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
+        with:
+          persist-credentials: false
+      - uses: actions/setup-node@949feb2413d6458794dcd2491c4babbbce0c15c1 # v7.1.0
+        with:
+          node-version: 24
+          cache: npm
+      - run: npm ci
+      - run: npm run lint
+      - run: npm run typecheck
+      - run: npm run test
+      - run: npm run build

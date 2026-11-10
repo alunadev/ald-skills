@@ -1,0 +1,11 @@
+# automerge-gate v2: installed from ald-skills (skills/automerge-gate). Fix the skill, not only this copy.
+#
+# Keeps the pinned action SHAs in .github/workflows/ current. Its PRs touch .github/,
+# an excluded path, so they always need the owner's merge.
+
+version: 2
+updates:
+  - package-ecosystem: github-actions
+    directory: /
+    schedule:
+      interval: weekly
