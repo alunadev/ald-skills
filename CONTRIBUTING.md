@@ -98,24 +98,23 @@ Before committing, run `python3 scripts/check-skills.py`. It checks every skill'
 that `name` matches the folder, that the index lists it, and that relative links resolve. CI
 runs the same check on every PR.
 
-### 4. Commit — submodule first, then the parent
+### 4. Commit on a branch and open a PR
 
-`ald-skills` is a git submodule of `ald-system`, so every change is two commits in order:
+`ald-skills` is its own repository. Inside `ald-system` it is a plain clone at `ald-skills/`,
+gitignored there, so there is nothing to commit in `ald-system`: one PR here is the whole change.
 
 ```bash
-# in ald-skills
+git switch -c feat/<name>
 git add skills/<name>/ skills/README.md
 git commit -m "feat(skills): add <name> skill"
-git push origin main
-
-# then in ald-system
-git add ald-skills
-git commit -m "chore: update ald-skills submodule (add <name>)"
-git push
+git push -u origin feat/<name>
+gh pr create
 ```
 
-Pushing the submodule without bumping the parent ref means the skill is on GitHub but the
-parent repo still points at the old commit.
+Merge once the `ci` check is green. A machine picks the skill up when its clone pulls `main`:
+`ald-system`'s `scripts/sync-all.sh` fast-forwards it, or by hand
+`git -C ~/ald-os/ald-system/ald-skills pull --ff-only`. Until then the symlinks point at the old
+files.
 
 ## Removing or renaming a skill
 
@@ -133,7 +132,7 @@ to it survives, silently, for months. Do all five:
    ```
    `products/*/CLAUDE.md` files reference skills by absolute path — they break silently, and
    nothing surfaces the failure.
-5. Both commits, as above
+5. One branch and PR, as above
 
 Historical documents (`docs/roadmap.md`, `docs/pm-workflow.md`, archived audits) are exempt —
 they record what was true when written.
