@@ -1,0 +1,25 @@
+# Checks on every PR and every push to main. No secrets, no network beyond
+# the checkout. What it checks: scripts/check-skills.py.
+name: CI
+
+on:
+  pull_request:
+  push:
+    branches: [main]
+
+permissions:
+  contents: read
+
+concurrency:
+  group: ci-${{ github.ref }}
+  cancel-in-progress: true
+
+jobs:
+  ci:
+    runs-on: ubuntu-latest
+    timeout-minutes: 5
+    steps:
+      - uses: actions/checkout@v5
+
+      - name: Skill library structure
+        run: python3 scripts/check-skills.py

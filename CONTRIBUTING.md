@@ -94,6 +94,10 @@ ln -sfn "$REPO/skills/<name>/command.md" ~/.claude/commands/<slash-name>.md
 One skill can back several commands by keeping more than one command file — `product-analytics`
 does this with `command.md` (`/metrics`) and `command-tracking.md` (`/tracking`).
 
+Before committing, run `python3 scripts/check-skills.py`. It checks every skill's frontmatter,
+that `name` matches the folder, that the index lists it, and that relative links resolve. CI
+runs the same check on every PR.
+
 ### 4. Commit — submodule first, then the parent
 
 `ald-skills` is a git submodule of `ald-system`, so every change is two commits in order:
