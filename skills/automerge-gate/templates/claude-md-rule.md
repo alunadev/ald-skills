@@ -1,6 +1,9 @@
-<!-- Paste into the project's CLAUDE.md. Replace every {{PLACEHOLDER}} with the interview answer. -->
+<!-- Paste into the project's CLAUDE.md. Replace every {{PLACEHOLDER}} with the interview answer.
+     Remove this comment; keep the version marker below the heading. -->
 
 ## Automerge gate — merging without the owner
+
+<!-- automerge-gate v2: installed from ald-skills (skills/automerge-gate). Fix the skill, not only this copy. -->
 
 An agent may merge its own pull request without the owner **only when every condition below
 holds**. One failing condition, or any doubt, means: leave the PR open, tell the owner, stop.
@@ -44,15 +47,18 @@ holds**. One failing condition, or any doubt, means: leave the PR open, tell the
    `gh pr merge <pr> {{MERGE_FLAGS}} --match-head-commit <sha>`.
    Never with `--admin`, never against another repository (`-R`). If the head moved, GitHub
    refuses the merge: go back to step 2.
-6. Verify production: {{PROD_VERIFY}}
+6. Verify production, again in the **background**:
+   `PROD_URL="{{PROD_URL}}" DEPLOY_ENVIRONMENT="{{DEPLOY_ENVIRONMENT}}" .claude/automerge/verify-production.sh <pr> {{PROD_PATHS}}`
+   (exit 0 live, 1 deployment failed, 2 deployed but a page did not answer 200, 3 timeout).
+   Then check by hand what the script can't: {{PROD_VERIFY}}
 7. Tell the owner: PR link, what shipped, the production check result.
 
 ### When it doesn't go through
 
 - **In doubt, or auto mode blocks the merge:** leave the PR open, report, stop. Never retry the
   merge, never reword the command to get past the block, never ask another session to merge it.
-- **Production check fails after the merge:** tell the owner at once with what you saw. Do not
-  push a revert or a fix-forward through this gate without the owner.
+- **Production check fails after the merge (exit 1, 2 or 3, or the manual check):**
+  {{ON_PROD_FAILURE}} Never push a revert or a fix-forward through this gate without the owner.
 
 ### Why it is set up this way
 

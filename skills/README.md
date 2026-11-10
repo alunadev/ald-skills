@@ -336,7 +336,7 @@ This repository serves as the central hub for reusable agentic skills. These ski
 ### 52. Automerge Gate
 
 - **Path**: `skills/automerge-gate/`
-- **Purpose**: Installs a "merge without the owner" gate in a project: a `CLAUDE.md` rule (one approved plan step, no excluded paths, green on the current head, independent review with no blockers, log entry in the same PR), a repo-scoped `Bash(gh pr merge *)` permission the owner writes, a background check-waiting script, and a read-only `pr-gate-reviewer` subagent on Sonnet that posts its verdict on the PR. Hands over as a PR the owner merges by hand. Slash command: `/automerge-gate`. User-invoked only.
+- **Purpose**: Installs or updates a "merge without the owner" gate in a project: a `CLAUDE.md` rule (one approved plan step, no excluded paths, green on the current head from a trusted CI workflow, independent review with no blockers, log entry in the same PR, merge tied to the reviewed commit), a repo-scoped `Bash(gh pr merge *)` permission the owner writes, a read-only `pr-gate-reviewer` subagent on Sonnet, scripts that wait for green checks and verify the production deploy, and a minimal SHA-pinned CI workflow when the repo has none. Every installed file carries a version marker; `/automerge-gate update` brings older installs forward. Hands over as a PR the owner merges by hand. Slash command: `/automerge-gate`. User-invoked only.
 - **Triggers**: letting agents merge routine plan steps on their own, "merge without me", automerge rules for a project, adding a reviewer subagent before merge.
 
 ---
